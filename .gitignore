@@ -36,6 +36,15 @@ yarn-error.log*
 # vercel
 .vercel
 
+# reference / asset files (not part of source)
+Bombay Sweet Shop*
+bulk-gifting.jpg
+mithai-dessert.jpg
+css/
+maharaj images/
+mithai/
+slider/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

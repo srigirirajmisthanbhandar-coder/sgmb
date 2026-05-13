@@ -1,7 +1,28 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)"
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(lsof -ti:3000,3001)",
+      "Bash(xargs kill:*)",
+      "Bash(npx next:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001)",
+      "WebFetch(domain:www.bombaysweetshop.com)",
+      "Bash(lsof -ti:3001)",
+      "Bash(lsof -ti:3000)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3000/_next/static/chunks/src_app_globals_0p2ml0n.css)",
+      "Bash(grep -oP '\\(--[\\\\w-]+\\)\\\\s*:\\\\s*#[0-9a-fA-F]+' /Users/bharat/Desktop/sgmb/css/*.css)",
+      "Bash(grep -oE '\\\\-\\\\-[\\\\w-]+\\\\s*:\\\\s*#[0-9a-fA-F]+' /Users/bharat/Desktop/sgmb/css/*.css)",
+      "Bash(ls /Users/bharat/Desktop/sgmb/maharaj*)",
+      "Bash(md5 \"/Users/bharat/Desktop/sgmb/slider/1.png\" \"/Users/bharat/Desktop/sgmb/public/images/slider/1.png\")",
+      "Bash(md5 \"/Users/bharat/Desktop/sgmb/slider/2.png\" \"/Users/bharat/Desktop/sgmb/public/images/slider/2.png\")",
+      "Bash(md5 \"/Users/bharat/Desktop/sgmb/slider/3.png\" \"/Users/bharat/Desktop/sgmb/public/images/slider/3.png\")",
+      "Bash(ls /Users/bharat/Desktop/sgmb/public/images/mithai/*.webp)",
+      "Bash(ls -la /Users/bharat/Desktop/sgmb/public/images/mithai/*.webp)",
+      "Bash(brew install:*)",
+      "Bash(gh auth:*)"
     ]
   }
 }
