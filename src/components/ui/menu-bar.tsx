@@ -65,7 +65,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
       <motion.nav
         ref={ref}
         className={cn(
-          "p-2 rounded-2xl bg-gradient-to-b from-white/80 to-white/40 backdrop-blur-lg border border-[#e5e5e5]/40 shadow-lg relative overflow-hidden",
+          "px-5 py-4 rounded-2xl bg-gradient-to-b from-white/80 to-white/40 backdrop-blur-lg border border-[#e5e5e5]/40 shadow-lg relative overflow-hidden",
           className,
         )}
         initial="initial"
@@ -75,7 +75,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
           className="absolute -inset-2 bg-gradient-radial from-transparent via-[#871a45]/10 via-50% to-transparent rounded-3xl z-0 pointer-events-none"
           variants={navGlowVariants}
         />
-        <ul className="flex items-center gap-1 relative z-10">
+        <ul className="flex items-center gap-6 relative z-10">
           {items.map((item) => {
             const Icon = item.icon
             const isActive = item.label === activeItem
@@ -105,7 +105,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                     />
                     <motion.div
                       className={cn(
-                        "flex items-center gap-2 px-3 py-2 relative z-10 bg-transparent transition-colors rounded-xl text-[13px] font-semibold whitespace-nowrap",
+                        "flex items-center gap-2 px-4 py-2.5 relative z-10 bg-transparent transition-colors rounded-xl text-[14px] font-semibold whitespace-nowrap",
                         isActive
                           ? "text-[#0b3753]"
                           : "text-[#0b3753]/70 group-hover:text-[#0b3753]",
@@ -130,7 +130,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                     </motion.div>
                     <motion.div
                       className={cn(
-                        "flex items-center gap-2 px-3 py-2 absolute inset-0 z-10 bg-transparent transition-colors rounded-xl text-[13px] font-semibold whitespace-nowrap",
+                        "flex items-center gap-2 px-4 py-2.5 absolute inset-0 z-10 bg-transparent transition-colors rounded-xl text-[14px] font-semibold whitespace-nowrap",
                         isActive
                           ? "text-[#0b3753]"
                           : "text-[#0b3753]/70 group-hover:text-[#0b3753]",
