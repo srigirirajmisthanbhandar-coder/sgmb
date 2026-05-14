@@ -105,7 +105,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                     />
                     <motion.div
                       className={cn(
-                        "flex items-center gap-2 px-10 py-5 relative z-10 bg-transparent transition-colors rounded-xl text-[14px] font-semibold whitespace-nowrap",
+                        "flex items-center gap-2 px-10 py-10 relative z-10 bg-transparent transition-colors rounded-xl text-[14px] font-semibold whitespace-nowrap",
                         isActive
                           ? "text-[#0b3753]"
                           : "text-[#0b3753]/70 group-hover:text-[#0b3753]",
@@ -130,7 +130,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                     </motion.div>
                     <motion.div
                       className={cn(
-                        "flex items-center gap-2 px-10 py-5 absolute inset-0 z-10 bg-transparent transition-colors rounded-xl text-[14px] font-semibold whitespace-nowrap",
+                        "flex items-center gap-2 px-10 py-10 absolute inset-0 z-10 bg-transparent transition-colors rounded-xl text-[14px] font-semibold whitespace-nowrap",
                         isActive
                           ? "text-[#0b3753]"
                           : "text-[#0b3753]/70 group-hover:text-[#0b3753]",
