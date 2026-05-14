@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import FlickeringGrid from "@/components/ui/flickering-grid";
 
 const chartData = [6, 8, 5, 7, 9, 6, 4, 8, 10, 7, 5, 3, 6, 8, 5, 3, 2, 4, 6, 3];
 
@@ -113,23 +112,9 @@ export default function Footer() {
         style={{
           backgroundColor: "#1a1a1a",
           borderColor: "#2a2a2a",
-          position: "relative",
-          overflow: "hidden",
         }}
       >
-        {/* Flickering grid background */}
-        <FlickeringGrid
-          squareSize={3}
-          gridGap={8}
-          flickerChance={0.15}
-          color="rgb(255, 255, 255)"
-          maxOpacity={0.05}
-        />
-
-        <div
-          className="mx-auto max-w-7xl px-8 py-24"
-          style={{ position: "relative", zIndex: 1 }}
-        >
+        <div className="mx-auto max-w-7xl px-8 py-24">
           <div className="flex flex-col flex-wrap md:flex-row md:flex-nowrap md:items-start">
             {/* ── Brand Column ── */}
             <motion.div
@@ -168,7 +153,7 @@ export default function Footer() {
 
               {/* Copyright */}
               <p
-                className="mt-2 text-sm"
+                className="mt-3 text-sm"
                 style={{ color: "#9ca3af" }}
               >
                 Copyright &copy; {new Date().getFullYear()} - All rights reserved
