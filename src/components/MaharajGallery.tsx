@@ -1,16 +1,16 @@
 "use client";
 
 const maharajData = [
-  { name: "संन्त श्री सियाराम बाबा", image: "/images/maharaj/siyaram-baba.jpeg" },
-  { name: "परम पूज्य संत श्री रमेश बाबा (बरसाना)", image: "/images/maharaj/ramesh-baba.jpeg" },
-  { name: "पूज्य श्री हित प्रेमानन्द गोविन्द शरण जी महाराज", image: "/images/maharaj/premanand-govind-sharan.jpeg" },
-  { name: "परम पूज्य श्री राजेन्द्र दास जी महाराज", image: "/images/maharaj/rajendra-das.jpeg" },
-  { name: "श्री चैतन्य दास महाराज जी", image: "/images/maharaj/chaitanya-das.jpeg" },
-  { name: "संत श्री बालक योगेश्वर दास महाराज जी", image: "/images/maharaj/balak-yogeshwar-das.jpeg" },
-  { name: "श्रीराधासर्वेश्वरशरणदेवाचार्य श्री श्रीजी महाराज", image: "/images/maharaj/shri-shriji-maharaj.jpeg" },
-  { name: "श्री श्याम शरण देवाचार्य श्री श्रीजी महाराज", image: "/images/maharaj/shyam-sharan-devacharya.jpeg" },
-  { name: "परम पूज्य संत श्री राधाबिहारी दास जी (टटिया स्थान वृन्दावन)", image: "/images/maharaj/radhabihari-das.jpeg" },
-  { name: "संत श्री गुरू शरणानन्द जी महाराज", image: "/images/maharaj/guru-sharnanand.jpeg" },
+  { name: "संन्त श्री सियाराम बाबा", image: "/images/maharaj/siyaram-baba.webp" },
+  { name: "परम पूज्य संत श्री रमेश बाबा (बरसाना)", image: "/images/maharaj/ramesh-baba.webp" },
+  { name: "पूज्य श्री हित प्रेमानन्द गोविन्द शरण जी महाराज", image: "/images/maharaj/premanand-govind-sharan.webp" },
+  { name: "परम पूज्य श्री राजेन्द्र दास जी महाराज", image: "/images/maharaj/rajendra-das.webp" },
+  { name: "श्री चैतन्य दास महाराज जी", image: "/images/maharaj/chaitanya-das.webp" },
+  { name: "संत श्री बालक योगेश्वर दास महाराज जी", image: "/images/maharaj/balak-yogeshwar-das.webp" },
+  { name: "श्रीराधासर्वेश्वरशरणदेवाचार्य श्री श्रीजी महाराज", image: "/images/maharaj/shri-shriji-maharaj.webp" },
+  { name: "श्री श्याम शरण देवाचार्य श्री श्रीजी महाराज", image: "/images/maharaj/shyam-sharan-devacharya.webp" },
+  { name: "परम पूज्य संत श्री राधाबिहारी दास जी (टटिया स्थान वृन्दावन)", image: "/images/maharaj/radhabihari-das.webp" },
+  { name: "संत श्री गुरू शरणानन्द जी महाराज", image: "/images/maharaj/guru-sharnanand.webp" },
 ];
 
 export default function MaharajGallery() {
