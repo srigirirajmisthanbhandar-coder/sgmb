@@ -124,7 +124,7 @@ export default function Navbar() {
         className={`bg-white sticky top-0 z-50 ${scrolled ? "shadow-[0_2px_8px_rgba(0,0,0,0.06)]" : ""}`}
         style={{ transition: "box-shadow .3s ease" }}
       >
-        <div className="container-main flex items-center justify-between h-[60px] md:h-[80px]">
+        <div className="container-main flex items-center justify-between min-h-[60px] md:min-h-[80px] py-2">
           {/* Logo */}
           <a href="#" className="shrink-0">
             <img
