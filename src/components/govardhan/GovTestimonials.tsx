@@ -65,6 +65,7 @@ function Stars() {
 function TestimonialCard({ review }: { review: (typeof REVIEWS)[0] }) {
   return (
     <div
+      className="gov-testimonial-card"
       style={{
         background: C.white,
         borderRadius: 16,
@@ -159,13 +160,13 @@ function ArrowBtn({
     <button
       onClick={onClick}
       disabled={disabled}
+      className="gov-testimonials-arrow"
       style={{
         width: 44,
         height: 44,
         borderRadius: "50%",
         border: `1.5px solid ${disabled ? C.beige : C.gold}`,
         background: disabled ? "transparent" : C.white,
-        display: "flex",
         alignItems: "center",
         justifyContent: "center",
         cursor: disabled ? "not-allowed" : "pointer",
@@ -218,12 +219,30 @@ export default function GovTestimonials() {
   const visible = REVIEWS.slice(startIndex, startIndex + VISIBLE);
 
   return (
-    <section style={{ background: C.bg, padding: "80px 0" }}>
+    <section className="gov-testimonials-section" style={{ background: C.bg, padding: "80px 0" }}>
+      <style>{`
+        .gov-testimonials-container { padding: 0 32px; }
+        .gov-testimonials-grid { grid-template-columns: repeat(4, 1fr); }
+        .gov-testimonials-arrow { display: flex; }
+        @media (max-width: 1024px) {
+          .gov-testimonials-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .gov-testimonials-arrow { display: none !important; }
+        }
+        @media (max-width: 640px) {
+          .gov-testimonials-section { padding: 56px 0 !important; }
+          .gov-testimonials-container { padding: 0 20px !important; }
+          .gov-testimonials-grid {
+            grid-template-columns: 1fr !important;
+            gap: 14px !important;
+          }
+          .gov-testimonial-card { padding: 22px !important; }
+        }
+      `}</style>
       <div
+        className="gov-testimonials-container"
         style={{
           maxWidth: 1200,
           margin: "0 auto",
-          padding: "0 32px",
         }}
       >
         {/* Eyebrow */}
@@ -252,10 +271,10 @@ export default function GovTestimonials() {
 
           {/* Cards */}
           <div
+            className="gov-testimonials-grid"
             style={{
               flex: 1,
               display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
               gap: 20,
               overflow: "hidden",
             }}

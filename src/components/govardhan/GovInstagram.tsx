@@ -66,7 +66,7 @@ function PostTile({ item, index }: { item: (typeof POSTS)[number]; index: number
         src={item.src}
         alt={item.alt}
         fill
-        sizes="(max-width: 640px) 50vw, 12.5vw"
+        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 12.5vw"
         style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
         className="ig-img"
       />
@@ -100,6 +100,15 @@ export default function GovInstagram() {
           background-color: #C79A3B !important;
           color: #0D3B2E !important;
           border-color: #C79A3B !important;
+        }
+        .ig-grid {
+          grid-template-columns: repeat(8, 1fr);
+        }
+        @media (max-width: 1024px) {
+          .ig-grid { grid-template-columns: repeat(4, 1fr) !important; }
+        }
+        @media (max-width: 640px) {
+          .ig-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
       `}</style>
 
@@ -184,9 +193,9 @@ export default function GovInstagram() {
 
       {/* Single-row full-width grid with real images */}
       <div
+        className="ig-grid"
         style={{
           display: "grid",
-          gridTemplateColumns: `repeat(${POSTS.length}, 1fr)`,
           gap: 0,
         }}
       >

@@ -63,17 +63,35 @@ export default function GovFestivals() {
 
   return (
     <section
+      className="gov-festivals-section"
       style={{
         backgroundColor: "#F8F2E8",
         padding: "80px 0",
         overflow: "hidden",
       }}
     >
+      <style>{`
+        .gov-festivals-container { padding: 0 32px; }
+        .gov-festivals-grid { grid-template-columns: repeat(4, 1fr); }
+        .gov-festivals-arrow { display: flex; }
+        @media (max-width: 1024px) {
+          .gov-festivals-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .gov-festivals-arrow { display: none !important; }
+        }
+        @media (max-width: 640px) {
+          .gov-festivals-section { padding: 56px 0 !important; }
+          .gov-festivals-container { padding: 0 20px !important; }
+          .gov-festivals-grid {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
+        }
+      `}</style>
       <div
+        className="gov-festivals-container"
         style={{
           maxWidth: 1200,
           margin: "0 auto",
-          padding: "0 32px",
         }}
       >
         {/* Header row */}
@@ -160,6 +178,7 @@ export default function GovFestivals() {
             custom={0.1}
             onClick={handlePrev}
             disabled={startIndex === 0}
+            className="gov-festivals-arrow"
             style={{
               position: "absolute",
               left: -20,
@@ -172,7 +191,6 @@ export default function GovFestivals() {
               backgroundColor: "#ffffff",
               border: "none",
               boxShadow: "0 2px 16px rgba(13,59,46,0.15)",
-              display: "flex",
               alignItems: "center",
               justifyContent: "center",
               cursor: startIndex === 0 ? "not-allowed" : "pointer",
@@ -202,9 +220,9 @@ export default function GovFestivals() {
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeInUp}
             custom={0.2}
+            className="gov-festivals-grid"
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
               gap: 20,
               padding: "4px 0 8px",
             }}
@@ -370,6 +388,7 @@ export default function GovFestivals() {
             custom={0.1}
             onClick={handleNext}
             disabled={startIndex >= festivals.length - visibleCount}
+            className="gov-festivals-arrow"
             style={{
               position: "absolute",
               right: -20,
@@ -382,7 +401,6 @@ export default function GovFestivals() {
               backgroundColor: "#ffffff",
               border: "none",
               boxShadow: "0 2px 16px rgba(13,59,46,0.15)",
-              display: "flex",
               alignItems: "center",
               justifyContent: "center",
               cursor:

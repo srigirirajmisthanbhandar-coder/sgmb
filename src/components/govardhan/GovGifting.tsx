@@ -98,17 +98,33 @@ const features = [
 export default function GovGifting() {
   return (
     <section
+      className="gov-gifting-section"
       style={{
         backgroundColor: "#F8F2E8",
         padding: "80px 0",
         overflow: "hidden",
       }}
     >
+      <style>{`
+        .gov-gifting-container { padding: 0 32px; }
+        .gov-gifting-features { grid-template-columns: 1fr 1fr; }
+        @media (max-width: 640px) {
+          .gov-gifting-section { padding: 56px 0 !important; }
+          .gov-gifting-container { padding: 0 20px !important; }
+          .gov-gifting-features {
+            grid-template-columns: 1fr !important;
+            gap: 22px 0 !important;
+          }
+          .gov-gifting-right {
+            min-height: 280px !important;
+          }
+        }
+      `}</style>
       <div
+        className="gov-gifting-container"
         style={{
           maxWidth: 1200,
           margin: "0 auto",
-          padding: "0 32px",
         }}
       >
         {/* Eyebrow */}
@@ -176,9 +192,9 @@ export default function GovGifting() {
           >
             {/* 2x2 Feature grid */}
             <div
+              className="gov-gifting-features"
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
                 gap: "28px 32px",
                 marginBottom: 36,
               }}
@@ -281,8 +297,9 @@ export default function GovGifting() {
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeInUp}
             custom={0.25}
+            className="gov-gifting-right"
             style={{
-              flex: "0 0 calc(40% - 24px)",
+              flex: "1 1 calc(40% - 24px)",
               minWidth: 240,
               minHeight: 360,
               borderRadius: 20,

@@ -1,5 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#0D3B2E",
+};
 
 export const metadata: Metadata = {
   title: "Sri Girraj Mishtan Bhandar — Premium Indian Sweets from Govardhan",

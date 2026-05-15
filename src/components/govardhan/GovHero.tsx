@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 32 },
@@ -61,14 +62,14 @@ export default function GovHero() {
       }}
     >
       {/* === Full background image === */}
-      <img
+      <Image
         src="/images/govardhan/hero.webp"
         alt="Govardhan Hill at sunset"
+        fill
+        preload
+        sizes="100vw"
+        quality={80}
         style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
           objectFit: "cover",
           objectPosition: "center 30%",
           zIndex: 0,
@@ -101,6 +102,7 @@ export default function GovHero() {
 
       {/* === Content grid: left text + right carousel === */}
       <div
+        className="gov-hero-content"
         style={{
           position: "relative",
           zIndex: 10,
@@ -369,15 +371,12 @@ export default function GovHero() {
                       transition: "transform 0.3s ease, box-shadow 0.3s ease",
                     }}
                   >
-                    <img
+                    <Image
                       src={card.src}
                       alt={card.alt}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        display: "block",
-                      }}
+                      fill
+                      sizes="160px"
+                      style={{ objectFit: "cover" }}
                     />
                     {/* Shine overlay */}
                     <div
@@ -473,15 +472,13 @@ export default function GovHero() {
                 position: "relative",
               }}
             >
-              <img
-                src="/images/girraj ji.png"
+              <Image
+                src="/images/girraj ji.webp"
                 alt="Girraj Ji"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  display: "block",
-                }}
+                fill
+                preload
+                sizes="150px"
+                style={{ objectFit: "cover" }}
               />
             </div>
           </div>
@@ -549,6 +546,20 @@ export default function GovHero() {
         @media (max-width: 900px) {
           .gov-hero-carousel {
             display: none !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .gov-hero-content {
+            padding: 0 22px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .gov-hero-btn-primary,
+          .gov-hero-btn-secondary {
+            padding: 12px 22px !important;
+            font-size: 13px !important;
+            flex: 1 1 auto;
+            justify-content: center;
           }
         }
       `}</style>

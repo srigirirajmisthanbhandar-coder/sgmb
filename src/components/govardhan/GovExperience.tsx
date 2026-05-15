@@ -76,6 +76,7 @@ export default function GovExperience() {
   return (
     <section
       ref={ref}
+      className="gov-exp-section"
       style={{
         backgroundColor: CREAM,
         padding: "96px 0 104px",
@@ -310,9 +311,13 @@ export default function GovExperience() {
             grid-template-columns: repeat(3, 1fr) !important;
           }
         }
+        @media (max-width: 768px) {
+          .gov-exp-section { padding: 56px 0 !important; }
+        }
         @media (max-width: 640px) {
           .gov-exp-grid {
             grid-template-columns: repeat(2, 1fr) !important;
+            gap: 12px !important;
           }
         }
         .gov-exp-card:hover .gov-exp-img {

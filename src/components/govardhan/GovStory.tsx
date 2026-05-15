@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const CREAM = "#F8F2E8";
 const GREEN = "#0D3B2E";
@@ -15,6 +16,7 @@ export default function GovStory() {
   return (
     <section
       ref={sectionRef}
+      className="gov-story-section"
       style={{
         backgroundColor: CREAM,
         paddingTop: "100px",
@@ -141,6 +143,7 @@ export default function GovStory() {
           initial={{ opacity: 0, x: 32 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="gov-story-collage"
           style={{
             position: "relative",
             height: "460px",
@@ -163,10 +166,12 @@ export default function GovStory() {
               overflow: "hidden",
             }}
           >
-            <img
+            <Image
               src="/images/new images/shop.webp"
               alt="Shri Girraj Misthan Bhandar Shop"
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              fill
+              sizes="(max-width: 900px) 100vw, 40vw"
+              style={{ objectFit: "cover" }}
             />
           </motion.div>
 
@@ -187,10 +192,12 @@ export default function GovStory() {
               overflow: "hidden",
             }}
           >
-            <img
+            <Image
               src="/images/new images/shopinside.webp"
               alt="Inside our sweet shop"
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              fill
+              sizes="(max-width: 900px) 100vw, 35vw"
+              style={{ objectFit: "cover" }}
             />
           </motion.div>
 
@@ -212,10 +219,12 @@ export default function GovStory() {
               overflow: "hidden",
             }}
           >
-            <img
+            <Image
               src="/images/new images/temple.webp"
               alt="Govardhan Temple"
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              fill
+              sizes="(max-width: 900px) 80vw, 30vw"
+              style={{ objectFit: "cover" }}
             />
           </motion.div>
 
@@ -283,12 +292,46 @@ export default function GovStory() {
 
       {/* Responsive override for small screens */}
       <style>{`
+        @media (max-width: 768px) {
+          .gov-story-section {
+            padding-top: 56px !important;
+            padding-bottom: 56px !important;
+          }
+        }
         @media (max-width: 900px) {
           .gov-story-grid {
             grid-template-columns: 1fr !important;
             gap: 48px !important;
             padding-left: 20px !important;
             padding-right: 20px !important;
+          }
+          .gov-story-collage {
+            height: 380px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .gov-story-collage {
+            height: 320px !important;
+          }
+          .gov-story-collage > div:nth-child(1) {
+            width: 60% !important;
+            height: 220px !important;
+          }
+          .gov-story-collage > div:nth-child(2) {
+            width: 50% !important;
+            height: 240px !important;
+            top: 16px !important;
+          }
+          .gov-story-collage > div:nth-child(3) {
+            width: 44% !important;
+            height: 140px !important;
+            left: 32% !important;
+          }
+          .gov-story-collage > div:last-child {
+            right: 50% !important;
+            top: 12px !important;
+            padding: 10px 14px !important;
+            min-width: 90px !important;
           }
         }
       `}</style>

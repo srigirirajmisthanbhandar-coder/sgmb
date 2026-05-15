@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // ── Colors ────────────────────────────────────────────────
 const C = {
@@ -116,10 +117,47 @@ export default function GovFooter() {
             padding: 80px 40px 60px;
           }
           @media (max-width: 1024px) {
-            .gov-footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+            .gov-footer-grid {
+              grid-template-columns: 1fr 1fr 1fr;
+              gap: 36px;
+              padding: 64px 28px 48px;
+            }
           }
           @media (max-width: 640px) {
-            .gov-footer-grid { grid-template-columns: 1fr 1fr; }
+            .gov-footer-grid {
+              grid-template-columns: 1fr 1fr;
+              gap: 28px 20px;
+              padding: 48px 20px 32px;
+            }
+          }
+          @media (max-width: 380px) {
+            .gov-footer-grid {
+              grid-template-columns: 1fr;
+            }
+          }
+          .gov-footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+          }
+          .gov-footer-bottom > p { flex: 1 1 auto; margin: 0; }
+          @media (max-width: 768px) {
+            .gov-footer-bottom {
+              padding: 20px 20px 28px !important;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 10px;
+            }
+            .gov-footer-bottom > p {
+              text-align: left !important;
+              flex: 1 1 100% !important;
+            }
           }
         `}</style>
       </>
@@ -134,14 +172,12 @@ export default function GovFooter() {
         >
           {/* Brand mark */}
           <div style={{ marginBottom: 12 }}>
-            <img
+            <Image
               src="/images/new images/logo.webp"
               alt="Shri Girraj Misthan Bhandar"
-              style={{
-                height: 60,
-                width: "auto",
-                objectFit: "contain",
-              }}
+              width={90}
+              height={60}
+              style={{ objectFit: "contain" }}
             />
           </div>
 
@@ -308,27 +344,13 @@ export default function GovFooter() {
       </div>
 
       {/* ── Bottom bar ── */}
-      <div
-        style={{
-          borderTop: "1px solid rgba(255,255,255,0.1)",
-          maxWidth: 1280,
-          margin: "0 auto",
-          padding: "24px 40px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 16,
-          flexWrap: "wrap",
-        }}
-      >
+      <div className="gov-footer-bottom">
         {/* Address */}
         <p
           style={{
             fontFamily: "var(--font-body, sans-serif)",
             fontSize: 12,
             color: C.muted,
-            margin: 0,
-            flex: "1 1 auto",
           }}
         >
           Near Shri Giriraj Ji Parikrama Marg, Govardhan, Uttar Pradesh 281502
@@ -340,9 +362,7 @@ export default function GovFooter() {
             fontFamily: "var(--font-body, sans-serif)",
             fontSize: 12,
             color: C.muted,
-            margin: 0,
             textAlign: "center",
-            flex: "1 1 auto",
           }}
         >
           +91 98765 43210 &nbsp;&middot;&nbsp; info@govardhansweets.com
@@ -354,9 +374,7 @@ export default function GovFooter() {
             fontFamily: "var(--font-body, sans-serif)",
             fontSize: 12,
             color: C.muted,
-            margin: 0,
             textAlign: "right",
-            flex: "1 1 auto",
           }}
         >
           <a href="#" style={{ color: C.muted, textDecoration: "none" }}>

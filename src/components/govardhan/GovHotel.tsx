@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 // ── Variants ────────────────────────────────────────────────────────────────
 
@@ -127,6 +128,7 @@ export default function GovHotel() {
   return (
     <section
       ref={ref}
+      className="gov-hotel-section"
       style={{
         backgroundColor: "#0D3B2E",
         padding: "100px 0",
@@ -334,16 +336,12 @@ export default function GovHotel() {
               boxShadow: "0 24px 64px rgba(0,0,0,0.40)",
             }}
           >
-            <img
+            <Image
               src="/images/new images/room.webp"
               alt="Hotel Girraj Inn Premium Room"
-              style={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
+              style={{ objectFit: "cover" }}
             />
           </motion.div>
 
@@ -369,16 +367,12 @@ export default function GovHotel() {
                 boxShadow: "0 8px 28px rgba(0,0,0,0.30)",
               }}
             >
-              <img
+              <Image
                 src="/images/new images/hotelf front.webp"
                 alt="Hotel Girraj Inn Front"
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
+                fill
+                sizes="(max-width: 640px) 100vw, 25vw"
+                style={{ objectFit: "cover" }}
               />
             </div>
 
@@ -392,16 +386,12 @@ export default function GovHotel() {
                 boxShadow: "0 8px 28px rgba(0,0,0,0.30)",
               }}
             >
-              <img
+              <Image
                 src="/images/new images/dining.webp"
                 alt="Hotel Girraj Inn Dining"
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
+                fill
+                sizes="(max-width: 640px) 100vw, 25vw"
+                style={{ objectFit: "cover" }}
               />
             </div>
 
@@ -475,6 +465,9 @@ export default function GovHotel() {
           .gov-hotel-grid {
             grid-template-columns: 1fr 1fr !important;
           }
+        }
+        @media (max-width: 768px) {
+          .gov-hotel-section { padding: 56px 0 !important; }
         }
         @media (max-width: 640px) {
           .gov-hotel-grid {

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 // ── Colors ──────────────────────────────────────────────
 const C = {
@@ -393,14 +394,13 @@ function MobileMenu({
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <img
+              <Image
                 src="/images/new images/logo.webp"
                 alt="Shri Girraj Misthan Bhandar"
-                style={{
-                  height: 46,
-                  width: "auto",
-                  objectFit: "contain",
-                }}
+                width={69}
+                height={46}
+                preload
+                style={{ objectFit: "contain" }}
               />
             </div>
             <button
@@ -612,14 +612,13 @@ export default function GovNavbar() {
                 whileHover={{ scale: 1.04 }}
                 transition={{ duration: 0.2 }}
               >
-                <img
+                <Image
                   src="/images/new images/logo.webp"
                   alt="Shri Girraj Misthan Bhandar"
-                  style={{
-                    height: 56,
-                    width: "auto",
-                    objectFit: "contain",
-                  }}
+                  width={84}
+                  height={56}
+                  preload
+                  style={{ objectFit: "contain" }}
                 />
               </motion.div>
             </a>

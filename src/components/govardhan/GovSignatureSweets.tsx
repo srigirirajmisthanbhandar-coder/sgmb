@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const CREAM = "#F8F2E8";
 const GREEN = "#0D3B2E";
@@ -96,6 +97,7 @@ function SweetCard({ sweet, index, isInView }: SweetCardProps) {
       {/* Product image */}
       <div
         style={{
+          position: "relative",
           width: "100%",
           aspectRatio: "1 / 1",
           borderRadius: "12px",
@@ -104,14 +106,12 @@ function SweetCard({ sweet, index, isInView }: SweetCardProps) {
           backgroundColor: "#EFE3CF",
         }}
       >
-        <img
+        <Image
           src={sweet.image}
           alt={sweet.name}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
+          fill
+          sizes="200px"
+          style={{ objectFit: "cover" }}
         />
       </div>
 
@@ -198,6 +198,7 @@ export default function GovSignatureSweets() {
   return (
     <section
       ref={sectionRef}
+      className="gov-sweets-section"
       style={{
         backgroundColor: CREAM,
         paddingTop: "100px",
@@ -206,6 +207,7 @@ export default function GovSignatureSweets() {
       }}
     >
       <div
+        className="gov-sweets-container"
         style={{
           maxWidth: "1430px",
           margin: "0 auto",
@@ -336,7 +338,11 @@ export default function GovSignatureSweets() {
           display: none;
         }
         @media (max-width: 768px) {
-          .gov-sweets-section-padding {
+          .gov-sweets-section {
+            padding-top: 56px !important;
+            padding-bottom: 56px !important;
+          }
+          .gov-sweets-container {
             padding-left: 20px !important;
             padding-right: 20px !important;
           }

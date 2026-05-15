@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const maharajData = [
   { name: "संन्त श्री सियाराम बाबा", image: "/images/maharaj/siyaram-baba.webp" },
@@ -96,9 +97,11 @@ export default function GovMaharajStrip() {
                   padding: 1.5,
                 }}
               >
-                <img
+                <Image
                   src={maharaj.image}
                   alt={maharaj.name}
+                  width={88}
+                  height={88}
                   style={{
                     width: "100%",
                     height: "100%",

@@ -110,26 +110,48 @@ const features = [
 export default function GovFeatureStrip() {
   return (
     <div
+      className="gov-feature-wrap"
       style={{
         display: "flex",
         justifyContent: "center",
         position: "relative",
         zIndex: 20,
         marginTop: -44,
-        padding: "0 20px",
+        padding: "0 16px",
       }}
     >
+      <style>{`
+        .gov-feature-strip {
+          display: flex;
+          flex-direction: row;
+          align-items: stretch;
+        }
+        .gov-feature-item {
+          flex: 1;
+          padding: 22px 24px;
+        }
+        @media (max-width: 768px) {
+          .gov-feature-wrap { margin-top: -28px !important; }
+          .gov-feature-strip {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+          }
+          .gov-feature-item {
+            padding: 16px 14px !important;
+          }
+          .gov-feature-divider-v { display: none !important; }
+        }
+      `}</style>
       <motion.div
         initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
+        className="gov-feature-strip"
         style={{
           backgroundColor: "#0D3B2E",
           borderRadius: 16,
           maxWidth: 1200,
           width: "100%",
-          display: "flex",
-          alignItems: "stretch",
           boxShadow:
             "0 8px 48px rgba(13,59,46,0.32), 0 2px 12px rgba(0,0,0,0.18)",
           overflow: "hidden",
@@ -138,18 +160,18 @@ export default function GovFeatureStrip() {
         {features.map((feature, index) => (
           <div
             key={feature.title}
+            className="gov-feature-item"
             style={{
-              flex: 1,
               display: "flex",
               alignItems: "center",
-              gap: 14,
-              padding: "22px 24px",
+              gap: 12,
               position: "relative",
             }}
           >
             {/* Gold divider between items */}
             {index > 0 && (
               <div
+                className="gov-feature-divider-v"
                 style={{
                   position: "absolute",
                   left: 0,
