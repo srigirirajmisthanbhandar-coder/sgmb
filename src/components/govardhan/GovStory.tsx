@@ -7,26 +7,6 @@ const CREAM = "#F8F2E8";
 const GREEN = "#0D3B2E";
 const GOLD = "#C79A3B";
 
-const imagePlaceholders = [
-  {
-    gradient: "linear-gradient(135deg, #D4A96A 0%, #C79A3B 40%, #8B6914 100%)",
-    height: "260px",
-    top: "0px",
-    zIndex: 3,
-  },
-  {
-    gradient: "linear-gradient(145deg, #B5895A 0%, #9B6E3A 50%, #6B4A1A 100%)",
-    height: "200px",
-    top: "80px",
-    zIndex: 2,
-  },
-  {
-    gradient: "linear-gradient(120deg, #C8A97A 0%, #A0784A 45%, #7A5830 100%)",
-    height: "230px",
-    top: "40px",
-    zIndex: 1,
-  },
-];
 
 export default function GovStory() {
   const sectionRef = useRef(null);
@@ -166,7 +146,7 @@ export default function GovStory() {
             height: "460px",
           }}
         >
-          {/* Card 1 — large, left-center */}
+          {/* Card 1 — large, left-center: Shop front */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -177,14 +157,20 @@ export default function GovStory() {
               top: "0",
               width: "52%",
               height: "300px",
-              background: imagePlaceholders[0].gradient,
               borderRadius: "16px",
               zIndex: 3,
               boxShadow: "0 12px 40px rgba(13,59,46,0.12)",
+              overflow: "hidden",
             }}
-          />
+          >
+            <img
+              src="/images/new images/shop.webp"
+              alt="Shri Girraj Misthan Bhandar Shop"
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          </motion.div>
 
-          {/* Card 2 — tall, right side */}
+          {/* Card 2 — tall, right side: Shop inside */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -195,14 +181,20 @@ export default function GovStory() {
               top: "24px",
               width: "44%",
               height: "340px",
-              background: imagePlaceholders[1].gradient,
               borderRadius: "16px",
               zIndex: 2,
               boxShadow: "0 12px 40px rgba(13,59,46,0.1)",
+              overflow: "hidden",
             }}
-          />
+          >
+            <img
+              src="/images/new images/shopinside.webp"
+              alt="Inside our sweet shop"
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          </motion.div>
 
-          {/* Card 3 — small, bottom-left offset */}
+          {/* Card 3 — small, bottom-left offset: Temple */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -213,13 +205,19 @@ export default function GovStory() {
               bottom: "0",
               width: "38%",
               height: "200px",
-              background: imagePlaceholders[2].gradient,
               borderRadius: "16px",
               zIndex: 4,
               boxShadow: "0 16px 48px rgba(13,59,46,0.15)",
               border: `3px solid ${CREAM}`,
+              overflow: "hidden",
             }}
-          />
+          >
+            <img
+              src="/images/new images/temple.webp"
+              alt="Govardhan Temple"
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          </motion.div>
 
           {/* Decorative gold dot cluster */}
           <div

@@ -16,24 +16,24 @@ const C = {
 
 // ── Nav links ────────────────────────────────────────────
 const NAV_LINKS = [
-  { label: "Home", href: "#", active: true },
+  { label: "Home", href: "/govardhan", active: true },
   {
     label: "Sweets",
-    href: "#sweets",
+    href: "/govardhan/sweets",
     submenu: [
-      { label: "Kaju Katli", href: "#sweets" },
-      { label: "Mathura Peda", href: "#sweets" },
-      { label: "Motichoor Ladoo", href: "#sweets" },
-      { label: "Ghewar", href: "#sweets" },
-      { label: "Barfi", href: "#sweets" },
-      { label: "Dry Fruit Sweets", href: "#sweets" },
+      { label: "Kaju Katli", href: "/govardhan/sweets" },
+      { label: "Mathura Peda", href: "/govardhan/sweets" },
+      { label: "Motichoor Ladoo", href: "/govardhan/sweets" },
+      { label: "Ghewar", href: "/govardhan/sweets" },
+      { label: "Barfi", href: "/govardhan/sweets" },
+      { label: "Dry Fruit Sweets", href: "/govardhan/sweets" },
     ],
   },
-  { label: "Hotel", href: "#hotel" },
-  { label: "Festivals", href: "#festivals" },
-  { label: "Gifting", href: "#gifting" },
-  { label: "About Us", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Hotel", href: "/govardhan/hotel" },
+  { label: "Festivals", href: "/govardhan/festivals" },
+  { label: "Gifting", href: "/govardhan/gifting" },
+  { label: "About Us", href: "/govardhan/about" },
+  { label: "Contact", href: "/govardhan/contact" },
 ];
 
 // ── Small SVG icons ──────────────────────────────────────
@@ -92,31 +92,6 @@ function IconClose() {
   );
 }
 
-// ── Temple / Om icon as SVG ───────────────────────────────
-function TempleIcon() {
-  return (
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Base platform */}
-      <rect x="3" y="30" width="30" height="3" rx="1" fill={C.gold} />
-      {/* Main body */}
-      <rect x="8" y="20" width="20" height="10" rx="1" fill={C.gold} fillOpacity="0.85" />
-      {/* Door arch */}
-      <path d="M14 30v-6a4 4 0 018 0v6" fill={C.text} fillOpacity="0.7" />
-      {/* Middle tier */}
-      <rect x="10" y="13" width="16" height="7" rx="1" fill={C.gold} fillOpacity="0.9" />
-      {/* Upper tier */}
-      <rect x="13" y="8" width="10" height="5" rx="1" fill={C.gold} />
-      {/* Shikhara (spire) */}
-      <path d="M18 2 L22 8 H14 Z" fill={C.gold} />
-      {/* Kalash (pot on top) */}
-      <circle cx="18" cy="2" r="1.5" fill={C.gold} />
-      {/* Pillars */}
-      <rect x="8" y="20" width="2" height="10" rx="0.5" fill={C.text} fillOpacity="0.3" />
-      <rect x="26" y="20" width="2" height="10" rx="0.5" fill={C.text} fillOpacity="0.3" />
-    </svg>
-  );
-}
-
 // ── Announcement Bar ──────────────────────────────────────
 function AnnouncementBar() {
   return (
@@ -137,26 +112,26 @@ function AnnouncementBar() {
           padding: "0 15px",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "flex-end",
           height: "36px",
           gap: "12px",
+          position: "relative",
         }}
       >
-        {/* Left — marquee text */}
-        <div style={{ overflow: "hidden", flex: 1 }}>
-          <p
-            style={{
-              margin: 0,
-              fontWeight: 500,
-              opacity: 0.85,
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            Authentic Govardhan Sweets &nbsp;•&nbsp; Made with Pure Desi Ghee &nbsp;•&nbsp; Fresh Every Day
-          </p>
-        </div>
+        {/* Center — tagline (absolutely centered) */}
+        <p
+          style={{
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            margin: 0,
+            fontWeight: 600,
+            opacity: 0.9,
+            whiteSpace: "nowrap",
+          }}
+        >
+          || मेरौ तो गिरराज बाबा ||
+        </p>
 
         {/* Right — language + socials */}
         <div style={{ display: "flex", alignItems: "center", gap: "14px", flexShrink: 0 }}>
@@ -418,35 +393,15 @@ function MobileMenu({
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <TempleIcon />
-              <div>
-                <p
-                  style={{
-                    margin: 0,
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "18px",
-                    fontWeight: 700,
-                    color: C.text,
-                    lineHeight: 1.1,
-                    letterSpacing: "0.06em",
-                  }}
-                >
-                  GOVARDHAN
-                </p>
-                <p
-                  style={{
-                    margin: 0,
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "9px",
-                    fontWeight: 500,
-                    color: C.gold,
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  SWEETS & HOTEL
-                </p>
-              </div>
+              <img
+                src="/images/new images/logo.webp"
+                alt="Shri Girraj Misthan Bhandar"
+                style={{
+                  height: 46,
+                  width: "auto",
+                  objectFit: "contain",
+                }}
+              />
             </div>
             <button
               onClick={onClose}
@@ -644,11 +599,11 @@ export default function GovNavbar() {
           >
             {/* ── Logo ── */}
             <a
-              href="#"
+              href="/govardhan"
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "12px",
+                gap: "10px",
                 textDecoration: "none",
                 flexShrink: 0,
               }}
@@ -657,50 +612,16 @@ export default function GovNavbar() {
                 whileHover={{ scale: 1.04 }}
                 transition={{ duration: 0.2 }}
               >
-                <TempleIcon />
+                <img
+                  src="/images/new images/logo.webp"
+                  alt="Shri Girraj Misthan Bhandar"
+                  style={{
+                    height: 56,
+                    width: "auto",
+                    objectFit: "contain",
+                  }}
+                />
               </motion.div>
-              <div style={{ lineHeight: 1 }}>
-                <p
-                  style={{
-                    margin: 0,
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "22px",
-                    fontWeight: 700,
-                    color: C.text,
-                    letterSpacing: "0.1em",
-                    lineHeight: 1.05,
-                  }}
-                >
-                  GOVARDHAN
-                </p>
-                <p
-                  style={{
-                    margin: "2px 0 0",
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "9.5px",
-                    fontWeight: 500,
-                    color: C.gold,
-                    letterSpacing: "0.22em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  SWEETS & HOTEL
-                </p>
-                <p
-                  style={{
-                    margin: "3px 0 0",
-                    fontFamily: "var(--font-body)",
-                    fontSize: "9px",
-                    fontWeight: 400,
-                    color: C.text,
-                    opacity: 0.55,
-                    letterSpacing: "0.08em",
-                    fontStyle: "italic",
-                  }}
-                >
-                  Taste the Sweetness of Braj
-                </p>
-              </div>
             </a>
 
             {/* ── Desktop Navigation ── */}

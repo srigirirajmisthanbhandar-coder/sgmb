@@ -22,7 +22,23 @@
       "Bash(ls /Users/bharat/Desktop/sgmb/public/images/mithai/*.webp)",
       "Bash(ls -la /Users/bharat/Desktop/sgmb/public/images/mithai/*.webp)",
       "Bash(brew install:*)",
-      "Bash(gh auth:*)"
+      "Bash(gh auth:*)",
+      "Bash(ls \"public/images/mithai/\"*.webp)",
+      "Bash(ls -la \"public/images/mithai/Angoori\"* \"public/images/mithai/Chandrakala\"* \"public/images/mithai/Doda\"* \"public/images/mithai/chocolate\"*)",
+      "Bash(sips -s format webp \"public/images/mithai/Angoori petha logo \\(1\\).PNG\" --out \"public/images/mithai/Angoori petha logo \\(1\\).webp\")",
+      "Bash(git commit -m ':*)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(git add:*)",
+      "WebSearch",
+      "WebFetch(domain:pixabay.com)",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "Bash(curl -sL -o parikrama.jpg \"https://upload.wikimedia.org/wikipedia/commons/e/eb/Govardhan_hill.JPG\")",
+      "Bash(curl -sL -o radha-kund.jpg \"https://upload.wikimedia.org/wikipedia/commons/4/41/Radhakund.JPG\")",
+      "Bash(curl -sL -o mansi-ganga.jpg \"https://upload.wikimedia.org/wikipedia/commons/c/c6/Girraj_Ji_Temple_%2CMansi_Ganga_-_panoramio.jpg\")",
+      "Bash(curl -sL -o kusum-sarovar.jpg \"https://upload.wikimedia.org/wikipedia/commons/1/1a/Grandeur_of_kusum_sarovar.jpg\")",
+      "Bash(curl -sL -o radha-kund-temple.jpg \"https://upload.wikimedia.org/wikipedia/commons/0/0f/Radha_Kund_-_panoramio.jpg\")"
     ]
   }
 }

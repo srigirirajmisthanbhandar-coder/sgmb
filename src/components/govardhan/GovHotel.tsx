@@ -181,88 +181,79 @@ export default function GovHotel() {
           zIndex: 1,
         }}
       >
-        {/* ── Eyebrow ── */}
-        <motion.p
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          custom={0}
-          variants={fadeInUp}
-          style={{
-            fontFamily: "var(--font-body, sans-serif)",
-            fontSize: 11,
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            color: "#C79A3B",
-            marginBottom: 18,
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-          }}
-        >
-          OUR WITH US
-          <span
-            style={{
-              display: "inline-block",
-              width: 36,
-              height: 1,
-              background: "#C79A3B",
-              opacity: 0.6,
-              verticalAlign: "middle",
-            }}
-          />
-        </motion.p>
-
-        {/* ── Heading ── */}
-        <motion.h2
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          custom={0.1}
-          variants={fadeInUp}
-          style={{
-            fontFamily: "var(--font-heading, serif)",
-            fontSize: "clamp(32px, 4vw, 44px)",
-            fontWeight: 500,
-            lineHeight: 1.18,
-            color: "#F8F2E8",
-            margin: "0 0 56px",
-            letterSpacing: "-0.01em",
-          }}
-        >
-          Stay in the Heart
-          <br />
-          of Govardhan
-        </motion.h2>
-
         {/* ── Three-column layout ── */}
         <div
+          className="gov-hotel-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1.35fr 0.9fr",
-            gap: 36,
-            alignItems: "start",
+            gridTemplateColumns: "1fr 1.4fr 1fr",
+            gap: 24,
+            alignItems: "stretch",
           }}
         >
-          {/* ── LEFT: Text + amenities + CTA ── */}
+          {/* ── LEFT: Eyebrow + Heading + amenities + CTA ── */}
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            custom={0.15}
+            custom={0.1}
             variants={fadeInLeft}
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: 0,
-              paddingTop: 8,
+              justifyContent: "center",
             }}
           >
+            {/* Eyebrow */}
+            <p
+              style={{
+                fontFamily: "var(--font-body, sans-serif)",
+                fontSize: 11,
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "#C79A3B",
+                marginBottom: 16,
+                display: "flex",
+                alignItems: "center",
+                gap: 10,
+              }}
+            >
+              STAY WITH US
+              <span
+                style={{
+                  display: "inline-block",
+                  width: 36,
+                  height: 1,
+                  background: "#C79A3B",
+                  opacity: 0.6,
+                }}
+              />
+            </p>
+
+            {/* Heading */}
+            <h2
+              style={{
+                fontFamily: "var(--font-heading, serif)",
+                fontSize: "clamp(28px, 3.5vw, 42px)",
+                fontWeight: 500,
+                lineHeight: 1.18,
+                color: "#F8F2E8",
+                margin: "0 0 32px",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Stay in the Heart
+              <br />
+              of Govardhan
+            </h2>
+
             <ul
               style={{
                 listStyle: "none",
-                margin: "0 0 40px",
+                margin: "0 0 32px",
                 padding: 0,
                 display: "flex",
                 flexDirection: "column",
-                gap: 20,
+                gap: 18,
               }}
             >
               {mainAmenities.map((item, i) => (
@@ -270,14 +261,13 @@ export default function GovHotel() {
                   key={i}
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    alignItems: "center",
                     gap: 14,
                   }}
                 >
                   <span
                     style={{
                       flexShrink: 0,
-                      marginTop: 1,
                       width: 32,
                       height: 32,
                       borderRadius: "50%",
@@ -295,8 +285,7 @@ export default function GovHotel() {
                       fontFamily: "var(--font-body, sans-serif)",
                       fontSize: 14,
                       color: "rgba(248,242,232,0.88)",
-                      lineHeight: 1.5,
-                      paddingTop: 6,
+                      lineHeight: 1.4,
                     }}
                   >
                     {item.label}
@@ -306,7 +295,7 @@ export default function GovHotel() {
             </ul>
 
             <a
-              href="#hotel"
+              href="/govardhan/hotel"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -331,7 +320,7 @@ export default function GovHotel() {
             </a>
           </motion.div>
 
-          {/* ── CENTER: Hotel room hero image ── */}
+          {/* ── CENTER: Large room image ── */}
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -340,118 +329,25 @@ export default function GovHotel() {
             style={{
               borderRadius: 16,
               overflow: "hidden",
-              height: 420,
               position: "relative",
-              boxShadow:
-                "0 24px 64px rgba(0,0,0,0.40), 0 4px 16px rgba(0,0,0,0.25)",
+              minHeight: 420,
+              boxShadow: "0 24px 64px rgba(0,0,0,0.40)",
             }}
           >
-            {/* Warm golden-room gradient placeholder */}
-            <div
+            <img
+              src="/images/new images/room.webp"
+              alt="Hotel Girraj Inn Premium Room"
               style={{
                 position: "absolute",
                 inset: 0,
-                background:
-                  "linear-gradient(145deg, #4A2C0A 0%, #7A4B1A 28%, #A3702E 55%, #C79A3B 80%, #EFE3CF 100%)",
-              }}
-            />
-            {/* Overlay for depth */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(to bottom, rgba(13,59,46,0.0) 40%, rgba(13,59,46,0.55) 100%)",
-              }}
-            />
-            {/* Decorative room silhouette elements */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: "38%",
-                background: "rgba(30, 15, 4, 0.45)",
-                borderRadius: "0 0 16px 16px",
-              }}
-            />
-            {/* Arch window frame accent */}
-            <div
-              style={{
-                position: "absolute",
-                top: 28,
-                left: "50%",
-                transform: "translateX(-50%)",
-                width: 120,
-                height: 160,
-                borderRadius: "60px 60px 0 0",
-                border: "2px solid rgba(199,154,59,0.35)",
-              }}
-            />
-            {/* Label */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: 24,
-                left: 24,
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: "var(--font-heading, serif)",
-                  fontSize: 20,
-                  fontWeight: 500,
-                  color: "#F8F2E8",
-                  margin: 0,
-                  lineHeight: 1.3,
-                }}
-              >
-                Premium Rooms
-              </p>
-              <p
-                style={{
-                  fontFamily: "var(--font-body, sans-serif)",
-                  fontSize: 12,
-                  color: "rgba(248,242,232,0.6)",
-                  margin: "4px 0 0",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Govardhan Dham
-              </p>
-            </div>
-            {/* Gold corner accent */}
-            <div
-              style={{
-                position: "absolute",
-                top: 20,
-                right: 20,
-                width: 40,
-                height: 40,
-                borderTop: "1.5px solid #C79A3B",
-                borderRight: "1.5px solid #C79A3B",
-                borderRadius: "0 4px 0 0",
-                opacity: 0.7,
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                bottom: 20,
-                left: 20,
-                width: 40,
-                height: 40,
-                borderBottom: "1.5px solid #C79A3B",
-                borderLeft: "1.5px solid #C79A3B",
-                borderRadius: "0 0 0 4px",
-                opacity: 0.7,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
               }}
             />
           </motion.div>
 
-          {/* ── RIGHT: Secondary image + amenities card ── */}
+          {/* ── RIGHT: Two images + amenities card ── */}
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -460,107 +356,71 @@ export default function GovHotel() {
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: 20,
+              gap: 12,
             }}
           >
-            {/* Secondary image placeholder */}
+            {/* Hotel front image */}
             <div
               style={{
                 borderRadius: 12,
                 overflow: "hidden",
-                height: 180,
+                flex: "1 1 0",
                 position: "relative",
                 boxShadow: "0 8px 28px rgba(0,0,0,0.30)",
               }}
             >
-              <div
+              <img
+                src="/images/new images/hotelf front.webp"
+                alt="Hotel Girraj Inn Front"
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background:
-                    "linear-gradient(125deg, #2A5244 0%, #0D3B2E 40%, #1A5040 70%, #3A7060 100%)",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
                 }}
               />
-              {/* Garden / courtyard silhouette accent */}
-              <div
+            </div>
+
+            {/* Dining image */}
+            <div
+              style={{
+                borderRadius: 12,
+                overflow: "hidden",
+                flex: "1 1 0",
+                position: "relative",
+                boxShadow: "0 8px 28px rgba(0,0,0,0.30)",
+              }}
+            >
+              <img
+                src="/images/new images/dining.webp"
+                alt="Hotel Girraj Inn Dining"
                 style={{
                   position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: "45%",
-                  background: "rgba(13,59,46,0.6)",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
                 }}
               />
-              <div
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%,-50%)",
-                  width: 56,
-                  height: 56,
-                  borderRadius: "50%",
-                  border: "1.5px solid rgba(199,154,59,0.5)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
-              </div>
-              <p
-                style={{
-                  position: "absolute",
-                  bottom: 14,
-                  left: 0,
-                  right: 0,
-                  textAlign: "center",
-                  fontFamily: "var(--font-body, sans-serif)",
-                  fontSize: 11,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "rgba(248,242,232,0.65)",
-                  margin: 0,
-                }}
-              >
-                Serene Courtyard
-              </p>
             </div>
 
             {/* Amenities card */}
             <div
               style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(199,154,59,0.18)",
+                background: "rgba(248,242,232,0.95)",
                 borderRadius: 14,
-                padding: "22px 20px 20px",
+                padding: "18px 20px 16px",
               }}
             >
-              <p
-                style={{
-                  fontFamily: "var(--font-body, sans-serif)",
-                  fontSize: 10,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "#C79A3B",
-                  margin: "0 0 16px",
-                }}
-              >
-                Amenities
-              </p>
-
               <ul
                 style={{
                   listStyle: "none",
-                  margin: "0 0 20px",
+                  margin: "0 0 14px",
                   padding: 0,
                   display: "flex",
                   flexDirection: "column",
-                  gap: 12,
+                  gap: 10,
                 }}
               >
                 {sideAmenities.map((item, i) => (
@@ -577,7 +437,8 @@ export default function GovHotel() {
                       style={{
                         fontFamily: "var(--font-body, sans-serif)",
                         fontSize: 13,
-                        color: "rgba(248,242,232,0.8)",
+                        fontWeight: 500,
+                        color: "#0D3B2E",
                       }}
                     >
                       {item.label}
@@ -587,17 +448,17 @@ export default function GovHotel() {
               </ul>
 
               <a
-                href="#book"
+                href="/govardhan/hotel"
                 style={{
                   display: "block",
                   textAlign: "center",
-                  backgroundColor: "#C79A3B",
+                  border: "1.5px solid #0D3B2E",
                   color: "#0D3B2E",
                   fontFamily: "var(--font-body, sans-serif)",
                   fontSize: 13,
                   fontWeight: 700,
                   letterSpacing: "0.05em",
-                  padding: "12px 0",
+                  padding: "11px 0",
                   borderRadius: 8,
                   textDecoration: "none",
                 }}
@@ -608,6 +469,19 @@ export default function GovHotel() {
           </motion.div>
         </div>
       </div>
+      {/* Responsive */}
+      <style>{`
+        @media (max-width: 1024px) {
+          .gov-hotel-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .gov-hotel-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

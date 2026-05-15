@@ -55,25 +55,6 @@ function WhatsappIcon() {
   );
 }
 
-// ── Temple icon ────────────────────────────────────────────
-function TempleIcon() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-      {/* Base */}
-      <rect x="4" y="24" width="24" height="4" rx="1" fill={C.gold} />
-      {/* Steps */}
-      <rect x="7" y="20" width="18" height="4" rx="1" fill={C.gold} opacity="0.85" />
-      <rect x="10" y="16" width="12" height="4" rx="1" fill={C.gold} opacity="0.7" />
-      {/* Tower body */}
-      <rect x="13" y="8" width="6" height="8" rx="1" fill={C.gold} opacity="0.85" />
-      {/* Tower top - shikhara */}
-      <path d="M16 2 L20 8 H12 Z" fill={C.gold} />
-      {/* Kalasha */}
-      <circle cx="16" cy="2" r="1.5" fill={C.gold} />
-    </svg>
-  );
-}
-
 // ── Column header ─────────────────────────────────────────
 function ColHeader({ children }: { children: React.ReactNode }) {
   return (
@@ -152,35 +133,16 @@ export default function GovFooter() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {/* Brand mark */}
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
-            <TempleIcon />
-            <div>
-              <p
-                style={{
-                  fontFamily: "var(--font-heading, serif)",
-                  fontSize: 20,
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  color: C.white,
-                  margin: 0,
-                  lineHeight: 1.1,
-                }}
-              >
-                GOVARDHAN
-              </p>
-              <p
-                style={{
-                  fontFamily: "var(--font-body, sans-serif)",
-                  fontSize: 10,
-                  letterSpacing: "0.18em",
-                  color: C.gold,
-                  margin: 0,
-                  textTransform: "uppercase",
-                }}
-              >
-                SWEETS & HOTEL
-              </p>
-            </div>
+          <div style={{ marginBottom: 12 }}>
+            <img
+              src="/images/new images/logo.webp"
+              alt="Shri Girraj Misthan Bhandar"
+              style={{
+                height: 60,
+                width: "auto",
+                objectFit: "contain",
+              }}
+            />
           </div>
 
           {/* Tagline */}
@@ -199,10 +161,17 @@ export default function GovFooter() {
 
           {/* Social icons */}
           <div style={{ display: "flex", gap: 14 }}>
-            {[InstagramIcon, FacebookIcon, YoutubeIcon, WhatsappIcon].map((Icon, i) => (
+            {[
+              { Icon: InstagramIcon, href: "https://www.instagram.com/shri_girraj_misthan_bhandar_" },
+              { Icon: FacebookIcon, href: "#" },
+              { Icon: YoutubeIcon, href: "#" },
+              { Icon: WhatsappIcon, href: "https://wa.me/919999999999" },
+            ].map(({ Icon, href }, i) => (
               <a
                 key={i}
-                href="#"
+                href={href}
+                target={href !== "#" ? "_blank" : undefined}
+                rel={href !== "#" ? "noopener noreferrer" : undefined}
                 style={{
                   width: 36,
                   height: 36,

@@ -12,45 +12,45 @@ interface Sweet {
   name: string;
   price: string;
   unit: string;
-  gradient: string;
+  image: string;
 }
 
 const sweets: Sweet[] = [
   {
-    name: "Govardhan Peda",
+    name: "Kaju Katli",
+    price: "₹780",
+    unit: "/ kg",
+    image: "/images/mithai/Kaju katli with logo.webp",
+  },
+  {
+    name: "Peda",
     price: "₹480",
     unit: "/ kg",
-    gradient: "linear-gradient(145deg, #E8C87A 0%, #C79A3B 50%, #9B7020 100%)",
+    image: "/images/mithai/Peda logo.webp",
   },
   {
-    name: "Milk Cake",
-    price: "₹560",
+    name: "Besan Laddu",
+    price: "₹500",
     unit: "/ kg",
-    gradient: "linear-gradient(145deg, #D4B896 0%, #B8956A 50%, #8B6B3A 100%)",
-  },
-  {
-    name: "Rabri",
-    price: "₹420",
-    unit: "/ kg",
-    gradient: "linear-gradient(145deg, #EAD5B0 0%, #D4B078 50%, #A07840 100%)",
+    image: "/images/mithai/Besan laddu logo.webp",
   },
   {
     name: "Ghewar",
     price: "₹600",
     unit: "/ piece",
-    gradient: "linear-gradient(145deg, #C8A060 0%, #A07838 50%, #6B5020 100%)",
+    image: "/images/mithai/Chandrakala.webp",
   },
   {
-    name: "Kaju Katli",
-    price: "₹780",
+    name: "Anjeer Burfi",
+    price: "₹850",
     unit: "/ kg",
-    gradient: "linear-gradient(145deg, #D8C898 0%, #C0A860 50%, #907830 100%)",
+    image: "/images/mithai/Anjeer burfi with logo.webp",
   },
   {
     name: "Motichoor Laddoo",
     price: "₹500",
     unit: "/ kg",
-    gradient: "linear-gradient(145deg, #E0A858 0%, #C07820 50%, #8B5010 100%)",
+    image: "/images/mithai/Boondi laddu logo.webp",
   },
 ];
 
@@ -93,28 +93,24 @@ function SweetCard({ sweet, index, isInView }: SweetCardProps) {
         e.currentTarget.style.boxShadow = "0 2px 8px rgba(13,59,46,0.05)";
       }}
     >
-      {/* Image placeholder */}
+      {/* Product image */}
       <div
         style={{
           width: "100%",
           aspectRatio: "1 / 1",
-          background: sweet.gradient,
           borderRadius: "12px",
           marginBottom: "14px",
-          position: "relative",
           overflow: "hidden",
+          backgroundColor: "#EFE3CF",
         }}
       >
-        {/* subtle inner shine */}
-        <div
+        <img
+          src={sweet.image}
+          alt={sweet.name}
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: "50%",
-            background: "linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 100%)",
-            borderRadius: "12px 12px 0 0",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
           }}
         />
       </div>
@@ -285,7 +281,7 @@ export default function GovSignatureSweets() {
 
           {/* Right: View all link */}
           <motion.a
-            href="#"
+            href="/govardhan/sweets"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}

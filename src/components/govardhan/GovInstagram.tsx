@@ -1,26 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-// ── Colors ────────────────────────────────────────────────
-const C = {
-  bg: "#F8F2E8",
-  dark: "#0D3B2E",
-};
+// ── Constants ────────────────────────────────────────────
+const GREEN = "#0D3B2E";
+const GOLD = "#C79A3B";
+const CREAM = "#F8F2E8";
+const IG_URL = "https://www.instagram.com/shri_girraj_misthan_bhandar_";
 
-// ── Placeholder gradients: warm gold → brown → green tones ─
-const GRADIENTS = [
-  "linear-gradient(135deg, #C79A3B 0%, #A0601E 100%)",
-  "linear-gradient(135deg, #8B5E3C 0%, #6B3A1F 100%)",
-  "linear-gradient(135deg, #0D3B2E 0%, #1A6B52 100%)",
-  "linear-gradient(135deg, #C79A3B 0%, #EFE3CF 100%)",
-  "linear-gradient(135deg, #6B3A1F 0%, #C79A3B 100%)",
-  "linear-gradient(135deg, #1A6B52 0%, #C79A3B 100%)",
-  "linear-gradient(135deg, #A0601E 0%, #0D3B2E 100%)",
-  "linear-gradient(135deg, #EFE3CF 0%, #8B5E3C 100%)",
+// ── Posts from our Instagram ─────────────────────────────
+const POSTS = [
+  { src: "/images/mithai/Kaju katli with logo.webp", alt: "Kaju Katli" },
+  { src: "/images/mithai/Peda logo.webp", alt: "Mathura Peda" },
+  { src: "/images/mithai/Anjeer burfi with logo.webp", alt: "Anjeer Burfi" },
+  { src: "/images/mithai/Besan laddu logo.webp", alt: "Besan Laddu" },
+  { src: "/images/mithai/Mango with logo.webp", alt: "Mango Mithai" },
+  { src: "/images/mithai/KESAR Burfi logo.webp", alt: "Kesar Burfi" },
+  { src: "/images/mithai/Kaju roll logo.webp", alt: "Kaju Roll" },
+  { src: "/images/mithai/Gujiya logo.webp", alt: "Gujiya" },
 ];
 
-// ── Instagram SVG icon ─────────────────────────────────────
+// ── Instagram SVG icon ───────────────────────────────────
 function InstagramIcon() {
   return (
     <svg
@@ -40,10 +41,13 @@ function InstagramIcon() {
   );
 }
 
-// ── Single tile ────────────────────────────────────────────
-function HoverTile({ gradient, index }: { gradient: string; index: number }) {
+// ── Single tile ──────────────────────────────────────────
+function PostTile({ item, index }: { item: (typeof POSTS)[number]; index: number }) {
   return (
-    <motion.div
+    <motion.a
+      href={IG_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       className="ig-tile"
       initial={{ opacity: 0, scale: 0.96 }}
       whileInView={{ opacity: 1, scale: 1 }}
@@ -52,11 +56,20 @@ function HoverTile({ gradient, index }: { gradient: string; index: number }) {
       style={{
         position: "relative",
         aspectRatio: "1 / 1",
-        background: gradient,
         overflow: "hidden",
         cursor: "pointer",
+        display: "block",
+        backgroundColor: "#EFE3CF",
       }}
     >
+      <Image
+        src={item.src}
+        alt={item.alt}
+        fill
+        sizes="(max-width: 640px) 50vw, 12.5vw"
+        style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
+        className="ig-img"
+      />
       <div
         className="ig-overlay"
         style={{
@@ -72,27 +85,21 @@ function HoverTile({ gradient, index }: { gradient: string; index: number }) {
       >
         <InstagramIcon />
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
-// ── Main component ────────────────────────────────────────
+// ── Main component ───────────────────────────────────────
 export default function GovInstagram() {
   return (
-    <section style={{ background: C.bg, paddingTop: 60 }}>
-      {/* Hover + responsive CSS */}
+    <section style={{ background: CREAM, paddingTop: 60 }}>
       <style>{`
         .ig-tile:hover .ig-overlay { opacity: 1 !important; }
-        .ig-grid {
-          display: grid;
-          grid-template-columns: repeat(8, 1fr);
-          gap: 0;
-        }
-        @media (max-width: 1024px) {
-          .ig-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-        @media (max-width: 640px) {
-          .ig-grid { grid-template-columns: repeat(2, 1fr); }
+        .ig-tile:hover .ig-img { transform: scale(1.08); }
+        .ig-follow-btn:hover {
+          background-color: #C79A3B !important;
+          color: #0D3B2E !important;
+          border-color: #C79A3B !important;
         }
       `}</style>
 
@@ -102,27 +109,89 @@ export default function GovInstagram() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        style={{ textAlign: "center", paddingBottom: 36 }}
+        style={{
+          textAlign: "center",
+          paddingBottom: 32,
+          padding: "0 24px 32px",
+        }}
       >
         <p
           style={{
             fontFamily: "var(--font-body, sans-serif)",
-            fontSize: 13,
+            fontSize: 12,
             fontWeight: 600,
-            letterSpacing: "0.15em",
+            letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: C.dark,
-            margin: 0,
+            color: GOLD,
+            margin: "0 0 10px",
           }}
         >
-          FROM OUR INSTAGRAM
+          Follow Us On Instagram
         </p>
+        <h2
+          style={{
+            fontFamily: "var(--font-heading, serif)",
+            fontSize: "clamp(24px, 4vw, 36px)",
+            fontWeight: 700,
+            color: GREEN,
+            margin: "0 0 12px",
+            lineHeight: 1.2,
+          }}
+        >
+          @shri_girraj_misthan_bhandar_
+        </h2>
+        <p
+          style={{
+            fontFamily: "var(--font-body, sans-serif)",
+            fontSize: 14,
+            color: "#8B7D6B",
+            margin: "0 0 20px",
+            lineHeight: 1.6,
+          }}
+        >
+          A glimpse into our world of handcrafted sweets, festivals & traditions
+        </p>
+        <a
+          href={IG_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ig-follow-btn"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "10px 28px",
+            borderRadius: 999,
+            border: `1.5px solid ${GREEN}`,
+            backgroundColor: "transparent",
+            color: GREEN,
+            fontFamily: "var(--font-body, sans-serif)",
+            fontSize: 13,
+            fontWeight: 600,
+            textDecoration: "none",
+            letterSpacing: "0.03em",
+            transition: "all 0.25s ease",
+          }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+          </svg>
+          Follow Us
+        </a>
       </motion.div>
 
-      {/* Full-width responsive grid, no gaps */}
-      <div className="ig-grid">
-        {GRADIENTS.map((gradient, i) => (
-          <HoverTile key={i} gradient={gradient} index={i} />
+      {/* Single-row full-width grid with real images */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: `repeat(${POSTS.length}, 1fr)`,
+          gap: 0,
+        }}
+      >
+        {POSTS.map((item, i) => (
+          <PostTile key={i} item={item} index={i} />
         ))}
       </div>
     </section>
