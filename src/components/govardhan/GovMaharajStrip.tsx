@@ -41,10 +41,9 @@ export default function GovMaharajStrip() {
         style={{
           display: "flex",
           alignItems: "flex-start",
-          justifyContent: "center",
+          justifyContent: "space-between",
           gap: 0,
           padding: "12px 24px 6px",
-          justifyContent: "space-between" as const,
           overflowX: "auto",
           scrollbarWidth: "none",
           msOverflowStyle: "none",
