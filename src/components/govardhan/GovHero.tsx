@@ -27,6 +27,22 @@ const sweetCards = [
 export default function GovHero() {
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
   const [angles, setAngles] = useState<number[]>([]);
+  // Responsive scale so the 3D ring fits on phones with the same look as desktop.
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w <= 360) setScale(0.55);
+      else if (w <= 480) setScale(0.65);
+      else if (w <= 768) setScale(0.78);
+      else if (w <= 900) setScale(0.88);
+      else setScale(1);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   // Initialize card angles
   useEffect(() => {
@@ -43,6 +59,18 @@ export default function GovHero() {
     raf = requestAnimationFrame(rotate);
     return () => cancelAnimationFrame(raf);
   }, []);
+
+  // Dimensions derived from scale
+  const containerSize = 480 * scale;
+  const cardW = 130 * scale;
+  const cardH = 160 * scale;
+  const cardRadius = 170 * scale;
+  const depth = 100 * scale;
+  const centerSize = 150 * scale;
+  const centerGlow = 180 * scale;
+  const girrajOuterGlow = 200 * scale;
+  const girrajPulse = 170 * scale;
+  const labelFont = Math.max(7, 9 * scale);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -297,8 +325,8 @@ export default function GovHero() {
           onMouseMove={handleMouseMove}
           style={{
             position: "relative",
-            width: 460,
-            height: 460,
+            width: containerSize,
+            height: containerSize,
             flexShrink: 0,
             perspective: "800px",
           }}
@@ -310,8 +338,8 @@ export default function GovHero() {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: 180,
-              height: 180,
+              width: centerGlow,
+              height: centerGlow,
               borderRadius: "50%",
               background: "radial-gradient(circle, rgba(199,154,59,0.2) 0%, transparent 70%)",
               filter: "blur(20px)",
@@ -333,13 +361,10 @@ export default function GovHero() {
           >
             {sweetCards.map((card, index) => {
               const angle = (angles[index] || 0) * (Math.PI / 180);
-              const radius = 170;
-              const x = Math.cos(angle) * radius;
-              const y = Math.sin(angle) * radius;
-              const z = Math.sin(angle) * 100; // depth
+              const x = Math.cos(angle) * cardRadius;
+              const y = Math.sin(angle) * cardRadius;
+              const z = Math.sin(angle) * depth;
 
-              const scale = 1;
-              const opacity = 1;
               const zIndex = Math.round(z + 100);
 
               // Mouse parallax
@@ -351,9 +376,9 @@ export default function GovHero() {
                   key={card.id}
                   style={{
                     position: "absolute",
-                    width: 130,
-                    height: 160,
-                    transform: `translate(${x}px, ${y}px) rotateX(${pY}deg) rotateY(${pX}deg) rotateZ(${card.rotation}deg) scale(${scale})`,
+                    width: cardW,
+                    height: cardH,
+                    transform: `translate(${x}px, ${y}px) rotateX(${pY}deg) rotateY(${pX}deg) rotateZ(${card.rotation}deg)`,
                     zIndex,
                     transformStyle: "preserve-3d",
                     pointerEvents: "auto",
@@ -406,7 +431,7 @@ export default function GovHero() {
                       <span
                         style={{
                           fontFamily: "var(--font-body, sans-serif)",
-                          fontSize: 9,
+                          fontSize: labelFont,
                           fontWeight: 600,
                           color: "#F8F2E8",
                           letterSpacing: "0.06em",
@@ -442,8 +467,8 @@ export default function GovHero() {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                width: 200,
-                height: 200,
+                width: girrajOuterGlow,
+                height: girrajOuterGlow,
                 borderRadius: "50%",
                 background: "radial-gradient(circle, rgba(199,154,59,0.45) 0%, rgba(199,154,59,0.2) 40%, rgba(199,154,59,0.05) 65%, transparent 80%)",
                 filter: "blur(12px)",
@@ -457,8 +482,8 @@ export default function GovHero() {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                width: 170,
-                height: 170,
+                width: girrajPulse,
+                height: girrajPulse,
                 borderRadius: "50%",
                 background: "radial-gradient(circle, rgba(255,215,0,0.2) 0%, transparent 70%)",
               }}
@@ -467,8 +492,8 @@ export default function GovHero() {
             <div
               className="gov-girraj-image"
               style={{
-                width: 150,
-                height: 150,
+                width: centerSize,
+                height: centerSize,
                 borderRadius: "50%",
                 overflow: "hidden",
                 border: "3px solid rgba(199,154,59,0.7)",
@@ -549,18 +574,10 @@ export default function GovHero() {
           animation: girrajGlow 3s ease-in-out infinite;
         }
         @media (max-width: 900px) {
-          /* Hide the 3D sweet-card ring on smaller screens but keep
-             the round Girraj Ji image with its glow + pulse visible. */
-          .gov-hero-ring {
-            display: none !important;
-          }
-          .gov-hero-carousel {
-            width: 220px !important;
-            height: 220px !important;
-            perspective: none !important;
-          }
+          /* Carousel + Girraj sizes come from the JS `scale` state so the
+             3D ring renders on mobile just like desktop, only smaller. */
           .gov-hero-content {
-            flex-direction: column !important;
+            flex-direction: column-reverse !important;
             align-items: center !important;
             justify-content: center !important;
             gap: 28px !important;
@@ -574,23 +591,6 @@ export default function GovHero() {
           .gov-hero-content .gov-hero-btn-secondary {
             margin-inline: auto;
           }
-          .gov-girraj-image {
-            width: 132px !important;
-            height: 132px !important;
-            animation: girrajSpin 22s linear infinite;
-          }
-          .gov-girraj-glow {
-            width: 180px !important;
-            height: 180px !important;
-          }
-          .gov-girraj-pulse {
-            width: 150px !important;
-            height: 150px !important;
-          }
-        }
-        @keyframes girrajSpin {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
         }
         @media (max-width: 768px) {
           .gov-hero-section {
@@ -609,22 +609,6 @@ export default function GovHero() {
         @media (max-width: 480px) {
           .gov-hero-section {
             padding: 32px 0 48px !important;
-          }
-          .gov-hero-carousel {
-            width: 180px !important;
-            height: 180px !important;
-          }
-          .gov-girraj-image {
-            width: 118px !important;
-            height: 118px !important;
-          }
-          .gov-girraj-glow {
-            width: 160px !important;
-            height: 160px !important;
-          }
-          .gov-girraj-pulse {
-            width: 134px !important;
-            height: 134px !important;
           }
           .gov-hero-btn-primary,
           .gov-hero-btn-secondary {
