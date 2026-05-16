@@ -22,6 +22,7 @@ export default function GovMaharajStrip() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.1 }}
+      className="gov-maharaj-section"
       style={{
         backgroundColor: "#F8F2E8",
         borderBottom: "1px solid #EFE3CF",

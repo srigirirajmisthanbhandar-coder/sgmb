@@ -321,6 +321,7 @@ export default function GovHero() {
 
           {/* Rotating cards */}
           <div
+            className="gov-hero-ring"
             style={{
               position: "absolute",
               inset: 0,
@@ -423,6 +424,7 @@ export default function GovHero() {
 
           {/* Center Girraj Ji image */}
           <div
+            className="gov-hero-girraj"
             style={{
               position: "absolute",
               top: "50%",
@@ -463,6 +465,7 @@ export default function GovHero() {
             />
             {/* Round image with gold border */}
             <div
+              className="gov-girraj-image"
               style={{
                 width: 150,
                 height: 150,
@@ -546,19 +549,58 @@ export default function GovHero() {
           animation: girrajGlow 3s ease-in-out infinite;
         }
         @media (max-width: 900px) {
-          .gov-hero-carousel {
+          /* Hide the 3D sweet-card ring on smaller screens but keep
+             the round Girraj Ji image with its glow + pulse visible. */
+          .gov-hero-ring {
             display: none !important;
           }
+          .gov-hero-carousel {
+            width: 220px !important;
+            height: 220px !important;
+            perspective: none !important;
+          }
+          .gov-hero-content {
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 28px !important;
+            text-align: center;
+          }
+          .gov-hero-content > div:first-child {
+            align-items: center !important;
+            text-align: center;
+          }
+          .gov-hero-content .gov-hero-btn-primary,
+          .gov-hero-content .gov-hero-btn-secondary {
+            margin-inline: auto;
+          }
+          .gov-girraj-image {
+            width: 132px !important;
+            height: 132px !important;
+            animation: girrajSpin 22s linear infinite;
+          }
+          .gov-girraj-glow {
+            width: 180px !important;
+            height: 180px !important;
+          }
+          .gov-girraj-pulse {
+            width: 150px !important;
+            height: 150px !important;
+          }
+        }
+        @keyframes girrajSpin {
+          from { transform: rotate(0deg); }
+          to   { transform: rotate(360deg); }
         }
         @media (max-width: 768px) {
           .gov-hero-section {
             height: auto !important;
             min-height: 0 !important;
-            padding: 56px 0 72px !important;
+            padding: 40px 0 56px !important;
           }
           .gov-hero-content {
             padding: 0 20px !important;
-            min-height: calc(100svh - 280px);
+            min-height: 0 !important;
           }
           .gov-hero-scroll-indicator {
             display: none !important;
@@ -566,7 +608,23 @@ export default function GovHero() {
         }
         @media (max-width: 480px) {
           .gov-hero-section {
-            padding: 48px 0 64px !important;
+            padding: 32px 0 48px !important;
+          }
+          .gov-hero-carousel {
+            width: 180px !important;
+            height: 180px !important;
+          }
+          .gov-girraj-image {
+            width: 118px !important;
+            height: 118px !important;
+          }
+          .gov-girraj-glow {
+            width: 160px !important;
+            height: 160px !important;
+          }
+          .gov-girraj-pulse {
+            width: 134px !important;
+            height: 134px !important;
           }
           .gov-hero-btn-primary,
           .gov-hero-btn-secondary {

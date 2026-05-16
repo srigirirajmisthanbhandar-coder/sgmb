@@ -779,8 +779,9 @@ img, svg, video, canvas {
 }
 
 @media (max-width: 768px) {
-  /* Squeeze container paddings on the inner pages */
-  .gov-page section {
+  /* Squeeze container paddings on the inner pages
+     (skip the Maharaj strip + hero — they manage their own spacing) */
+  .gov-page section:not(.gov-maharaj-section):not(.gov-hero-section) {
     padding-top: clamp(48px, 8vw, 80px);
     padding-bottom: clamp(48px, 8vw, 80px);
   }
