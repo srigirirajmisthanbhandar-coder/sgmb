@@ -307,11 +307,24 @@ export default function GovStory() {
           }
           .gov-story-collage {
             height: 380px !important;
+            margin-bottom: 88px !important;
+          }
+          /* Heritage badge — drop it BELOW the collage on small screens
+             so it stops covering the main shop image. */
+          .gov-story-collage > div:last-child {
+            top: 100% !important;
+            bottom: auto !important;
+            left: 50% !important;
+            right: auto !important;
+            transform: translate(-50%, 16px) !important;
+            padding: 10px 16px !important;
+            min-width: 110px !important;
           }
         }
         @media (max-width: 480px) {
           .gov-story-collage {
             height: 320px !important;
+            margin-bottom: 80px !important;
           }
           .gov-story-collage > div:nth-child(1) {
             width: 60% !important;
@@ -328,10 +341,8 @@ export default function GovStory() {
             left: 32% !important;
           }
           .gov-story-collage > div:last-child {
-            right: 50% !important;
-            top: 12px !important;
-            padding: 10px 14px !important;
-            min-width: 90px !important;
+            padding: 8px 14px !important;
+            min-width: 100px !important;
           }
         }
       `}</style>
