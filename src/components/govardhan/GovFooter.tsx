@@ -370,7 +370,7 @@ export default function GovFooter() {
         className="gov-footer-lila"
       >
         <Image
-          src="/images/govardhan/footer girraj ji.webp"
+          src="/images/govardhan/footer-girraj-ji.webp"
           alt="Shri Krishna lifting Govardhan Parvat"
           width={600}
           height={400}
