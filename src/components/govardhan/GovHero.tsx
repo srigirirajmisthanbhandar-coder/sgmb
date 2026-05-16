@@ -431,12 +431,14 @@ export default function GovHero() {
                     >
                       <span
                         style={{
+                          display: "block",
                           fontFamily: "var(--font-body, sans-serif)",
                           fontSize: labelFont,
                           fontWeight: 600,
                           color: "#F8F2E8",
                           letterSpacing: "0.06em",
                           textTransform: "uppercase",
+                          lineHeight: 1.1,
                         }}
                       >
                         {card.alt}
