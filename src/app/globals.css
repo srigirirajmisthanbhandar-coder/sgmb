@@ -861,41 +861,42 @@ img, svg, video, canvas {
    selectors to catch the most common
    patterns and make them mobile-fluid.
    ═══════════════════════════════════════ */
+/* Permissive matchers: catch any inline `repeat(N, ...)` or `1fr 1fr`
+   grid regardless of whether browsers serialise the style attribute
+   with or without spaces around the colon. */
 @media (max-width: 900px) {
-  /* Any inline grid set to "1fr 1fr" or "repeat(2, 1fr)" → stack */
-  .gov-page [style*="grid-template-columns: 1fr 1fr"],
-  .gov-page [style*="gridTemplateColumns: 1fr 1fr"],
-  .gov-page [style*="grid-template-columns: repeat(2"],
-  .gov-page [style*="gridTemplateColumns: repeat(2"] {
+  .gov-page [style*="1fr 1fr"],
+  .gov-page [style*="repeat(2,"],
+  .gov-page [style*="repeat(2, "] {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
   }
 }
 
 @media (max-width: 1024px) {
-  /* 3-column → 2 columns */
-  .gov-page [style*="grid-template-columns: repeat(3"],
-  .gov-page [style*="gridTemplateColumns: repeat(3"] {
+  .gov-page [style*="repeat(3,"],
+  .gov-page [style*="repeat(3, "] {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 16px !important;
   }
-  /* 4-column → 2 columns */
-  .gov-page [style*="grid-template-columns: repeat(4"],
-  .gov-page [style*="gridTemplateColumns: repeat(4"] {
+  .gov-page [style*="repeat(4,"],
+  .gov-page [style*="repeat(4, "] {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 16px !important;
   }
 }
 
 @media (max-width: 640px) {
-  /* 3-column → 1 column */
-  .gov-page [style*="grid-template-columns: repeat(3"],
-  .gov-page [style*="gridTemplateColumns: repeat(3"] {
+  .gov-page [style*="repeat(3,"],
+  .gov-page [style*="repeat(3, "],
+  .gov-page [style*="repeat(4,"],
+  .gov-page [style*="repeat(4, "] {
     grid-template-columns: 1fr !important;
+    gap: 20px !important;
   }
-  /* Reduce inline padding="0 24px" / "0 32px" / "0 40px" / "0 48px" */
-  .gov-page section[style*="padding: 100px 0"],
-  .gov-page section[style*="padding: 80px 0"] {
+  /* Section paddings */
+  .gov-page section[style*="100px 0"],
+  .gov-page section[style*="80px 0"] {
     padding-top: 56px !important;
     padding-bottom: 56px !important;
   }
@@ -912,6 +913,21 @@ img, svg, video, canvas {
   .gov-page [style*="gap: 80px"],
   .gov-page [style*="gap: 48px"] {
     gap: 32px !important;
+  }
+}
+
+/* Belt-and-suspenders: explicit utility classes pages can opt into. */
+.gov-stack-mobile { /* below md collapses to single column */ }
+@media (max-width: 768px) {
+  .gov-stack-mobile {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .gov-stack-mobile {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px !important;
   }
 }
 

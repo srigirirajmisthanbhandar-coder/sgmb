@@ -176,7 +176,7 @@ export default function GovHero() {
                 color: "#C79A3B",
               }}
             >
-              Since 1954 — Govardhan, Mathura
+              Since 1982 — Govardhan, Mathura
             </span>
             <span
               style={{

@@ -461,6 +461,7 @@ export default function FestivalsPage() {
 
           {/* Product cards */}
           <div
+            className="gov-stack-mobile"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",

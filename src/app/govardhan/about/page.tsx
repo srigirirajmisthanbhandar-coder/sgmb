@@ -52,7 +52,7 @@ const scaleIn = {
 
 const TIMELINE = [
   {
-    year: "1954",
+    year: "1982",
     title: "The Beginning",
     desc: "Founded by Shri Govardhan Prasad ji near the sacred Govardhan Parikrama path, a humble sweet shop serving pilgrims with pure desi ghee mithai.",
   },
@@ -87,7 +87,7 @@ const VALUES = [
   {
     icon: "🪷",
     title: "Purity",
-    desc: "Every sweet is crafted with 100% pure desi ghee. No shortcuts, no preservatives, no compromises — just the way it has been since 1954.",
+    desc: "Every sweet is crafted with 100% pure desi ghee. No shortcuts, no preservatives, no compromises — just the way it has been since 1982.",
   },
   {
     icon: "🙏",
@@ -110,7 +110,7 @@ const TEAM = [
   {
     name: "Shri Govardhan Prasad Ji",
     role: "Founder",
-    desc: "Started the legacy in 1954 with a vision to serve the purest sweets to pilgrims visiting the holy land of Govardhan.",
+    desc: "Started the legacy in 1982 with a vision to serve the purest sweets to pilgrims visiting the holy land of Govardhan.",
   },
   {
     name: "Shri Ramesh Kumar Ji",
@@ -187,7 +187,7 @@ export default function AboutPage() {
             fontWeight: 600,
           }}
         >
-          Since 1954
+          Since 1982
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -273,7 +273,7 @@ export default function AboutPage() {
                 opacity: 0.3,
               }}
             >
-              est. 1954
+              est. 1982
             </span>
           </div>
         </motion.div>
@@ -323,7 +323,7 @@ export default function AboutPage() {
               margin: "0 0 16px 0",
             }}
           >
-            In 1954, nestled in the sacred shadow of Govardhan Hill in Mathura,
+            In 1982, nestled in the sacred shadow of Govardhan Hill in Mathura,
             a small sweet shop opened its doors. Founded with nothing more than a
             brass kadhai, the finest desi ghee, and an unwavering devotion to
             Lord Krishna, that humble beginning would grow into a legacy that

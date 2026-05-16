@@ -191,11 +191,11 @@ export default function GovFooter() {
           {/* Brand mark */}
           <div style={{ marginBottom: 12 }}>
             <Image
-              src="/images/new images/logo.webp"
+              src="/images/footer-logo.webp"
               alt="Shri Girraj Misthan Bhandar"
-              width={90}
-              height={60}
-              style={{ objectFit: "contain" }}
+              width={92}
+              height={104}
+              style={{ objectFit: "contain", height: "auto", maxWidth: 92 }}
             />
           </div>
 

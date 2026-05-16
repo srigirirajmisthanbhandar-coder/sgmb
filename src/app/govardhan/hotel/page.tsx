@@ -436,6 +436,7 @@ export default function HotelPage() {
         }}
       >
         <div
+          className="gov-stack-mobile"
           style={{
             maxWidth: 1180,
             margin: "0 auto",
@@ -600,7 +601,7 @@ export default function HotelPage() {
               {[
                 { value: "50+", label: "Rooms" },
                 { value: "4.8★", label: "Rating" },
-                { value: "Since", label: "1954" },
+                { value: "Since", label: "1982" },
               ].map((stat, i) => (
                 <div
                   key={i}
@@ -691,6 +692,7 @@ export default function HotelPage() {
           </motion.div>
 
           <div
+            className="gov-stack-mobile"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",
@@ -895,6 +897,7 @@ export default function HotelPage() {
           </motion.div>
 
           <div
+            className="gov-stack-mobile"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(4, 1fr)",
@@ -981,6 +984,7 @@ export default function HotelPage() {
           }}
         />
         <div
+          className="gov-stack-mobile"
           style={{
             maxWidth: 1180,
             margin: "0 auto",
