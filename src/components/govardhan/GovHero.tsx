@@ -575,7 +575,7 @@ export default function GovHero() {
           animation: girrajGlow 3s ease-in-out infinite;
         }
         @media (max-width: 900px) {
-          /* Carousel + Girraj sizes come from the JS `scale` state so the
+          /* Carousel + Girraj sizes come from the JS scale state so the
              3D ring renders on mobile just like desktop, only smaller. */
           .gov-hero-content {
             flex-direction: column-reverse !important;
