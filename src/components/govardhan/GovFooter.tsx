@@ -147,6 +147,20 @@ export default function GovFooter() {
             flex-wrap: wrap;
           }
           .gov-footer-bottom > p { flex: 1 1 auto; margin: 0; }
+          .gov-footer-lila {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 8px 40px 32px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+          }
+          .gov-footer-lila img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 10px 30px rgba(199,154,59,0.22));
+          }
           @media (max-width: 768px) {
             .gov-footer-bottom {
               padding: 20px 20px 28px !important;
@@ -157,6 +171,10 @@ export default function GovFooter() {
             .gov-footer-bottom > p {
               text-align: left !important;
               flex: 1 1 100% !important;
+            }
+            .gov-footer-lila {
+              padding: 4px 16px 24px !important;
+              max-width: 100% !important;
             }
           }
         `}</style>
@@ -342,6 +360,23 @@ export default function GovFooter() {
           </div>
         </motion.div>
       </div>
+
+      {/* ── Govardhan Leela art ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="gov-footer-lila"
+      >
+        <Image
+          src="/images/govardhan/footer girraj ji.webp"
+          alt="Shri Krishna lifting Govardhan Parvat"
+          width={600}
+          height={400}
+          sizes="(max-width: 768px) 92vw, 720px"
+        />
+      </motion.div>
 
       {/* ── Bottom bar ── */}
       <div className="gov-footer-bottom">
