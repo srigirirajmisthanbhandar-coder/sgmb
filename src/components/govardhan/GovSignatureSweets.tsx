@@ -346,6 +346,14 @@ export default function GovSignatureSweets() {
             padding-left: 20px !important;
             padding-right: 20px !important;
           }
+          .gov-sweets-scroll > div {
+            width: 160px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .gov-sweets-scroll > div {
+            width: 150px !important;
+          }
         }
       `}</style>
     </section>

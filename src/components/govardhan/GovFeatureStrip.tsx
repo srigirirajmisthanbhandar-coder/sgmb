@@ -130,16 +130,36 @@ export default function GovFeatureStrip() {
           flex: 1;
           padding: 22px 24px;
         }
-        @media (max-width: 768px) {
-          .gov-feature-wrap { margin-top: -28px !important; }
+        @media (max-width: 1024px) {
           .gov-feature-strip {
             display: grid !important;
             grid-template-columns: 1fr 1fr;
           }
           .gov-feature-item {
-            padding: 16px 14px !important;
+            padding: 18px 18px !important;
           }
           .gov-feature-divider-v { display: none !important; }
+        }
+        @media (max-width: 768px) {
+          .gov-feature-wrap { margin-top: -28px !important; padding: 0 12px !important; }
+          .gov-feature-item {
+            padding: 14px 12px !important;
+            gap: 10px !important;
+          }
+          .gov-feature-item svg { width: 26px !important; height: 26px !important; }
+          .gov-feature-item span:first-of-type,
+          .gov-feature-item > div > span:first-child {
+            font-size: 13px !important;
+          }
+          .gov-feature-item span:nth-of-type(2),
+          .gov-feature-item > div > span:nth-child(2) {
+            font-size: 11px !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .gov-feature-strip {
+            grid-template-columns: 1fr !important;
+          }
         }
       `}</style>
       <motion.div

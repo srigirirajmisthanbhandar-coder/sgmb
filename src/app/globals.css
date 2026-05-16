@@ -743,3 +743,197 @@ input:focus, select:focus, textarea:focus {
   z-index: 1;
   height: 100%;
 }
+
+/* ═══════════════════════════════════════
+   MOBILE-FIRST FOUNDATION
+   ═══════════════════════════════════════ */
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Touch-friendly tap targets */
+@media (max-width: 768px) {
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* ═══════════════════════════════════════
+   GOV PAGES — MOBILE OVERRIDES
+   Inline styles use heavy desktop values
+   (paddings, grid columns, fixed widths);
+   these utilities give the whole site a
+   consistent, fluid mobile baseline.
+   ═══════════════════════════════════════ */
+
+/* ── Generic page wrapper ── */
+.gov-page {
+  background: #F8F2E8;
+}
+
+@media (max-width: 768px) {
+  /* Squeeze container paddings on the inner pages */
+  .gov-page section {
+    padding-top: clamp(48px, 8vw, 80px);
+    padding-bottom: clamp(48px, 8vw, 80px);
+  }
+
+  /* Generic grid → stack on mobile */
+  .gov-page .gov-grid-stack,
+  .gov-page [data-mobile-stack="true"] {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* Force readable text in places that hardcoded tiny sizes */
+  .gov-page h1 { font-size: clamp(28px, 7vw, 44px) !important; line-height: 1.15 !important; }
+  .gov-page h2 { font-size: clamp(24px, 5.5vw, 38px) !important; line-height: 1.2 !important; }
+  .gov-page h3 { font-size: clamp(20px, 4.5vw, 28px) !important; line-height: 1.25 !important; }
+}
+
+/* ── Common: cap large hero/feature heights on small screens ── */
+@media (max-width: 640px) {
+  .gov-page section[style*="minHeight"] {
+    /* no-op selector, just future hook */
+  }
+
+  /* Two-column inline-style sections (display:grid w/ explicit columns)
+     that DON'T have an explicit mobile rule become a single column. */
+  .gov-mobile-1col {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .gov-mobile-2col {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .gov-mobile-flex-stack {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 24px !important;
+  }
+  .gov-mobile-flex-stack > * {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+/* Universal: any direct child of a flex/grid with min-width set in inline
+   style can overflow; clamp it. */
+@media (max-width: 480px) {
+  .gov-page * {
+    min-width: 0;
+  }
+}
+
+/* ═══════════════════════════════════════
+   HORIZONTAL SCROLLERS
+   Used by sweets row, maharaj strip, etc.
+   ═══════════════════════════════════════ */
+.gov-hscroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+}
+.gov-hscroll::-webkit-scrollbar { display: none; }
+.gov-hscroll > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════
+   GOV SUB-PAGE INLINE-STYLE OVERRIDES
+   The sub-pages were written with desktop-
+   only inline styles. We use attribute
+   selectors to catch the most common
+   patterns and make them mobile-fluid.
+   ═══════════════════════════════════════ */
+@media (max-width: 900px) {
+  /* Any inline grid set to "1fr 1fr" or "repeat(2, 1fr)" → stack */
+  .gov-page [style*="grid-template-columns: 1fr 1fr"],
+  .gov-page [style*="gridTemplateColumns: 1fr 1fr"],
+  .gov-page [style*="grid-template-columns: repeat(2"],
+  .gov-page [style*="gridTemplateColumns: repeat(2"] {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* 3-column → 2 columns */
+  .gov-page [style*="grid-template-columns: repeat(3"],
+  .gov-page [style*="gridTemplateColumns: repeat(3"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  /* 4-column → 2 columns */
+  .gov-page [style*="grid-template-columns: repeat(4"],
+  .gov-page [style*="gridTemplateColumns: repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* 3-column → 1 column */
+  .gov-page [style*="grid-template-columns: repeat(3"],
+  .gov-page [style*="gridTemplateColumns: repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Reduce inline padding="0 24px" / "0 32px" / "0 40px" / "0 48px" */
+  .gov-page section[style*="padding: 100px 0"],
+  .gov-page section[style*="padding: 80px 0"] {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+  /* Inline container paddings */
+  .gov-page [style*="padding: 0 40px"],
+  .gov-page [style*="padding: 0 48px"],
+  .gov-page [style*="padding: 0 32px"],
+  .gov-page [style*="padding: 0 24px"] {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+  /* Inline grid gap shrink */
+  .gov-page [style*="gap: 60px"],
+  .gov-page [style*="gap: 80px"],
+  .gov-page [style*="gap: 48px"] {
+    gap: 32px !important;
+  }
+}
+
+/* Big hero / banner heights → cap on mobile */
+@media (max-width: 768px) {
+  .gov-page [style*="height: 600px"],
+  .gov-page [style*="height: 500px"],
+  .gov-page [style*="height: 400px"] {
+    height: auto !important;
+    min-height: 280px;
+  }
+  /* Bring oversized padded blocks down */
+  .gov-page [style*="padding: 56px 48px"],
+  .gov-page [style*="padding: 64px 48px"],
+  .gov-page [style*="padding: 80px 48px"] {
+    padding: 36px 22px !important;
+  }
+}
+
+/* Keep typography readable */
+@media (max-width: 480px) {
+  .gov-page [style*="font-size: 24"],
+  .gov-page [style*="fontSize: 24"] {
+    /* clamp via inherent !important inline conflict — only safe for non-clamp */
+  }
+}

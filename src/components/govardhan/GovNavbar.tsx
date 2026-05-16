@@ -97,6 +97,7 @@ function IconClose() {
 function AnnouncementBar() {
   return (
     <div
+      className="gov-announcement"
       style={{
         backgroundColor: C.annBg,
         color: C.text,
@@ -121,6 +122,7 @@ function AnnouncementBar() {
       >
         {/* Center — tagline (absolutely centered) */}
         <p
+          className="gov-announcement-tagline"
           style={{
             position: "absolute",
             left: "50%",
@@ -135,7 +137,7 @@ function AnnouncementBar() {
         </p>
 
         {/* Right — language + socials */}
-        <div style={{ display: "flex", alignItems: "center", gap: "14px", flexShrink: 0 }}>
+        <div className="gov-announcement-right" style={{ display: "flex", alignItems: "center", gap: "14px", flexShrink: 0 }}>
           {/* Language dropdown */}
           <select
             style={{
@@ -561,6 +563,39 @@ export default function GovNavbar() {
 
   return (
     <>
+      <style>{`
+        /* Default: show desktop nav, hide hamburger */
+        .gov-nav-desktop { display: flex; }
+        .gov-nav-hamburger { display: none; }
+        @media (max-width: 1024px) {
+          .gov-nav-desktop { display: none !important; }
+          .gov-nav-hamburger { display: flex !important; }
+          .gov-nav-cart-desktop { display: none !important; }
+          .gov-nav-order-desktop { display: none !important; }
+        }
+        @media (max-width: 768px) {
+          .gov-nav-inner {
+            height: 60px !important;
+            gap: 10px !important;
+          }
+          .gov-nav-logo img { width: 62px !important; height: 42px !important; }
+          .gov-announcement { font-size: 11px !important; }
+          .gov-announcement > div {
+            height: 32px !important;
+            padding: 0 12px !important;
+            justify-content: center !important;
+          }
+          .gov-announcement-right { display: none !important; }
+          .gov-announcement-tagline {
+            position: static !important;
+            transform: none !important;
+            font-size: 11.5px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .gov-announcement > div { padding: 0 10px !important; }
+        }
+      `}</style>
       <div
         style={{
           position: "sticky",
@@ -587,6 +622,7 @@ export default function GovNavbar() {
           }}
         >
           <div
+            className="gov-nav-inner"
             style={{
               maxWidth: "1430px",
               margin: "0 auto",
@@ -600,6 +636,7 @@ export default function GovNavbar() {
             {/* ── Logo ── */}
             <a
               href="/govardhan"
+              className="gov-nav-logo"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -625,14 +662,13 @@ export default function GovNavbar() {
 
             {/* ── Desktop Navigation ── */}
             <nav
+              className="gov-nav-desktop"
               style={{
-                display: "flex",
                 alignItems: "center",
                 gap: "2px",
                 flex: 1,
                 justifyContent: "center",
               }}
-              className="hidden lg:flex"
             >
               {NAV_LINKS.map((link) => (
                 <NavLink key={link.label} link={link} />
@@ -655,6 +691,7 @@ export default function GovNavbar() {
                 aria-label="Cart"
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.94 }}
+                className="gov-nav-cart-desktop"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -667,7 +704,6 @@ export default function GovNavbar() {
                   position: "relative",
                   transition: "background .2s",
                 }}
-                className="hidden lg:flex"
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.background = `rgba(199,154,59,0.12)`;
                 }}
@@ -696,6 +732,7 @@ export default function GovNavbar() {
                 href="#order"
                 whileHover={{ scale: 1.03, boxShadow: "0 4px 20px rgba(13,59,46,0.25)" }}
                 whileTap={{ scale: 0.97 }}
+                className="gov-nav-order-desktop"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -713,7 +750,6 @@ export default function GovNavbar() {
                   transition: "background .2s",
                   whiteSpace: "nowrap",
                 }}
-                className="hidden lg:inline-flex"
               >
                 Order Now
               </motion.a>
@@ -723,8 +759,8 @@ export default function GovNavbar() {
                 onClick={() => setMobileOpen(true)}
                 aria-label="Open menu"
                 whileTap={{ scale: 0.92 }}
+                className="gov-nav-hamburger"
                 style={{
-                  display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   width: "42px",
@@ -735,7 +771,6 @@ export default function GovNavbar() {
                   cursor: "pointer",
                   color: C.text,
                 }}
-                className="lg:hidden"
               >
                 <IconMenu />
               </motion.button>

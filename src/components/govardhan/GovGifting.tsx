@@ -108,15 +108,32 @@ export default function GovGifting() {
       <style>{`
         .gov-gifting-container { padding: 0 32px; }
         .gov-gifting-features { grid-template-columns: 1fr 1fr; }
+        @media (max-width: 900px) {
+          .gov-gifting-row {
+            flex-direction: column !important;
+            gap: 32px !important;
+          }
+          .gov-gifting-left, .gov-gifting-right {
+            flex: 1 1 100% !important;
+            width: 100% !important;
+            min-width: 0 !important;
+          }
+        }
         @media (max-width: 640px) {
           .gov-gifting-section { padding: 56px 0 !important; }
           .gov-gifting-container { padding: 0 20px !important; }
           .gov-gifting-features {
-            grid-template-columns: 1fr !important;
-            gap: 22px 0 !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 18px 12px !important;
           }
           .gov-gifting-right {
             min-height: 280px !important;
+          }
+        }
+        @media (max-width: 420px) {
+          .gov-gifting-features {
+            grid-template-columns: 1fr !important;
+            gap: 18px 0 !important;
           }
         }
       `}</style>
@@ -171,6 +188,7 @@ export default function GovGifting() {
 
         {/* Two-column layout */}
         <div
+          className="gov-gifting-row"
           style={{
             display: "flex",
             gap: 48,
@@ -185,6 +203,7 @@ export default function GovGifting() {
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeInUp}
             custom={0.15}
+            className="gov-gifting-left"
             style={{
               flex: "0 0 calc(60% - 24px)",
               minWidth: 280,

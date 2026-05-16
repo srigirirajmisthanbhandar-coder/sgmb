@@ -10,7 +10,7 @@ export default function GovardhanLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div style={{ backgroundColor: "#F8F2E8" }}>
+    <div className="gov-page" style={{ backgroundColor: "#F8F2E8" }}>
       <GovNavbar />
       <GovMaharajStrip />
       {children}

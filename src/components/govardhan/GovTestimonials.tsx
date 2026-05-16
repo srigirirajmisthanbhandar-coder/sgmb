@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ── Colors ────────────────────────────────────────────────
@@ -200,6 +200,14 @@ function ArrowBtn({
 export default function GovTestimonials() {
   const [startIndex, setStartIndex] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const canPrev = startIndex > 0;
   const canNext = startIndex + VISIBLE < REVIEWS.length;
@@ -216,7 +224,8 @@ export default function GovTestimonials() {
     setStartIndex((i) => i + 1);
   }
 
-  const visible = REVIEWS.slice(startIndex, startIndex + VISIBLE);
+  // On mobile/tablet show all testimonials; on desktop, paginate to 4 visible.
+  const visible = isMobile ? REVIEWS : REVIEWS.slice(startIndex, startIndex + VISIBLE);
 
   return (
     <section className="gov-testimonials-section" style={{ background: C.bg, padding: "80px 0" }}>

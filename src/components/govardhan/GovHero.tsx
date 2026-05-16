@@ -54,6 +54,7 @@ export default function GovHero() {
 
   return (
     <section
+      className="gov-hero-section"
       style={{
         position: "relative",
         height: "calc(100svh - 170px)",
@@ -490,6 +491,7 @@ export default function GovHero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
+        className="gov-hero-scroll-indicator"
         style={{
           position: "absolute",
           bottom: 24,
@@ -549,17 +551,37 @@ export default function GovHero() {
           }
         }
         @media (max-width: 768px) {
+          .gov-hero-section {
+            height: auto !important;
+            min-height: 0 !important;
+            padding: 56px 0 72px !important;
+          }
           .gov-hero-content {
-            padding: 0 22px !important;
+            padding: 0 20px !important;
+            min-height: calc(100svh - 280px);
+          }
+          .gov-hero-scroll-indicator {
+            display: none !important;
           }
         }
         @media (max-width: 480px) {
+          .gov-hero-section {
+            padding: 48px 0 64px !important;
+          }
           .gov-hero-btn-primary,
           .gov-hero-btn-secondary {
-            padding: 12px 22px !important;
+            padding: 12px 20px !important;
             font-size: 13px !important;
             flex: 1 1 auto;
             justify-content: center;
+            min-width: 0;
+          }
+        }
+        @media (max-width: 360px) {
+          .gov-hero-btn-primary,
+          .gov-hero-btn-secondary {
+            padding: 11px 14px !important;
+            font-size: 12.5px !important;
           }
         }
       `}</style>

@@ -162,7 +162,27 @@ export default function GovMaharajStrip() {
           .gov-maharaj-scroll {
             justify-content: flex-start !important;
             padding: 12px 16px !important;
+            gap: 12px !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .gov-maharaj-scroll {
+            padding: 10px 14px 8px !important;
             gap: 10px !important;
+          }
+          .gov-maharaj-item {
+            width: 72px !important;
+            gap: 4px !important;
+          }
+          .gov-maharaj-circle {
+            width: 64px !important;
+            height: 64px !important;
+            padding: 2px !important;
+          }
+          .gov-maharaj-name {
+            font-size: 9px !important;
+            width: 72px !important;
+            height: 24px !important;
           }
         }
       `}</style>

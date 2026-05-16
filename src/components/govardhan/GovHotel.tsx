@@ -464,13 +464,35 @@ export default function GovHotel() {
         @media (max-width: 1024px) {
           .gov-hotel-grid {
             grid-template-columns: 1fr 1fr !important;
+            gap: 20px !important;
+          }
+          .gov-hotel-grid > div:nth-child(3) {
+            grid-column: 1 / -1;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr 1fr !important;
+            gap: 16px !important;
           }
         }
         @media (max-width: 768px) {
-          .gov-hotel-section { padding: 56px 0 !important; }
-        }
-        @media (max-width: 640px) {
+          .gov-hotel-section { padding: 64px 0 !important; }
           .gov-hotel-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .gov-hotel-grid > div:nth-child(2) {
+            min-height: 320px !important;
+          }
+          .gov-hotel-grid > div:nth-child(3) {
+            grid-template-columns: 1fr 1fr !important;
+          }
+          .gov-hotel-grid > div:nth-child(3) > div:nth-child(3) {
+            grid-column: 1 / -1;
+          }
+        }
+        @media (max-width: 480px) {
+          .gov-hotel-grid > div:nth-child(2) {
+            min-height: 240px !important;
+          }
+          .gov-hotel-grid > div:nth-child(3) {
             grid-template-columns: 1fr !important;
           }
         }
