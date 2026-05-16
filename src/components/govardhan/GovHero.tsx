@@ -24,15 +24,19 @@ const sweetCards = [
   { id: "8", src: "/images/mithai/KESAR Burfi logo.webp", alt: "Kesar Burfi", rotation: 10 },
 ];
 
+const INITIAL_ANGLES = sweetCards.map((_, i) => i * (360 / sweetCards.length));
+
 export default function GovHero() {
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
-  const [angles, setAngles] = useState<number[]>([]);
-  // Responsive scale so the 3D ring fits on phones with the same look as desktop.
+  const [angles, setAngles] = useState<number[]>(INITIAL_ANGLES);
+  // Responsive scale so the orbit fits on phones with the same look as desktop.
   const [scale, setScale] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
+      setIsMobile(w <= 900);
       if (w <= 360) setScale(0.55);
       else if (w <= 480) setScale(0.65);
       else if (w <= 768) setScale(0.78);
@@ -42,11 +46,6 @@ export default function GovHero() {
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
-  }, []);
-
-  // Initialize card angles
-  useEffect(() => {
-    setAngles(sweetCards.map((_, i) => i * (360 / sweetCards.length)));
   }, []);
 
   // Continuous slow rotation
@@ -65,7 +64,9 @@ export default function GovHero() {
   const cardW = 130 * scale;
   const cardH = 160 * scale;
   const cardRadius = 170 * scale;
-  const depth = 100 * scale;
+  // Drop the 3D z-offset on mobile so the orbit reads as a clean flat ring
+  // around the fixed center image (no "behind/in front" jumbling).
+  const depth = isMobile ? 0 : 100 * scale;
   const centerSize = 150 * scale;
   const centerGlow = 180 * scale;
   const girrajOuterGlow = 200 * scale;
@@ -328,7 +329,7 @@ export default function GovHero() {
             width: containerSize,
             height: containerSize,
             flexShrink: 0,
-            perspective: "800px",
+            perspective: isMobile ? "none" : "800px",
           }}
         >
           {/* Center glow */}
@@ -367,9 +368,9 @@ export default function GovHero() {
 
               const zIndex = Math.round(z + 100);
 
-              // Mouse parallax
-              const pX = (mousePos.x - 0.5) * 12;
-              const pY = (mousePos.y - 0.5) * 12;
+              // Mouse parallax (desktop only — touch devices skip it).
+              const pX = isMobile ? 0 : (mousePos.x - 0.5) * 12;
+              const pY = isMobile ? 0 : (mousePos.y - 0.5) * 12;
 
               return (
                 <div
@@ -380,7 +381,7 @@ export default function GovHero() {
                     height: cardH,
                     transform: `translate(${x}px, ${y}px) rotateX(${pY}deg) rotateY(${pX}deg) rotateZ(${card.rotation}deg)`,
                     zIndex,
-                    transformStyle: "preserve-3d",
+                    transformStyle: isMobile ? "flat" : "preserve-3d",
                     pointerEvents: "auto",
                   }}
                 >
