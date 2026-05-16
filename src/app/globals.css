@@ -915,26 +915,55 @@ img, svg, video, canvas {
   }
 }
 
-/* Big hero / banner heights → cap on mobile */
+/* Big hero / banner heights → cap on mobile.
+   Inline `height: 600`/`height:600px` etc. → fluid auto on phones. */
 @media (max-width: 768px) {
+  .gov-page [style*="height: 700px"],
   .gov-page [style*="height: 600px"],
   .gov-page [style*="height: 500px"],
-  .gov-page [style*="height: 400px"] {
+  .gov-page [style*="height: 450px"],
+  .gov-page [style*="height: 400px"],
+  .gov-page [style*="height: 350px"],
+  .gov-page [style*="height:700px"],
+  .gov-page [style*="height:600px"],
+  .gov-page [style*="height:500px"],
+  .gov-page [style*="height:450px"],
+  .gov-page [style*="height:400px"],
+  .gov-page [style*="height:350px"] {
     height: auto !important;
-    min-height: 280px;
+    min-height: 240px;
+  }
+  /* Medium fixed heights that are usually image placeholders. */
+  .gov-page [style*="height: 340px"],
+  .gov-page [style*="height: 300px"],
+  .gov-page [style*="height: 280px"],
+  .gov-page [style*="height:340px"],
+  .gov-page [style*="height:300px"],
+  .gov-page [style*="height:280px"] {
+    height: 220px !important;
   }
   /* Bring oversized padded blocks down */
   .gov-page [style*="padding: 56px 48px"],
   .gov-page [style*="padding: 64px 48px"],
-  .gov-page [style*="padding: 80px 48px"] {
-    padding: 36px 22px !important;
+  .gov-page [style*="padding: 80px 48px"],
+  .gov-page [style*="padding: 64px 40px"],
+  .gov-page [style*="padding: 48px 40px"] {
+    padding: 32px 20px !important;
+  }
+  /* Section paddings beyond the ones already covered */
+  .gov-page section[style*="padding: 120px 0"],
+  .gov-page section[style*="padding: 96px 0"],
+  .gov-page section[style*="padding: 64px 0"] {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
   }
 }
 
-/* Keep typography readable */
+/* Long inline horizontal gaps that pile up on phones */
 @media (max-width: 480px) {
-  .gov-page [style*="font-size: 24"],
-  .gov-page [style*="fontSize: 24"] {
-    /* clamp via inherent !important inline conflict — only safe for non-clamp */
+  .gov-page [style*="gap: 40px"],
+  .gov-page [style*="gap: 36px"],
+  .gov-page [style*="gap: 32px"] {
+    gap: 20px !important;
   }
 }
