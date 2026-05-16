@@ -31,6 +31,7 @@ export default function GovMaharajStrip() {
     >
       {/* Subtle top gold line */}
       <div
+        className="gov-maharaj-line"
         style={{
           height: 1,
           background: "linear-gradient(to right, transparent, #C79A3B40, #C79A3B60, #C79A3B40, transparent)",
@@ -141,6 +142,7 @@ export default function GovMaharajStrip() {
 
       {/* Subtle bottom gold line */}
       <div
+        className="gov-maharaj-line"
         style={{
           height: 1,
           background: "linear-gradient(to right, transparent, #C79A3B30, #C79A3B50, #C79A3B30, transparent)",
@@ -167,22 +169,40 @@ export default function GovMaharajStrip() {
         }
         @media (max-width: 640px) {
           .gov-maharaj-scroll {
-            padding: 10px 14px 8px !important;
+            padding: 0 14px !important;
             gap: 10px !important;
+          }
+          .gov-maharaj-line {
+            display: none !important;
           }
           .gov-maharaj-item {
             width: 72px !important;
             gap: 4px !important;
+            padding: 6px 0 4px !important;
           }
           .gov-maharaj-circle {
             width: 64px !important;
             height: 64px !important;
             padding: 2px !important;
+            animation: govMaharajPulse 2.6s ease-in-out infinite;
           }
+          .gov-maharaj-item:nth-child(2n) .gov-maharaj-circle { animation-delay: 0.4s; }
+          .gov-maharaj-item:nth-child(3n) .gov-maharaj-circle { animation-delay: 0.8s; }
+          .gov-maharaj-item:nth-child(4n) .gov-maharaj-circle { animation-delay: 1.2s; }
           .gov-maharaj-name {
             font-size: 9px !important;
             width: 72px !important;
             height: 24px !important;
+          }
+        }
+        @keyframes govMaharajPulse {
+          0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 2px 12px rgba(199,154,59,0.2), 0 1px 4px rgba(0,0,0,0.08);
+          }
+          50% {
+            transform: scale(1.06);
+            box-shadow: 0 4px 18px rgba(199,154,59,0.45), 0 0 22px rgba(199,154,59,0.2), 0 2px 8px rgba(0,0,0,0.1);
           }
         }
       `}</style>
