@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import GovFooter from "@/components/govardhan/GovFooter";
 
 // ─────────────────────────────────────────────────────────────
 // Palette
@@ -42,26 +43,15 @@ const fadeIn = {
 // ─────────────────────────────────────────────────────────────
 const maharaj = [
   { name: "संत श्री सियाराम बाबा", image: "/images/maharaj/siyaram-baba.webp" },
-  {
-    name: "परम पूज्य संत श्री रमेश बाबा",
-    image: "/images/maharaj/ramesh-baba.webp",
-  },
-  {
-    name: "पूज्य श्री हित प्रेमानन्द गोविन्द शरण जी",
-    image: "/images/maharaj/premanand-govind-sharan.webp",
-  },
-  {
-    name: "श्री राजेन्द्र दास जी महाराज",
-    image: "/images/maharaj/rajendra-das.webp",
-  },
-  {
-    name: "श्री चैतन्य दास महाराज जी",
-    image: "/images/maharaj/chaitanya-das.webp",
-  },
-  {
-    name: "संत श्री बालक योगेश्वर दास जी",
-    image: "/images/maharaj/balak-yogeshwar-das.webp",
-  },
+  { name: "परम पूज्य संत श्री रमेश बाबा", image: "/images/maharaj/ramesh-baba.webp" },
+  { name: "पूज्य श्री हित प्रेमानन्द गोविन्द शरण जी", image: "/images/maharaj/premanand-govind-sharan.webp" },
+  { name: "श्री राजेन्द्र दास जी महाराज", image: "/images/maharaj/rajendra-das.webp" },
+  { name: "श्री चैतन्य दास महाराज जी", image: "/images/maharaj/chaitanya-das.webp" },
+  { name: "संत श्री बालक योगेश्वर दास जी", image: "/images/maharaj/balak-yogeshwar-das.webp" },
+  { name: "श्री श्रीजी महाराज", image: "/images/maharaj/shri-shriji-maharaj.webp" },
+  { name: "श्री श्याम शरण देवाचार्य", image: "/images/maharaj/shyam-sharan-devacharya.webp" },
+  { name: "संत श्री राधाबिहारी दास जी", image: "/images/maharaj/radhabihari-das.webp" },
+  { name: "संत श्री गुरू शरणानन्द जी", image: "/images/maharaj/guru-sharnanand.webp" },
 ];
 
 const signatureSweets = [
@@ -214,37 +204,44 @@ export default function HeritagePage() {
           }
         }
 
-        /* ── Maharaj devotional gallery ── */
-        .heritage-maharaj-grid {
-          display: grid;
-          grid-template-columns: repeat(6, 1fr);
-          gap: 28px;
+        /* ── Maharaj devotional rail — single-line horizontal scroller
+              of vertical rectangle portraits with gold frames ── */
+        .heritage-maharaj-rail {
+          display: flex;
+          gap: 22px;
+          overflow-x: auto;
+          padding: 8px 32px 28px;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          scroll-padding-left: 32px;
         }
-        @media (max-width: 1024px) {
-          .heritage-maharaj-grid {
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 24px !important;
-          }
+        .heritage-maharaj-rail::-webkit-scrollbar { display: none; }
+        .heritage-maharaj-rail > * {
+          scroll-snap-align: start;
+          flex-shrink: 0;
         }
-        @media (max-width: 520px) {
-          .heritage-maharaj-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 18px !important;
-          }
-        }
-
-        .heritage-maharaj-circle {
-          width: 100%;
-          aspect-ratio: 1 / 1;
-          border-radius: 50%;
-          padding: 4px;
+        .heritage-maharaj-card {
+          width: 220px;
+          aspect-ratio: 5 / 7;
+          position: relative;
+          border-radius: 14px;
+          overflow: hidden;
+          padding: 3px;
           background: linear-gradient(135deg, ${C.gold} 0%, ${C.goldSoft} 45%, ${C.gold} 75%, #A07820 100%);
-          box-shadow: 0 8px 28px rgba(199,154,59,0.18), 0 2px 8px rgba(0,0,0,0.08);
+          box-shadow: 0 16px 38px rgba(13,59,46,0.16), 0 4px 12px rgba(0,0,0,0.08);
           transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s ease;
         }
-        .heritage-maharaj-item:hover .heritage-maharaj-circle {
-          transform: translateY(-4px) scale(1.04);
-          box-shadow: 0 14px 36px rgba(199,154,59,0.35), 0 0 28px rgba(199,154,59,0.18);
+        .heritage-maharaj-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 26px 60px rgba(13,59,46,0.24), 0 0 32px rgba(199,154,59,0.22);
+        }
+        @media (max-width: 768px) {
+          .heritage-maharaj-rail { padding: 8px 20px 24px !important; gap: 16px !important; }
+          .heritage-maharaj-card { width: 168px !important; }
+        }
+        @media (max-width: 420px) {
+          .heritage-maharaj-card { width: 148px !important; }
         }
 
         /* ── Sweets grid ── */
@@ -554,7 +551,7 @@ export default function HeritagePage() {
               padding: "0 32px",
             }}
           >
-            {/* LEFT — portrait frame */}
+            {/* LEFT — owner portrait */}
             <div style={{ position: "relative" }}>
               <div
                 aria-hidden
@@ -573,16 +570,38 @@ export default function HeritagePage() {
                   aspectRatio: "4 / 5",
                   borderRadius: 12,
                   overflow: "hidden",
+                  background:
+                    "radial-gradient(ellipse at 50% 30%, #F2E2C0 0%, #E2C994 55%, #B7902F 100%)",
                   boxShadow:
                     "0 26px 60px rgba(13,59,46,0.18), 0 4px 12px rgba(0,0,0,0.08)",
                 }}
               >
+                {/* Soft warm aura behind the portrait */}
+                <div
+                  aria-hidden
+                  style={{
+                    position: "absolute",
+                    top: "30%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: "90%",
+                    height: "70%",
+                    borderRadius: "50%",
+                    background:
+                      "radial-gradient(circle, rgba(255,240,200,0.55) 0%, rgba(199,154,59,0.18) 45%, transparent 75%)",
+                    filter: "blur(8px)",
+                    pointerEvents: "none",
+                  }}
+                />
                 <Image
-                  src="/images/new images/shop.webp"
-                  alt="The founding shop of Sri Girraj Mithan Bhandar"
+                  src="/images/owner.webp"
+                  alt="Shri Bhagavan Singh Saini — founder of Sri Girraj Mithan Bhandar"
                   fill
                   sizes="(max-width: 900px) 92vw, 480px"
-                  style={{ objectFit: "cover" }}
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "center 20%",
+                  }}
                 />
                 <div
                   aria-hidden
@@ -590,7 +609,7 @@ export default function HeritagePage() {
                     position: "absolute",
                     inset: 0,
                     background:
-                      "linear-gradient(to bottom, transparent 60%, rgba(13,59,46,0.55) 100%)",
+                      "linear-gradient(to bottom, transparent 55%, rgba(13,59,46,0.7) 100%)",
                   }}
                 />
                 <div
@@ -617,12 +636,13 @@ export default function HeritagePage() {
                   <p
                     style={{
                       fontFamily: "var(--font-heading, serif)",
-                      fontSize: 22,
+                      fontSize: 24,
                       fontStyle: "italic",
                       margin: "6px 0 0",
+                      lineHeight: 1.15,
                     }}
                   >
-                    Shri Banwari Lal Ji
+                    Shri Bhagavan Singh Saini
                   </p>
                 </div>
               </div>
@@ -677,7 +697,7 @@ export default function HeritagePage() {
                   letterSpacing: "-0.005em",
                 }}
               >
-                A devotion to{" "}
+                One man's{" "}
                 <em
                   style={{
                     fontStyle: "italic",
@@ -685,10 +705,11 @@ export default function HeritagePage() {
                     fontWeight: 500,
                   }}
                 >
-                  Girraj Ji
+                  devotion
                 </em>
+                ,
                 <br />
-                handed down through three generations.
+                a family's lasting legacy.
               </h2>
               <LotusDivider small />
               <p
@@ -701,12 +722,15 @@ export default function HeritagePage() {
                   marginBottom: 14,
                 }}
               >
-                In 1982, on the parikrama path of Govardhan Hill, a small
-                wood-fired hearth was lit with a vow — to serve every
-                pilgrim a mithai as pure as the soil beneath Giriraj Baba's
-                feet. From that single hearth, our family has tended a
-                tradition: only desi ghee, only the day's finest milk, only
-                recipes whispered between father and son.
+                In 1982, on the sacred parikrama path of Govardhan Hill,
+                <strong style={{ color: C.green, fontWeight: 600 }}>
+                  {" "}Shri Bhagavan Singh Saini{" "}
+                </strong>
+                lit a small wood-fired hearth with a single vow — to serve
+                every pilgrim a mithai as pure as the soil beneath Giriraj
+                Baba's feet. With folded hands and unshaken faith, he began
+                what today the world knows as{" "}
+                <em>Sri Girraj Mithan Bhandar</em>.
               </p>
               <p
                 style={{
@@ -718,7 +742,9 @@ export default function HeritagePage() {
                   marginBottom: 24,
                 }}
               >
-                Three generations later, the hearth still burns. Every peda,
+                For four decades, Bhagavan ji has held the family to one
+                rule — only desi ghee, only the day's finest milk, only
+                recipes that pass quietly from father to son. Every peda,
                 every laddu, every kaju katli that leaves our bhandar is
                 first offered as bhog. What you taste is what has been
                 blessed — Govardhan's grace, rolled by hand, sealed with
@@ -829,11 +855,10 @@ export default function HeritagePage() {
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeUp}
             custom={0.1}
-            className="heritage-maharaj-grid"
+            className="heritage-maharaj-rail"
             style={{
-              maxWidth: 1180,
+              maxWidth: 1280,
               margin: "0 auto",
-              padding: "12px 32px 0",
             }}
           >
             {maharaj.map((m, i) => (
@@ -843,52 +868,96 @@ export default function HeritagePage() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-40px" }}
                 variants={fadeUp}
-                custom={0.08 * i}
-                className="heritage-maharaj-item"
-                style={{
-                  textAlign: "center",
-                  cursor: "default",
-                }}
+                custom={0.05 * i}
+                className="heritage-maharaj-card"
               >
-                <div className="heritage-maharaj-circle">
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      borderRadius: "50%",
-                      overflow: "hidden",
-                      background: C.cream,
-                      position: "relative",
-                    }}
-                  >
-                    <Image
-                      src={m.image}
-                      alt={m.name}
-                      fill
-                      sizes="(max-width: 520px) 40vw, (max-width: 1024px) 22vw, 14vw"
-                      style={{
-                        objectFit: "cover",
-                        objectPosition: "top center",
-                      }}
-                    />
-                  </div>
-                </div>
-                <p
+                <div
                   style={{
-                    fontFamily: '"Noto Serif Devanagari", serif',
-                    fontSize: 12,
-                    lineHeight: 1.4,
-                    color: C.green,
-                    margin: "14px 6px 0",
-                    fontWeight: 600,
-                    opacity: 0.86,
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: 11,
+                    overflow: "hidden",
+                    position: "relative",
+                    background: C.cream,
                   }}
                 >
-                  {m.name}
-                </p>
+                  <Image
+                    src={m.image}
+                    alt={m.name}
+                    fill
+                    sizes="(max-width: 420px) 148px, (max-width: 768px) 168px, 220px"
+                    style={{
+                      objectFit: "cover",
+                      objectPosition: "top center",
+                    }}
+                  />
+                  {/* Bottom gradient + name overlay */}
+                  <div
+                    aria-hidden
+                    style={{
+                      position: "absolute",
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      height: "55%",
+                      background:
+                        "linear-gradient(to top, rgba(13,59,46,0.92) 0%, rgba(13,59,46,0.55) 45%, transparent 100%)",
+                      pointerEvents: "none",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: 14,
+                      left: 12,
+                      right: 12,
+                      color: C.cream,
+                      textAlign: "center",
+                    }}
+                  >
+                    {/* Tiny gold rule */}
+                    <div
+                      style={{
+                        width: 24,
+                        height: 1,
+                        background: C.goldSoft,
+                        margin: "0 auto 8px",
+                        opacity: 0.85,
+                      }}
+                    />
+                    <p
+                      style={{
+                        fontFamily: '"Noto Serif Devanagari", serif',
+                        fontSize: 12.5,
+                        lineHeight: 1.35,
+                        fontWeight: 600,
+                        letterSpacing: "0.01em",
+                        margin: 0,
+                        textShadow: "0 2px 8px rgba(0,0,0,0.35)",
+                      }}
+                    >
+                      {m.name}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Subtle scroll hint */}
+          <p
+            style={{
+              fontFamily: "var(--font-body, sans-serif)",
+              fontSize: 10,
+              letterSpacing: "0.32em",
+              textTransform: "uppercase",
+              color: "rgba(13,59,46,0.5)",
+              textAlign: "center",
+              margin: "8px 0 0",
+            }}
+          >
+            ← Swipe to view all →
+          </p>
         </section>
 
         {/* ════════════ 6. SIGNATURE SWEETS ════════════ */}
@@ -1165,6 +1234,8 @@ export default function HeritagePage() {
           </motion.div>
         </section>
       </div>
+
+      <GovFooter />
     </>
   );
 }

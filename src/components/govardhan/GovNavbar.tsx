@@ -31,7 +31,7 @@ const NAV_LINKS = [
     ],
   },
   { label: "Hotel", href: "/govardhan/hotel" },
-  { label: "Heritage", href: "/govardhan/heritage" },
+  { label: "Heritage", href: "/heritage" },
   { label: "Festivals", href: "/govardhan/festivals" },
   { label: "Gifting", href: "/govardhan/gifting" },
   { label: "About Us", href: "/govardhan/about" },
