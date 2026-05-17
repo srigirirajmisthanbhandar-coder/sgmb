@@ -272,10 +272,14 @@ export default function HeritagePage() {
 
         /* ── Mobile section padding ── */
         @media (max-width: 768px) {
-          .heritage-section { padding: 56px 0 !important; }
+          .heritage-section { padding: 36px 0 !important; }
+          .heritage-section.heritage-top { padding: 8px 0 24px !important; }
+          .heritage-section.heritage-close { padding: 20px 0 32px !important; }
         }
         @media (max-width: 480px) {
-          .heritage-section { padding: 44px 0 !important; }
+          .heritage-section { padding: 28px 0 !important; }
+          .heritage-section.heritage-top { padding: 4px 0 18px !important; }
+          .heritage-section.heritage-close { padding: 16px 0 26px !important; }
         }
 
         /* ────────────────────────────────────────────────────
@@ -428,9 +432,9 @@ export default function HeritagePage() {
       <div className="heritage-page">
         {/* ════════════ 1 + 2. DIVINE PHRASE & GIRRAJ JI CHAVI ════════════ */}
         <section
-          className="heritage-section"
+          className="heritage-section heritage-top"
           style={{
-            padding: "88px 0 64px",
+            padding: "16px 0 40px",
             textAlign: "center",
             position: "relative",
             overflow: "hidden",
@@ -483,9 +487,9 @@ export default function HeritagePage() {
             custom={0.2}
             style={{
               position: "relative",
-              width: "min(280px, 70vw)",
-              height: "min(280px, 70vw)",
-              margin: "44px auto 0",
+              width: "min(260px, 64vw)",
+              height: "min(260px, 64vw)",
+              margin: "24px auto 0",
             }}
           >
             {/* Outer halo */}
@@ -554,7 +558,7 @@ export default function HeritagePage() {
         <section
           className="heritage-section"
           style={{
-            padding: "32px 0 64px",
+            padding: "20px 0 24px",
             borderTop: `1px solid ${C.hairline}`,
             borderBottom: `1px solid ${C.hairline}`,
           }}
@@ -666,7 +670,7 @@ export default function HeritagePage() {
         {/* ════════════ 4. OWNER / LEGACY EDITORIAL ════════════ */}
         <section
           className="heritage-section"
-          style={{ padding: "104px 0" }}
+          style={{ padding: "56px 0" }}
         >
           <motion.div
             initial="hidden"
@@ -933,7 +937,7 @@ export default function HeritagePage() {
         <section
           className="heritage-section"
           style={{
-            padding: "96px 0",
+            padding: "52px 0",
             backgroundColor: C.creamSoft,
             borderTop: `1px solid ${C.hairline}`,
             borderBottom: `1px solid ${C.hairline}`,
@@ -1093,7 +1097,7 @@ export default function HeritagePage() {
         {/* ════════════ 6. SIGNATURE SWEETS ════════════ */}
         <section
           className="heritage-section"
-          style={{ padding: "104px 0" }}
+          style={{ padding: "56px 0" }}
         >
           <motion.div
             initial="hidden"
@@ -1106,7 +1110,7 @@ export default function HeritagePage() {
               margin: "0 auto",
               padding: "0 32px",
               textAlign: "center",
-              marginBottom: 48,
+              marginBottom: 32,
             }}
           >
             <p
@@ -1334,9 +1338,9 @@ export default function HeritagePage() {
 
         {/* Closing devotional line */}
         <section
-          className="heritage-section"
+          className="heritage-section heritage-close"
           style={{
-            padding: "60px 0 96px",
+            padding: "32px 0 48px",
             textAlign: "center",
             borderTop: `1px solid ${C.hairline}`,
           }}
