@@ -10,6 +10,15 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["framer-motion", "lucide-react"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/govardhan/heritage",
+        destination: "/heritage",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
