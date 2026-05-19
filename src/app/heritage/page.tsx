@@ -176,7 +176,7 @@ export default function HeritagePage() {
           position: relative;
           overflow: hidden;
           width: 100%;
-          aspect-ratio: 3 / 2;
+          aspect-ratio: 16 / 9;
           min-height: 360px;
         }
         .heritage-hero-bg {
@@ -191,81 +191,85 @@ export default function HeritagePage() {
 
         .heritage-hero-topbar {
           position: absolute;
-          top: clamp(18px, 3vw, 36px);
+          top: clamp(16px, 2.2vw, 28px);
+          left: 0;
           right: 0;
-          z-index: 2;
-          padding: 0 clamp(20px, 4vw, 56px);
+          z-index: 3;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: clamp(12px, 1.8vw, 24px);
+          padding: 0 clamp(20px, 3.6vw, 48px);
+        }
+        @media (max-width: 760px) {
+          .heritage-hero-topbar { padding: 0 14px; gap: 8px; }
         }
 
-        /* Left name image — sits over the empty cream area on the
-           left of the hero bg image */
+        /* Name image — sits inside the top row, left slot */
         .heritage-hero-name {
-          position: absolute;
-          z-index: 2;
-          top: 50%;
-          left: clamp(20px, 5vw, 72px);
-          transform: translateY(-50%);
-          width: clamp(180px, 22vw, 320px);
+          position: relative;
+          flex: 0 0 auto;
+          width: clamp(100px, 10vw, 150px);
           aspect-ratio: 1 / 1;
           pointer-events: none;
-          filter: drop-shadow(0 6px 18px rgba(10,29,58,0.22));
+          filter: drop-shadow(0 4px 14px rgba(10,29,58,0.28));
         }
         .heritage-hero-name img {
           object-fit: contain;
         }
         @media (max-width: 760px) {
-          .heritage-hero-name {
-            top: 38%;
-            left: 14px;
-            width: clamp(140px, 32vw, 200px);
-          }
+          .heritage-hero-name { width: clamp(70px, 16vw, 110px); }
         }
 
-        /* ── Top NAV strip — premium devotional menu ── */
+        /* ── Top NAV strip — center slot of the top row,
+              items are plain bold navy text + gold ornaments,
+              only the active HOME is a premium navy pill ── */
         .heritage-hero-nav {
-          position: absolute;
-          top: clamp(18px, 2.6vw, 32px);
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 3;
+          position: relative;
+          flex: 1 1 auto;
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: clamp(6px, 1vw, 14px);
-          padding: 6px 14px;
-          background: rgba(248,242,232,0.42);
-          backdrop-filter: blur(6px);
-          -webkit-backdrop-filter: blur(6px);
-          border: 1px solid rgba(199,154,59,0.32);
-          border-radius: 9999px;
-          box-shadow: 0 8px 22px rgba(13,27,61,0.10);
         }
         @media (max-width: 980px) {
+          .heritage-hero-nav {
+            gap: 4px;
+            flex-wrap: wrap;
+          }
+        }
+        @media (max-width: 560px) {
           .heritage-hero-nav { display: none; }
         }
         .heritage-hero-nav-item {
           font-family: 'Mukta', 'Poppins', system-ui, sans-serif;
-          font-weight: 600;
-          font-size: clamp(12px, 1.05vw, 15px);
-          color: ${C.navy};
+          font-weight: 700;
+          font-size: clamp(13px, 1.1vw, 16px);
+          color: ${C.navyDeep};
           text-decoration: none;
           letter-spacing: 0.02em;
-          padding: 8px 12px;
-          border-radius: 9999px;
+          padding: 6px 4px;
+          border-radius: 6px;
           transition: color 0.25s ease, text-shadow 0.3s ease, transform 0.25s ease;
           white-space: nowrap;
+          text-shadow: 0 1px 2px rgba(255,245,210,0.55);
         }
         .heritage-hero-nav-item:hover {
-          color: ${C.navyDeep};
-          text-shadow: 0 0 14px rgba(199,154,59,0.55), 0 0 28px rgba(199,154,59,0.28);
+          color: ${C.navy};
+          text-shadow:
+            0 0 14px rgba(199,154,59,0.65),
+            0 0 28px rgba(199,154,59,0.32),
+            0 1px 2px rgba(255,245,210,0.55);
           transform: translateY(-1px);
         }
         .heritage-hero-nav-sep {
           flex: 0 0 auto;
           color: ${C.gold};
-          opacity: 0.75;
+          opacity: 0.85;
           display: inline-flex;
           align-items: center;
           justify-content: center;
+          filter: drop-shadow(0 1px 2px rgba(154,116,36,0.35));
         }
 
         /* Active HOME — premium luxury navy pill */
@@ -657,65 +661,48 @@ export default function HeritagePage() {
             />
           </div>
 
-          {/* Brand name image — sits over the empty cream space on the left */}
+          {/* Single top row — name | nav | order pill */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
             custom={0}
-            className="heritage-hero-name"
-          >
-            <Image
-              src="/images/name of shop.png"
-              alt="श्री गिरिराज मिष्ठान भंडार"
-              fill
-              sizes="(max-width: 760px) 32vw, 22vw"
-              priority
-            />
-          </motion.div>
-
-          {/* Premium top NAV */}
-          <motion.nav
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            custom={0.1}
-            className="heritage-hero-nav"
-            aria-label="Heritage primary"
-          >
-            <a href="/" className="heritage-hero-nav-active">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                <path d="M3 11l9-8 9 8" />
-                <path d="M5 10v10h14V10" />
-                <path d="M10 20v-6h4v6" />
-              </svg>
-              होम
-            </a>
-            <NavSep />
-            <a href="#darshan" className="heritage-hero-nav-item">दर्शन</a>
-            <NavSep />
-            <a href="#seva" className="heritage-hero-nav-item">सेवाएं</a>
-            <NavSep />
-            <a href="#bhog" className="heritage-hero-nav-item">छप्पन भोग</a>
-            <NavSep />
-            <a href="#gallery" className="heritage-hero-nav-item">गैलरी</a>
-            <NavSep />
-            <a href="#news" className="heritage-hero-nav-item">समाचार</a>
-            <NavSep />
-            <a href="#contact" className="heritage-hero-nav-item">संपर्क करें</a>
-          </motion.nav>
-
-          {/* Top-right CTA */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            custom={0.15}
             className="heritage-hero-topbar"
           >
+            <div className="heritage-hero-name">
+              <Image
+                src="/images/name of shop.png"
+                alt="श्री गिरिराज मिष्ठान भंडार"
+                fill
+                sizes="(max-width: 760px) 16vw, 12vw"
+                priority
+              />
+            </div>
+
+            <nav className="heritage-hero-nav" aria-label="Heritage primary">
+              <a href="/" className="heritage-hero-nav-active">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <path d="M3 11l9-8 9 8" />
+                  <path d="M5 10v10h14V10" />
+                  <path d="M10 20v-6h4v6" />
+                </svg>
+                होम
+              </a>
+              <NavSep />
+              <a href="#darshan" className="heritage-hero-nav-item">दर्शन</a>
+              <NavSep />
+              <a href="#seva" className="heritage-hero-nav-item">सेवाएं</a>
+              <NavSep />
+              <a href="#bhog" className="heritage-hero-nav-item">छप्पन भोग</a>
+              <NavSep />
+              <a href="#gallery" className="heritage-hero-nav-item">गैलरी</a>
+              <NavSep />
+              <a href="#news" className="heritage-hero-nav-item">समाचार</a>
+              <NavSep />
+              <a href="#contact" className="heritage-hero-nav-item">संपर्क करें</a>
+            </nav>
+
             <a href="/products" className="heritage-hero-order-wrap">
               <span className="heritage-hero-order">
                 ॥ मेरौ तो गिरराज बाबा ॥
