@@ -13,8 +13,11 @@ const C = {
   greenLite: "#1A5040",
   gold: "#C79A3B",
   goldSoft: "#E6CB85",
+  goldDeep: "#9A7424",
   ink: "#1F1A12",
   hairline: "rgba(199,154,59,0.28)",
+  navy: "#0A1D3A",
+  navyDeep: "#061229",
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -156,20 +159,244 @@ export default function HeritagePage() {
         }
         .heritage-page section { position: relative; }
 
-        /* ── Top divine phrase ── */
-        .heritage-phrase {
-          font-family: 'Noto Serif Devanagari', serif;
-          letter-spacing: 0.05em;
-          color: ${C.green};
+        /* ════════════════════════════════════════════════════
+           HERITAGE HERO — devotional ornate hero with gold
+           wordmark, navy ribbon CTAs, and deity stage
+           ════════════════════════════════════════════════════ */
+        .heritage-hero {
+          position: relative;
+          overflow: hidden;
+          background:
+            radial-gradient(ellipse at 78% 50%, rgba(199,154,59,0.22) 0%, transparent 55%),
+            radial-gradient(ellipse at 18% 25%, rgba(255,238,196,0.55) 0%, transparent 55%),
+            linear-gradient(135deg, #FCF5E5 0%, #F4E6C4 55%, #F8F2E8 100%);
+          padding: 56px 0 64px;
+        }
+        .heritage-hero::before {
+          content: "";
+          position: absolute;
+          inset: -1px;
+          background-image:
+            radial-gradient(circle at 8% 12%, rgba(255,255,255,0.55) 0 1.5px, transparent 2px),
+            radial-gradient(circle at 92% 18%, rgba(199,154,59,0.45) 0 1.5px, transparent 2px),
+            radial-gradient(circle at 14% 88%, rgba(199,154,59,0.4) 0 1.5px, transparent 2px),
+            radial-gradient(circle at 86% 78%, rgba(255,255,255,0.55) 0 1.5px, transparent 2px);
+          background-size: 280px 280px;
+          opacity: 0.55;
+          pointer-events: none;
         }
 
-        /* ── Girraj Ji medallion ── */
-        @keyframes heritageHalo {
-          0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
-          50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.06); }
+        .heritage-hero-grid {
+          position: relative;
+          z-index: 1;
+          display: grid;
+          grid-template-columns: 1.05fr 1fr;
+          gap: 56px;
+          align-items: center;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 32px;
         }
-        .heritage-girraj-halo {
-          animation: heritageHalo 4.5s ease-in-out infinite;
+        @media (max-width: 980px) {
+          .heritage-hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 36px !important;
+            text-align: center !important;
+          }
+        }
+
+        .heritage-hero-shri {
+          display: inline-block;
+          font-family: 'Yatra One', 'Tiro Devanagari Hindi', serif;
+          font-size: clamp(34px, 5vw, 58px);
+          line-height: 0.9;
+          background: linear-gradient(135deg, #EAD58B 0%, ${C.gold} 50%, ${C.goldDeep} 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin: 0 0 -8px;
+          letter-spacing: 0.02em;
+          filter: drop-shadow(0 2px 4px rgba(154,116,36,0.22));
+        }
+
+        .heritage-hero-wordmark {
+          font-family: 'Yatra One', 'Tiro Devanagari Hindi', serif;
+          font-size: clamp(56px, 9vw, 116px);
+          line-height: 1;
+          margin: 0;
+          background: linear-gradient(180deg, #F2DE9C 0%, ${C.gold} 48%, ${C.goldDeep} 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          letter-spacing: 0.005em;
+          filter: drop-shadow(0 3px 10px rgba(154,116,36,0.22)) drop-shadow(0 1px 0 rgba(255,245,210,0.55));
+        }
+
+        .heritage-hero-tagline {
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: clamp(15px, 1.7vw, 19px);
+          font-weight: 500;
+          color: rgba(13,59,46,0.82);
+          margin: 18px 0 0;
+          letter-spacing: 0.04em;
+          line-height: 1.5;
+        }
+
+        /* Devotional ornate ribbon — uses botton-design clip-path */
+        .heritage-hero-ribbon-wrap {
+          display: inline-block;
+          margin-top: 22px;
+          padding: 2px;
+          background: linear-gradient(135deg, ${C.goldSoft} 0%, ${C.goldDeep} 50%, ${C.goldSoft} 100%);
+          clip-path: polygon(0% 50%, 16px 0%, calc(100% - 16px) 0%, 100% 50%, calc(100% - 16px) 100%, 16px 100%);
+          box-shadow: 0 8px 22px rgba(10,29,58,0.22);
+        }
+        .heritage-hero-ribbon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 14px 48px;
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: clamp(14px, 1.45vw, 17px);
+          font-weight: 600;
+          color: ${C.goldSoft};
+          background: linear-gradient(180deg, #122B58 0%, ${C.navy} 50%, ${C.navyDeep} 100%);
+          letter-spacing: 0.06em;
+          clip-path: polygon(0% 50%, 15px 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 15px 100%);
+          text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+        }
+
+        /* Feature pills row */
+        .heritage-hero-features {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 14px;
+          margin-top: 36px;
+        }
+        @media (max-width: 980px) {
+          .heritage-hero-features {
+            grid-template-columns: repeat(2, 1fr) !important;
+            max-width: 460px;
+            margin: 32px auto 0 !important;
+          }
+        }
+        .heritage-hero-feature {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+          padding: 18px 12px 16px;
+          background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,238,196,0.22) 100%);
+          border: 1px solid rgba(199,154,59,0.32);
+          border-radius: 10px;
+          transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease, border-color 0.3s ease;
+        }
+        .heritage-hero-feature:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 14px 32px rgba(199,154,59,0.22);
+          border-color: ${C.gold};
+        }
+        .heritage-hero-feature-icon {
+          width: 34px;
+          height: 34px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: ${C.goldDeep};
+        }
+        .heritage-hero-feature-title {
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: 13.5px;
+          font-weight: 700;
+          color: ${C.navy};
+          margin: 0;
+          letter-spacing: 0.02em;
+        }
+        .heritage-hero-feature-desc {
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: 10.5px;
+          line-height: 1.42;
+          color: rgba(10,29,58,0.7);
+          margin: 0;
+          text-align: center;
+        }
+
+        /* "Today's Darshan" navy ribbon panel */
+        .heritage-hero-darshan {
+          margin-top: 34px;
+          position: relative;
+          max-width: 480px;
+        }
+        @media (max-width: 980px) {
+          .heritage-hero-darshan { margin: 34px auto 0 !important; }
+        }
+        .heritage-hero-darshan-head-wrap {
+          display: inline-block;
+          padding: 2px;
+          background: linear-gradient(135deg, ${C.goldSoft} 0%, ${C.goldDeep} 50%, ${C.goldSoft} 100%);
+          clip-path: polygon(0% 50%, 14px 0%, calc(100% - 14px) 0%, 100% 50%, calc(100% - 14px) 100%, 14px 100%);
+          position: relative;
+          z-index: 2;
+          margin-bottom: -14px;
+          margin-left: 24px;
+        }
+        .heritage-hero-darshan-head {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 9px 38px;
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: 13px;
+          font-weight: 600;
+          color: ${C.goldSoft};
+          letter-spacing: 0.18em;
+          background: linear-gradient(180deg, #122B58 0%, ${C.navy} 100%);
+          clip-path: polygon(0% 50%, 13px 0%, calc(100% - 13px) 0%, 100% 50%, calc(100% - 13px) 100%, 13px 100%);
+        }
+        .heritage-hero-darshan-body {
+          background: linear-gradient(180deg, #122B58 0%, ${C.navy} 60%, ${C.navyDeep} 100%);
+          border: 1px solid rgba(230,203,133,0.42);
+          border-radius: 10px;
+          padding: 30px 26px 22px;
+          box-shadow: 0 20px 42px rgba(10,29,58,0.28), inset 0 0 0 1px rgba(230,203,133,0.10);
+        }
+        .heritage-hero-darshan-body p {
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: 15px;
+          font-weight: 500;
+          color: #F2E2B7;
+          margin: 0;
+          letter-spacing: 0.03em;
+          line-height: 1.6;
+          text-align: center;
+          text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+        }
+
+        /* Deity stage (right column) */
+        .heritage-hero-stage {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 5 / 4;
+          border-radius: 18px;
+          overflow: hidden;
+        }
+        .heritage-hero-stage::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(ellipse at 50% 45%, rgba(255,235,180,0.7) 0%, rgba(199,154,59,0.18) 48%, transparent 75%);
+          pointer-events: none;
+          z-index: 0;
+        }
+        @media (max-width: 980px) {
+          .heritage-hero-stage {
+            max-width: 560px;
+            margin: 0 auto;
+          }
+        }
+        @media (max-width: 768px) {
+          .heritage-hero { padding: 36px 0 48px !important; }
+          .heritage-hero-grid { padding: 0 20px !important; }
         }
 
         /* ── Brand header grid ── */
@@ -430,128 +657,152 @@ export default function HeritagePage() {
       `}</style>
 
       <div className="heritage-page">
-        {/* ════════════ 1 + 2. DIVINE PHRASE & GIRRAJ JI CHAVI ════════════ */}
-        <section
-          className="heritage-section heritage-top"
-          style={{
-            padding: "16px 0 40px",
-            textAlign: "center",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          {/* Soft warm gradient backdrop */}
-          <div
-            aria-hidden
-            style={{
-              position: "absolute",
-              top: "20%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "min(820px, 92vw)",
-              height: "min(820px, 92vw)",
-              borderRadius: "50%",
-              background:
-                "radial-gradient(circle, rgba(199,154,59,0.18) 0%, rgba(248,242,232,0) 65%)",
-              pointerEvents: "none",
-            }}
-          />
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            custom={0}
-            style={{ position: "relative", padding: "0 20px" }}
-          >
-            <p
-              className="heritage-phrase"
-              style={{
-                fontSize: "clamp(28px, 4.4vw, 44px)",
-                fontWeight: 600,
-                margin: 0,
-                lineHeight: 1.2,
-              }}
+        {/* ════════════ 1. HERO ════════════ */}
+        <section className="heritage-section heritage-top heritage-hero">
+          <div className="heritage-hero-grid">
+            {/* LEFT — devotional wordmark + CTAs */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={0}
             >
-              || मेरौ तो गिरराज बाबा ||
-            </p>
-          </motion.div>
+              <span className="heritage-hero-shri">श्री</span>
+              <h1 className="heritage-hero-wordmark">गिरिराज जी</h1>
+              <p className="heritage-hero-tagline">
+                श्री नाथ जी के आराध्य, भक्तों के पालनहार
+              </p>
 
-          {/* Girraj Ji medallion */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-            custom={0.2}
-            style={{
-              position: "relative",
-              width: "min(260px, 64vw)",
-              height: "min(260px, 64vw)",
-              margin: "24px auto 0",
-            }}
-          >
-            {/* Outer halo */}
-            <div
-              className="heritage-girraj-halo"
-              aria-hidden
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                width: "140%",
-                height: "140%",
-                borderRadius: "50%",
-                background:
-                  "radial-gradient(circle, rgba(199,154,59,0.4) 0%, rgba(199,154,59,0.1) 40%, transparent 75%)",
-                filter: "blur(10px)",
-              }}
-            />
-            {/* Gold ring */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                borderRadius: "50%",
-                padding: 6,
-                background: `linear-gradient(135deg, ${C.gold} 0%, ${C.goldSoft} 45%, ${C.gold} 75%, #A07820 100%)`,
-                boxShadow:
-                  "0 30px 60px rgba(13,59,46,0.18), 0 0 0 1px rgba(199,154,59,0.4), inset 0 0 0 2px rgba(255,255,255,0.4)",
-              }}
-            >
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: "50%",
-                  overflow: "hidden",
-                  background: C.cream,
-                  position: "relative",
-                }}
+              {/* Devotional ribbon */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={0.15}
+                className="heritage-hero-ribbon-wrap"
               >
-                <Image
-                  src="/images/girraj ji.webp"
-                  alt="Shri Girraj Ji"
-                  fill
-                  sizes="(max-width: 768px) 70vw, 280px"
-                  style={{ objectFit: "cover", objectPosition: "center" }}
-                />
-                {/* Inner subtle vignette */}
-                <div
-                  aria-hidden
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    borderRadius: "50%",
-                    boxShadow:
-                      "inset 0 -30px 80px rgba(13,59,46,0.18), inset 0 20px 40px rgba(255,255,255,0.18)",
-                    pointerEvents: "none",
-                  }}
-                />
-              </div>
-            </div>
-          </motion.div>
+                <div className="heritage-hero-ribbon">
+                  ॥ गिरिराज धरण हम आपकी शरण ॥
+                </div>
+              </motion.div>
+
+              {/* 4 feature pills */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={0.25}
+                className="heritage-hero-features"
+              >
+                {[
+                  {
+                    title: "दैनिक दर्शन",
+                    desc: "प्रतिदिन गिरिराज जी के दिव्य दर्शन करें",
+                    icon: (
+                      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden>
+                        <path d="M16 3l3 4-3 1-3-1 3-4z" fill="currentColor" />
+                        <path d="M5 28V14l11-6 11 6v14H5z" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinejoin="round" />
+                        <path d="M13 28V19a3 3 0 0 1 6 0v9" stroke="currentColor" strokeWidth="1.6" fill="none" />
+                        <path d="M9 14l7-4 7 4" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "छप्पन भोग",
+                    desc: "गिरिराज जी को अर्पित छप्पन भोग के दर्शन",
+                    icon: (
+                      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden>
+                        <path d="M6 17h20a0 0 0 0 1 0 0 8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8z" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinejoin="round" />
+                        <path d="M4 17h24" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                        <circle cx="11" cy="13" r="1.4" fill="currentColor" />
+                        <circle cx="16" cy="11.5" r="1.4" fill="currentColor" />
+                        <circle cx="21" cy="13" r="1.4" fill="currentColor" />
+                        <path d="M11 9c0-1.2 1-2 2-2M16 7c0-1.2 1-2 2-2M21 9c0-1.2 1-2 2-2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "सेवा एवं दान",
+                    desc: "सेवा, भोग एवं गौ सेवा में योगदान करें",
+                    icon: (
+                      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden>
+                        <path d="M16 7c-2 3-5 4-7 4 0 4 3 7 7 9 4-2 7-5 7-9-2 0-5-1-7-4z" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinejoin="round" />
+                        <path d="M16 11c-1 1.5-2 2.5-3.5 3 0 2.2 1.5 3.8 3.5 5 2-1.2 3.5-2.8 3.5-5-1.5-.5-2.5-1.5-3.5-3z" fill="currentColor" opacity="0.45" />
+                        <path d="M9 25c2-1.5 5-2 7-2s5 .5 7 2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" fill="none" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "गैलरी",
+                    desc: "उत्सव, श्रृंगार एवं दिव्य क्षणों की झलकियाँ",
+                    icon: (
+                      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden>
+                        <rect x="5" y="7" width="22" height="18" rx="2" stroke="currentColor" strokeWidth="1.6" fill="none" />
+                        <circle cx="11" cy="13" r="1.8" fill="currentColor" />
+                        <path d="M5 22l6-6 5 5 4-4 7 7" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    ),
+                  },
+                ].map((f) => (
+                  <div key={f.title} className="heritage-hero-feature">
+                    <div className="heritage-hero-feature-icon">{f.icon}</div>
+                    <p className="heritage-hero-feature-title">{f.title}</p>
+                    <p className="heritage-hero-feature-desc">{f.desc}</p>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* Today's Darshan navy ribbon panel */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={0.35}
+                className="heritage-hero-darshan"
+              >
+                <div className="heritage-hero-darshan-head-wrap">
+                  <div className="heritage-hero-darshan-head">
+                    ॥ आज के दर्शन ॥
+                  </div>
+                </div>
+                <div className="heritage-hero-darshan-body">
+                  <p>
+                    जो गिरिराज की शरण में आया,
+                    <br />
+                    उसका कभी नहीं बिगड़ा काम॥
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* RIGHT — Deity hero image */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              custom={0.15}
+              className="heritage-hero-stage"
+            >
+              <Image
+                src="/images/hero image new.png"
+                alt="Shree Girraj Ji — divine darshan with floral shringaar and chhappan bhog"
+                fill
+                sizes="(max-width: 980px) 92vw, 600px"
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "center",
+                  position: "relative",
+                  zIndex: 1,
+                }}
+                priority
+              />
+            </motion.div>
+          </div>
         </section>
 
         {/* ════════════ 3. BRAND HEADER ════════════ */}
