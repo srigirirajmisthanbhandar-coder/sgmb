@@ -153,7 +153,8 @@ export default function HeritagePage() {
 
         /* ════════════════════════════════════════════════════
            HERITAGE HERO — full-bleed deity image background
-           with floating top nav + jai-girraj pill
+           with brand block (left), order CTA (right), and
+           a faded navy bottom band carrying a devotional line
            ════════════════════════════════════════════════════ */
         .heritage-hero {
           position: relative;
@@ -188,81 +189,137 @@ export default function HeritagePage() {
         @media (max-width: 760px) {
           .heritage-hero-topbar {
             flex-direction: column;
+            align-items: stretch;
             gap: 12px;
           }
         }
 
-        /* Menu ribbon — navy with gold border, hexagonal ends */
-        .heritage-hero-menu-wrap {
+        /* Left — logo + bold hindi brand name */
+        .heritage-hero-brand-wrap {
           padding: 2px;
           background: linear-gradient(135deg, ${C.goldSoft} 0%, ${C.goldDeep} 50%, ${C.goldSoft} 100%);
-          clip-path: polygon(0% 50%, 18px 0%, calc(100% - 18px) 0%, 100% 50%, calc(100% - 18px) 100%, 18px 100%);
-          box-shadow: 0 10px 28px rgba(10,29,58,0.35);
+          border-radius: 14px;
+          box-shadow: 0 10px 28px rgba(10,29,58,0.42);
         }
-        .heritage-hero-menu {
+        .heritage-hero-brand {
           display: flex;
           align-items: center;
-          gap: clamp(6px, 1vw, 14px);
-          padding: 8px clamp(20px, 2.6vw, 40px);
+          gap: 14px;
+          padding: 10px 22px 10px 14px;
           background: linear-gradient(180deg, #122B58 0%, ${C.navy} 60%, ${C.navyDeep} 100%);
-          clip-path: polygon(0% 50%, 17px 0%, calc(100% - 17px) 0%, 100% 50%, calc(100% - 17px) 100%, 17px 100%);
+          border-radius: 12px;
         }
-        .heritage-hero-menu a {
+        .heritage-hero-brand-logo {
+          flex: 0 0 auto;
+          width: 56px;
+          height: 56px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .heritage-hero-brand-logo img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+        .heritage-hero-brand-name {
           font-family: 'Noto Serif Devanagari', serif;
-          font-size: clamp(12px, 1.15vw, 14px);
-          font-weight: 600;
+          font-weight: 700;
+          font-size: clamp(15px, 1.7vw, 22px);
           color: ${C.goldSoft};
-          text-decoration: none;
-          letter-spacing: 0.04em;
-          padding: 6px 10px;
-          border-radius: 4px;
-          text-shadow: 0 1px 4px rgba(0,0,0,0.4);
-          transition: color 0.2s ease, background 0.2s ease;
-          white-space: nowrap;
+          letter-spacing: 0.02em;
+          line-height: 1.15;
+          text-shadow: 0 1px 6px rgba(0,0,0,0.45);
         }
-        .heritage-hero-menu a:hover {
-          color: #FFF1C8;
-        }
-        .heritage-hero-menu a.active {
-          background: linear-gradient(180deg, ${C.gold} 0%, ${C.goldDeep} 100%);
-          color: ${C.navyDeep};
+        .heritage-hero-brand-name small {
+          display: block;
+          font-family: 'Noto Serif Devanagari', serif;
+          font-weight: 500;
+          font-size: clamp(10px, 0.85vw, 12px);
+          color: rgba(242,226,183,0.78);
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          margin-top: 4px;
           text-shadow: none;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.35);
-        }
-        .heritage-hero-menu .sep {
-          color: ${C.gold};
-          opacity: 0.7;
-          font-size: 10px;
-          user-select: none;
         }
 
-        /* Top-right Jai Girraj Ji pill */
-        .heritage-hero-jai-wrap {
+        /* Right — Order button (same chevron-pill style) */
+        .heritage-hero-order-wrap {
           padding: 2px;
           background: linear-gradient(135deg, ${C.goldSoft} 0%, ${C.goldDeep} 50%, ${C.goldSoft} 100%);
           clip-path: polygon(0% 50%, 16px 0%, calc(100% - 16px) 0%, 100% 50%, calc(100% - 16px) 100%, 16px 100%);
-          box-shadow: 0 8px 22px rgba(10,29,58,0.32);
+          box-shadow: 0 8px 22px rgba(10,29,58,0.36);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .heritage-hero-jai {
+        .heritage-hero-order-wrap:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 14px 32px rgba(10,29,58,0.45);
+        }
+        .heritage-hero-order {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          padding: 10px clamp(18px, 2vw, 28px);
+          gap: 10px;
+          padding: 12px clamp(22px, 2.4vw, 36px);
           font-family: 'Noto Serif Devanagari', serif;
-          font-size: clamp(12px, 1.1vw, 14px);
-          font-weight: 600;
+          font-size: clamp(13px, 1.15vw, 15px);
+          font-weight: 700;
           color: ${C.goldSoft};
           background: linear-gradient(180deg, #122B58 0%, ${C.navy} 60%, ${C.navyDeep} 100%);
           letter-spacing: 0.08em;
           clip-path: polygon(0% 50%, 15px 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 15px 100%);
           text-shadow: 0 1px 5px rgba(0,0,0,0.45);
           white-space: nowrap;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        /* Bottom — faded navy band with devotional welcome line */
+        .heritage-hero-bottom {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 2;
+          padding: clamp(60px, 8vw, 110px) clamp(20px, 4vw, 56px) clamp(22px, 3vw, 36px);
+          background:
+            linear-gradient(to top, rgba(10,29,58,0.92) 0%, rgba(10,29,58,0.7) 55%, rgba(10,29,58,0) 100%);
+          text-align: center;
+          pointer-events: none;
+        }
+        .heritage-hero-bottom-inner {
+          max-width: 880px;
+          margin: 0 auto;
+        }
+        .heritage-hero-bottom-eyebrow {
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: clamp(11px, 0.95vw, 13px);
+          font-weight: 600;
+          letter-spacing: 0.32em;
+          text-transform: uppercase;
+          color: ${C.gold};
+          margin: 0 0 10px;
+        }
+        .heritage-hero-bottom-line {
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: clamp(16px, 2vw, 26px);
+          font-weight: 600;
+          color: #F5E6BE;
+          margin: 0;
+          line-height: 1.4;
+          letter-spacing: 0.03em;
+          text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+        }
+        .heritage-hero-bottom-line em {
+          font-style: italic;
+          color: ${C.goldSoft};
+          font-weight: 600;
         }
 
         @media (max-width: 600px) {
-          .heritage-hero { aspect-ratio: 4 / 5; min-height: 480px; }
-          .heritage-hero-menu { gap: 4px !important; padding: 6px 14px !important; }
-          .heritage-hero-menu a { font-size: 11px !important; padding: 4px 6px !important; }
+          .heritage-hero { aspect-ratio: 4 / 5; min-height: 520px; }
+          .heritage-hero-brand-logo { width: 44px; height: 44px; }
+          .heritage-hero-brand { padding: 8px 16px 8px 10px !important; gap: 10px !important; }
         }
 
         /* ── Brand header grid ── */
@@ -536,7 +593,7 @@ export default function HeritagePage() {
             />
           </div>
 
-          {/* Floating top bar — menu + jai pill */}
+          {/* Floating top bar — brand (left) + order CTA (right) */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -545,26 +602,48 @@ export default function HeritagePage() {
             custom={0}
             className="heritage-hero-topbar"
           >
-            <nav className="heritage-hero-menu-wrap">
-              <div className="heritage-hero-menu">
-                <a href="#" className="active">होम</a>
-                <span className="sep">✦</span>
-                <a href="#darshan">दर्शन</a>
-                <span className="sep">✦</span>
-                <a href="#seva">सेवाएं</a>
-                <span className="sep">✦</span>
-                <a href="#bhog">छप्पन भोग</a>
-                <span className="sep">✦</span>
-                <a href="#gallery">गैलरी</a>
-                <span className="sep">✦</span>
-                <a href="#news">समाचार</a>
-                <span className="sep">✦</span>
-                <a href="#contact">संपर्क करें</a>
+            <div className="heritage-hero-brand-wrap">
+              <div className="heritage-hero-brand">
+                <div className="heritage-hero-brand-logo">
+                  <Image
+                    src="/images/footer-logo.webp"
+                    alt="Shree Girraj Misthan Bhandar"
+                    width={56}
+                    height={56}
+                  />
+                </div>
+                <div className="heritage-hero-brand-name">
+                  श्री गिरिराज मिष्ठान भंडार
+                  <small>Govardhan · Since 1982</small>
+                </div>
               </div>
-            </nav>
+            </div>
 
-            <div className="heritage-hero-jai-wrap">
-              <div className="heritage-hero-jai">॥ जय गिरिराज जी ॥</div>
+            <a href="/products" className="heritage-hero-order-wrap">
+              <span className="heritage-hero-order">
+                ऑर्डर करें
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </span>
+            </a>
+          </motion.div>
+
+          {/* Bottom — faded navy band with devotional welcome */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={0.15}
+            className="heritage-hero-bottom"
+          >
+            <div className="heritage-hero-bottom-inner">
+              <p className="heritage-hero-bottom-eyebrow">॥ जय श्री गिरिराज ॥</p>
+              <p className="heritage-hero-bottom-line">
+                गोवर्धन की पावन भूमि से — <em>श्रद्धा से बनी, भोग रूप में अर्पित</em> — पीढ़ियों की मिठास
+              </p>
             </div>
           </motion.div>
         </section>
