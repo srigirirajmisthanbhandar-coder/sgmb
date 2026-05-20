@@ -177,54 +177,61 @@ export default function HeritagePage() {
           overflow: hidden;
           width: 100%;
           aspect-ratio: 1537 / 1023;
+          background-image: url('/images/main hero image .png');
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+          background-repeat: no-repeat;
         }
-        .heritage-hero-bg {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
-        }
-        .heritage-hero-bg img {
-          object-fit: cover;
-          object-position: center;
+        @media (max-width: 760px) {
+          .heritage-hero {
+            background-attachment: scroll;
+          }
         }
 
+        /* Sticky top bar — stays pinned across page scroll */
         .heritage-hero-topbar {
-          position: absolute;
-          top: clamp(16px, 2.2vw, 28px);
+          position: fixed;
+          top: 0;
           left: 0;
           right: 0;
-          z-index: 3;
+          z-index: 50;
           display: flex;
           align-items: center;
           justify-content: space-between;
           gap: clamp(12px, 1.8vw, 24px);
-          padding: 0 clamp(20px, 3.6vw, 48px);
+          padding: 10px clamp(20px, 3.6vw, 48px);
+          background: rgba(248, 242, 232, 0.78);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-bottom: 1px solid rgba(199,154,59,0.28);
+          box-shadow: 0 6px 22px rgba(13,27,61,0.08);
         }
         @media (max-width: 760px) {
-          .heritage-hero-topbar { padding: 0 14px; gap: 8px; }
+          .heritage-hero-topbar { padding: 8px 14px; gap: 8px; }
         }
 
-        /* Hero wordmark image — gold-embossed Devanagari brand mark
-           anchored on the left, vertically centered */
+        /* Hero wordmark image — gold-embossed Devanagari brand mark,
+           anchored on the left and lifted slightly above center */
         .heritage-hero-wordmark {
           position: absolute;
           z-index: 2;
-          top: 50%;
+          top: 42%;
           left: clamp(24px, 5.5vw, 96px);
           transform: translateY(-50%);
-          width: clamp(220px, 30vw, 460px);
-          aspect-ratio: 1 / 1;
+          width: clamp(220px, 28vw, 420px);
+          aspect-ratio: 1080 / 1350;
           pointer-events: none;
-          filter: drop-shadow(0 10px 28px rgba(75,47,18,0.32));
+          filter: drop-shadow(0 12px 32px rgba(75,47,18,0.32));
         }
         .heritage-hero-wordmark img {
           object-fit: contain;
         }
         @media (max-width: 760px) {
           .heritage-hero-wordmark {
-            top: 44%;
+            top: 40%;
             left: 14px;
-            width: clamp(170px, 38vw, 280px);
+            width: clamp(160px, 36vw, 260px);
           }
         }
 
@@ -657,18 +664,7 @@ export default function HeritagePage() {
       <div className="heritage-page">
         {/* ════════════ 1. HERO ════════════ */}
         <section className="heritage-section heritage-top heritage-hero">
-          {/* Full-bleed deity background */}
-          <div className="heritage-hero-bg">
-            <Image
-              src="/images/main hero image .png"
-              alt="Shree Girraj Ji — divine darshan with floral shringaar and chhappan bhog"
-              fill
-              sizes="100vw"
-              priority
-            />
-          </div>
-
-          {/* Hero wordmark image — left-center over the bg image */}
+          {/* Hero wordmark image — left over the locked bg, lifted slightly */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -679,10 +675,10 @@ export default function HeritagePage() {
             aria-label="श्री गिरिराज मिष्ठान भंडार"
           >
             <Image
-              src="/images/hero-wordmark.png"
+              src="/images/name.png"
               alt="श्री गिरिराज मिष्ठान भंडार"
               fill
-              sizes="(max-width: 760px) 38vw, 30vw"
+              sizes="(max-width: 760px) 36vw, 28vw"
               priority
             />
           </motion.div>
