@@ -186,16 +186,15 @@ export default function HeritagePage() {
           overflow: hidden;
           width: 100%;
           aspect-ratio: 1536 / 1024;
-          background-image: url('/images/new hero.webp');
-          background-size: cover;
-          background-position: center;
-          background-attachment: fixed;
-          background-repeat: no-repeat;
         }
-        @media (max-width: 760px) {
-          .heritage-hero {
-            background-attachment: scroll;
-          }
+        .heritage-hero-bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+        }
+        .heritage-hero-bg img {
+          object-fit: cover;
+          object-position: center;
         }
 
         /* Sticky top bar — fully transparent at hero top,
@@ -685,7 +684,18 @@ export default function HeritagePage() {
       <div className="heritage-page">
         {/* ════════════ 1. HERO ════════════ */}
         <section className="heritage-section heritage-top heritage-hero">
-          {/* Hero wordmark image — left over the locked bg, lifted slightly */}
+          {/* Full-bleed deity background */}
+          <div className="heritage-hero-bg">
+            <Image
+              src="/images/new hero.webp"
+              alt="Shree Girraj Ji — divine darshan with floral shringaar and chhappan bhog"
+              fill
+              sizes="100vw"
+              priority
+            />
+          </div>
+
+          {/* Hero wordmark image — left, lifted 180px above center */}
           <motion.div
             initial="hidden"
             whileInView="visible"
