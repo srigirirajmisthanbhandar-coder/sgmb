@@ -205,8 +205,9 @@ export default function HeritagePage() {
         }
 
         /* Premium devotional wordmark — left-center of hero, two-line
-           bold Devanagari with gold metallic fill, thick black stroke,
-           red glow outline, ambient saffron halo, deep drop shadow */
+           elegant antique-gold Devanagari. Bronze outline (no black),
+           soft saffron ambient glow (no red), subtle bronze drop for
+           emboss. Tuned to harmonize with the warm cream bg. */
         .heritage-hero-typo {
           position: absolute;
           z-index: 2;
@@ -221,61 +222,65 @@ export default function HeritagePage() {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 8px;
-          margin-bottom: 6px;
-          color: ${C.gold};
+          gap: 10px;
+          margin-bottom: 10px;
+          color: #d4af37;
           opacity: 0.92;
-          filter: drop-shadow(0 2px 6px rgba(13,59,46,0.25));
+          filter: drop-shadow(0 2px 6px rgba(111,74,29,0.35));
         }
         .heritage-hero-typo-feather::before,
         .heritage-hero-typo-feather::after {
           content: "";
-          height: 1.5px;
-          width: clamp(28px, 4vw, 60px);
-          background: linear-gradient(to right, transparent, ${C.gold});
+          height: 1px;
+          width: clamp(36px, 5vw, 80px);
+          background: linear-gradient(to right, transparent, #d4af37, #6f4a1d);
         }
         .heritage-hero-typo-feather::after {
-          background: linear-gradient(to left, transparent, ${C.gold});
+          background: linear-gradient(to left, transparent, #d4af37, #6f4a1d);
         }
         .heritage-hero-typo-line {
-          font-family: 'Yatra One', 'Mukta', 'Noto Serif Devanagari', serif;
-          font-weight: 800;
-          line-height: 0.96;
+          font-family: 'Yatra One', 'Tiro Devanagari Hindi', 'Mukta', serif;
+          font-weight: 700;
+          line-height: 1.04;
           letter-spacing: 0.005em;
           margin: 0;
-          -webkit-text-stroke: clamp(2px, 0.32vw, 5px) #0A0A0A;
+          -webkit-text-stroke: clamp(1px, 0.18vw, 2px) #4b2f12;
           background: linear-gradient(180deg,
-            #FFE89B 0%,
-            #FBC54A 22%,
-            #C79A3B 48%,
-            #8A621C 70%,
-            #C79A3B 86%,
-            #FBC54A 100%);
+            #f6e7a1 0%,
+            #e9c862 18%,
+            #d4af37 38%,
+            #b88823 56%,
+            #6f4a1d 70%,
+            #d4af37 86%,
+            #f6e7a1 100%);
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
-          text-shadow:
-            0 3px 0 rgba(0,0,0,0.55),
-            0 5px 0 rgba(0,0,0,0.35);
+          text-shadow: 0 1.5px 0 rgba(75,47,18,0.42);
           filter:
-            drop-shadow(0 0 2px rgba(200,45,35,0.95))
-            drop-shadow(0 0 6px rgba(200,45,35,0.55))
-            drop-shadow(0 0 20px rgba(255,180,80,0.55))
-            drop-shadow(0 0 42px rgba(255,180,80,0.32))
-            drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+            drop-shadow(0 0 10px rgba(243,199,106,0.5))
+            drop-shadow(0 0 28px rgba(243,199,106,0.3))
+            drop-shadow(0 4px 12px rgba(75,47,18,0.42));
         }
         .heritage-hero-typo-line-1 {
-          font-size: clamp(36px, 6vw, 92px);
+          font-size: clamp(38px, 6.2vw, 96px);
         }
         .heritage-hero-typo-line-2 {
-          font-size: clamp(28px, 4.6vw, 72px);
-          margin-top: 4px;
+          font-size: clamp(28px, 4.6vw, 70px);
+          margin-top: 6px;
+        }
+        .heritage-hero-typo-shri {
+          display: inline-block;
+          font-size: 0.62em;
+          vertical-align: 0.22em;
+          margin-right: 0.2em;
+          letter-spacing: 0.04em;
         }
         @media (max-width: 760px) {
           .heritage-hero-typo {
             top: 46%;
             left: 14px;
-            max-width: 56%;
+            max-width: 60%;
           }
         }
 
@@ -739,7 +744,8 @@ export default function HeritagePage() {
               </svg>
             </div>
             <h1 className="heritage-hero-typo-line heritage-hero-typo-line-1">
-              श्री गिरिराज
+              <span className="heritage-hero-typo-shri">श्री</span>
+              गिरिराज
             </h1>
             <p className="heritage-hero-typo-line heritage-hero-typo-line-2">
               मिष्ठान भंडार
