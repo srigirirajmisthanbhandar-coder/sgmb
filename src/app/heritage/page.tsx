@@ -185,8 +185,8 @@ export default function HeritagePage() {
           position: relative;
           overflow: hidden;
           width: 100%;
-          aspect-ratio: 1537 / 1023;
-          background-image: url('/images/main hero image .png');
+          aspect-ratio: 1536 / 1024;
+          background-image: url('/images/new hero.webp');
           background-size: cover;
           background-position: center;
           background-attachment: fixed;
@@ -231,13 +231,14 @@ export default function HeritagePage() {
           .heritage-hero-topbar { padding: 8px 14px; gap: 8px; }
         }
 
-        /* Hero wordmark image — anchored left, lifted toward the top */
+        /* Hero wordmark image — anchored left, lifted 180px above its
+           visual center for the requested high placement */
         .heritage-hero-wordmark {
           position: absolute;
           z-index: 2;
           top: 34%;
           left: clamp(24px, 5.5vw, 96px);
-          transform: translateY(-50%);
+          transform: translateY(calc(-50% - 180px));
           width: clamp(220px, 28vw, 420px);
           aspect-ratio: 1080 / 1350;
           pointer-events: none;
@@ -251,6 +252,7 @@ export default function HeritagePage() {
             top: 32%;
             left: 14px;
             width: clamp(160px, 36vw, 260px);
+            transform: translateY(calc(-50% - 120px));
           }
         }
 
