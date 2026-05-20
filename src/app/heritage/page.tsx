@@ -204,20 +204,79 @@ export default function HeritagePage() {
           .heritage-hero-topbar { padding: 0 14px; gap: 8px; }
         }
 
-        /* Name image — sits inside the top row, left slot */
-        .heritage-hero-name {
-          position: relative;
-          flex: 0 0 auto;
-          width: clamp(100px, 10vw, 150px);
-          aspect-ratio: 1 / 1;
+        /* Premium devotional wordmark — left-center of hero, two-line
+           bold Devanagari with gold metallic fill, thick black stroke,
+           red glow outline, ambient saffron halo, deep drop shadow */
+        .heritage-hero-typo {
+          position: absolute;
+          z-index: 2;
+          top: 50%;
+          left: clamp(20px, 5vw, 72px);
+          transform: translateY(-50%);
+          text-align: center;
           pointer-events: none;
-          filter: drop-shadow(0 4px 14px rgba(10,29,58,0.28));
+          max-width: 44%;
         }
-        .heritage-hero-name img {
-          object-fit: contain;
+        .heritage-hero-typo-feather {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-bottom: 6px;
+          color: ${C.gold};
+          opacity: 0.92;
+          filter: drop-shadow(0 2px 6px rgba(13,59,46,0.25));
+        }
+        .heritage-hero-typo-feather::before,
+        .heritage-hero-typo-feather::after {
+          content: "";
+          height: 1.5px;
+          width: clamp(28px, 4vw, 60px);
+          background: linear-gradient(to right, transparent, ${C.gold});
+        }
+        .heritage-hero-typo-feather::after {
+          background: linear-gradient(to left, transparent, ${C.gold});
+        }
+        .heritage-hero-typo-line {
+          font-family: 'Yatra One', 'Mukta', 'Noto Serif Devanagari', serif;
+          font-weight: 800;
+          line-height: 0.96;
+          letter-spacing: 0.005em;
+          margin: 0;
+          -webkit-text-stroke: clamp(2px, 0.32vw, 5px) #0A0A0A;
+          background: linear-gradient(180deg,
+            #FFE89B 0%,
+            #FBC54A 22%,
+            #C79A3B 48%,
+            #8A621C 70%,
+            #C79A3B 86%,
+            #FBC54A 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-shadow:
+            0 3px 0 rgba(0,0,0,0.55),
+            0 5px 0 rgba(0,0,0,0.35);
+          filter:
+            drop-shadow(0 0 2px rgba(200,45,35,0.95))
+            drop-shadow(0 0 6px rgba(200,45,35,0.55))
+            drop-shadow(0 0 20px rgba(255,180,80,0.55))
+            drop-shadow(0 0 42px rgba(255,180,80,0.32))
+            drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+        }
+        .heritage-hero-typo-line-1 {
+          font-size: clamp(36px, 6vw, 92px);
+        }
+        .heritage-hero-typo-line-2 {
+          font-size: clamp(28px, 4.6vw, 72px);
+          margin-top: 4px;
         }
         @media (max-width: 760px) {
-          .heritage-hero-name { width: clamp(70px, 16vw, 110px); }
+          .heritage-hero-typo {
+            top: 46%;
+            left: 14px;
+            max-width: 56%;
+          }
         }
 
         /* ── Top NAV strip — center slot of the top row,
@@ -660,25 +719,42 @@ export default function HeritagePage() {
             />
           </div>
 
-          {/* Single top row — name | nav | order pill */}
+          {/* Premium devotional wordmark — left-center over the bg image */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
             custom={0}
+            className="heritage-hero-typo"
+            aria-label="श्री गिरिराज मिष्ठान भंडार"
+          >
+            <div className="heritage-hero-typo-feather" aria-hidden>
+              {/* Small peacock-feather accent */}
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+                <ellipse cx="16" cy="10" rx="6" ry="9" fill="currentColor" opacity="0.85" />
+                <circle cx="16" cy="9.5" r="3" fill="#0A1D3A" />
+                <circle cx="16" cy="9.5" r="1.4" fill="currentColor" />
+                <path d="M16 19 L13 30 M16 19 L19 30 M16 19 L16 30" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+              </svg>
+            </div>
+            <h1 className="heritage-hero-typo-line heritage-hero-typo-line-1">
+              श्री गिरिराज
+            </h1>
+            <p className="heritage-hero-typo-line heritage-hero-typo-line-2">
+              मिष्ठान भंडार
+            </p>
+          </motion.div>
+
+          {/* Top row — nav + order pill */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={0.1}
             className="heritage-hero-topbar"
           >
-            <div className="heritage-hero-name">
-              <Image
-                src="/images/name of shop.png"
-                alt="श्री गिरिराज मिष्ठान भंडार"
-                fill
-                sizes="(max-width: 760px) 16vw, 12vw"
-                priority
-              />
-            </div>
-
             <nav className="heritage-hero-nav" aria-label="Heritage primary">
               <a href="/" className="heritage-hero-nav-active">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
