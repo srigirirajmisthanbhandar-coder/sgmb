@@ -204,10 +204,10 @@ export default function HeritagePage() {
           .heritage-hero-topbar { padding: 0 14px; gap: 8px; }
         }
 
-        /* Editorial devotional wordmark — left-center of hero.
-           Refined Noto Serif Devanagari with a single soft metallic
-           gradient, thin gold rule + dot ornaments, and a tracked
-           English tagline. No stroke, no red, no heavy emboss. */
+        /* Wedding-invitation devotional wordmark — left-center of
+           hero. Deep navy serif on cream gives strong contrast,
+           gold accents do the devotional work without competing
+           with the bg's own gold light. */
         .heritage-hero-typo {
           position: absolute;
           z-index: 2;
@@ -216,94 +216,117 @@ export default function HeritagePage() {
           transform: translateY(-50%);
           text-align: center;
           pointer-events: none;
-          max-width: 46%;
+          max-width: 50%;
         }
+
+        /* Top ornament — thin double rule with a center bronze dot */
         .heritage-hero-typo-rule {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 14px;
-          color: #b88823;
-          margin-bottom: 18px;
-          opacity: 0.92;
+          color: #C79A3B;
+          margin-bottom: 22px;
         }
         .heritage-hero-typo-rule::before,
         .heritage-hero-typo-rule::after {
           content: "";
-          flex: 0 1 clamp(46px, 6vw, 100px);
+          flex: 0 1 clamp(60px, 7vw, 130px);
           height: 1px;
-          background: linear-gradient(to right, transparent, #b88823, #6f4a1d);
+          background: linear-gradient(to right, transparent, #C79A3B 35%, #9A7424);
+          box-shadow: 0 2px 0 -1px #C79A3B;
         }
         .heritage-hero-typo-rule::after {
-          background: linear-gradient(to left, transparent, #b88823, #6f4a1d);
+          background: linear-gradient(to left, transparent, #C79A3B 35%, #9A7424);
         }
         .heritage-hero-typo-rule-mark {
           flex: 0 0 auto;
-          width: 7px;
-          height: 7px;
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
-          background: #b88823;
-          box-shadow: 0 0 0 3px rgba(184,136,35,0.18);
+          background: #C79A3B;
+          box-shadow: 0 0 0 4px rgba(199,154,59,0.18);
         }
 
+        /* "श्री" — small italic gold accent */
         .heritage-hero-typo-shri {
           display: block;
           font-family: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
           font-style: italic;
           font-weight: 400;
-          font-size: clamp(20px, 2.4vw, 36px);
-          color: #b88823;
+          font-size: clamp(22px, 2.6vw, 40px);
+          color: #C79A3B;
           letter-spacing: 0.04em;
-          margin-bottom: -4px;
-          filter: drop-shadow(0 1px 3px rgba(75,47,18,0.18));
+          margin: 0 0 -2px;
+          filter: drop-shadow(0 1px 2px rgba(154,116,36,0.35));
         }
 
+        /* "गिरिराज" — the visual anchor */
         .heritage-hero-typo-main {
           font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Hindi', serif;
           font-weight: 700;
-          font-size: clamp(48px, 7.2vw, 110px);
+          font-size: clamp(54px, 8.4vw, 140px);
           line-height: 1;
-          letter-spacing: -0.005em;
+          letter-spacing: -0.01em;
           margin: 0;
-          background: linear-gradient(180deg,
-            #ecd087 0%,
-            #c79a3b 42%,
-            #9a7424 78%,
-            #c79a3b 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          filter:
-            drop-shadow(0 0 16px rgba(243,199,106,0.4))
-            drop-shadow(0 4px 10px rgba(75,47,18,0.28));
+          color: ${C.navyDeep};
+          text-shadow:
+            0 1px 0 rgba(255, 240, 200, 0.55),
+            0 2px 0 rgba(255, 240, 200, 0.25),
+            0 8px 24px rgba(255, 195, 90, 0.30),
+            0 4px 12px rgba(10, 29, 58, 0.18);
         }
 
+        /* Hair-thin gold sweep beneath "गिरिराज" */
+        .heritage-hero-typo-flourish {
+          width: 70%;
+          height: 1px;
+          margin: 14px auto 0;
+          background: linear-gradient(to right, transparent, #C79A3B 30%, #C79A3B 70%, transparent);
+          opacity: 0.85;
+        }
+
+        /* "मिष्ठान भंडार" — supporting line */
         .heritage-hero-typo-sub {
           font-family: 'Noto Serif Devanagari', serif;
           font-weight: 600;
-          font-size: clamp(20px, 2.8vw, 42px);
+          font-size: clamp(22px, 3vw, 48px);
           line-height: 1;
-          letter-spacing: 0.04em;
-          margin: 12px 0 0;
-          color: #6f4a1d;
-          text-shadow: 0 1px 0 rgba(255,240,200,0.4);
+          letter-spacing: 0.06em;
+          margin: 14px 0 0;
+          color: ${C.navy};
+          text-shadow: 0 1px 0 rgba(255, 240, 200, 0.5);
         }
 
+        /* Tracked English tagline */
         .heritage-hero-typo-tagline {
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
           font-family: 'DM Sans', system-ui, sans-serif;
-          font-size: clamp(9px, 0.85vw, 11px);
+          font-size: clamp(10px, 0.95vw, 13px);
           font-weight: 600;
-          color: rgba(75,47,18,0.7);
+          color: #9A7424;
           letter-spacing: 0.42em;
           text-transform: uppercase;
-          margin: 22px 0 0;
+          margin: 26px 0 0;
+        }
+        .heritage-hero-typo-tagline::before,
+        .heritage-hero-typo-tagline::after {
+          content: "";
+          width: clamp(20px, 3vw, 40px);
+          height: 1px;
+          background: linear-gradient(to right, transparent, #C79A3B);
+        }
+        .heritage-hero-typo-tagline::after {
+          background: linear-gradient(to left, transparent, #C79A3B);
         }
 
         @media (max-width: 760px) {
           .heritage-hero-typo {
-            top: 46%;
+            top: 44%;
             left: 14px;
-            max-width: 64%;
+            max-width: 68%;
           }
         }
 
@@ -762,8 +785,11 @@ export default function HeritagePage() {
             </div>
             <span className="heritage-hero-typo-shri">श्री</span>
             <h1 className="heritage-hero-typo-main">गिरिराज</h1>
+            <div className="heritage-hero-typo-flourish" aria-hidden />
             <p className="heritage-hero-typo-sub">मिष्ठान भंडार</p>
-            <p className="heritage-hero-typo-tagline">Est. 1982 · Govardhan</p>
+            <p className="heritage-hero-typo-tagline">
+              <span>Est. 1982 · Govardhan</span>
+            </p>
           </motion.div>
 
           {/* Top row — nav + order pill */}
