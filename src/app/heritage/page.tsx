@@ -222,7 +222,7 @@ export default function HeritagePage() {
           z-index: 2;
           top: 50%;
           left: clamp(24px, 5.5vw, 96px);
-          transform: translateY(calc(-50% - 800px));
+          transform: translateY(calc(-50% - 280px));
           width: clamp(240px, 32vw, 480px);
           aspect-ratio: 1080 / 1350;
           pointer-events: none;
@@ -236,7 +236,7 @@ export default function HeritagePage() {
             top: 50%;
             left: 14px;
             width: clamp(160px, 38vw, 280px);
-            transform: translateY(calc(-50% - 480px));
+            transform: translateY(calc(-50% - 160px));
           }
         }
 
@@ -605,24 +605,29 @@ export default function HeritagePage() {
             />
           </div>
 
-          {/* Hero wordmark image — left, lifted 180px above center */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            custom={0}
+          {/* Hero wordmark image — left, lifted above center.
+              Outer div owns positioning/transform so framer-motion
+              on the inner element can't overwrite it. */}
+          <div
             className="heritage-hero-wordmark"
             aria-label="श्री गिरिराज मिष्ठान भंडार"
           >
-            <Image
-              src="/images/name.png"
-              alt="श्री गिरिराज मिष्ठान भंडार"
-              fill
-              sizes="(max-width: 760px) 36vw, 28vw"
-              priority
-            />
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              style={{ position: "absolute", inset: 0 }}
+            >
+              <Image
+                src="/images/name.png"
+                alt="श्री गिरिराज मिष्ठान भंडार"
+                fill
+                sizes="(max-width: 760px) 36vw, 28vw"
+                priority
+              />
+            </motion.div>
+          </div>
 
           {/* Top row — nav + order pill */}
           <motion.div
