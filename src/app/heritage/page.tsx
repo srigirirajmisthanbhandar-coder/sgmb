@@ -212,53 +212,47 @@ export default function HeritagePage() {
           position: absolute;
           z-index: 2;
           top: 50%;
-          left: clamp(20px, 5vw, 80px);
+          left: clamp(24px, 5.5vw, 96px);
           transform: translateY(-50%);
-          text-align: center;
+          text-align: left;
           pointer-events: none;
-          max-width: 50%;
+          max-width: 48%;
         }
 
-        /* Top ornament — thin double rule with a center bronze dot */
+        /* Top ornament — short gold bar + bronze dot, left-anchored */
         .heritage-hero-typo-rule {
           display: flex;
           align-items: center;
-          justify-content: center;
-          gap: 14px;
-          color: #C79A3B;
+          gap: 10px;
+          color: #9A7424;
           margin-bottom: 22px;
         }
-        .heritage-hero-typo-rule::before,
         .heritage-hero-typo-rule::after {
           content: "";
-          flex: 0 1 clamp(60px, 7vw, 130px);
+          flex: 0 1 clamp(60px, 7vw, 120px);
           height: 1px;
-          background: linear-gradient(to right, transparent, #C79A3B 35%, #9A7424);
-          box-shadow: 0 2px 0 -1px #C79A3B;
-        }
-        .heritage-hero-typo-rule::after {
-          background: linear-gradient(to left, transparent, #C79A3B 35%, #9A7424);
+          background: linear-gradient(to right, #9A7424, transparent);
         }
         .heritage-hero-typo-rule-mark {
           flex: 0 0 auto;
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background: #C79A3B;
-          box-shadow: 0 0 0 4px rgba(199,154,59,0.18);
+          background: #9A7424;
+          box-shadow: 0 0 0 3px rgba(154,116,36,0.20);
         }
 
-        /* "श्री" — small italic gold accent */
+        /* "श्री" — small italic dark-bronze accent (high contrast on cream) */
         .heritage-hero-typo-shri {
           display: block;
           font-family: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
           font-style: italic;
           font-weight: 400;
-          font-size: clamp(22px, 2.6vw, 40px);
-          color: #C79A3B;
-          letter-spacing: 0.04em;
+          font-size: clamp(24px, 3vw, 48px);
+          color: #4b2f12;
+          letter-spacing: 0.03em;
           margin: 0 0 -2px;
-          filter: drop-shadow(0 1px 2px rgba(154,116,36,0.35));
+          text-shadow: 0 1px 0 rgba(255, 240, 200, 0.55);
         }
 
         /* "गिरिराज" — the visual anchor */
@@ -277,13 +271,13 @@ export default function HeritagePage() {
             0 4px 12px rgba(10, 29, 58, 0.18);
         }
 
-        /* Hair-thin gold sweep beneath "गिरिराज" */
+        /* Hair-thin gold sweep beneath "गिरिराज", left-anchored */
         .heritage-hero-typo-flourish {
-          width: 70%;
+          width: clamp(140px, 18vw, 320px);
           height: 1px;
-          margin: 14px auto 0;
-          background: linear-gradient(to right, transparent, #C79A3B 30%, #C79A3B 70%, transparent);
-          opacity: 0.85;
+          margin: 14px 0 0;
+          background: linear-gradient(to right, #9A7424, #C79A3B 35%, transparent);
+          opacity: 0.95;
         }
 
         /* "मिष्ठान भंडार" — supporting line */
@@ -298,35 +292,31 @@ export default function HeritagePage() {
           text-shadow: 0 1px 0 rgba(255, 240, 200, 0.5);
         }
 
-        /* Tracked English tagline */
+        /* Tracked tagline — dark bronze (legible on cream) */
         .heritage-hero-typo-tagline {
           display: inline-flex;
           align-items: center;
           gap: 12px;
           font-family: 'DM Sans', system-ui, sans-serif;
-          font-size: clamp(10px, 0.95vw, 13px);
-          font-weight: 600;
-          color: #9A7424;
+          font-size: clamp(11px, 1vw, 14px);
+          font-weight: 700;
+          color: #4b2f12;
           letter-spacing: 0.42em;
           text-transform: uppercase;
           margin: 26px 0 0;
         }
-        .heritage-hero-typo-tagline::before,
-        .heritage-hero-typo-tagline::after {
+        .heritage-hero-typo-tagline::before {
           content: "";
-          width: clamp(20px, 3vw, 40px);
+          width: clamp(24px, 3vw, 44px);
           height: 1px;
-          background: linear-gradient(to right, transparent, #C79A3B);
-        }
-        .heritage-hero-typo-tagline::after {
-          background: linear-gradient(to left, transparent, #C79A3B);
+          background: linear-gradient(to right, #9A7424, transparent);
         }
 
         @media (max-width: 760px) {
           .heritage-hero-typo {
             top: 44%;
-            left: 14px;
-            max-width: 68%;
+            left: 18px;
+            max-width: 72%;
           }
         }
 
