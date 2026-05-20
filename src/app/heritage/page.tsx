@@ -245,22 +245,40 @@ export default function HeritagePage() {
           }
         }
 
-        /* Top-left logo — small brand mark, replaces the old menu */
+        /* Top-left logo — circular gold-rimmed navy badge,
+           same finish as the top-right order pill */
         .heritage-hero-logo {
-          display: inline-flex;
+          flex: 0 0 auto;
+          display: inline-block;
+          padding: 2px;
+          width: clamp(52px, 6vw, 72px);
+          height: clamp(52px, 6vw, 72px);
+          background: linear-gradient(135deg, ${C.goldSoft} 0%, ${C.goldDeep} 50%, ${C.goldSoft} 100%);
+          border-radius: 50%;
+          box-shadow: 0 8px 22px rgba(10,29,58,0.36);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .heritage-hero-logo:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 14px 32px rgba(10,29,58,0.45);
+        }
+        .heritage-hero-logo-inner {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: linear-gradient(180deg, #122B58 0%, ${C.navy} 60%, ${C.navyDeep} 100%);
+          display: flex;
           align-items: center;
           justify-content: center;
-          flex: 0 0 auto;
-          height: clamp(44px, 5vw, 64px);
-          transition: transform 0.3s ease, filter 0.3s ease;
+          overflow: hidden;
+          padding: 6px;
         }
-        .heritage-hero-logo img {
+        .heritage-hero-logo-inner img {
+          width: 100%;
           height: 100%;
-          width: auto;
           object-fit: contain;
-          filter: drop-shadow(0 4px 12px rgba(13, 27, 61, 0.22));
+          filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
         }
-        .heritage-hero-logo:hover { transform: translateY(-1px); }
 
         /* Right — Order button (same chevron-pill style) */
         .heritage-hero-order-wrap {
@@ -639,13 +657,15 @@ export default function HeritagePage() {
             className={`heritage-hero-topbar${scrolled ? " is-scrolled" : ""}`}
           >
             <a href="/" className="heritage-hero-logo" aria-label="Shree Girraj Misthan Bhandar — Home">
-              <Image
-                src="/images/footer-logo.webp"
-                alt="Shree Girraj Misthan Bhandar"
-                width={120}
-                height={120}
-                priority
-              />
+              <span className="heritage-hero-logo-inner">
+                <Image
+                  src="/images/footer-logo.webp"
+                  alt="Shree Girraj Misthan Bhandar"
+                  width={120}
+                  height={120}
+                  priority
+                />
+              </span>
             </a>
 
             <a href="/products" className="heritage-hero-order-wrap">
