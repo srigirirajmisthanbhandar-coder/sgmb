@@ -170,15 +170,20 @@ export default function HeritagePage() {
           overflow: hidden;
           width: 100%;
           aspect-ratio: 1536 / 1024;
+          background-image: url('/images/new hero.webp');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          user-select: none;
+          -webkit-user-select: none;
+          -webkit-touch-callout: none;
+          -webkit-user-drag: none;
         }
-        .heritage-hero-bg {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
-        }
-        .heritage-hero-bg img {
-          object-fit: cover;
-          object-position: center;
+        .heritage-hero img,
+        .heritage-hero a,
+        .heritage-hero span {
+          -webkit-user-drag: none;
+          user-drag: none;
         }
 
         /* Sticky top bar — fully transparent at hero top,
@@ -593,18 +598,13 @@ export default function HeritagePage() {
 
       <div className="heritage-page">
         {/* ════════════ 1. HERO ════════════ */}
-        <section className="heritage-section heritage-top heritage-hero">
-          {/* Full-bleed deity background */}
-          <div className="heritage-hero-bg">
-            <Image
-              src="/images/new hero.webp"
-              alt="Shree Girraj Ji — divine darshan with floral shringaar and chhappan bhog"
-              fill
-              sizes="100vw"
-              priority
-            />
-          </div>
-
+        <section
+          className="heritage-section heritage-top heritage-hero"
+          role="img"
+          aria-label="Shree Girraj Ji — divine darshan with floral shringaar and chhappan bhog"
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
+        >
           {/* Hero wordmark image — left, lifted above center.
               Outer div owns positioning/transform so framer-motion
               on the inner element can't overwrite it. */}
