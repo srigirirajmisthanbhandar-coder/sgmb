@@ -176,8 +176,7 @@ export default function HeritagePage() {
           position: relative;
           overflow: hidden;
           width: 100%;
-          aspect-ratio: 16 / 9;
-          min-height: 360px;
+          aspect-ratio: 1537 / 1023;
         }
         .heritage-hero-bg {
           position: absolute;
@@ -387,7 +386,7 @@ export default function HeritagePage() {
         }
 
         @media (max-width: 600px) {
-          .heritage-hero { aspect-ratio: 3 / 2; min-height: 320px; }
+          .heritage-hero { aspect-ratio: 1537 / 1023; min-height: 0; }
         }
 
         /* ── Brand header grid ── */
