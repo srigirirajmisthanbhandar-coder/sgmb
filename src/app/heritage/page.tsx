@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 // ─────────────────────────────────────────────────────────────
 // Palette
@@ -159,6 +160,14 @@ function LotusDivider({ small = false }: { small?: boolean }) {
 // Page
 // ─────────────────────────────────────────────────────────────
 export default function HeritagePage() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       <style>{`
@@ -189,7 +198,8 @@ export default function HeritagePage() {
           }
         }
 
-        /* Sticky glass top bar — stays pinned, transparent with blur */
+        /* Sticky top bar — fully transparent at hero top,
+           glass-frosted once scrolled past the hero crest */
         .heritage-hero-topbar {
           position: fixed;
           top: 0;
@@ -201,11 +211,21 @@ export default function HeritagePage() {
           justify-content: space-between;
           gap: clamp(12px, 1.8vw, 24px);
           padding: 10px clamp(20px, 3.6vw, 48px);
-          background: rgba(255, 250, 235, 0.08);
-          backdrop-filter: blur(16px) saturate(140%);
-          -webkit-backdrop-filter: blur(16px) saturate(140%);
-          border-bottom: 1px solid rgba(199,154,59,0.22);
-          box-shadow: 0 6px 22px rgba(13,27,61,0.06);
+          background: transparent;
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+          border-bottom: 1px solid transparent;
+          box-shadow: none;
+          transition: background 0.35s ease, backdrop-filter 0.35s ease,
+                      -webkit-backdrop-filter 0.35s ease,
+                      border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+        .heritage-hero-topbar.is-scrolled {
+          background: rgba(255, 250, 235, 0.14);
+          backdrop-filter: blur(20px) saturate(160%);
+          -webkit-backdrop-filter: blur(20px) saturate(160%);
+          border-bottom-color: rgba(199, 154, 59, 0.28);
+          box-shadow: 0 6px 22px rgba(13, 27, 61, 0.10);
         }
         @media (max-width: 760px) {
           .heritage-hero-topbar { padding: 8px 14px; gap: 8px; }
@@ -689,7 +709,7 @@ export default function HeritagePage() {
             viewport={{ once: true }}
             variants={fadeUp}
             custom={0.1}
-            className="heritage-hero-topbar"
+            className={`heritage-hero-topbar${scrolled ? " is-scrolled" : ""}`}
           >
             <nav className="heritage-hero-nav" aria-label="Heritage primary">
               <a href="/" className="heritage-hero-nav-active">
