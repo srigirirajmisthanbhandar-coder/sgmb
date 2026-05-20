@@ -214,14 +214,15 @@ export default function HeritagePage() {
           .heritage-hero-topbar { padding: 8px 14px; gap: 8px; }
         }
 
-        /* Hero wordmark image — anchored to the left and perfectly
-           vertical-centered in the hero composition */
+        /* Hero wordmark image — anchored to the left and lifted
+           360px above the vertical center so it sits in the upper
+           half of the hero composition */
         .heritage-hero-wordmark {
           position: absolute;
           z-index: 2;
           top: 50%;
           left: clamp(24px, 5.5vw, 96px);
-          transform: translateY(-50%);
+          transform: translateY(calc(-50% - 360px));
           width: clamp(240px, 32vw, 480px);
           aspect-ratio: 1080 / 1350;
           pointer-events: none;
@@ -235,6 +236,7 @@ export default function HeritagePage() {
             top: 50%;
             left: 14px;
             width: clamp(160px, 38vw, 280px);
+            transform: translateY(calc(-50% - 200px));
           }
         }
 
