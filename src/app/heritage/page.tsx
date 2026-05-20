@@ -95,22 +95,6 @@ const signatureSweets = [
 ];
 
 // ─────────────────────────────────────────────────────────────
-// Tiny gold ornament — sits between nav items
-// ─────────────────────────────────────────────────────────────
-function NavSep() {
-  return (
-    <span className="heritage-hero-nav-sep" aria-hidden>
-      <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-        <path
-          d="M6 0L7 5L12 6L7 7L6 12L5 7L0 6L5 5Z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────
 // Decorative divider — gold lotus + hairlines
 // ─────────────────────────────────────────────────────────────
 function LotusDivider({ small = false }: { small?: boolean }) {
@@ -255,97 +239,22 @@ export default function HeritagePage() {
           }
         }
 
-        /* ── Top NAV strip — center slot of the top row,
-              items are plain bold navy text + gold ornaments,
-              only the active HOME is a premium navy pill ── */
-        .heritage-hero-nav {
-          position: relative;
-          flex: 1 1 auto;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: clamp(6px, 1vw, 14px);
-        }
-        @media (max-width: 980px) {
-          .heritage-hero-nav {
-            gap: 4px;
-            flex-wrap: wrap;
-          }
-        }
-        @media (max-width: 560px) {
-          .heritage-hero-nav { display: none; }
-        }
-        .heritage-hero-nav-item {
-          font-family: 'Mukta', 'Poppins', system-ui, sans-serif;
-          font-weight: 700;
-          font-size: clamp(13px, 1.1vw, 16px);
-          color: ${C.navyDeep};
-          text-decoration: none;
-          letter-spacing: 0.02em;
-          padding: 6px 4px;
-          border-radius: 6px;
-          transition: color 0.25s ease, text-shadow 0.3s ease, transform 0.25s ease;
-          white-space: nowrap;
-          text-shadow: 0 1px 2px rgba(255,245,210,0.55);
-        }
-        .heritage-hero-nav-item:hover {
-          color: ${C.navy};
-          text-shadow:
-            0 0 14px rgba(199,154,59,0.65),
-            0 0 28px rgba(199,154,59,0.32),
-            0 1px 2px rgba(255,245,210,0.55);
-          transform: translateY(-1px);
-        }
-        .heritage-hero-nav-sep {
-          flex: 0 0 auto;
-          color: ${C.gold};
-          opacity: 0.85;
+        /* Top-left logo — small brand mark, replaces the old menu */
+        .heritage-hero-logo {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          filter: drop-shadow(0 1px 2px rgba(154,116,36,0.35));
-        }
-
-        /* Active HOME — premium luxury navy pill */
-        .heritage-hero-nav-active {
-          display: inline-flex;
-          align-items: center;
-          gap: 7px;
-          padding: 9px 20px;
-          background: linear-gradient(180deg, #142d5f 0%, #0d1b3d 60%, #061229 100%);
-          color: ${C.gold};
-          font-family: 'Mukta', 'Poppins', system-ui, sans-serif;
-          font-weight: 700;
-          font-size: clamp(12px, 1.05vw, 15px);
-          border: 1px solid ${C.gold};
-          border-radius: 9999px;
-          letter-spacing: 0.04em;
-          text-decoration: none;
-          white-space: nowrap;
-          position: relative;
-          box-shadow:
-            0 0 0 1px rgba(199,154,59,0.18),
-            0 0 22px rgba(199,154,59,0.38),
-            0 6px 14px rgba(13,27,61,0.42),
-            inset 0 1px 0 rgba(255,235,180,0.22),
-            inset 0 -1px 0 rgba(0,0,0,0.35);
-          text-shadow: 0 1px 4px rgba(0,0,0,0.45);
-          transition: box-shadow 0.3s ease, transform 0.25s ease;
-        }
-        .heritage-hero-nav-active:hover {
-          transform: translateY(-1px);
-          box-shadow:
-            0 0 0 1px rgba(199,154,59,0.28),
-            0 0 28px rgba(199,154,59,0.5),
-            0 10px 22px rgba(13,27,61,0.5),
-            inset 0 1px 0 rgba(255,235,180,0.3),
-            inset 0 -1px 0 rgba(0,0,0,0.35);
-        }
-        .heritage-hero-nav-active svg {
-          color: ${C.gold};
           flex: 0 0 auto;
-          filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+          height: clamp(44px, 5vw, 64px);
+          transition: transform 0.3s ease, filter 0.3s ease;
         }
+        .heritage-hero-logo img {
+          height: 100%;
+          width: auto;
+          object-fit: contain;
+          filter: drop-shadow(0 4px 12px rgba(13, 27, 61, 0.22));
+        }
+        .heritage-hero-logo:hover { transform: translateY(-1px); }
 
         /* Right — Order button (same chevron-pill style) */
         .heritage-hero-order-wrap {
@@ -723,28 +632,15 @@ export default function HeritagePage() {
             custom={0.1}
             className={`heritage-hero-topbar${scrolled ? " is-scrolled" : ""}`}
           >
-            <nav className="heritage-hero-nav" aria-label="Heritage primary">
-              <a href="/" className="heritage-hero-nav-active">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <path d="M3 11l9-8 9 8" />
-                  <path d="M5 10v10h14V10" />
-                  <path d="M10 20v-6h4v6" />
-                </svg>
-                होम
-              </a>
-              <NavSep />
-              <a href="#darshan" className="heritage-hero-nav-item">दर्शन</a>
-              <NavSep />
-              <a href="#seva" className="heritage-hero-nav-item">सेवाएं</a>
-              <NavSep />
-              <a href="#bhog" className="heritage-hero-nav-item">छप्पन भोग</a>
-              <NavSep />
-              <a href="#gallery" className="heritage-hero-nav-item">गैलरी</a>
-              <NavSep />
-              <a href="#news" className="heritage-hero-nav-item">समाचार</a>
-              <NavSep />
-              <a href="#contact" className="heritage-hero-nav-item">संपर्क करें</a>
-            </nav>
+            <a href="/" className="heritage-hero-logo" aria-label="Shree Girraj Misthan Bhandar — Home">
+              <Image
+                src="/images/footer-logo.webp"
+                alt="Shree Girraj Misthan Bhandar"
+                width={120}
+                height={120}
+                priority
+              />
+            </a>
 
             <a href="/products" className="heritage-hero-order-wrap">
               <span className="heritage-hero-order">
