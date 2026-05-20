@@ -222,7 +222,7 @@ export default function HeritagePage() {
           z-index: 2;
           top: 50%;
           left: clamp(24px, 5.5vw, 96px);
-          transform: translateY(calc(-50% - 360px));
+          transform: translateY(calc(-50% - 540px));
           width: clamp(240px, 32vw, 480px);
           aspect-ratio: 1080 / 1350;
           pointer-events: none;
@@ -236,7 +236,7 @@ export default function HeritagePage() {
             top: 50%;
             left: 14px;
             width: clamp(160px, 38vw, 280px);
-            transform: translateY(calc(-50% - 200px));
+            transform: translateY(calc(-50% - 320px));
           }
         }
 
