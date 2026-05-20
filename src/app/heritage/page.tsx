@@ -189,7 +189,7 @@ export default function HeritagePage() {
           }
         }
 
-        /* Sticky top bar — stays pinned across page scroll */
+        /* Sticky glass top bar — stays pinned, transparent with blur */
         .heritage-hero-topbar {
           position: fixed;
           top: 0;
@@ -201,22 +201,21 @@ export default function HeritagePage() {
           justify-content: space-between;
           gap: clamp(12px, 1.8vw, 24px);
           padding: 10px clamp(20px, 3.6vw, 48px);
-          background: rgba(248, 242, 232, 0.78);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border-bottom: 1px solid rgba(199,154,59,0.28);
-          box-shadow: 0 6px 22px rgba(13,27,61,0.08);
+          background: rgba(255, 250, 235, 0.08);
+          backdrop-filter: blur(16px) saturate(140%);
+          -webkit-backdrop-filter: blur(16px) saturate(140%);
+          border-bottom: 1px solid rgba(199,154,59,0.22);
+          box-shadow: 0 6px 22px rgba(13,27,61,0.06);
         }
         @media (max-width: 760px) {
           .heritage-hero-topbar { padding: 8px 14px; gap: 8px; }
         }
 
-        /* Hero wordmark image — gold-embossed Devanagari brand mark,
-           anchored on the left and lifted slightly above center */
+        /* Hero wordmark image — anchored left, lifted toward the top */
         .heritage-hero-wordmark {
           position: absolute;
           z-index: 2;
-          top: 42%;
+          top: 34%;
           left: clamp(24px, 5.5vw, 96px);
           transform: translateY(-50%);
           width: clamp(220px, 28vw, 420px);
@@ -229,7 +228,7 @@ export default function HeritagePage() {
         }
         @media (max-width: 760px) {
           .heritage-hero-wordmark {
-            top: 40%;
+            top: 32%;
             left: 14px;
             width: clamp(160px, 36vw, 260px);
           }
