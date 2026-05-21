@@ -359,10 +359,6 @@ export default function HeritagePage() {
           font-weight: 600;
         }
 
-        @media (max-width: 600px) {
-          .heritage-hero { aspect-ratio: 1537 / 1023; min-height: 0; }
-        }
-
         /* ── Brand header grid ── */
         .heritage-brand {
           display: grid;
