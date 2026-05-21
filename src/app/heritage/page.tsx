@@ -179,6 +179,12 @@ export default function HeritagePage() {
           -webkit-touch-callout: none;
           -webkit-user-drag: none;
         }
+        @media (max-width: 760px) {
+          .heritage-hero {
+            aspect-ratio: 1024 / 1536;
+            background-image: url('/images/mobile hero.webp');
+          }
+        }
         .heritage-hero img,
         .heritage-hero a,
         .heritage-hero span {
