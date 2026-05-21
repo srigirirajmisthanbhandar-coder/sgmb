@@ -746,7 +746,7 @@ export default function HeritagePage() {
                 />
                 <Image
                   src="/images/owner.webp"
-                  alt="Shri Bhagavan Singh Saini — founder of Shree Girraj Misthan Bhandar"
+                  alt="प्रो. भगवान सिंह हलवाई — founder of Shree Girraj Misthan Bhandar"
                   fill
                   sizes="(max-width: 900px) 92vw, 480px"
                   style={{
@@ -786,14 +786,14 @@ export default function HeritagePage() {
                   </p>
                   <p
                     style={{
-                      fontFamily: "var(--font-heading, serif)",
+                      fontFamily: '"Noto Serif Devanagari", serif',
                       fontSize: 24,
-                      fontStyle: "italic",
+                      fontWeight: 600,
                       margin: "6px 0 0",
                       lineHeight: 1.15,
                     }}
                   >
-                    Shri Bhagavan Singh Saini
+                    प्रो. भगवान सिंह हलवाई
                   </p>
                 </div>
               </div>
@@ -825,42 +825,21 @@ export default function HeritagePage() {
 
             {/* RIGHT — story */}
             <div>
-              <p
-                style={{
-                  fontFamily: "var(--font-body, sans-serif)",
-                  fontSize: 11,
-                  letterSpacing: "0.34em",
-                  textTransform: "uppercase",
-                  color: C.gold,
-                  margin: 0,
-                }}
-              >
-                Our Legacy
-              </p>
               <h2
                 style={{
-                  fontFamily: "var(--font-heading, serif)",
-                  fontSize: "clamp(30px, 3.6vw, 44px)",
-                  fontWeight: 500,
-                  color: C.green,
-                  margin: "14px 0 8px",
-                  lineHeight: 1.15,
+                  fontFamily: '"Noto Serif Devanagari", serif',
+                  fontSize: "clamp(34px, 5vw, 64px)",
+                  fontWeight: 800,
+                  color: C.navy,
+                  margin: "0 0 8px",
+                  lineHeight: 1.1,
                   letterSpacing: "-0.005em",
+                  WebkitTextStroke: `1px ${C.goldDeep}`,
+                  textShadow:
+                    "0 1px 0 rgba(255,240,200,0.55), 0 6px 18px rgba(212,175,55,0.18)",
                 }}
               >
-                One man's{" "}
-                <em
-                  style={{
-                    fontStyle: "italic",
-                    color: C.gold,
-                    fontWeight: 500,
-                  }}
-                >
-                  devotion
-                </em>
-                ,
-                <br />
-                a family's lasting legacy.
+                प्रो. भगवान सिंह हलवाई
               </h2>
               <LotusDivider small />
               <p
@@ -875,7 +854,7 @@ export default function HeritagePage() {
               >
                 In 1982, on the sacred parikrama path of Govardhan Hill,
                 <strong style={{ color: C.green, fontWeight: 600 }}>
-                  {" "}Shri Bhagavan Singh Saini{" "}
+                  {" "}प्रो. भगवान सिंह हलवाई{" "}
                 </strong>
                 lit a small wood-fired hearth with a single vow — to serve
                 every pilgrim a mithai as pure as the soil beneath Giriraj
