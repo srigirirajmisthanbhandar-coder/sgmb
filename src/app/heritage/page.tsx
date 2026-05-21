@@ -8,17 +8,26 @@ import { useEffect, useState } from "react";
 // Palette
 // ─────────────────────────────────────────────────────────────
 const C = {
-  cream: "#F8F2E8",
-  creamSoft: "#F2E8D5",
-  green: "#0D3B2E",
-  greenLite: "#1A5040",
-  gold: "#C79A3B",
-  goldSoft: "#E6CB85",
-  goldDeep: "#9A7424",
+  // Backgrounds
+  cream: "#ead3a7",       // soft antique cream — page bg
+  creamSoft: "#d8b67a",   // warm beige gold — secondary/alt bg
+  // Primary contrast
+  navy: "#0f2345",        // royal navy blue
+  navyDeep: "#091732",    // deeper navy for shadows / gradients
+  navyLite: "#1a335f",    // lighter navy for gradient highlights
+  // Gold system
+  gold: "#d4af37",        // metallic gold — borders, type, ornaments
+  goldSoft: "#f4df9b",    // champagne highlight — glows, reflections
+  goldDeep: "#7a5422",    // bronze shadow — depth, emboss
+  // Festive accents
+  marigold: "#e59a19",    // marigold orange — festive highlights
+  flowerRed: "#8a102f",   // deep floral red — devotional accent
+  // Misc
   ink: "#1F1A12",
-  hairline: "rgba(199,154,59,0.28)",
-  navy: "#0A1D3A",
-  navyDeep: "#061229",
+  hairline: "rgba(212,175,55,0.28)",
+  // Legacy alias — old code still says C.green; redirect to navy
+  green: "#0f2345",
+  greenLite: "#1a335f",
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -272,7 +281,7 @@ export default function HeritagePage() {
           width: 100%;
           height: 100%;
           border-radius: 50%;
-          background: linear-gradient(180deg, #122B58 0%, ${C.navy} 60%, ${C.navyDeep} 100%);
+          background: linear-gradient(180deg, #1a335f 0%, ${C.navy} 60%, ${C.navyDeep} 100%);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -308,7 +317,7 @@ export default function HeritagePage() {
           font-size: clamp(13px, 1.15vw, 15px);
           font-weight: 700;
           color: ${C.goldSoft};
-          background: linear-gradient(180deg, #122B58 0%, ${C.navy} 60%, ${C.navyDeep} 100%);
+          background: linear-gradient(180deg, #1a335f 0%, ${C.navy} 60%, ${C.navyDeep} 100%);
           letter-spacing: 0.08em;
           clip-path: polygon(0% 50%, 15px 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 15px 100%);
           text-shadow: 0 1px 5px rgba(0,0,0,0.45);
