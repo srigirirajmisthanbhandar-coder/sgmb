@@ -8,9 +8,6 @@ import { useEffect, useState } from "react";
 // Palette
 // ─────────────────────────────────────────────────────────────
 const C = {
-  // Backgrounds
-  cream: "#ead3a7",       // soft antique cream — page bg
-  creamSoft: "#d8b67a",   // warm beige gold — secondary/alt bg
   // Primary contrast
   navy: "#0f2345",        // royal navy blue
   navyDeep: "#091732",    // deeper navy for shadows / gradients
@@ -165,7 +162,7 @@ export default function HeritagePage() {
     <>
       <style>{`
         .heritage-page {
-          background: ${C.cream};
+          background: #FFFFFF;
         }
         .heritage-page section { position: relative; }
 
@@ -483,7 +480,7 @@ export default function HeritagePage() {
            ──────────────────────────────────────────────────── */
         .heritage-footer {
           background: ${C.green};
-          color: ${C.cream};
+          color: #FFFFFF;
           padding: 72px 0 32px;
           position: relative;
           overflow: hidden;
@@ -513,7 +510,7 @@ export default function HeritagePage() {
           font-family: var(--font-heading, serif);
           font-size: clamp(24px, 2.6vw, 30px);
           font-weight: 500;
-          color: ${C.cream};
+          color: #FFFFFF;
           margin: 0;
           letter-spacing: 0.005em;
           line-height: 1.15;
@@ -902,7 +899,7 @@ export default function HeritagePage() {
                     bottom: 22,
                     left: 22,
                     right: 22,
-                    color: C.cream,
+                    color: "#FFFFFF",
                     fontFamily: "var(--font-body, sans-serif)",
                   }}
                 >
@@ -1088,7 +1085,7 @@ export default function HeritagePage() {
           className="heritage-section"
           style={{
             padding: "52px 0",
-            backgroundColor: C.creamSoft,
+            backgroundColor: "#FAF5EA",
             borderTop: `1px solid ${C.hairline}`,
             borderBottom: `1px solid ${C.hairline}`,
           }}
@@ -1162,7 +1159,7 @@ export default function HeritagePage() {
                     borderRadius: 11,
                     overflow: "hidden",
                     position: "relative",
-                    background: C.cream,
+                    background: "#FFFFFF",
                   }}
                 >
                   <Image
@@ -1195,7 +1192,7 @@ export default function HeritagePage() {
                       bottom: 14,
                       left: 12,
                       right: 12,
-                      color: C.cream,
+                      color: "#FFFFFF",
                       textAlign: "center",
                     }}
                   >
@@ -1331,7 +1328,7 @@ export default function HeritagePage() {
                 custom={0.06 * i}
                 className="heritage-sweet-card"
                 style={{
-                  background: C.cream,
+                  background: "#FFFFFF",
                   borderRadius: 16,
                   overflow: "hidden",
                   border: `1px solid ${C.hairline}`,
@@ -1346,7 +1343,7 @@ export default function HeritagePage() {
                     position: "relative",
                     width: "100%",
                     aspectRatio: "5 / 4",
-                    background: C.creamSoft,
+                    background: "#FAF5EA",
                     overflow: "hidden",
                   }}
                 >
@@ -1461,7 +1458,7 @@ export default function HeritagePage() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = C.green;
-                e.currentTarget.style.color = C.cream;
+                e.currentTarget.style.color = "#FFFFFF";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
