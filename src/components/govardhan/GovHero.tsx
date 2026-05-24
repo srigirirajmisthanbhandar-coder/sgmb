@@ -27,10 +27,11 @@ export default function GovHero() {
       <picture>
         <source
           media="(max-width: 768px)"
-          srcSet="/images/mobile-hero-view.png"
+          srcSet="/images/mobile-hero-view.webp"
+          type="image/webp"
         />
         <img
-          src="/images/new-hero-with-size.png"
+          src="/images/new-hero-with-size-hq.webp"
           alt="Shree Giriraj Misthan Bhandar"
           fetchPriority="high"
           decoding="async"
