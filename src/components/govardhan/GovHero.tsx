@@ -25,7 +25,7 @@ export default function GovHero() {
     >
       {/* === Full background image (text is baked into the image) === */}
       <Image
-        src="/images/hero with text.webp"
+        src="/images/hero-with-text.webp"
         alt="Shree Giriraj Misthan Bhandar"
         fill
         preload
