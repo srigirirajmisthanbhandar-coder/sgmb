@@ -18,9 +18,12 @@ export default function GovHero() {
       className="gov-hero-section"
       style={{
         position: "relative",
-        height: "calc(100svh - 170px)",
+        width: "100%",
+        aspectRatio: "1535 / 1024",
+        maxHeight: "calc(100svh - 90px)",
         minHeight: 420,
         overflow: "hidden",
+        backgroundColor: "#F8F2E8",
       }}
     >
       {/* === Full background image (text is baked into the image) === */}
@@ -32,8 +35,8 @@ export default function GovHero() {
         sizes="100vw"
         quality={85}
         style={{
-          objectFit: "cover",
-          objectPosition: "center 30%",
+          objectFit: "contain",
+          objectPosition: "center",
           zIndex: 0,
         }}
       />
