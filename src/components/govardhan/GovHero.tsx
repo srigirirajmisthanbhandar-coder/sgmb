@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -13,74 +12,7 @@ const fadeInUp = {
   }),
 };
 
-const sweetCards = [
-  { id: "1", src: "/images/mithai/Kaju katli with logo.webp", alt: "Kaju Katli", rotation: -12 },
-  { id: "2", src: "/images/mithai/Peda logo.webp", alt: "Peda", rotation: 8 },
-  { id: "3", src: "/images/mithai/Besan laddu logo.webp", alt: "Besan Laddu", rotation: -6 },
-  { id: "4", src: "/images/mithai/Anjeer burfi with logo.webp", alt: "Anjeer Burfi", rotation: 14 },
-  { id: "5", src: "/images/mithai/Boondi laddu logo.webp", alt: "Motichoor Laddu", rotation: -10 },
-  { id: "6", src: "/images/mithai/Mango with logo.webp", alt: "Mango Burfi", rotation: 6 },
-  { id: "7", src: "/images/mithai/Kaju roll logo.webp", alt: "Kaju Roll", rotation: -15 },
-  { id: "8", src: "/images/mithai/KESAR Burfi logo.webp", alt: "Kesar Burfi", rotation: 10 },
-];
-
-const INITIAL_ANGLES = sweetCards.map((_, i) => i * (360 / sweetCards.length));
-
 export default function GovHero() {
-  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
-  const [angles, setAngles] = useState<number[]>(INITIAL_ANGLES);
-  // Responsive scale so the orbit fits on phones with the same look as desktop.
-  const [scale, setScale] = useState(1);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const update = () => {
-      const w = window.innerWidth;
-      setIsMobile(w <= 900);
-      if (w <= 360) setScale(0.55);
-      else if (w <= 480) setScale(0.65);
-      else if (w <= 768) setScale(0.78);
-      else if (w <= 900) setScale(0.88);
-      else setScale(1);
-    };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-
-  // Continuous slow rotation
-  useEffect(() => {
-    let raf: number;
-    const rotate = () => {
-      setAngles((prev) => prev.map((a) => (a + 0.3) % 360));
-      raf = requestAnimationFrame(rotate);
-    };
-    raf = requestAnimationFrame(rotate);
-    return () => cancelAnimationFrame(raf);
-  }, []);
-
-  // Dimensions derived from scale
-  const containerSize = 480 * scale;
-  const cardW = 130 * scale;
-  const cardH = 160 * scale;
-  const cardRadius = 170 * scale;
-  // Drop the 3D z-offset on mobile so the orbit reads as a clean flat ring
-  // around the fixed center image (no "behind/in front" jumbling).
-  const depth = isMobile ? 0 : 100 * scale;
-  const centerSize = 150 * scale;
-  const centerGlow = 180 * scale;
-  const girrajOuterGlow = 200 * scale;
-  const girrajPulse = 170 * scale;
-  const labelFont = Math.max(7, 9 * scale);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({
-      x: (e.clientX - rect.left) / rect.width,
-      y: (e.clientY - rect.top) / rect.height,
-    });
-  }, []);
-
   return (
     <section
       className="gov-hero-section"
@@ -106,31 +38,18 @@ export default function GovHero() {
         }}
       />
 
-      {/* Dark overlay for text legibility */}
+      {/* Soft dark gradient on the left for heading legibility (neutral, not green) */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           background:
-            "linear-gradient(to right, rgba(13,59,46,0.85) 0%, rgba(13,59,46,0.6) 45%, rgba(0,0,0,0.3) 100%)",
+            "linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 45%, transparent 75%)",
           zIndex: 1,
         }}
       />
 
-      {/* Bottom gradient fade */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "30%",
-          background: "linear-gradient(to top, rgba(13,59,46,0.7) 0%, transparent 100%)",
-          zIndex: 1,
-        }}
-      />
-
-      {/* === Content grid: left text + right carousel === */}
+      {/* === Content === */}
       <div
         className="gov-hero-content"
         style={{
@@ -142,13 +61,11 @@ export default function GovHero() {
           padding: "0 48px",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
         }}
       >
-        {/* Left: Text content */}
         <div
           style={{
-            maxWidth: 540,
+            maxWidth: 620,
             display: "flex",
             flexDirection: "column",
           }}
@@ -202,6 +119,7 @@ export default function GovHero() {
               color: "#F8F2E8",
               margin: 0,
               letterSpacing: "-0.01em",
+              textShadow: "0 2px 16px rgba(0,0,0,0.45)",
             }}
           >
             Shree Giriraj
@@ -240,10 +158,11 @@ export default function GovHero() {
             style={{
               fontFamily: "var(--font-body, sans-serif)",
               fontSize: "clamp(14px, 1.5vw, 16px)",
-              color: "rgba(248,242,232,0.8)",
+              color: "rgba(248,242,232,0.9)",
               margin: 0,
               lineHeight: 1.6,
-              maxWidth: 440,
+              maxWidth: 480,
+              textShadow: "0 1px 8px rgba(0,0,0,0.5)",
             }}
           >
             Handcrafted mithai made with pure desi ghee, fresh ingredients and
@@ -292,7 +211,7 @@ export default function GovHero() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 9,
-                backgroundColor: "transparent",
+                backgroundColor: "rgba(0,0,0,0.25)",
                 color: "#F8F2E8",
                 fontFamily: "var(--font-body, sans-serif)",
                 fontWeight: 600,
@@ -303,6 +222,7 @@ export default function GovHero() {
                 letterSpacing: "0.03em",
                 border: "1.5px solid rgba(199,154,59,0.5)",
                 transition: "all 0.25s ease",
+                backdropFilter: "blur(4px)",
               }}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -315,205 +235,6 @@ export default function GovHero() {
             </a>
           </motion.div>
         </div>
-
-        {/* Right: 3D Rotating Sweet Carousel */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="gov-hero-carousel"
-          onMouseMove={handleMouseMove}
-          style={{
-            position: "relative",
-            width: containerSize,
-            height: containerSize,
-            flexShrink: 0,
-            perspective: isMobile ? "none" : "800px",
-          }}
-        >
-          {/* Center glow */}
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: centerGlow,
-              height: centerGlow,
-              borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(199,154,59,0.2) 0%, transparent 70%)",
-              filter: "blur(20px)",
-              pointerEvents: "none",
-            }}
-          />
-
-          {/* Rotating cards */}
-          <div
-            className="gov-hero-ring"
-            style={{
-              position: "absolute",
-              inset: 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transformStyle: "preserve-3d",
-            }}
-          >
-            {sweetCards.map((card, index) => {
-              const angle = (angles[index] || 0) * (Math.PI / 180);
-              const x = Math.cos(angle) * cardRadius;
-              const y = Math.sin(angle) * cardRadius;
-              const z = Math.sin(angle) * depth;
-
-              const zIndex = Math.round(z + 100);
-
-              // Mouse parallax (desktop only — touch devices skip it).
-              const pX = isMobile ? 0 : (mousePos.x - 0.5) * 12;
-              const pY = isMobile ? 0 : (mousePos.y - 0.5) * 12;
-
-              return (
-                <div
-                  key={card.id}
-                  style={{
-                    position: "absolute",
-                    width: cardW,
-                    height: cardH,
-                    transform: `translate(${x}px, ${y}px) rotateX(${pY}deg) rotateY(${pX}deg) rotateZ(${card.rotation}deg)`,
-                    zIndex,
-                    transformStyle: isMobile ? "flat" : "preserve-3d",
-                    pointerEvents: "auto",
-                  }}
-                >
-                  <div
-                    className="gov-sweet-card"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      borderRadius: 16,
-                      overflow: "hidden",
-                      boxShadow: "0 8px 30px rgba(0,0,0,0.35), 0 0 20px rgba(199,154,59,0.1)",
-                      border: "1.5px solid rgba(199,154,59,0.3)",
-                      position: "relative",
-                      cursor: "pointer",
-                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    }}
-                  >
-                    <Image
-                      src={card.src}
-                      alt={card.alt}
-                      fill
-                      sizes="160px"
-                      style={{ objectFit: "cover" }}
-                    />
-                    {/* Shine overlay */}
-                    <div
-                      className="gov-sweet-shine"
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        background: "linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 50%, transparent 100%)",
-                        opacity: 0,
-                        transition: "opacity 0.3s ease",
-                        pointerEvents: "none",
-                      }}
-                    />
-                    {/* Name label at bottom */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        padding: "16px 8px 6px",
-                        background: "linear-gradient(to top, rgba(13,59,46,0.85) 0%, transparent 100%)",
-                      }}
-                    >
-                      <span
-                        style={{
-                          display: "block",
-                          fontFamily: "var(--font-body, sans-serif)",
-                          fontSize: labelFont,
-                          fontWeight: 600,
-                          color: "#F8F2E8",
-                          letterSpacing: "0.06em",
-                          textTransform: "uppercase",
-                          lineHeight: 1.1,
-                        }}
-                      >
-                        {card.alt}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Center Girraj Ji image */}
-          <div
-            className="gov-hero-girraj"
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              zIndex: 200,
-              pointerEvents: "none",
-            }}
-          >
-            {/* Outer glow */}
-            <div
-              className="gov-girraj-glow"
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: girrajOuterGlow,
-                height: girrajOuterGlow,
-                borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(199,154,59,0.45) 0%, rgba(199,154,59,0.2) 40%, rgba(199,154,59,0.05) 65%, transparent 80%)",
-                filter: "blur(12px)",
-              }}
-            />
-            {/* Inner subtle pulse glow */}
-            <div
-              className="gov-girraj-pulse"
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: girrajPulse,
-                height: girrajPulse,
-                borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(255,215,0,0.2) 0%, transparent 70%)",
-              }}
-            />
-            {/* Round image with gold border */}
-            <div
-              className="gov-girraj-image"
-              style={{
-                width: centerSize,
-                height: centerSize,
-                borderRadius: "50%",
-                overflow: "hidden",
-                border: "3px solid rgba(199,154,59,0.7)",
-                boxShadow: "0 0 30px rgba(199,154,59,0.35), 0 0 60px rgba(199,154,59,0.15), inset 0 0 20px rgba(0,0,0,0.2)",
-                position: "relative",
-              }}
-            >
-              <Image
-                src="/images/girraj ji.webp"
-                alt="Girraj Ji"
-                fill
-                preload
-                sizes="150px"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          </div>
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}
@@ -540,7 +261,7 @@ export default function GovHero() {
             fontSize: 10,
             letterSpacing: "0.15em",
             textTransform: "uppercase",
-            color: "rgba(248,242,232,0.5)",
+            color: "rgba(248,242,232,0.6)",
           }}
         >
           Scroll
@@ -548,7 +269,7 @@ export default function GovHero() {
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          style={{ width: 1, height: 20, backgroundColor: "rgba(199,154,59,0.4)" }}
+          style={{ width: 1, height: 20, backgroundColor: "rgba(199,154,59,0.5)" }}
         />
       </motion.div>
 
@@ -558,34 +279,15 @@ export default function GovHero() {
           transform: translateY(-1px);
         }
         .gov-hero-btn-secondary:hover {
-          background-color: rgba(199,154,59,0.15) !important;
+          background-color: rgba(199,154,59,0.2) !important;
           border-color: rgba(199,154,59,0.8) !important;
         }
-        .gov-sweet-card:hover {
-          transform: scale(1.12) !important;
-          box-shadow: 0 12px 40px rgba(0,0,0,0.45), 0 0 30px rgba(199,154,59,0.2) !important;
-        }
-        .gov-sweet-card:hover .gov-sweet-shine {
-          opacity: 1 !important;
-        }
-        @keyframes girrajGlow {
-          0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
-          50% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
-        }
-        .gov-girraj-pulse {
-          animation: girrajGlow 3s ease-in-out infinite;
-        }
         @media (max-width: 900px) {
-          /* Carousel + Girraj sizes come from the JS scale state so the
-             3D ring renders on mobile just like desktop, only smaller. */
           .gov-hero-content {
-            flex-direction: column-reverse !important;
-            align-items: center !important;
             justify-content: center !important;
-            gap: 28px !important;
             text-align: center;
           }
-          .gov-hero-content > div:first-child {
+          .gov-hero-content > div {
             align-items: center !important;
             text-align: center;
           }
@@ -595,23 +297,14 @@ export default function GovHero() {
           }
         }
         @media (max-width: 768px) {
-          .gov-hero-section {
-            height: auto !important;
-            min-height: 0 !important;
-            padding: 40px 0 56px !important;
-          }
           .gov-hero-content {
             padding: 0 20px !important;
-            min-height: 0 !important;
           }
           .gov-hero-scroll-indicator {
             display: none !important;
           }
         }
         @media (max-width: 480px) {
-          .gov-hero-section {
-            padding: 32px 0 48px !important;
-          }
           .gov-hero-btn-primary,
           .gov-hero-btn-secondary {
             padding: 12px 20px !important;

@@ -3,6 +3,7 @@
 import GovHero from "@/components/govardhan/GovHero";
 import GovFeatureStrip from "@/components/govardhan/GovFeatureStrip";
 import GovStory from "@/components/govardhan/GovStory";
+import GovSweetCarousel from "@/components/govardhan/GovSweetCarousel";
 import GovSignatureSweets from "@/components/govardhan/GovSignatureSweets";
 import GovHotel from "@/components/govardhan/GovHotel";
 import GovExperience from "@/components/govardhan/GovExperience";
@@ -17,6 +18,7 @@ export default function GovardhanPage() {
       <GovHero />
       <GovFeatureStrip />
       <GovStory />
+      <GovSweetCarousel />
       <GovSignatureSweets />
       <GovHotel />
       <GovExperience />
