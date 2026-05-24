@@ -23,14 +23,14 @@ export default function GovHero() {
         overflow: "hidden",
       }}
     >
-      {/* === Full background image === */}
+      {/* === Full background image (text is baked into the image) === */}
       <Image
-        src="/images/new hero.webp"
+        src="/images/hero with text.webp"
         alt="Shree Giriraj Misthan Bhandar"
         fill
         preload
         sizes="100vw"
-        quality={80}
+        quality={85}
         style={{
           objectFit: "cover",
           objectPosition: "center 30%",
@@ -38,18 +38,7 @@ export default function GovHero() {
         }}
       />
 
-      {/* Soft dark gradient on the left for heading legibility (neutral, not green) */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 45%, transparent 75%)",
-          zIndex: 1,
-        }}
-      />
-
-      {/* === Content === */}
+      {/* === Content (CTAs only) === */}
       <div
         className="gov-hero-content"
         style={{
@@ -58,9 +47,9 @@ export default function GovHero() {
           height: "100%",
           maxWidth: 1400,
           margin: "0 auto",
-          padding: "0 48px",
+          padding: "0 48px 56px",
           display: "flex",
-          alignItems: "center",
+          alignItems: "flex-end",
         }}
       >
         <div
@@ -70,111 +59,13 @@ export default function GovHero() {
             flexDirection: "column",
           }}
         >
-          {/* Eyebrow */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            custom={0}
-            variants={fadeInUp}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              marginBottom: 20,
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-body, sans-serif)",
-                fontSize: 11,
-                fontWeight: 600,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#0f2345",
-              }}
-            >
-              Since 1982 — Govardhan, Mathura
-            </span>
-            <span
-              style={{
-                display: "inline-block",
-                width: 40,
-                height: 1,
-                backgroundColor: "#0f2345",
-              }}
-            />
-          </motion.div>
-
-          {/* Heading */}
-          <motion.h1
-            initial="hidden"
-            animate="visible"
-            custom={0.1}
-            variants={fadeInUp}
-            style={{
-              fontFamily: "var(--font-heading, serif)",
-              fontSize: "clamp(38px, 5vw, 58px)",
-              fontWeight: 600,
-              lineHeight: 1.1,
-              color: "#F8F2E8",
-              margin: 0,
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Shree Giriraj
-            <br />
-            <em style={{ fontStyle: "italic", color: "#0f2345" }}>Misthan Bhandar</em>
-          </motion.h1>
-
-          {/* Gold divider with lotus */}
+          {/* CTA Buttons */}
           <motion.div
             initial="hidden"
             animate="visible"
             custom={0.2}
             variants={fadeInUp}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 14,
-              marginTop: 22,
-              marginBottom: 18,
-            }}
-          >
-            <div style={{ height: 1, width: 60, background: "linear-gradient(to right, transparent, #0f2345)" }} />
-            <svg width="24" height="20" viewBox="0 0 28 22" fill="none">
-              <path d="M14 2C14 2 10 8 4 8C10 8 8 14 4 18C8 14 12 18 14 22C16 18 20 14 24 18C20 14 18 8 24 8C18 8 14 2 14 2Z" fill="#0f2345" />
-              <circle cx="14" cy="14" r="2.5" fill="#0f2345" opacity="0.8" />
-            </svg>
-            <div style={{ height: 1, width: 60, background: "linear-gradient(to left, transparent, #0f2345)" }} />
-          </motion.div>
-
-          {/* Subtitle */}
-          <motion.p
-            initial="hidden"
-            animate="visible"
-            custom={0.3}
-            variants={fadeInUp}
-            style={{
-              fontFamily: "var(--font-body, sans-serif)",
-              fontSize: "clamp(14px, 1.5vw, 16px)",
-              color: "rgba(248,242,232,0.9)",
-              margin: 0,
-              lineHeight: 1.6,
-              maxWidth: 480,
-              textShadow: "0 1px 8px rgba(0,0,0,0.5)",
-            }}
-          >
-            Handcrafted mithai made with pure desi ghee, fresh ingredients and
-            generations of devotion — from the holy land of Govardhan.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            custom={0.45}
-            variants={fadeInUp}
-            style={{ display: "flex", gap: 14, marginTop: 32, flexWrap: "wrap" }}
+            style={{ display: "flex", gap: 14, flexWrap: "wrap" }}
           >
             <a
               href="#sweets"
@@ -297,7 +188,7 @@ export default function GovHero() {
         }
         @media (max-width: 768px) {
           .gov-hero-content {
-            padding: 0 20px !important;
+            padding: 0 20px 40px !important;
           }
           .gov-hero-scroll-indicator {
             display: none !important;
