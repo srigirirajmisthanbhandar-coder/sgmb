@@ -18,8 +18,8 @@ export default function GovHero() {
       className="gov-hero-section"
       style={{
         position: "relative",
-        height: "calc(100svh - 260px)",
-        minHeight: 380,
+        height: "calc(100svh - 170px)",
+        minHeight: 420,
         overflow: "hidden",
       }}
     >
@@ -119,7 +119,6 @@ export default function GovHero() {
               color: "#F8F2E8",
               margin: 0,
               letterSpacing: "-0.01em",
-              textShadow: "0 2px 16px rgba(0,0,0,0.45)",
             }}
           >
             Shree Giriraj

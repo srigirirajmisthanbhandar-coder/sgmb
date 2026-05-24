@@ -728,32 +728,31 @@ export default function GovNavbar() {
                 />
               </motion.a>
 
-              {/* Order Now button — desktop only */}
-              <motion.a
-                href="#order"
-                whileHover={{ scale: 1.03, boxShadow: "0 4px 20px rgba(13,59,46,0.25)" }}
-                whileTap={{ scale: 0.97 }}
+              {/* Since 1982 — heritage marker (desktop only) */}
+              <span
                 className="gov-nav-order-desktop"
+                aria-label="Established in 1982"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "7px",
-                  padding: "0 22px",
+                  gap: "8px",
+                  padding: "0 18px",
                   height: "40px",
                   borderRadius: "500px",
-                  backgroundColor: C.text,
-                  color: C.white,
+                  backgroundColor: "transparent",
+                  color: C.text,
+                  border: `1.5px solid ${C.gold}`,
                   fontFamily: "var(--font-body)",
-                  fontSize: "13.5px",
+                  fontSize: "12px",
                   fontWeight: 600,
-                  letterSpacing: "0.03em",
-                  textDecoration: "none",
-                  transition: "background .2s",
+                  letterSpacing: "0.16em",
+                  textTransform: "uppercase",
                   whiteSpace: "nowrap",
                 }}
               >
-                Order Now
-              </motion.a>
+                <span style={{ width: 5, height: 5, borderRadius: "50%", background: C.gold, display: "inline-block" }} />
+                Since 1982
+              </span>
 
               {/* Mobile hamburger */}
               <motion.button
