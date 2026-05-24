@@ -93,8 +93,8 @@ export default function GovHero() {
     >
       {/* === Full background image === */}
       <Image
-        src="/images/govardhan/hero.webp"
-        alt="Govardhan Hill at sunset"
+        src="/images/new hero.webp"
+        alt="Shree Giriraj Misthan Bhandar"
         fill
         preload
         sizes="100vw"
@@ -204,10 +204,9 @@ export default function GovHero() {
               letterSpacing: "-0.01em",
             }}
           >
-            Taste the
+            Shree Giriraj
             <br />
-            Sweetness of{" "}
-            <em style={{ fontStyle: "italic", color: "#C79A3B" }}>Braj</em>
+            <em style={{ fontStyle: "italic", color: "#C79A3B" }}>Misthan Bhandar</em>
           </motion.h1>
 
           {/* Gold divider with lotus */}
