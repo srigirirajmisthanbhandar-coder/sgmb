@@ -19,7 +19,7 @@ export default function GovHero() {
       style={{
         position: "relative",
         width: "100%",
-        aspectRatio: "1535 / 1024",
+        aspectRatio: "1983 / 793",
         maxHeight: "calc(100svh - 90px)",
         minHeight: 420,
         overflow: "hidden",
@@ -28,7 +28,7 @@ export default function GovHero() {
     >
       {/* === Full background image (text is baked into the image) === */}
       <Image
-        src="/images/hero-with-text.webp"
+        src="/images/new-hero-with-size.webp"
         alt="Shree Giriraj Misthan Bhandar"
         fill
         preload
