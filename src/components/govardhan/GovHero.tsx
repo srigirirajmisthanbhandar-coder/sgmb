@@ -18,8 +18,8 @@ export default function GovHero() {
       className="gov-hero-section"
       style={{
         position: "relative",
-        height: "calc(100svh - 170px)",
-        minHeight: 420,
+        height: "calc(100svh - 260px)",
+        minHeight: 380,
         overflow: "hidden",
       }}
     >
@@ -90,7 +90,7 @@ export default function GovHero() {
                 fontWeight: 600,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#C79A3B",
+                color: "#0f2345",
               }}
             >
               Since 1982 — Govardhan, Mathura
@@ -100,7 +100,7 @@ export default function GovHero() {
                 display: "inline-block",
                 width: 40,
                 height: 1,
-                backgroundColor: "#C79A3B",
+                backgroundColor: "#0f2345",
               }}
             />
           </motion.div>
@@ -124,7 +124,7 @@ export default function GovHero() {
           >
             Shree Giriraj
             <br />
-            <em style={{ fontStyle: "italic", color: "#C79A3B" }}>Misthan Bhandar</em>
+            <em style={{ fontStyle: "italic", color: "#0f2345" }}>Misthan Bhandar</em>
           </motion.h1>
 
           {/* Gold divider with lotus */}
@@ -141,12 +141,12 @@ export default function GovHero() {
               marginBottom: 18,
             }}
           >
-            <div style={{ height: 1, width: 60, background: "linear-gradient(to right, transparent, #C79A3B)" }} />
+            <div style={{ height: 1, width: 60, background: "linear-gradient(to right, transparent, #0f2345)" }} />
             <svg width="24" height="20" viewBox="0 0 28 22" fill="none">
-              <path d="M14 2C14 2 10 8 4 8C10 8 8 14 4 18C8 14 12 18 14 22C16 18 20 14 24 18C20 14 18 8 24 8C18 8 14 2 14 2Z" fill="#C79A3B" />
-              <circle cx="14" cy="14" r="2.5" fill="#C79A3B" opacity="0.8" />
+              <path d="M14 2C14 2 10 8 4 8C10 8 8 14 4 18C8 14 12 18 14 22C16 18 20 14 24 18C20 14 18 8 24 8C18 8 14 2 14 2Z" fill="#0f2345" />
+              <circle cx="14" cy="14" r="2.5" fill="#0f2345" opacity="0.8" />
             </svg>
-            <div style={{ height: 1, width: 60, background: "linear-gradient(to left, transparent, #C79A3B)" }} />
+            <div style={{ height: 1, width: 60, background: "linear-gradient(to left, transparent, #0f2345)" }} />
           </motion.div>
 
           {/* Subtitle */}
@@ -184,8 +184,8 @@ export default function GovHero() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 9,
-                backgroundColor: "#C79A3B",
-                color: "#0D3B2E",
+                backgroundColor: "#0f2345",
+                color: "#F8F2E8",
                 fontFamily: "var(--font-body, sans-serif)",
                 fontWeight: 600,
                 fontSize: 14,
@@ -197,7 +197,7 @@ export default function GovHero() {
                 transition: "all 0.25s ease",
               }}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D3B2E" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F8F2E8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="9" cy="21" r="1" />
                 <circle cx="20" cy="21" r="1" />
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
@@ -220,12 +220,12 @@ export default function GovHero() {
                 borderRadius: 9999,
                 textDecoration: "none",
                 letterSpacing: "0.03em",
-                border: "1.5px solid rgba(199,154,59,0.5)",
+                border: "1.5px solid rgba(15,35,69,0.5)",
                 transition: "all 0.25s ease",
                 backdropFilter: "blur(4px)",
               }}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F8F2E8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 4v16" />
                 <path d="M2 8h18a2 2 0 0 1 2 2v10" />
                 <path d="M2 17h20" />
@@ -269,18 +269,18 @@ export default function GovHero() {
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          style={{ width: 1, height: 20, backgroundColor: "rgba(199,154,59,0.5)" }}
+          style={{ width: 1, height: 20, backgroundColor: "rgba(15,35,69,0.5)" }}
         />
       </motion.div>
 
       <style>{`
         .gov-hero-btn-primary:hover {
-          background-color: #d4a84a !important;
+          background-color: #1a335f !important;
           transform: translateY(-1px);
         }
         .gov-hero-btn-secondary:hover {
-          background-color: rgba(199,154,59,0.2) !important;
-          border-color: rgba(199,154,59,0.8) !important;
+          background-color: rgba(15,35,69,0.45) !important;
+          border-color: rgba(15,35,69,0.9) !important;
         }
         @media (max-width: 900px) {
           .gov-hero-content {
