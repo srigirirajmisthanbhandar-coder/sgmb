@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 32 },
@@ -19,27 +18,33 @@ export default function GovHero() {
       style={{
         position: "relative",
         width: "100%",
-        aspectRatio: "1983 / 793",
-        maxHeight: "calc(100svh - 90px)",
         minHeight: 420,
         overflow: "hidden",
         backgroundColor: "#F8F2E8",
       }}
     >
       {/* === Full background image (text is baked into the image) === */}
-      <Image
-        src="/images/new-hero-with-size.png"
-        alt="Shree Giriraj Misthan Bhandar"
-        fill
-        priority
-        unoptimized
-        sizes="100vw"
-        style={{
-          objectFit: "contain",
-          objectPosition: "center",
-          zIndex: 0,
-        }}
-      />
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcSet="/images/mobile-hero-view.png"
+        />
+        <img
+          src="/images/new-hero-with-size.png"
+          alt="Shree Giriraj Misthan Bhandar"
+          fetchPriority="high"
+          decoding="async"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            objectPosition: "center",
+            zIndex: 0,
+          }}
+        />
+      </picture>
 
       {/* === Content (CTAs only) === */}
       <div
@@ -167,6 +172,16 @@ export default function GovHero() {
       </motion.div>
 
       <style>{`
+        .gov-hero-section {
+          aspect-ratio: 1983 / 793;
+          max-height: calc(100svh - 90px);
+        }
+        @media (max-width: 768px) {
+          .gov-hero-section {
+            aspect-ratio: 864 / 1821;
+            max-height: none;
+          }
+        }
         .gov-hero-btn-primary:hover {
           background-color: #1a335f !important;
           transform: translateY(-1px);
