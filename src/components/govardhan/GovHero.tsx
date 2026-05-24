@@ -28,12 +28,12 @@ export default function GovHero() {
     >
       {/* === Full background image (text is baked into the image) === */}
       <Image
-        src="/images/new-hero-with-size.webp"
+        src="/images/new-hero-with-size.png"
         alt="Shree Giriraj Misthan Bhandar"
         fill
-        preload
+        priority
+        unoptimized
         sizes="100vw"
-        quality={85}
         style={{
           objectFit: "contain",
           objectPosition: "center",
