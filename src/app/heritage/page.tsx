@@ -147,6 +147,89 @@ function LotusDivider({ small = false }: { small?: boolean }) {
 }
 
 // ─────────────────────────────────────────────────────────────
+// Royal ornaments — invitation-card flourishes used in the About section
+// ─────────────────────────────────────────────────────────────
+function CornerOrnament() {
+  return (
+    <svg viewBox="0 0 78 78" fill="none" aria-hidden>
+      <defs>
+        <linearGradient id="cornerGold" x1="0" y1="0" x2="78" y2="78">
+          <stop offset="0%" stopColor="#FFE680" />
+          <stop offset="45%" stopColor="#D4AF37" />
+          <stop offset="100%" stopColor="#8B6508" />
+        </linearGradient>
+      </defs>
+      <g stroke="url(#cornerGold)" strokeWidth="1.4" fill="none" strokeLinecap="round">
+        <path d="M6 6 L26 6" />
+        <path d="M6 6 L6 26" />
+        <path d="M6 6 Q22 22 38 14" />
+        <path d="M6 6 Q22 22 14 38" />
+        <path d="M30 16 Q40 18 44 28" />
+        <path d="M16 30 Q18 40 28 44" />
+        <circle cx="6" cy="6" r="2.2" fill="url(#cornerGold)" stroke="none" />
+        <circle cx="38" cy="14" r="1.6" fill="url(#cornerGold)" stroke="none" />
+        <circle cx="14" cy="38" r="1.6" fill="url(#cornerGold)" stroke="none" />
+      </g>
+      <path
+        d="M44 28 Q50 32 48 42 Q42 44 38 50"
+        stroke="url(#cornerGold)"
+        strokeWidth="1.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M28 44 Q32 50 42 48 Q44 42 50 38"
+        stroke="url(#cornerGold)"
+        strokeWidth="1.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function FlourishOrnament() {
+  return (
+    <svg viewBox="0 0 56 24" fill="none" aria-hidden>
+      <defs>
+        <linearGradient id="flourishGold" x1="0" y1="0" x2="56" y2="24">
+          <stop offset="0%" stopColor="#FFE680" />
+          <stop offset="50%" stopColor="#D4AF37" />
+          <stop offset="100%" stopColor="#8B6508" />
+        </linearGradient>
+      </defs>
+      <g stroke="url(#flourishGold)" strokeWidth="1.2" fill="none" strokeLinecap="round">
+        <path d="M4 12 Q12 4 20 12 T36 12 T52 12" />
+        <path d="M14 9 Q18 6 22 9" />
+        <path d="M34 15 Q38 18 42 15" />
+      </g>
+      <path
+        d="M28 6 L30 11 L35 12 L30 13 L28 18 L26 13 L21 12 L26 11 Z"
+        fill="url(#flourishGold)"
+      />
+      <circle cx="6" cy="12" r="1.5" fill="url(#flourishGold)" />
+      <circle cx="50" cy="12" r="1.5" fill="url(#flourishGold)" />
+    </svg>
+  );
+}
+
+function DiamondOrnament() {
+  return (
+    <svg viewBox="0 0 14 14" fill="none" aria-hidden>
+      <defs>
+        <linearGradient id="diamondGold" x1="0" y1="0" x2="14" y2="14">
+          <stop offset="0%" stopColor="#FFE680" />
+          <stop offset="50%" stopColor="#D4AF37" />
+          <stop offset="100%" stopColor="#8B6508" />
+        </linearGradient>
+      </defs>
+      <path d="M7 1 L10 7 L7 13 L4 7 Z" fill="url(#diamondGold)" />
+      <circle cx="7" cy="7" r="1.2" fill="#FFF5C2" />
+    </svg>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
 // Page
 // ─────────────────────────────────────────────────────────────
 export default function HeritagePage() {
@@ -365,18 +448,355 @@ export default function HeritagePage() {
           font-weight: 600;
         }
 
-        /* ── Owner editorial ── */
-        .heritage-owner {
+        /* ════════════════════════════════════════════════════════
+           ABOUT — Royal luxury "About Us" section
+           ════════════════════════════════════════════════════════ */
+        .heritage-about-luxury {
+          position: relative;
+          padding: 96px 24px;
+          isolation: isolate;
+          overflow: hidden;
+        }
+        .heritage-about-bg {
+          position: absolute;
+          inset: 0;
+          z-index: -2;
+          background:
+            radial-gradient(ellipse at 18% 22%, rgba(247,240,226,0.95) 0%, transparent 55%),
+            radial-gradient(ellipse at 82% 78%, rgba(233,217,188,0.85) 0%, transparent 60%),
+            radial-gradient(ellipse at 50% 50%, #F7F0E2 0%, #F2E7D2 55%, #E9D9BC 100%);
+        }
+        .heritage-about-bg::after {
+          /* subtle paper grain */
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-image:
+            radial-gradient(circle at 1px 1px, rgba(122, 84, 34, 0.06) 1px, transparent 0),
+            radial-gradient(circle at 3px 3px, rgba(15, 35, 69, 0.04) 1px, transparent 0);
+          background-size: 4px 4px, 6px 6px;
+          opacity: 0.6;
+          mix-blend-mode: multiply;
+          pointer-events: none;
+        }
+        .heritage-about-frame {
+          position: relative;
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 56px 56px 64px;
+          border-radius: 32px;
+          /* Multi-stroke royal border: thin outer gold, navy band, inner gold */
+          background:
+            linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0.0)),
+            linear-gradient(180deg, #FBF5E7 0%, #F5EAD0 100%);
+          box-shadow:
+            0 0 0 1px rgba(212, 175, 55, 0.55),
+            0 0 0 5px #072B66,
+            0 0 0 6px rgba(212, 175, 55, 0.85),
+            0 0 0 11px #FFD700,
+            0 0 0 12px rgba(7, 43, 102, 0.4),
+            0 28px 70px rgba(7, 43, 102, 0.18),
+            0 8px 24px rgba(7, 43, 102, 0.08);
+        }
+        @media (max-width: 900px) {
+          .heritage-about-luxury { padding: 72px 16px; }
+          .heritage-about-frame {
+            padding: 44px 22px 52px;
+            border-radius: 22px;
+            box-shadow:
+              0 0 0 1px rgba(212, 175, 55, 0.5),
+              0 0 0 4px #072B66,
+              0 0 0 5px rgba(212, 175, 55, 0.85),
+              0 0 0 8px #FFD700,
+              0 0 0 9px rgba(7, 43, 102, 0.35),
+              0 18px 44px rgba(7, 43, 102, 0.18);
+          }
+        }
+
+        /* ── Corner ornaments ── */
+        .heritage-about-corner {
+          position: absolute;
+          width: 78px;
+          height: 78px;
+          color: #D4AF37;
+          opacity: 0.95;
+          animation: heritageShimmer 5.5s ease-in-out infinite;
+        }
+        .heritage-about-corner svg { width: 100%; height: 100%; display: block; }
+        .heritage-about-corner-tl { top: 18px; left: 18px; }
+        .heritage-about-corner-tr { top: 18px; right: 18px; transform: scaleX(-1); animation-delay: 1.2s; }
+        .heritage-about-corner-bl { bottom: 18px; left: 18px; transform: scaleY(-1); animation-delay: 2.4s; }
+        .heritage-about-corner-br { bottom: 18px; right: 18px; transform: scale(-1, -1); animation-delay: 3.6s; }
+        @keyframes heritageShimmer {
+          0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 0 rgba(255,215,0,0)); }
+          50%      { opacity: 1;    filter: drop-shadow(0 0 6px rgba(255,215,0,0.45)); }
+        }
+        @media (max-width: 640px) {
+          .heritage-about-corner { width: 52px; height: 52px; }
+          .heritage-about-corner-tl, .heritage-about-corner-tr { top: 10px; }
+          .heritage-about-corner-bl, .heritage-about-corner-br { bottom: 10px; }
+          .heritage-about-corner-tl, .heritage-about-corner-bl { left: 10px; }
+          .heritage-about-corner-tr, .heritage-about-corner-br { right: 10px; }
+        }
+
+        /* ── Two-column grid ── */
+        .heritage-about-grid {
           display: grid;
-          grid-template-columns: 5fr 7fr;
-          gap: 64px;
+          grid-template-columns: 40fr 60fr;
+          gap: 48px;
           align-items: center;
         }
         @media (max-width: 900px) {
-          .heritage-owner {
+          .heritage-about-grid {
             grid-template-columns: 1fr !important;
-            gap: 36px !important;
+            gap: 56px !important;
           }
+        }
+
+        /* ── Left — Mughal-style scalloped owner frame ── */
+        .heritage-owner-wrap {
+          position: relative;
+          width: 100%;
+          max-width: 440px;
+          margin: 0 auto;
+          padding-bottom: 56px; /* space for the floating plaque */
+          animation: heritageOwnerFloat 6.5s ease-in-out infinite;
+        }
+        @keyframes heritageOwnerFloat {
+          0%, 100% { transform: translateY(0); }
+          50%      { transform: translateY(-6px); }
+        }
+        .heritage-owner-mughal {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 4 / 5;
+          /* Pointed Mughal-arch silhouette: heavy top rounding, slight bottom radius */
+          border-radius: 50% 50% 14px 14px / 38% 38% 14px 14px;
+          background: linear-gradient(180deg, #0B3580 0%, #072B66 50%, #04194A 100%);
+          /* Stacked gold rims for the scalloped frame illusion */
+          box-shadow:
+            inset 0 0 0 2px rgba(255, 215, 0, 0.55),
+            inset 0 0 0 6px #072B66,
+            inset 0 0 0 7px #D4AF37,
+            inset 0 0 0 10px #072B66,
+            inset 0 0 0 11px rgba(212, 175, 55, 0.7),
+            0 18px 38px rgba(7, 43, 102, 0.32),
+            0 6px 14px rgba(0, 0, 0, 0.18);
+          overflow: hidden;
+        }
+        /* Inner highlight glow behind the owner */
+        .heritage-owner-mughal::before {
+          content: "";
+          position: absolute;
+          inset: 11px;
+          border-radius: inherit;
+          background: radial-gradient(ellipse at 50% 35%, rgba(255,236,180,0.35) 0%, rgba(255,215,0,0.10) 35%, transparent 65%);
+          z-index: 1;
+          pointer-events: none;
+        }
+        .heritage-owner-mughal-img {
+          position: absolute;
+          inset: 14px;
+          border-radius: inherit;
+          overflow: hidden;
+          z-index: 2;
+        }
+        .heritage-owner-mughal-img img {
+          object-fit: cover;
+          object-position: center 22%;
+          /* warm portrait lighting */
+          filter: contrast(1.03) saturate(1.05) brightness(1.02);
+        }
+        /* Subtle vignette + warm cast */
+        .heritage-owner-mughal-img::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(ellipse at 50% 30%, rgba(255,228,170,0.15) 0%, transparent 55%),
+            linear-gradient(180deg, transparent 60%, rgba(7,43,102,0.55) 100%);
+          pointer-events: none;
+        }
+
+        /* Floating plaque overlapping the bottom of the frame */
+        .heritage-owner-plaque {
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+          width: 86%;
+          padding: 16px 22px 14px;
+          text-align: center;
+          background: linear-gradient(180deg, #0B3580 0%, #072B66 50%, #04194A 100%);
+          border-radius: 14px;
+          box-shadow:
+            inset 0 0 0 1px #FFD700,
+            inset 0 0 0 3px #072B66,
+            inset 0 0 0 4px rgba(212, 175, 55, 0.85),
+            0 14px 28px rgba(7, 43, 102, 0.35),
+            0 3px 8px rgba(0, 0, 0, 0.2);
+          z-index: 3;
+        }
+        .heritage-owner-plaque::before,
+        .heritage-owner-plaque::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          width: 14px;
+          height: 14px;
+          transform: translateY(-50%) rotate(45deg);
+          background: linear-gradient(135deg, #FFE680 0%, #D4AF37 50%, #8B6508 100%);
+          box-shadow: 0 0 0 1px #072B66, 0 1px 3px rgba(0,0,0,0.35);
+        }
+        .heritage-owner-plaque::before { left: 10px; }
+        .heritage-owner-plaque::after  { right: 10px; }
+        .heritage-owner-plaque-name {
+          display: block;
+          font-family: 'Noto Serif Devanagari', serif;
+          font-weight: 700;
+          font-size: clamp(18px, 1.9vw, 24px);
+          line-height: 1.15;
+          letter-spacing: 0.01em;
+          background: linear-gradient(180deg, #FFF5C2 0%, #FFD700 30%, #F6C453 60%, #D4A017 85%, #8B6508 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+          filter:
+            drop-shadow(0 1px 0 #fff8dc)
+            drop-shadow(0 2px 2px rgba(0,0,0,0.32))
+            drop-shadow(0 0 4px rgba(212,160,23,0.30));
+        }
+        .heritage-owner-plaque-sub {
+          display: block;
+          margin-top: 6px;
+          font-family: 'Cormorant Garamond', serif;
+          font-weight: 500;
+          font-style: italic;
+          font-size: clamp(11px, 0.95vw, 13px);
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #F4DF9B;
+        }
+
+        /* ── Right — manuscript content panel ── */
+        .heritage-about-right {
+          text-align: center;
+          padding: 0 8px;
+        }
+        .heritage-about-eyebrow {
+          font-family: 'Cormorant Garamond', serif;
+          font-style: italic;
+          font-size: 14px;
+          letter-spacing: 0.28em;
+          text-transform: uppercase;
+          color: #8B6508;
+          margin: 0 0 8px;
+        }
+        .heritage-about-heading {
+          font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+          font-weight: 600;
+          font-size: clamp(40px, 5.6vw, 64px);
+          line-height: 1;
+          color: #072B66;
+          margin: 6px 0 0;
+          letter-spacing: 0.005em;
+        }
+        .heritage-about-heading::first-letter {
+          color: #072B66;
+        }
+        .heritage-about-paragraph {
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: clamp(16px, 1.4vw, 19px);
+          line-height: 2;
+          color: #2F2A24;
+          margin: 0 auto;
+          max-width: 85%;
+        }
+        @media (min-width: 1200px) {
+          .heritage-about-paragraph { font-size: 19px; }
+        }
+        .heritage-about-paragraph + .heritage-about-paragraph {
+          margin-top: 48px;
+        }
+        .heritage-about-paragraph strong {
+          font-weight: 700;
+          background: linear-gradient(180deg, #D4AF37 0%, #8B6508 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        @media (max-width: 640px) {
+          .heritage-about-paragraph { max-width: 100%; }
+          .heritage-about-paragraph + .heritage-about-paragraph { margin-top: 36px; }
+        }
+
+        /* ── Ornament dividers ── */
+        .heritage-about-ornament {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          margin: 22px auto;
+          color: #D4AF37;
+        }
+        .heritage-about-ornament-line {
+          width: clamp(40px, 8vw, 110px);
+          height: 1px;
+          background: linear-gradient(to right, transparent, #D4AF37, transparent);
+        }
+        .heritage-about-ornament svg {
+          width: 28px;
+          height: 20px;
+          flex-shrink: 0;
+        }
+        .heritage-about-divider-small {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin: 28px auto;
+          opacity: 0.78;
+        }
+        .heritage-about-divider-small .heritage-about-ornament-line {
+          width: 36px;
+        }
+        .heritage-about-divider-small svg {
+          width: 14px;
+          height: 14px;
+          color: #D4AF37;
+          animation: heritageShimmer 4.5s ease-in-out infinite;
+        }
+
+        /* ── Stat strip (kept, restyled) ── */
+        .heritage-about-stats {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: clamp(28px, 5vw, 64px);
+          margin: 40px auto 0;
+          padding-top: 32px;
+          border-top: 1px solid rgba(212, 175, 55, 0.35);
+          max-width: 85%;
+        }
+        .heritage-about-stat-v {
+          font-family: 'Cormorant Garamond', serif;
+          font-weight: 600;
+          font-size: clamp(28px, 3vw, 40px);
+          line-height: 1;
+          margin: 0;
+          background: linear-gradient(180deg, #D4AF37 0%, #8B6508 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .heritage-about-stat-l {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 11px;
+          letter-spacing: 0.32em;
+          text-transform: uppercase;
+          color: rgba(7, 43, 102, 0.7);
+          margin: 8px 0 0;
         }
 
         /* ── Maharaj devotional rail — single-line horizontal scroller
@@ -804,247 +1224,131 @@ export default function HeritagePage() {
           </motion.div>
         </section>
 
-        {/* ════════════ 4. OWNER / LEGACY EDITORIAL ════════════ */}
-        <section
-          className="heritage-section"
-          style={{ padding: "56px 0" }}
-        >
+        {/* ════════════ 4. ABOUT — LUXURY ROYAL EDITORIAL ════════════ */}
+        <section className="heritage-section heritage-about-luxury">
+          <div aria-hidden className="heritage-about-bg" />
+
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={fadeUp}
-            custom={0}
-            className="heritage-owner"
-            style={{
-              maxWidth: 1180,
-              margin: "0 auto",
-              padding: "0 32px",
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="heritage-about-frame"
           >
-            {/* LEFT — owner portrait */}
-            <div style={{ position: "relative" }}>
+            {/* Four royal corner ornaments (invitation-card style) */}
+            {(["tl", "tr", "bl", "br"] as const).map((pos) => (
               <div
+                key={pos}
                 aria-hidden
-                style={{
-                  position: "absolute",
-                  inset: -18,
-                  borderRadius: 20,
-                  border: `1px solid ${C.hairline}`,
-                  pointerEvents: "none",
-                }}
-              />
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  aspectRatio: "4 / 5",
-                  borderRadius: 12,
-                  overflow: "hidden",
-                  background:
-                    "radial-gradient(ellipse at 50% 30%, #F2E2C0 0%, #E2C994 55%, #B7902F 100%)",
-                  boxShadow:
-                    "0 26px 60px rgba(13,59,46,0.18), 0 4px 12px rgba(0,0,0,0.08)",
-                }}
+                className={`heritage-about-corner heritage-about-corner-${pos}`}
               >
-                {/* Soft warm aura behind the portrait */}
-                <div
-                  aria-hidden
-                  style={{
-                    position: "absolute",
-                    top: "30%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: "90%",
-                    height: "70%",
-                    borderRadius: "50%",
-                    background:
-                      "radial-gradient(circle, rgba(255,240,200,0.55) 0%, rgba(199,154,59,0.18) 45%, transparent 75%)",
-                    filter: "blur(8px)",
-                    pointerEvents: "none",
-                  }}
-                />
-                <Image
-                  src="/images/owner.webp"
-                  alt="प्रो. भगवान सिंह हलवाई — founder of Shree Girraj Misthan Bhandar"
-                  fill
-                  sizes="(max-width: 900px) 92vw, 480px"
-                  style={{
-                    objectFit: "cover",
-                    objectPosition: "center 20%",
-                  }}
-                />
-                <div
-                  aria-hidden
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "linear-gradient(to bottom, transparent 55%, rgba(13,59,46,0.7) 100%)",
-                  }}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 22,
-                    left: 22,
-                    right: 22,
-                    color: "#FFFFFF",
-                    fontFamily: "var(--font-body, sans-serif)",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontSize: 10,
-                      letterSpacing: "0.3em",
-                      textTransform: "uppercase",
-                      color: C.goldSoft,
-                      margin: 0,
-                    }}
-                  >
-                    Founder &amp; Patron
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: '"Noto Serif Devanagari", serif',
-                      fontSize: 24,
-                      fontWeight: 600,
-                      margin: "6px 0 0",
-                      lineHeight: 1.15,
-                    }}
-                  >
-                    प्रो. भगवान सिंह हलवाई
-                  </p>
-                </div>
+                <CornerOrnament />
               </div>
-              <div
-                aria-hidden
-                style={{
-                  position: "absolute",
-                  top: -10,
-                  left: -10,
-                  width: 28,
-                  height: 28,
-                  borderTop: `1.5px solid ${C.gold}`,
-                  borderLeft: `1.5px solid ${C.gold}`,
-                }}
-              />
-              <div
-                aria-hidden
-                style={{
-                  position: "absolute",
-                  bottom: -10,
-                  right: -10,
-                  width: 28,
-                  height: 28,
-                  borderBottom: `1.5px solid ${C.gold}`,
-                  borderRight: `1.5px solid ${C.gold}`,
-                }}
-              />
-            </div>
+            ))}
 
-            {/* RIGHT — story */}
-            <div>
-              <h2
-                style={{
-                  fontFamily: '"Noto Serif Devanagari", serif',
-                  fontSize: "clamp(34px, 5vw, 64px)",
-                  fontWeight: 800,
-                  color: C.navy,
-                  margin: "0 0 8px",
-                  lineHeight: 1.1,
-                  letterSpacing: "-0.005em",
-                  WebkitTextStroke: `1px ${C.goldDeep}`,
-                  textShadow:
-                    "0 1px 0 rgba(255,240,200,0.55), 0 6px 18px rgba(212,175,55,0.18)",
-                }}
+            <div className="heritage-about-grid">
+              {/* ── LEFT — Mughal scalloped owner frame + floating plaque ── */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="heritage-owner-wrap"
               >
-                प्रो. भगवान सिंह हलवाई
-              </h2>
-              <LotusDivider small />
-              <p
-                style={{
-                  fontFamily: "var(--font-body, sans-serif)",
-                  fontSize: 16,
-                  lineHeight: 1.85,
-                  color: "rgba(31,26,18,0.78)",
-                  marginTop: 18,
-                  marginBottom: 14,
-                }}
-              >
-                In 1982, on the sacred parikrama path of Govardhan Hill,
-                <strong style={{ color: C.green, fontWeight: 600 }}>
-                  {" "}प्रो. भगवान सिंह हलवाई{" "}
-                </strong>
-                lit a small wood-fired hearth with a single vow — to serve
-                every pilgrim a mithai as pure as the soil beneath Giriraj
-                Baba's feet. With folded hands and unshaken faith, he began
-                what today the world knows as{" "}
-                <em>Shree Girraj Misthan Bhandar</em>.
-              </p>
-              <p
-                style={{
-                  fontFamily: "var(--font-body, sans-serif)",
-                  fontSize: 16,
-                  lineHeight: 1.85,
-                  color: "rgba(31,26,18,0.72)",
-                  marginTop: 0,
-                  marginBottom: 24,
-                }}
-              >
-                For four decades, Bhagavan ji has held the family to one
-                rule — only desi ghee, only the day's finest milk, only
-                recipes that pass quietly from father to son. Every peda,
-                every laddu, every kaju katli that leaves our bhandar is
-                first offered as bhog. What you taste is what has been
-                blessed — Govardhan's grace, rolled by hand, sealed with
-                love.
-              </p>
-
-              {/* Stat strip */}
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: 28,
-                  marginTop: 8,
-                  paddingTop: 22,
-                  borderTop: `1px solid ${C.hairline}`,
-                }}
-              >
-                {[
-                  { v: "42+", l: "Years of devotion" },
-                  { v: "3", l: "Generations" },
-                  { v: "60+", l: "Handcrafted mithai" },
-                ].map((s) => (
-                  <div key={s.l} style={{ minWidth: 0 }}>
-                    <p
-                      style={{
-                        fontFamily: "var(--font-heading, serif)",
-                        fontSize: 32,
-                        color: C.gold,
-                        margin: 0,
-                        lineHeight: 1,
-                        fontWeight: 600,
-                      }}
-                    >
-                      {s.v}
-                    </p>
-                    <p
-                      style={{
-                        fontFamily: "var(--font-body, sans-serif)",
-                        fontSize: 11,
-                        letterSpacing: "0.22em",
-                        textTransform: "uppercase",
-                        color: "rgba(13,59,46,0.65)",
-                        margin: "8px 0 0",
-                      }}
-                    >
-                      {s.l}
-                    </p>
+                <div className="heritage-owner-mughal">
+                  <div className="heritage-owner-mughal-img">
+                    <Image
+                      src="/images/owner.webp"
+                      alt="प्रो. भगवान सिंह हलवाई — founder of Shree Girraj Misthan Bhandar"
+                      fill
+                      sizes="(max-width: 900px) 86vw, 440px"
+                      priority={false}
+                    />
                   </div>
-                ))}
-              </div>
+                </div>
+                <div className="heritage-owner-plaque">
+                  <span className="heritage-owner-plaque-name">
+                    भगवान सिंह हलवाई
+                  </span>
+                  <span className="heritage-owner-plaque-sub">
+                    Pro. Bhagwan Singh — Proprietor
+                  </span>
+                </div>
+              </motion.div>
+
+              {/* ── RIGHT — manuscript content ── */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                className="heritage-about-right"
+              >
+                {/* Top ornament */}
+                <div className="heritage-about-ornament" aria-hidden>
+                  <span className="heritage-about-ornament-line" />
+                  <FlourishOrnament />
+                  <span className="heritage-about-ornament-line" />
+                </div>
+
+                <p className="heritage-about-eyebrow">Founder &amp; Patron</p>
+                <h2 className="heritage-about-heading">About</h2>
+
+                {/* Bottom ornament */}
+                <div className="heritage-about-ornament" aria-hidden>
+                  <span className="heritage-about-ornament-line" />
+                  <FlourishOrnament />
+                  <span className="heritage-about-ornament-line" />
+                </div>
+
+                <p className="heritage-about-paragraph">
+                  In 1982, on the sacred parikrama path of Govardhan Hill,
+                  <strong> प्रो. भगवान सिंह हलवाई </strong>
+                  lit a small wood-fired hearth with a single vow — to serve
+                  every pilgrim a mithai as pure as the soil beneath Giriraj
+                  Baba&apos;s feet.
+                </p>
+
+                <div className="heritage-about-divider-small" aria-hidden>
+                  <span className="heritage-about-ornament-line" />
+                  <DiamondOrnament />
+                  <span className="heritage-about-ornament-line" />
+                </div>
+
+                <p className="heritage-about-paragraph">
+                  With folded hands and unshaken faith, he began what today
+                  the world knows as <strong>Shree Girraj Misthan Bhandar</strong>
+                  &nbsp;— a name carried for four decades on a single rule:
+                  only desi ghee, only the day&apos;s finest milk, only recipes
+                  that pass quietly from father to son.
+                </p>
+
+                <div className="heritage-about-divider-small" aria-hidden>
+                  <span className="heritage-about-ornament-line" />
+                  <DiamondOrnament />
+                  <span className="heritage-about-ornament-line" />
+                </div>
+
+                <p className="heritage-about-paragraph">
+                  Every peda, every laddu, every kaju katli that leaves our
+                  bhandar is first offered as <em>bhog</em>. What you taste is
+                  what has been blessed — Govardhan&apos;s grace, rolled by
+                  hand, sealed with love.
+                </p>
+
+                <div className="heritage-about-stats">
+                  {[
+                    { v: "42+", l: "Years of Devotion" },
+                    { v: "3", l: "Generations" },
+                    { v: "60+", l: "Handcrafted Mithai" },
+                  ].map((s) => (
+                    <div key={s.l} style={{ minWidth: 0, textAlign: "center" }}>
+                      <p className="heritage-about-stat-v">{s.v}</p>
+                      <p className="heritage-about-stat-l">{s.l}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </section>
