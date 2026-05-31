@@ -439,11 +439,62 @@ export default function HeritagePage() {
         }
 
         .heritage-sweet-card {
-          transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s ease;
+          transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
         }
         .heritage-sweet-card:hover {
           transform: translateY(-6px);
-          box-shadow: 0 26px 60px rgba(13,59,46,0.18), 0 6px 16px rgba(0,0,0,0.08);
+        }
+        .heritage-sweet-card:hover .heritage-sweet-frame {
+          filter: drop-shadow(0 22px 38px rgba(13,59,46,0.22));
+        }
+
+        /* ── Ornate gold-framed sweet card ── */
+        .heritage-sweet-frame {
+          position: relative;
+          width: 100%;
+          max-width: 360px;
+          aspect-ratio: 1 / 1;
+          filter: drop-shadow(0 14px 28px rgba(13,59,46,0.14));
+          transition: filter 0.45s ease;
+        }
+        /* Sweet image is masked to the rough opening of the gold frame.
+           Percentages were tuned visually to the 1024x1024 frame PNG. */
+        .heritage-sweet-frame-image {
+          position: absolute;
+          top: 9%;
+          left: 16%;
+          right: 16%;
+          height: 50%;
+          border-radius: 50% / 38%;
+          overflow: hidden;
+          background: #FAF5EA;
+        }
+        /* Name engraved on the blue plaque at the bottom of the frame. */
+        .heritage-sweet-frame-name {
+          position: absolute;
+          left: 18%;
+          right: 18%;
+          top: 73%;
+          height: 14%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 8%;
+          pointer-events: none;
+        }
+        .heritage-sweet-frame-name span {
+          font-family: var(--font-heading, serif);
+          font-weight: 500;
+          font-size: clamp(13px, 1.4vw, 18px);
+          letter-spacing: 0.04em;
+          color: ${C.gold};
+          text-align: center;
+          line-height: 1.1;
+          text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 100%;
         }
 
         /* ── Mobile section padding ── */
@@ -1177,57 +1228,55 @@ export default function HeritagePage() {
                 custom={0.06 * i}
                 className="heritage-sweet-card"
                 style={{
-                  background: "#FFFFFF",
-                  borderRadius: 16,
-                  overflow: "hidden",
-                  border: `1px solid ${C.hairline}`,
-                  boxShadow:
-                    "0 18px 40px rgba(13,59,46,0.08), 0 2px 6px rgba(0,0,0,0.04)",
                   display: "flex",
                   flexDirection: "column",
+                  alignItems: "center",
+                  background: "transparent",
                 }}
               >
-                <div
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    aspectRatio: "5 / 4",
-                    background: "#FAF5EA",
-                    overflow: "hidden",
-                  }}
-                >
+                <div className="heritage-sweet-frame">
+                  {/* Sweet image inside the ornate gold opening */}
+                  <div className="heritage-sweet-frame-image">
+                    <Image
+                      src={s.image}
+                      alt={s.name}
+                      fill
+                      sizes="(max-width: 640px) 70vw, (max-width: 1024px) 36vw, 24vw"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+
+                  {/* Ornate gold frame + blue name plaque (PNG overlay) */}
                   <Image
-                    src={s.image}
-                    alt={s.name}
+                    src="/images/sweet-card-frame.png"
+                    alt=""
                     fill
                     sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 32vw"
-                    style={{ objectFit: "cover" }}
-                  />
-                  <span
                     style={{
-                      position: "absolute",
-                      top: 14,
-                      left: 14,
-                      fontFamily: "var(--font-body, sans-serif)",
-                      fontSize: 10,
-                      letterSpacing: "0.24em",
-                      textTransform: "uppercase",
-                      color: C.green,
-                      background: "rgba(248,242,232,0.92)",
-                      border: `1px solid ${C.hairline}`,
-                      padding: "5px 10px",
-                      borderRadius: 9999,
-                      fontWeight: 600,
+                      objectFit: "contain",
+                      pointerEvents: "none",
                     }}
-                  >
-                    {s.accent}
-                  </span>
+                  />
+
+                  {/* Name engraved on the blue plaque */}
+                  <div className="heritage-sweet-frame-name">
+                    <span>{s.name}</span>
+                  </div>
                 </div>
-                <div style={{ padding: "22px 22px 24px" }}>
+
+                {/* Sanskrit name + description below the frame */}
+                <div
+                  style={{
+                    marginTop: 14,
+                    textAlign: "center",
+                    maxWidth: 320,
+                    padding: "0 16px",
+                  }}
+                >
                   <p
                     style={{
                       fontFamily: '"Noto Serif Devanagari", serif',
-                      fontSize: 13,
+                      fontSize: 14,
                       color: C.gold,
                       margin: 0,
                       fontWeight: 600,
@@ -1236,34 +1285,13 @@ export default function HeritagePage() {
                   >
                     {s.sanskritName}
                   </p>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-heading, serif)",
-                      fontSize: 26,
-                      fontWeight: 500,
-                      color: C.green,
-                      margin: "4px 0 8px",
-                      letterSpacing: "-0.005em",
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {s.name}
-                  </h3>
-                  <div
-                    style={{
-                      width: 28,
-                      height: 1,
-                      background: C.gold,
-                      marginBottom: 12,
-                    }}
-                  />
                   <p
                     style={{
                       fontFamily: "var(--font-body, sans-serif)",
-                      fontSize: 14,
+                      fontSize: 13.5,
                       lineHeight: 1.65,
                       color: "rgba(31,26,18,0.72)",
-                      margin: 0,
+                      margin: "8px 0 0",
                     }}
                   >
                     {s.desc}
