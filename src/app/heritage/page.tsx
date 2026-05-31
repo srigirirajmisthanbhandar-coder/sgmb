@@ -503,32 +503,67 @@ export default function HeritagePage() {
         .heritage-sweet-frame-name {
           z-index: 3;
         }
-        /* Name engraved on the blue plaque at the bottom of the frame. */
+        /* Name engraved on the blue plaque at the bottom of the frame.
+           Plaque artwork sits at 75.3%–87.3% vertically; text container is
+           slightly inset horizontally to clear the diamond ornaments. */
         .heritage-sweet-frame-name {
           position: absolute;
-          left: 18%;
-          right: 18%;
-          top: 73%;
-          height: 14%;
+          left: 25%;
+          right: 25%;
+          top: 75.3%;
+          height: 12%;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 0 8%;
+          padding: 0;
           pointer-events: none;
         }
         .heritage-sweet-frame-name span {
-          font-family: var(--font-heading, serif);
-          font-weight: 500;
-          font-size: clamp(13px, 1.4vw, 18px);
-          letter-spacing: 0.04em;
-          color: ${C.gold};
+          font-family: 'Cinzel', 'Cormorant Garamond', 'Playfair Display', serif;
+          font-weight: 700;
+          font-size: clamp(11px, 1.3vw, 16px);
+          letter-spacing: 0.03em;
+          line-height: 1;
           text-align: center;
-          line-height: 1.1;
-          text-shadow: 0 1px 1px rgba(0,0,0,0.35);
           white-space: nowrap;
           overflow: hidden;
-          text-overflow: ellipsis;
           max-width: 100%;
+          /* Translate a hair upward so the optical baseline sits dead-centre
+             inside the plaque rather than on the geometric centre. */
+          transform: translateY(-1px);
+
+          /* Rich metallic gold fill — top highlight to deep antique base. */
+          background: linear-gradient(
+            180deg,
+            #FFF5C2 0%,
+            #FFD700 25%,
+            #F6C453 50%,
+            #D4A017 75%,
+            #8B6508 100%
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+
+          /* drop-shadow layers compose like text-shadow but work with the
+             gradient fill above. Together they read as engraved relief on
+             the plaque + a faint warm glow. */
+          filter:
+            drop-shadow(0 1px 0 #fff8dc)
+            drop-shadow(0 2px 2px rgba(0, 0, 0, 0.28))
+            drop-shadow(0 4px 6px rgba(0, 0, 0, 0.18))
+            drop-shadow(0 0 5px rgba(212, 160, 23, 0.28));
+
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-rendering: geometricPrecision;
+          font-feature-settings: "kern" 1, "liga" 1;
+        }
+        @media (max-width: 640px) {
+          .heritage-sweet-frame-name span {
+            font-size: clamp(13px, 4.2vw, 17px);
+          }
         }
 
         /* ── Mobile section padding ── */
