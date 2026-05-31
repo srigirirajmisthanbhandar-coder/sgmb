@@ -457,16 +457,30 @@ export default function HeritagePage() {
           filter: drop-shadow(0 14px 28px rgba(13,59,46,0.14));
           transition: filter 0.45s ease;
         }
-        /* Sweet image is masked to the rough opening of the gold frame.
-           Percentages were tuned visually to the 1024x1024 frame PNG. */
+        /* Mask layer spans the whole frame so the cartouche-shaped mask PNG
+           aligns 1:1 with the frame artwork. Everything inside this layer is
+           alpha-clipped to the inner cartouche contour. */
         .heritage-sweet-frame-image {
           position: absolute;
-          top: 9%;
-          left: 16%;
-          right: 16%;
-          height: 50%;
-          border-radius: 50% / 38%;
-          overflow: hidden;
+          inset: 0;
+          -webkit-mask-image: url(/images/sweet-card-mask.png);
+          mask-image: url(/images/sweet-card-mask.png);
+          -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          -webkit-mask-position: 0 0;
+          mask-position: 0 0;
+        }
+        /* Inner photo wrapper sized to the cartouche opening's bounding box
+           (measured from the mask PNG). object-fit: cover then fills that
+           area; the wavy edges are clipped by the parent's mask. */
+        .heritage-sweet-frame-photo {
+          position: absolute;
+          top: 13.5%;
+          left: 14%;
+          width: 72%;
+          height: 59.4%;
           background: #FAF5EA;
         }
         /* Name engraved on the blue plaque at the bottom of the frame. */
@@ -1235,15 +1249,17 @@ export default function HeritagePage() {
                 }}
               >
                 <div className="heritage-sweet-frame">
-                  {/* Sweet image inside the ornate gold opening */}
+                  {/* Sweet image, alpha-clipped to the cartouche contour */}
                   <div className="heritage-sweet-frame-image">
-                    <Image
-                      src={s.image}
-                      alt={s.name}
-                      fill
-                      sizes="(max-width: 640px) 70vw, (max-width: 1024px) 36vw, 24vw"
-                      style={{ objectFit: "cover" }}
-                    />
+                    <div className="heritage-sweet-frame-photo">
+                      <Image
+                        src={s.image}
+                        alt={s.name}
+                        fill
+                        sizes="(max-width: 640px) 65vw, (max-width: 1024px) 32vw, 22vw"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
                   </div>
 
                   {/* Ornate gold frame + blue name plaque (PNG overlay) */}
