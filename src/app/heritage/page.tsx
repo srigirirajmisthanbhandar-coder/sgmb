@@ -457,12 +457,13 @@ export default function HeritagePage() {
           filter: drop-shadow(0 14px 28px rgba(13,59,46,0.14));
           transition: filter 0.45s ease;
         }
-        /* Mask layer spans the whole frame so the cartouche-shaped mask PNG
-           aligns 1:1 with the frame artwork. Everything inside this layer is
-           alpha-clipped to the inner cartouche contour. */
+        /* Mask layer spans the whole frame so the dilated, feathered cartouche
+           mask PNG aligns 1:1 with the gold artwork. The mask extends slightly
+           INTO the gold border so the sweet image bleeds under it — no seam. */
         .heritage-sweet-frame-image {
           position: absolute;
           inset: 0;
+          z-index: 1;
           -webkit-mask-image: url(/images/sweet-card-mask.png);
           mask-image: url(/images/sweet-card-mask.png);
           -webkit-mask-size: 100% 100%;
@@ -471,17 +472,36 @@ export default function HeritagePage() {
           mask-repeat: no-repeat;
           -webkit-mask-position: 0 0;
           mask-position: 0 0;
+          /* Promote to its own composite layer so the alpha mask renders
+             with smooth anti-aliased edges. */
+          will-change: transform;
+          transform: translateZ(0);
         }
-        /* Inner photo wrapper sized to the cartouche opening's bounding box
-           (measured from the mask PNG). object-fit: cover then fills that
-           area; the wavy edges are clipped by the parent's mask. */
+        /* Photo wrapper sized to the cartouche opening's bounding box (from
+           the dilated mask). object-fit: cover fills the area, and a slight
+           upscale guarantees no gap at the edge of the curve. */
         .heritage-sweet-frame-photo {
           position: absolute;
-          top: 13.5%;
-          left: 14%;
-          width: 72%;
-          height: 59.4%;
+          top: 12.7%;
+          left: 13%;
+          width: 74%;
+          height: 61.3%;
           background: #FAF5EA;
+          overflow: hidden;
+        }
+        .heritage-sweet-frame-photo img {
+          transform: scale(1.08);
+          transform-origin: center center;
+        }
+        /* Gold frame + plaque artwork sits above the photo layer. */
+        .heritage-sweet-frame-art {
+          position: absolute;
+          inset: 0;
+          z-index: 2;
+          pointer-events: none;
+        }
+        .heritage-sweet-frame-name {
+          z-index: 3;
         }
         /* Name engraved on the blue plaque at the bottom of the frame. */
         .heritage-sweet-frame-name {
@@ -1262,17 +1282,19 @@ export default function HeritagePage() {
                     </div>
                   </div>
 
-                  {/* Ornate gold frame + blue name plaque (PNG overlay) */}
-                  <Image
-                    src="/images/sweet-card-frame.png"
-                    alt=""
-                    fill
-                    sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 32vw"
-                    style={{
-                      objectFit: "contain",
-                      pointerEvents: "none",
-                    }}
-                  />
+                  {/* Ornate gold frame + blue name plaque (PNG overlay, z-index 2) */}
+                  <div className="heritage-sweet-frame-art">
+                    <Image
+                      src="/images/sweet-card-frame.png"
+                      alt=""
+                      fill
+                      sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 32vw"
+                      style={{
+                        objectFit: "contain",
+                        pointerEvents: "none",
+                      }}
+                    />
+                  </div>
 
                   {/* Name engraved on the blue plaque */}
                   <div className="heritage-sweet-frame-name">
