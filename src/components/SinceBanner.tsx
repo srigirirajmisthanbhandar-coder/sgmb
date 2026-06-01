@@ -6,18 +6,20 @@ export default function SinceBanner() {
   return (
     <section className="gov-since-banner-section">
       <div className="gov-since-banner">
-        {/* Full-width navy banner artwork */}
-        <Image
-          src="/images/Since.png"
-          alt=""
-          fill
-          sizes="100vw"
-          priority={false}
-          style={{
-            objectFit: "fill",
-            pointerEvents: "none",
-          }}
-        />
+        {/* Full-width navy banner artwork (desktop only) */}
+        <div className="gov-since-bg" aria-hidden>
+          <Image
+            src="/images/Since.png"
+            alt=""
+            fill
+            sizes="100vw"
+            priority={false}
+            style={{
+              objectFit: "fill",
+              pointerEvents: "none",
+            }}
+          />
+        </div>
 
         {/* LEFT — SGMB shop logo (oval) */}
         <div className="gov-since-logo">
@@ -30,13 +32,13 @@ export default function SinceBanner() {
           />
         </div>
 
-        {/* CENTER — Shree Giriraj Misthan Bhandar name image */}
+        {/* CENTER — Shree Giriraj Misthan Bhandar name image (gold, trimmed) */}
         <div className="gov-since-name">
           <Image
-            src="/images/new images/logo.webp"
+            src="/images/name-trimmed.png"
             alt="श्री गिरिराज मिष्ठान भण्डार"
             fill
-            sizes="(max-width: 768px) 60vw, 600px"
+            sizes="(max-width: 768px) 70vw, 620px"
             style={{ objectFit: "contain" }}
           />
         </div>
@@ -64,32 +66,35 @@ export default function SinceBanner() {
           max-width: 1600px;
           margin: 0 auto;
         }
+        .gov-since-bg {
+          position: absolute;
+          inset: 0;
+        }
 
-        /* LEFT — SGMB oval logo, sized to overhang the banner top/bottom
-           a touch like a medallion. */
+        /* LEFT — SGMB oval logo. Sized by HEIGHT so it always sits inside
+           the banner band (no spill over the decorative gold corner). */
         .gov-since-logo {
           position: absolute;
           top: 50%;
-          left: 7%;
+          left: 12%;
           transform: translate(-50%, -50%);
-          width: clamp(110px, 14vw, 220px);
+          height: 88%;
           aspect-ratio: 1080 / 1350;
           filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.28))
                   drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
         }
 
-        /* CENTRE — Hindi shop name image. Sized by HEIGHT so it always sits
-           inside the navy band (no overhang) and downscales gracefully on
-           narrow screens. */
+        /* CENTRE — Hindi shop name image (trimmed to content). Sized by
+           HEIGHT so it always sits inside the navy band. */
         .gov-since-name {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          height: 84%;
-          aspect-ratio: 1400 / 934;
-          max-width: 58%;
-          filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+          height: 80%;
+          aspect-ratio: 1006 / 591;
+          max-width: 50%;
+          filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
         }
 
         /* RIGHT — Since 1982 over the gold ring */
@@ -106,7 +111,6 @@ export default function SinceBanner() {
           justify-content: center;
           text-align: center;
           gap: 2px;
-          /* Keep a sensible minimum on tiny viewports */
           min-width: 70px;
         }
         .gov-since-circle-label {
@@ -139,8 +143,77 @@ export default function SinceBanner() {
           color: transparent;
         }
 
+        /* ── Mobile: drop the wide banner artwork, stack everything in a
+              navy/gold card so it reads cleanly on narrow screens ── */
         @media (max-width: 640px) {
-          .gov-since-banner-section { padding: 18px 12px; }
+          .gov-since-banner-section {
+            padding: 22px 14px;
+          }
+          .gov-since-banner {
+            aspect-ratio: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 22px 18px 26px;
+            background:
+              linear-gradient(180deg, #0B3580 0%, #072B66 50%, #04194A 100%);
+            border-radius: 18px;
+            box-shadow:
+              inset 0 0 0 1px rgba(212, 175, 55, 0.65),
+              inset 0 0 0 4px #072B66,
+              inset 0 0 0 5px rgba(212, 175, 55, 0.85),
+              0 14px 30px rgba(7, 43, 102, 0.28);
+            max-width: 520px;
+          }
+          /* Hide the wide banner artwork on mobile — the navy/gold card
+             chrome above replaces it. */
+          .gov-since-bg { display: none !important; }
+          /* Re-flow the three blocks as static flex items */
+          .gov-since-logo,
+          .gov-since-name,
+          .gov-since-circle {
+            position: static;
+            transform: none;
+            inset: auto;
+          }
+          .gov-since-logo {
+            width: clamp(96px, 28vw, 130px);
+            height: auto;
+            aspect-ratio: 1080 / 1350;
+            max-width: none;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.25))
+                    drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
+          }
+          .gov-since-name {
+            width: 92%;
+            height: auto;
+            aspect-ratio: 1006 / 591;
+            max-width: 380px;
+            margin: 4px 0 4px;
+          }
+          .gov-since-circle {
+            width: auto;
+            aspect-ratio: auto;
+            flex-direction: row;
+            gap: 8px;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            background: rgba(7, 43, 102, 0.55);
+            box-shadow:
+              inset 0 0 0 1px rgba(212, 175, 55, 0.8),
+              inset 0 0 0 3px rgba(7, 43, 102, 0.8),
+              inset 0 0 0 4px rgba(212, 175, 55, 0.6);
+            min-width: 0;
+          }
+          .gov-since-circle-label,
+          .gov-since-circle-year {
+            font-size: 14px;
+          }
+          .gov-since-circle-year {
+            font-size: 18px;
+          }
         }
       `}</style>
     </section>
