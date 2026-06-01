@@ -484,32 +484,12 @@ export default function HeritagePage() {
           max-width: 1400px;
           margin: 0 auto;
           padding: 56px 56px 64px;
-          border-radius: 32px;
-          /* Multi-stroke royal border: thin outer gold, navy band, inner gold */
-          background:
-            linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0.0)),
-            linear-gradient(180deg, #FBF5E7 0%, #F5EAD0 100%);
-          box-shadow:
-            0 0 0 1px rgba(212, 175, 55, 0.55),
-            0 0 0 5px #072B66,
-            0 0 0 6px rgba(212, 175, 55, 0.85),
-            0 0 0 11px #FFD700,
-            0 0 0 12px rgba(7, 43, 102, 0.4),
-            0 28px 70px rgba(7, 43, 102, 0.18),
-            0 8px 24px rgba(7, 43, 102, 0.08);
+          background: transparent;
         }
         @media (max-width: 900px) {
           .heritage-about-luxury { padding: 72px 16px; }
           .heritage-about-frame {
             padding: 44px 22px 52px;
-            border-radius: 22px;
-            box-shadow:
-              0 0 0 1px rgba(212, 175, 55, 0.5),
-              0 0 0 4px #072B66,
-              0 0 0 5px rgba(212, 175, 55, 0.85),
-              0 0 0 8px #FFD700,
-              0 0 0 9px rgba(7, 43, 102, 0.35),
-              0 18px 44px rgba(7, 43, 102, 0.18);
           }
         }
 
@@ -553,13 +533,12 @@ export default function HeritagePage() {
           }
         }
 
-        /* ── Left — Mughal-style scalloped owner frame ── */
+        /* ── Left — owner portrait (pre-framed artwork, displayed cleanly) ── */
         .heritage-owner-wrap {
           position: relative;
           width: 100%;
           max-width: 440px;
           margin: 0 auto;
-          padding-bottom: 56px; /* space for the floating plaque */
           animation: heritageOwnerFloat 6.5s ease-in-out infinite;
         }
         @keyframes heritageOwnerFloat {
@@ -569,114 +548,16 @@ export default function HeritagePage() {
         .heritage-owner-mughal {
           position: relative;
           width: 100%;
-          aspect-ratio: 4 / 5;
-          /* Pointed Mughal-arch silhouette: heavy top rounding, slight bottom radius */
-          border-radius: 50% 50% 14px 14px / 38% 38% 14px 14px;
-          background: linear-gradient(180deg, #0B3580 0%, #072B66 50%, #04194A 100%);
-          /* Stacked gold rims for the scalloped frame illusion */
-          box-shadow:
-            inset 0 0 0 2px rgba(255, 215, 0, 0.55),
-            inset 0 0 0 6px #072B66,
-            inset 0 0 0 7px #D4AF37,
-            inset 0 0 0 10px #072B66,
-            inset 0 0 0 11px rgba(212, 175, 55, 0.7),
-            0 18px 38px rgba(7, 43, 102, 0.32),
-            0 6px 14px rgba(0, 0, 0, 0.18);
-          overflow: hidden;
-        }
-        /* Inner highlight glow behind the owner */
-        .heritage-owner-mughal::before {
-          content: "";
-          position: absolute;
-          inset: 11px;
-          border-radius: inherit;
-          background: radial-gradient(ellipse at 50% 35%, rgba(255,236,180,0.35) 0%, rgba(255,215,0,0.10) 35%, transparent 65%);
-          z-index: 1;
-          pointer-events: none;
+          aspect-ratio: 1 / 1;
+          filter: drop-shadow(0 22px 44px rgba(7, 43, 102, 0.32)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.16));
         }
         .heritage-owner-mughal-img {
           position: absolute;
-          inset: 14px;
-          border-radius: inherit;
-          overflow: hidden;
-          z-index: 2;
+          inset: 0;
         }
         .heritage-owner-mughal-img img {
-          object-fit: cover;
-          object-position: center 22%;
-          /* warm portrait lighting */
-          filter: contrast(1.03) saturate(1.05) brightness(1.02);
-        }
-        /* Subtle vignette + warm cast */
-        .heritage-owner-mughal-img::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background:
-            radial-gradient(ellipse at 50% 30%, rgba(255,228,170,0.15) 0%, transparent 55%),
-            linear-gradient(180deg, transparent 60%, rgba(7,43,102,0.55) 100%);
-          pointer-events: none;
-        }
-
-        /* Floating plaque overlapping the bottom of the frame */
-        .heritage-owner-plaque {
-          position: absolute;
-          left: 50%;
-          bottom: 0;
-          transform: translateX(-50%);
-          width: 86%;
-          padding: 16px 22px 14px;
-          text-align: center;
-          background: linear-gradient(180deg, #0B3580 0%, #072B66 50%, #04194A 100%);
-          border-radius: 14px;
-          box-shadow:
-            inset 0 0 0 1px #FFD700,
-            inset 0 0 0 3px #072B66,
-            inset 0 0 0 4px rgba(212, 175, 55, 0.85),
-            0 14px 28px rgba(7, 43, 102, 0.35),
-            0 3px 8px rgba(0, 0, 0, 0.2);
-          z-index: 3;
-        }
-        .heritage-owner-plaque::before,
-        .heritage-owner-plaque::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          width: 14px;
-          height: 14px;
-          transform: translateY(-50%) rotate(45deg);
-          background: linear-gradient(135deg, #FFE680 0%, #D4AF37 50%, #8B6508 100%);
-          box-shadow: 0 0 0 1px #072B66, 0 1px 3px rgba(0,0,0,0.35);
-        }
-        .heritage-owner-plaque::before { left: 10px; }
-        .heritage-owner-plaque::after  { right: 10px; }
-        .heritage-owner-plaque-name {
-          display: block;
-          font-family: 'Noto Serif Devanagari', serif;
-          font-weight: 700;
-          font-size: clamp(18px, 1.9vw, 24px);
-          line-height: 1.15;
-          letter-spacing: 0.01em;
-          background: linear-gradient(180deg, #FFF5C2 0%, #FFD700 30%, #F6C453 60%, #D4A017 85%, #8B6508 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          color: transparent;
-          filter:
-            drop-shadow(0 1px 0 #fff8dc)
-            drop-shadow(0 2px 2px rgba(0,0,0,0.32))
-            drop-shadow(0 0 4px rgba(212,160,23,0.30));
-        }
-        .heritage-owner-plaque-sub {
-          display: block;
-          margin-top: 6px;
-          font-family: 'Cormorant Garamond', serif;
-          font-weight: 500;
-          font-style: italic;
-          font-size: clamp(11px, 0.95vw, 13px);
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #F4DF9B;
+          object-fit: contain;
+          object-position: center;
         }
 
         /* ── Right — manuscript content panel ── */
@@ -1258,21 +1139,13 @@ export default function HeritagePage() {
                 <div className="heritage-owner-mughal">
                   <div className="heritage-owner-mughal-img">
                     <Image
-                      src="/images/owner.webp"
-                      alt="प्रो. भगवान सिंह हलवाई — founder of Shree Girraj Misthan Bhandar"
+                      src="/images/owner-new.png"
+                      alt="प्रो. भगवान सिंह सैनी — founder of Shree Girraj Misthan Bhandar"
                       fill
                       sizes="(max-width: 900px) 86vw, 440px"
                       priority={false}
                     />
                   </div>
-                </div>
-                <div className="heritage-owner-plaque">
-                  <span className="heritage-owner-plaque-name">
-                    भगवान सिंह हलवाई
-                  </span>
-                  <span className="heritage-owner-plaque-sub">
-                    Pro. Bhagwan Singh — Proprietor
-                  </span>
                 </div>
               </motion.div>
 
