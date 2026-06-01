@@ -1,7 +1,6 @@
 "use client";
 
 import GovHero from "@/components/govardhan/GovHero";
-import GovSinceBanner from "@/components/govardhan/GovSinceBanner";
 import GovMaharajStrip from "@/components/govardhan/GovMaharajStrip";
 import GovFeatureStrip from "@/components/govardhan/GovFeatureStrip";
 import GovStory from "@/components/govardhan/GovStory";
@@ -16,7 +15,6 @@ export default function GovardhanPage() {
   return (
     <>
       <GovHero />
-      <GovSinceBanner />
       <GovMaharajStrip />
       <GovFeatureStrip />
       <GovStory />

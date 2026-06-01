@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import SinceBanner from "@/components/SinceBanner";
 
 // ─────────────────────────────────────────────────────────────
 // Palette
@@ -1095,6 +1096,9 @@ export default function HeritagePage() {
             </div>
           </motion.div>
         </section>
+
+        {/* ════════════ Since 1982 banner ════════════ */}
+        <SinceBanner />
 
         {/* ════════════ 4. ABOUT — LUXURY ROYAL EDITORIAL ════════════ */}
         <section className="heritage-section heritage-about-luxury">

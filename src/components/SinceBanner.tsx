@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function GovSinceBanner() {
+export default function SinceBanner() {
   return (
     <section className="gov-since-banner-section">
       <div className="gov-since-banner">
