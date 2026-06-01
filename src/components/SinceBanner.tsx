@@ -19,30 +19,34 @@ export default function SinceBanner() {
           }}
         />
 
-        {/* Foreground content */}
-        <div className="gov-since-content">
-          {/* LEFT — shop logo */}
-          <div className="gov-since-logo">
-            <Image
-              src="/images/new images/logo.webp"
-              alt="Shree Giriraj Misthan Bhandar"
-              fill
-              sizes="(max-width: 768px) 90px, 140px"
-              style={{ objectFit: "contain" }}
-            />
-          </div>
+        {/* LEFT — SGMB shop logo (oval) */}
+        <div className="gov-since-logo">
+          <Image
+            src="/images/footer-logo.webp"
+            alt="Shree Giriraj Misthan Bhandar"
+            fill
+            sizes="(max-width: 768px) 120px, 200px"
+            style={{ objectFit: "contain" }}
+          />
+        </div>
 
-          {/* CENTER — Giriraj Ji name */}
-          <div className="gov-since-name">
-            <span className="gov-since-name-en">Shree Giriraj Ji</span>
-            <span className="gov-since-name-hi">श्री गिरिराज मिष्ठान भण्डार</span>
-          </div>
+        {/* CENTER — Shree Giriraj Misthan Bhandar name image */}
+        <div className="gov-since-name">
+          <Image
+            src="/images/new images/logo.webp"
+            alt="श्री गिरिराज मिष्ठान भण्डार"
+            fill
+            sizes="(max-width: 768px) 60vw, 600px"
+            style={{ objectFit: "contain" }}
+          />
+        </div>
 
-          {/* RIGHT — Since 1982 inside the gold circle */}
-          <div className="gov-since-circle">
-            <span className="gov-since-circle-label">Since</span>
-            <span className="gov-since-circle-year">1982</span>
-          </div>
+        {/* RIGHT — Since 1982 precisely centered on the embossed gold ring.
+            Ring centre measured from Since.png at (86% x, 50% y), inner
+            diameter ~11.4% of the banner width. */}
+        <div className="gov-since-circle">
+          <span className="gov-since-circle-label">Since</span>
+          <span className="gov-since-circle-year">1982</span>
         </div>
       </div>
 
@@ -55,77 +59,46 @@ export default function SinceBanner() {
         .gov-since-banner {
           position: relative;
           width: 100%;
-          /* Match the 1280x300 source aspect ratio so the artwork displays
-             unstretched at every viewport width. */
+          /* Match the 1280x300 source aspect so the artwork never stretches. */
           aspect-ratio: 1280 / 300;
           max-width: 1600px;
           margin: 0 auto;
         }
-        .gov-since-content {
-          position: absolute;
-          inset: 0;
-          display: grid;
-          grid-template-columns: 1fr 2fr 1fr;
-          align-items: center;
-          padding: 0 5.5%;
-        }
-        /* LEFT — logo */
+
+        /* LEFT — SGMB oval logo, sized to overhang the banner top/bottom
+           a touch like a medallion. */
         .gov-since-logo {
-          position: relative;
-          width: clamp(70px, 9vw, 140px);
-          aspect-ratio: 1 / 1;
-          justify-self: start;
-          align-self: center;
-          /* Soft gold glow behind the logo so it lifts off the deep navy. */
-          filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.22))
-                  drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+          position: absolute;
+          top: 50%;
+          left: 7%;
+          transform: translate(-50%, -50%);
+          width: clamp(110px, 14vw, 220px);
+          aspect-ratio: 1080 / 1350;
+          filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.28))
+                  drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
         }
-        /* CENTER — Giriraj name */
+
+        /* CENTRE — Hindi shop name image. Sized by HEIGHT so it always sits
+           inside the navy band (no overhang) and downscales gracefully on
+           narrow screens. */
         .gov-since-name {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-self: center;
-          text-align: center;
-          line-height: 1.05;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          height: 84%;
+          aspect-ratio: 1400 / 934;
+          max-width: 58%;
+          filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
         }
-        .gov-since-name-en {
-          font-family: 'Cormorant Garamond', 'Playfair Display', serif;
-          font-weight: 600;
-          font-style: italic;
-          font-size: clamp(20px, 3.4vw, 44px);
-          letter-spacing: 0.015em;
-          background: linear-gradient(
-            180deg,
-            #FFF5C2 0%,
-            #FFD700 30%,
-            #F6C453 55%,
-            #D4A017 80%,
-            #8B6508 100%
-          );
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          color: transparent;
-        }
-        .gov-since-name-hi {
-          margin-top: 4px;
-          font-family: 'Noto Serif Devanagari', serif;
-          font-weight: 600;
-          font-size: clamp(11px, 1.4vw, 17px);
-          letter-spacing: 0.04em;
-          color: #F4DF9B;
-          opacity: 0.92;
-        }
-        /* RIGHT — Since 1982 inside the gold circle on the banner artwork.
-           Position the text so it lands inside the embossed ring on the
-           right side of the navy banner. */
+
+        /* RIGHT — Since 1982 over the gold ring */
         .gov-since-circle {
           position: absolute;
           top: 50%;
-          right: 6.2%;
-          transform: translateY(-50%);
-          width: clamp(72px, 11.5vw, 168px);
+          left: 86%;
+          transform: translate(-50%, -50%);
+          width: 11%;
           aspect-ratio: 1 / 1;
           display: flex;
           flex-direction: column;
@@ -133,13 +106,15 @@ export default function SinceBanner() {
           justify-content: center;
           text-align: center;
           gap: 2px;
+          /* Keep a sensible minimum on tiny viewports */
+          min-width: 70px;
         }
         .gov-since-circle-label {
           font-family: 'Cormorant Garamond', serif;
           font-style: italic;
           font-weight: 500;
           font-size: clamp(9px, 1.1vw, 14px);
-          letter-spacing: 0.16em;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
           color: #F4DF9B;
           line-height: 1;
@@ -166,7 +141,6 @@ export default function SinceBanner() {
 
         @media (max-width: 640px) {
           .gov-since-banner-section { padding: 18px 12px; }
-          .gov-since-content { padding: 0 4%; }
         }
       `}</style>
     </section>
