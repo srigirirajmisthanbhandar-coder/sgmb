@@ -829,8 +829,6 @@ export default function HeritagePage() {
           white-space: nowrap;
           overflow: hidden;
           max-width: 100%;
-          /* Translate a hair upward so the optical baseline sits dead-centre
-             inside the plaque rather than on the geometric centre. */
           transform: translateY(-1px);
 
           /* Rich metallic gold fill — top highlight to deep antique base. */
@@ -847,18 +845,11 @@ export default function HeritagePage() {
           -webkit-text-fill-color: transparent;
           color: transparent;
 
-          /* drop-shadow layers compose like text-shadow but work with the
-             gradient fill above. Together they read as engraved relief on
-             the plaque + a faint warm glow. */
-          filter:
-            drop-shadow(0 1px 0 #fff8dc)
-            drop-shadow(0 2px 2px rgba(0, 0, 0, 0.28))
-            drop-shadow(0 4px 6px rgba(0, 0, 0, 0.18))
-            drop-shadow(0 0 5px rgba(212, 160, 23, 0.28));
-
+          /* No drop-shadow / glow: keeps the gradient edge perfectly crisp
+             against the dark navy plaque. Depth comes from the gradient. */
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
-          text-rendering: geometricPrecision;
+          text-rendering: optimizeLegibility;
           font-feature-settings: "kern" 1, "liga" 1;
         }
         @media (max-width: 640px) {
@@ -1512,40 +1503,6 @@ export default function HeritagePage() {
                   <div className="heritage-sweet-frame-name">
                     <span>{s.name}</span>
                   </div>
-                </div>
-
-                {/* Sanskrit name + description below the frame */}
-                <div
-                  style={{
-                    marginTop: 14,
-                    textAlign: "center",
-                    maxWidth: 320,
-                    padding: "0 16px",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily: '"Noto Serif Devanagari", serif',
-                      fontSize: 14,
-                      color: C.gold,
-                      margin: 0,
-                      fontWeight: 600,
-                      letterSpacing: "0.02em",
-                    }}
-                  >
-                    {s.sanskritName}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body, sans-serif)",
-                      fontSize: 13.5,
-                      lineHeight: 1.65,
-                      color: "rgba(31,26,18,0.72)",
-                      margin: "8px 0 0",
-                    }}
-                  >
-                    {s.desc}
-                  </p>
                 </div>
               </motion.article>
             ))}
