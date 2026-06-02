@@ -7,7 +7,6 @@ import Image from "next/image";
 const CREAM = "#FAF5EA";
 const GREEN = "#0D3B2E";
 const GOLD = "#C79A3B";
-const GOLD_SOFT = "#f4df9b";
 const GOLD_DEEP = "#7a5422";
 const NAVY = "#0f2345";
 const HAIRLINE = "rgba(212,175,55,0.28)";
@@ -74,123 +73,28 @@ export default function GovSweetCarousel() {
             custom={0}
             style={{ position: "relative" }}
           >
-            <div
-              aria-hidden
-              style={{
-                position: "absolute",
-                inset: -18,
-                borderRadius: 20,
-                border: `1px solid ${HAIRLINE}`,
-                pointerEvents: "none",
-              }}
-            />
+            {/* Pre-framed owner portrait — carries its own gold rim and
+                'प्रो. भगवान सिंह सैनी' plaque, so render it cleanly. */}
             <div
               style={{
                 position: "relative",
                 width: "100%",
-                aspectRatio: "4 / 5",
-                borderRadius: 12,
-                overflow: "hidden",
-                background:
-                  "radial-gradient(ellipse at 50% 30%, #F2E2C0 0%, #E2C994 55%, #B7902F 100%)",
-                boxShadow:
-                  "0 26px 60px rgba(13,59,46,0.18), 0 4px 12px rgba(0,0,0,0.08)",
+                aspectRatio: "1 / 1",
+                filter:
+                  "drop-shadow(0 22px 44px rgba(7, 43, 102, 0.32)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.16))",
               }}
             >
-              <div
-                aria-hidden
-                style={{
-                  position: "absolute",
-                  top: "30%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  width: "90%",
-                  height: "70%",
-                  borderRadius: "50%",
-                  background:
-                    "radial-gradient(circle, rgba(255,240,200,0.55) 0%, rgba(199,154,59,0.18) 45%, transparent 75%)",
-                  filter: "blur(8px)",
-                  pointerEvents: "none",
-                }}
-              />
               <Image
-                src="/images/owner.webp"
-                alt="प्रो. भगवान सिंह हलवाई — founder of Shree Girraj Misthan Bhandar"
+                src="/images/owner-new.png"
+                alt="प्रो. भगवान सिंह सैनी — founder of Shree Girraj Misthan Bhandar"
                 fill
                 sizes="(max-width: 900px) 92vw, 480px"
                 style={{
-                  objectFit: "cover",
-                  objectPosition: "center 20%",
+                  objectFit: "contain",
+                  objectPosition: "center",
                 }}
               />
-              <div
-                aria-hidden
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  background:
-                    "linear-gradient(to bottom, transparent 55%, rgba(13,59,46,0.7) 100%)",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 22,
-                  left: 22,
-                  right: 22,
-                  color: "#FFFFFF",
-                  fontFamily: "var(--font-body, sans-serif)",
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: 10,
-                    letterSpacing: "0.3em",
-                    textTransform: "uppercase",
-                    color: GOLD_SOFT,
-                    margin: 0,
-                  }}
-                >
-                  Founder &amp; Patron
-                </p>
-                <p
-                  style={{
-                    fontFamily: '"Noto Serif Devanagari", serif',
-                    fontSize: 24,
-                    fontWeight: 600,
-                    margin: "6px 0 0",
-                    lineHeight: 1.15,
-                  }}
-                >
-                  प्रो. भगवान सिंह हलवाई
-                </p>
-              </div>
             </div>
-            {/* Corner ornaments */}
-            <div
-              aria-hidden
-              style={{
-                position: "absolute",
-                top: -10,
-                left: -10,
-                width: 28,
-                height: 28,
-                borderTop: `1.5px solid ${GOLD}`,
-                borderLeft: `1.5px solid ${GOLD}`,
-              }}
-            />
-            <div
-              aria-hidden
-              style={{
-                position: "absolute",
-                bottom: -10,
-                right: -10,
-                width: 28,
-                height: 28,
-                borderBottom: `1.5px solid ${GOLD}`,
-                borderRight: `1.5px solid ${GOLD}`,
-              }}
-            />
           </motion.div>
 
           {/* RIGHT — story */}
