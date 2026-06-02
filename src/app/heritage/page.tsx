@@ -1072,11 +1072,11 @@ export default function HeritagePage() {
               </span>
             </a>
 
-            <a href="/products" className="heritage-hero-order-wrap">
+            <div className="heritage-hero-order-wrap">
               <span className="heritage-hero-order">
                 ॥ मेरौ तो गिरराज बाबा ॥
               </span>
-            </a>
+            </div>
           </motion.div>
 
           {/* Bottom — faded navy band with devotional welcome */}
