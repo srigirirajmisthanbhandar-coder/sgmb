@@ -15,11 +15,11 @@ export default function GovardhanPage() {
   return (
     <>
       <GovHero />
-      <GovMaharajStrip />
       <GovFeatureStrip />
-      <GovStory />
       <GovSweetCarousel />
+      <GovMaharajStrip />
       <GovSignatureSweets />
+      <GovStory />
       <GovHotel />
       <GovGifting />
       <GovTestimonials />
