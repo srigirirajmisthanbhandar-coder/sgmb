@@ -1201,8 +1201,8 @@ export default function HeritagePage() {
                 <div className="heritage-owner-mughal">
                   <div className="heritage-owner-mughal-img">
                     <Image
-                      src="/images/owner-new.png"
-                      alt="प्रो. भगवान सिंह सैनी — founder of Shree Girraj Misthan Bhandar"
+                      src="/images/owner-framed.png"
+                      alt="प्रो. भगवान सिंह हलवाई — founder of Shree Girraj Misthan Bhandar"
                       fill
                       sizes="(max-width: 900px) 86vw, 440px"
                       priority={false}
