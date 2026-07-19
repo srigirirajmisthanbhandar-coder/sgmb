@@ -126,10 +126,15 @@ interface GovHotelProps {
    *  in-site hotel page; pass an external URL (e.g. www.girrajinn.com) to
    *  open the standalone hotel site in a new tab. */
   hotelHref?: string;
+  /** Dark accent colour used for the section background and dark text
+   *  accents. Defaults to the govardhan green; pass the heritage navy
+   *  (#0f2345) to match that page. */
+  accent?: string;
 }
 
 export default function GovHotel({
   hotelHref = "/govardhan/hotel",
+  accent = "#0D3B2E",
 }: GovHotelProps = {}) {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
@@ -143,7 +148,7 @@ export default function GovHotel({
       ref={ref}
       className="gov-hotel-section"
       style={{
-        backgroundColor: "#0D3B2E",
+        backgroundColor: accent,
         padding: "100px 0",
         position: "relative",
         overflow: "hidden",
@@ -442,7 +447,7 @@ export default function GovHotel({
                         fontFamily: "var(--font-body, sans-serif)",
                         fontSize: 13,
                         fontWeight: 500,
-                        color: "#0D3B2E",
+                        color: accent,
                       }}
                     >
                       {item.label}
@@ -457,8 +462,8 @@ export default function GovHotel({
                 style={{
                   display: "block",
                   textAlign: "center",
-                  border: "1.5px solid #0D3B2E",
-                  color: "#0D3B2E",
+                  border: `1.5px solid ${accent}`,
+                  color: accent,
                   fontFamily: "var(--font-body, sans-serif)",
                   fontSize: 13,
                   fontWeight: 700,
