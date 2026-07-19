@@ -687,13 +687,12 @@ export default function HeritagePage() {
           display: flex;
           overflow: hidden;
           padding: 8px 0 28px;
-          -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
-          mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
         }
         .heritage-maharaj-track {
           display: flex;
           width: max-content;
-          animation: heritage-maharaj-marquee 55s linear infinite;
+          will-change: transform;
+          animation: heritage-maharaj-marquee 10s linear infinite;
         }
         .heritage-maharaj-rail:hover .heritage-maharaj-track {
           animation-play-state: paused;
