@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import SinceBanner from "@/components/SinceBanner";
 import GovHotel from "@/components/govardhan/GovHotel";
+import { AnimatedText } from "@/components/ui/animated-underline-text-one";
 
 // ─────────────────────────────────────────────────────────────
 // Palette
@@ -587,6 +588,20 @@ export default function HeritagePage() {
         }
         .heritage-about-heading::first-letter {
           color: #072B66;
+        }
+        /* Animated-underline heading wrapper — keep the heritage serif
+           size/weight over the component's default text-4xl/font-bold. */
+        .heritage-about-heading-wrap {
+          gap: 0;
+          margin: 6px auto 26px;
+        }
+        .heritage-about-heading-wrap .heritage-about-heading {
+          font-size: clamp(40px, 5.6vw, 64px) !important;
+          font-weight: 600 !important;
+          margin: 0 !important;
+        }
+        .heritage-about-underline {
+          color: #C79A3B;
         }
         .heritage-about-paragraph {
           font-family: 'Noto Serif Devanagari', serif;
@@ -1212,7 +1227,13 @@ export default function HeritagePage() {
                 </div>
 
                 <p className="heritage-about-eyebrow">Founder &amp; Patron</p>
-                <h2 className="heritage-about-heading">About</h2>
+                <AnimatedText
+                  text="About"
+                  className="heritage-about-heading-wrap"
+                  textClassName="heritage-about-heading"
+                  underlineClassName="heritage-about-underline"
+                  underlineDuration={1.4}
+                />
 
                 {/* Bottom ornament */}
                 <div className="heritage-about-ornament" aria-hidden>
