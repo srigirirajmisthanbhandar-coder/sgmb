@@ -1566,6 +1566,144 @@ Hover to pause
           </motion.div>
         </section>
 
+        {/* ════════════ 7. GIRRAJ INN — HOSPITALITY ════════════ */}
+        <section
+          className="heritage-section"
+          style={{
+            position: "relative",
+            padding: "72px 0",
+            backgroundColor: C.navy,
+            borderTop: `1px solid ${C.hairline}`,
+            borderBottom: `1px solid ${C.hairline}`,
+            overflow: "hidden",
+          }}
+        >
+          {/* Soft gold glow accents */}
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: 0,
+              zIndex: 0,
+              background:
+                "radial-gradient(ellipse at 20% 15%, rgba(212,175,55,0.14) 0%, transparent 55%), radial-gradient(ellipse at 80% 85%, rgba(212,175,55,0.10) 0%, transparent 60%)",
+              pointerEvents: "none",
+            }}
+          />
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp}
+            style={{
+              position: "relative",
+              zIndex: 1,
+              maxWidth: 880,
+              margin: "0 auto",
+              padding: "0 24px",
+              textAlign: "center",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontStyle: "italic",
+                fontSize: 14,
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: C.goldSoft,
+                margin: "0 0 6px",
+              }}
+            >
+              Rest &amp; Hospitality
+            </p>
+            <h2
+              style={{
+                fontFamily: "'Cormorant Garamond', 'Playfair Display', serif",
+                fontWeight: 600,
+                fontSize: "clamp(34px, 5vw, 56px)",
+                lineHeight: 1.05,
+                letterSpacing: "0.01em",
+                margin: 0,
+                background: `linear-gradient(180deg, ${C.goldSoft} 0%, ${C.gold} 55%, #A07820 100%)`,
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Girraj Inn
+            </h2>
+
+            <LotusDivider small />
+
+            <p
+              style={{
+                fontFamily: '"Noto Serif Devanagari", serif',
+                fontSize: "clamp(15px, 1.25vw, 17px)",
+                lineHeight: 1.8,
+                color: "rgba(244,223,155,0.88)",
+                maxWidth: 640,
+                margin: "0 auto 32px",
+              }}
+            >
+              A restful haven for pilgrims and travellers on the sacred
+              parikrama path of Govardhan — warm rooms, sattvic meals, and the
+              same devotion that fills our bhandar. Stay close to Giriraj Baba,
+              wake to the sound of aarti.
+            </p>
+
+            <a
+              href="https://www.girrajinn.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                fontFamily: "var(--font-body, sans-serif)",
+                fontSize: 13,
+                fontWeight: 600,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: C.navy,
+                background: `linear-gradient(180deg, ${C.goldSoft} 0%, ${C.gold} 100%)`,
+                border: `1.5px solid ${C.gold}`,
+                padding: "14px 34px",
+                borderRadius: 9999,
+                textDecoration: "none",
+                boxShadow: "0 10px 26px rgba(212,175,55,0.28)",
+                transition: "transform 0.25s ease, box-shadow 0.25s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow =
+                  "0 16px 34px rgba(212,175,55,0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0 10px 26px rgba(212,175,55,0.28)";
+              }}
+            >
+              Visit www.girrajinn.com
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </motion.div>
+        </section>
+
         {/* Closing devotional line */}
         <section
           className="heritage-section heritage-close"
