@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 
 const announcements = [
-  { text: "॥ मेरौ तो गिर्राज बाबा ॥", isHindi: true },
+  { text: "॥ मेरौ तौ गिर्राज बाबा ॥", isHindi: true },
 ];
 
 export default function AnnouncementBar() {

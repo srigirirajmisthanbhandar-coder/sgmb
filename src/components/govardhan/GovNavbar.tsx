@@ -134,7 +134,7 @@ function AnnouncementBar() {
             whiteSpace: "nowrap",
           }}
         >
-          || मेरौ तो गिर्राज बाबा ||
+          || मेरौ तौ गिर्राज बाबा ||
         </p>
 
         {/* Right — language + socials */}

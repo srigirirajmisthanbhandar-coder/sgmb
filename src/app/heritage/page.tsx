@@ -934,18 +934,56 @@ export default function HeritagePage() {
         }
         .heritage-footer-grid {
           display: grid;
-          grid-template-columns: 5fr 6fr;
-          gap: 48px;
-          align-items: stretch;
+          grid-template-columns: 4fr 2.6fr 5fr;
+          gap: 44px;
+          align-items: start;
+        }
+        @media (max-width: 900px) {
+          .heritage-footer-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+          }
+          .heritage-footer-grid > div:nth-child(3) { grid-column: 1 / -1; }
         }
         @media (max-width: 768px) {
           .heritage-footer { padding: 56px 0 28px !important; }
           .heritage-footer-inner { padding: 0 20px !important; }
           .heritage-footer-grid {
             grid-template-columns: 1fr !important;
-            gap: 36px !important;
+            gap: 32px !important;
           }
           .heritage-footer-brand { flex-direction: column; align-items: flex-start; gap: 14px; }
+        }
+        /* ── Quick links ── */
+        .heritage-footer-links {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 11px;
+        }
+        .heritage-footer-links a {
+          font-family: var(--font-body, sans-serif);
+          font-size: 14px;
+          color: rgba(248,242,232,0.80);
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          width: fit-content;
+          transition: color 0.2s ease, transform 0.2s ease;
+        }
+        .heritage-footer-links a::before {
+          content: "›";
+          color: ${C.gold};
+          font-size: 16px;
+          line-height: 1;
+          transition: transform 0.2s ease;
+        }
+        .heritage-footer-links a:hover {
+          color: ${C.goldSoft};
+          transform: translateX(3px);
         }
         .heritage-footer-label {
           font-family: var(--font-body, sans-serif);
@@ -973,22 +1011,23 @@ export default function HeritagePage() {
           display: flex;
           gap: 12px;
           margin-top: 20px;
+          flex-wrap: wrap;
         }
         .heritage-footer-socials a {
-          width: 40px;
-          height: 40px;
+          width: 42px;
+          height: 42px;
           border-radius: 50%;
-          border: 1px solid rgba(199,154,59,0.32);
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          color: ${C.goldSoft};
-          transition: border-color 0.2s, color 0.2s, background 0.2s;
+          color: #FFFFFF;
+          box-shadow: 0 6px 16px rgba(0,0,0,0.28);
+          transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
         }
         .heritage-footer-socials a:hover {
-          border-color: ${C.gold};
-          color: ${C.green};
-          background: ${C.gold};
+          transform: translateY(-3px) scale(1.06);
+          box-shadow: 0 12px 24px rgba(0,0,0,0.42);
+          filter: brightness(1.08);
         }
         .heritage-footer-map {
           position: relative;
@@ -1087,7 +1126,7 @@ export default function HeritagePage() {
 
             <div className="heritage-hero-order-wrap">
               <span className="heritage-hero-order">
-                ॥ मेरौ तो गिर्राज बाबा ॥
+                ॥ मेरौ तौ गिर्राज बाबा ॥
               </span>
             </div>
           </motion.div>
@@ -1672,10 +1711,14 @@ Hover to pause
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)",
+                  }}
                 >
                   <svg
-                    width="18"
-                    height="18"
+                    width="19"
+                    height="19"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -1699,10 +1742,11 @@ Hover to pause
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
+                  style={{ background: "#1877F2" }}
                 >
                   <svg
-                    width="18"
-                    height="18"
+                    width="19"
+                    height="19"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -1714,10 +1758,11 @@ Hover to pause
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="YouTube"
+                  style={{ background: "#FF0000" }}
                 >
                   <svg
-                    width="18"
-                    height="18"
+                    width="19"
+                    height="19"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -1733,7 +1778,37 @@ Hover to pause
                     />
                   </svg>
                 </a>
+                <a
+                  href="https://wa.me/919876543210"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  style={{ background: "#25D366" }}
+                >
+                  <svg
+                    width="19"
+                    height="19"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.16c-.24.68-1.42 1.32-1.96 1.36-.5.05-.5.4-3.15-.66-2.65-1.06-4.31-3.75-4.44-3.92-.13-.17-1.06-1.4-1.06-2.67 0-1.27.67-1.9.9-2.16.24-.26.52-.32.7-.32.17 0 .35 0 .5.01.16.01.38-.06.59.45.24.58.8 2 .87 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.56.16.27.72 1.18 1.54 1.92 1.06.94 1.95 1.24 2.22 1.38.27.14.43.12.59-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.44.2.51.31.06.11.06.66-.18 1.34z" />
+                  </svg>
+                </a>
               </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <p className="heritage-footer-label">Quick Links</p>
+              <ul className="heritage-footer-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/govardhan/sweets">Sweets</a></li>
+                <li><a href="/govardhan/hotel">Hotel</a></li>
+                <li><a href="/govardhan/about">About Us</a></li>
+                <li><a href="/govardhan/gifting">Gifting</a></li>
+                <li><a href="/govardhan/festivals">Festivals</a></li>
+                <li><a href="/govardhan/contact">Contact</a></li>
+              </ul>
             </div>
 
             {/* Google Map */}
