@@ -692,7 +692,7 @@ export default function HeritagePage() {
           display: flex;
           width: max-content;
           will-change: transform;
-          animation: heritage-maharaj-marquee 10s linear infinite;
+          animation: heritage-maharaj-marquee 25s linear infinite;
         }
         .heritage-maharaj-rail:hover .heritage-maharaj-track {
           animation-play-state: paused;
