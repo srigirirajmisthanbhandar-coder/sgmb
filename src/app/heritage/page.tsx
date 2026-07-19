@@ -681,26 +681,32 @@ export default function HeritagePage() {
           margin: 8px 0 0;
         }
 
-        /* ── Maharaj devotional rail — single-line horizontal scroller
-              of vertical rectangle portraits with gold frames ── */
+        /* ── Maharaj devotional rail — auto-sliding marquee of
+              vertical rectangle portraits with gold frames ── */
         .heritage-maharaj-rail {
           display: flex;
-          gap: 22px;
-          overflow-x: auto;
-          padding: 8px 32px 28px;
-          scroll-snap-type: x mandatory;
-          -webkit-overflow-scrolling: touch;
-          scrollbar-width: none;
-          scroll-padding-left: 32px;
+          overflow: hidden;
+          padding: 8px 0 28px;
+          -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
         }
-        .heritage-maharaj-rail::-webkit-scrollbar { display: none; }
-        .heritage-maharaj-rail > * {
-          scroll-snap-align: start;
-          flex-shrink: 0;
+        .heritage-maharaj-track {
+          display: flex;
+          width: max-content;
+          animation: heritage-maharaj-marquee 55s linear infinite;
+        }
+        .heritage-maharaj-rail:hover .heritage-maharaj-track {
+          animation-play-state: paused;
+        }
+        @keyframes heritage-maharaj-marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
         }
         .heritage-maharaj-card {
           width: 220px;
+          margin-right: 22px;
           aspect-ratio: 5 / 7;
+          flex-shrink: 0;
           position: relative;
           border-radius: 14px;
           overflow: hidden;
@@ -714,11 +720,18 @@ export default function HeritagePage() {
           box-shadow: 0 26px 60px rgba(13,59,46,0.24), 0 0 32px rgba(199,154,59,0.22);
         }
         @media (max-width: 768px) {
-          .heritage-maharaj-rail { padding: 8px 20px 24px !important; gap: 16px !important; }
-          .heritage-maharaj-card { width: 168px !important; }
+          .heritage-maharaj-card { width: 168px !important; margin-right: 16px !important; }
         }
         @media (max-width: 420px) {
           .heritage-maharaj-card { width: 148px !important; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .heritage-maharaj-track { animation: none; }
+          .heritage-maharaj-rail {
+            overflow-x: auto;
+            scrollbar-width: none;
+          }
+          .heritage-maharaj-rail::-webkit-scrollbar { display: none; }
         }
 
         /* ── Sweets grid ── */
@@ -1283,15 +1296,12 @@ export default function HeritagePage() {
               margin: "0 auto",
             }}
           >
-            {maharaj.map((m, i) => (
-              <motion.div
-                key={m.name}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-                variants={fadeUp}
-                custom={0.05 * i}
+            <div className="heritage-maharaj-track" aria-hidden={false}>
+            {[...maharaj, ...maharaj].map((m, i) => (
+              <div
+                key={`${m.name}-${i}`}
                 className="heritage-maharaj-card"
+                aria-hidden={i >= maharaj.length}
               >
                 <div
                   style={{
@@ -1362,8 +1372,9 @@ export default function HeritagePage() {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
+            </div>
           </motion.div>
 
           {/* Subtle scroll hint */}
@@ -1378,7 +1389,7 @@ export default function HeritagePage() {
               margin: "8px 0 0",
             }}
           >
-            ← Swipe to view all →
+Hover to pause
           </p>
         </section>
 
