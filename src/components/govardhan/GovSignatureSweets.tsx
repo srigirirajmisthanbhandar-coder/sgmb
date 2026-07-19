@@ -129,27 +129,15 @@ function SweetCard({ sweet, index, isInView }: SweetCardProps) {
         {sweet.name}
       </p>
 
-      {/* Price + Add button row */}
+      {/* Add button row */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "flex-end",
           marginTop: "8px",
         }}
       >
-        <span
-          style={{
-            fontFamily: "var(--font-body)",
-            fontSize: "13px",
-            color: `${GREEN}99`,
-            lineHeight: 1,
-          }}
-        >
-          {sweet.price}
-          <span style={{ fontSize: "11px" }}>{sweet.unit}</span>
-        </span>
-
         {/* Add button */}
         <button
           aria-label={`Add ${sweet.name} to cart`}

@@ -1032,7 +1032,7 @@ export default function HeritagePage() {
               on the inner element can't overwrite it. */}
           <div
             className="heritage-hero-wordmark"
-            aria-label="श्री गिरिराज मिष्ठान भंडार"
+            aria-label="श्री गिर्राज मिष्ठान भंडार"
           >
             <motion.div
               initial={{ opacity: 0 }}
@@ -1043,7 +1043,7 @@ export default function HeritagePage() {
             >
               <Image
                 src="/images/name.png"
-                alt="श्री गिरिराज मिष्ठान भंडार"
+                alt="श्री गिर्राज मिष्ठान भंडार"
                 fill
                 sizes="(max-width: 760px) 36vw, 28vw"
                 priority
@@ -1089,7 +1089,7 @@ export default function HeritagePage() {
             className="heritage-hero-bottom"
           >
             <div className="heritage-hero-bottom-inner">
-              <p className="heritage-hero-bottom-eyebrow">॥ जय श्री गिरिराज ॥</p>
+              <p className="heritage-hero-bottom-eyebrow">॥ जय श्री गिर्राज ॥</p>
               <p className="heritage-hero-bottom-line">
                 गोवर्धन की पावन भूमि से — <em>श्रद्धा से बनी, भोग रूप में अर्पित</em> — पीढ़ियों की मिठास
               </p>
@@ -1598,7 +1598,7 @@ export default function HeritagePage() {
                 margin: 0,
               }}
             >
-              ॥ राधे राधे · जय श्री गिरिराज ॥
+              ॥ राधे राधे · जय श्री गिर्राज ॥
             </p>
           </motion.div>
         </section>
@@ -1766,7 +1766,7 @@ export default function HeritagePage() {
           {/* Bottom row */}
           <div className="heritage-footer-bottom">
             <p>© {new Date().getFullYear()} Shree Girraj Misthan Bhandar</p>
-            <p className="devotional">|| राधे राधे · जय श्री गिरिराज ||</p>
+            <p className="devotional">|| राधे राधे · जय श्री गिर्राज ||</p>
           </div>
         </div>
       </footer>

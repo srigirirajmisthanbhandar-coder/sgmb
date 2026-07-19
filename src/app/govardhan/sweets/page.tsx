@@ -185,39 +185,15 @@ function SweetCard({ sweet }: { sweet: (typeof allMithai)[number] }) {
           {sweet.weight || "500g"} &middot; Pure Desi Ghee
         </p>
 
-        {/* Price + Cart */}
+        {/* Cart */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "flex-end",
             gap: 8,
           }}
         >
-          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
-            <span
-              style={{
-                fontFamily: "var(--font-body, sans-serif)",
-                fontSize: 17,
-                fontWeight: 700,
-                color: GREEN,
-              }}
-            >
-              ₹{sweet.price}
-            </span>
-            {sweet.originalPrice && (
-              <span
-                style={{
-                  fontFamily: "var(--font-body, sans-serif)",
-                  fontSize: 13,
-                  color: "#A89B8C",
-                  textDecoration: "line-through",
-                }}
-              >
-                ₹{sweet.originalPrice}
-              </span>
-            )}
-          </div>
           <button
             className="gov-add-btn"
             style={{
