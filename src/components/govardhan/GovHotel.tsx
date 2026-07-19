@@ -121,9 +121,22 @@ const sideAmenities = [
 
 // ── Component ────────────────────────────────────────────────────────────────
 
-export default function GovHotel() {
+interface GovHotelProps {
+  /** Where the "Explore Hotel" / "Book Now" links point. Defaults to the
+   *  in-site hotel page; pass an external URL (e.g. www.girrajinn.com) to
+   *  open the standalone hotel site in a new tab. */
+  hotelHref?: string;
+}
+
+export default function GovHotel({
+  hotelHref = "/govardhan/hotel",
+}: GovHotelProps = {}) {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const isExternal = /^https?:\/\//.test(hotelHref);
+  const externalProps = isExternal
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
 
   return (
     <section
@@ -297,7 +310,8 @@ export default function GovHotel() {
             </ul>
 
             <a
-              href="/govardhan/hotel"
+              href={hotelHref}
+              {...externalProps}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -438,7 +452,8 @@ export default function GovHotel() {
               </ul>
 
               <a
-                href="/govardhan/hotel"
+                href={hotelHref}
+                {...externalProps}
                 style={{
                   display: "block",
                   textAlign: "center",
