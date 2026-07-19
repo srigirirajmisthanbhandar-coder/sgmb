@@ -52,7 +52,7 @@ const maharaj = [
   { name: "श्री राजेन्द्र दास जी महाराज", image: "/images/maharaj/rajendra-das.webp" },
   { name: "श्री चैतन्य दास महाराज जी", image: "/images/maharaj/chaitanya-das.webp" },
   { name: "संत श्री बालक योगेश्वर दास जी", image: "/images/maharaj/balak-yogeshwar-das.webp" },
-  { name: "श्री श्रीजी महाराज", image: "/images/maharaj/shri-shriji-maharaj.webp" },
+  { name: "श्री विनोद बाबा जी", image: "/images/maharaj/shri-shriji-maharaj.webp" },
   { name: "श्री श्याम शरण देवाचार्य", image: "/images/maharaj/shyam-sharan-devacharya.webp" },
   { name: "संत श्री राधाबिहारी दास जी", image: "/images/maharaj/radhabihari-das.webp" },
   { name: "संत श्री गुरू शरणानन्द जी", image: "/images/maharaj/guru-sharnanand.webp" },
