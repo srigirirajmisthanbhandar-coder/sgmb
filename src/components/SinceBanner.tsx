@@ -36,7 +36,7 @@ export default function SinceBanner() {
         <div className="gov-since-name">
           <Image
             src="/images/name-trimmed.png"
-            alt="श्री गिरिराज मिष्ठान भण्डार"
+            alt="श्री गिर्राज मिष्ठान भण्डार"
             fill
             sizes="(max-width: 768px) 70vw, 620px"
             style={{ objectFit: "contain" }}

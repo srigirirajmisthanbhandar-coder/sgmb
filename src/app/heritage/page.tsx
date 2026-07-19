@@ -1074,7 +1074,7 @@ export default function HeritagePage() {
 
             <div className="heritage-hero-order-wrap">
               <span className="heritage-hero-order">
-                ॥ मेरौ तो गिरराज बाबा ॥
+                ॥ मेरौ तो गिर्राज बाबा ॥
               </span>
             </div>
           </motion.div>
