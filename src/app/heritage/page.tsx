@@ -454,7 +454,7 @@ export default function HeritagePage() {
            ════════════════════════════════════════════════════════ */
         .heritage-about-luxury {
           position: relative;
-          padding: 96px 24px;
+          padding: 64px 24px;
           isolation: isolate;
           overflow: hidden;
         }
@@ -484,13 +484,13 @@ export default function HeritagePage() {
           position: relative;
           max-width: 1400px;
           margin: 0 auto;
-          padding: 56px 56px 64px;
+          padding: 44px 56px 48px;
           background: transparent;
         }
         @media (max-width: 900px) {
-          .heritage-about-luxury { padding: 72px 16px; }
+          .heritage-about-luxury { padding: 56px 16px; }
           .heritage-about-frame {
-            padding: 44px 22px 52px;
+            padding: 40px 22px 44px;
           }
         }
 
@@ -589,17 +589,17 @@ export default function HeritagePage() {
         }
         .heritage-about-paragraph {
           font-family: 'Noto Serif Devanagari', serif;
-          font-size: clamp(16px, 1.4vw, 19px);
-          line-height: 2;
+          font-size: clamp(15px, 1.25vw, 17px);
+          line-height: 1.7;
           color: #2F2A24;
           margin: 0 auto;
           max-width: 85%;
         }
         @media (min-width: 1200px) {
-          .heritage-about-paragraph { font-size: 19px; }
+          .heritage-about-paragraph { font-size: 17px; }
         }
         .heritage-about-paragraph + .heritage-about-paragraph {
-          margin-top: 48px;
+          margin-top: 24px;
         }
         .heritage-about-paragraph strong {
           font-weight: 700;
@@ -610,7 +610,7 @@ export default function HeritagePage() {
         }
         @media (max-width: 640px) {
           .heritage-about-paragraph { max-width: 100%; }
-          .heritage-about-paragraph + .heritage-about-paragraph { margin-top: 36px; }
+          .heritage-about-paragraph + .heritage-about-paragraph { margin-top: 20px; }
         }
 
         /* ── Ornament dividers ── */
@@ -619,7 +619,7 @@ export default function HeritagePage() {
           align-items: center;
           justify-content: center;
           gap: 14px;
-          margin: 22px auto;
+          margin: 14px auto;
           color: #D4AF37;
         }
         .heritage-about-ornament-line {
@@ -637,7 +637,7 @@ export default function HeritagePage() {
           align-items: center;
           justify-content: center;
           gap: 10px;
-          margin: 28px auto;
+          margin: 16px auto;
           opacity: 0.78;
         }
         .heritage-about-divider-small .heritage-about-ornament-line {
@@ -656,8 +656,8 @@ export default function HeritagePage() {
           flex-wrap: wrap;
           justify-content: center;
           gap: clamp(28px, 5vw, 64px);
-          margin: 40px auto 0;
-          padding-top: 32px;
+          margin: 28px auto 0;
+          padding-top: 24px;
           border-top: 1px solid rgba(212, 175, 55, 0.35);
           max-width: 85%;
         }
@@ -1182,11 +1182,10 @@ export default function HeritagePage() {
                 </div>
 
                 <p className="heritage-about-paragraph">
-                  In 1982, on the sacred parikrama path of Govardhan Hill,
+                  In 1982, on Govardhan Hill&apos;s sacred parikrama path,
                   <strong> प्रो. भगवान सिंह हलवाई </strong>
-                  lit a small wood-fired hearth with a single vow — to serve
-                  every pilgrim a mithai as pure as the soil beneath Giriraj
-                  Baba&apos;s feet.
+                  lit a wood-fired hearth with one vow — a mithai as pure as
+                  the soil beneath Giriraj Baba&apos;s feet.
                 </p>
 
                 <div className="heritage-about-divider-small" aria-hidden>
@@ -1196,24 +1195,10 @@ export default function HeritagePage() {
                 </div>
 
                 <p className="heritage-about-paragraph">
-                  With folded hands and unshaken faith, he began what today
-                  the world knows as <strong>Shree Girraj Misthan Bhandar</strong>
-                  &nbsp;— a name carried for four decades on a single rule:
-                  only desi ghee, only the day&apos;s finest milk, only recipes
-                  that pass quietly from father to son.
-                </p>
-
-                <div className="heritage-about-divider-small" aria-hidden>
-                  <span className="heritage-about-ornament-line" />
-                  <DiamondOrnament />
-                  <span className="heritage-about-ornament-line" />
-                </div>
-
-                <p className="heritage-about-paragraph">
-                  Every peda, every laddu, every kaju katli that leaves our
-                  bhandar is first offered as <em>bhog</em>. What you taste is
-                  what has been blessed — Govardhan&apos;s grace, rolled by
-                  hand, sealed with love.
+                  Four decades on, that vow lives as
+                  <strong> Shree Girraj Misthan Bhandar</strong> — only desi
+                  ghee, only the day&apos;s finest milk, each sweet first
+                  offered as <em>bhog</em>, then rolled by hand.
                 </p>
 
                 <div className="heritage-about-stats">
