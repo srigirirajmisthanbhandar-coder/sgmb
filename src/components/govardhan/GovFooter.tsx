@@ -217,9 +217,9 @@ export default function GovFooter() {
           <div style={{ display: "flex", gap: 14 }}>
             {[
               { Icon: InstagramIcon, href: "https://www.instagram.com/shri_girraj_misthan_bhandar_" },
-              { Icon: FacebookIcon, href: "#" },
-              { Icon: YoutubeIcon, href: "#" },
-              { Icon: WhatsappIcon, href: "https://wa.me/919999999999" },
+              { Icon: FacebookIcon, href: "https://www.facebook.com/people/Shri-Girraj-Misthan-Bhandar/61591546301114/" },
+              { Icon: YoutubeIcon, href: "https://www.youtube.com/@shree_girraj_misthan_bhandar" },
+              { Icon: WhatsappIcon, href: "https://wa.me/919412421253" },
             ].map(({ Icon, href }, i) => (
               <a
                 key={i}
@@ -400,7 +400,7 @@ export default function GovFooter() {
             textAlign: "center",
           }}
         >
-          +91 98765 43210 &nbsp;&middot;&nbsp; info@govardhansweets.com
+          +91 94124 21253 &nbsp;&middot;&nbsp; info@govardhansweets.com
         </p>
 
         {/* Legal */}

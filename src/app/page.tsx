@@ -1755,7 +1755,7 @@ Hover to pause
                 Reach Us
               </p>
               <p className="heritage-footer-text">
-                <a href="tel:+919876543210">+91 98765 43210</a>
+                <a href="tel:+919412421253">+91 94124 21253</a>
                 <br />
                 <a href="mailto:info@govardhansweets.com">
                   info@govardhansweets.com
@@ -1801,7 +1801,7 @@ Hover to pause
                   </svg>
                 </a>
                 <a
-                  href="https://www.facebook.com/"
+                  href="https://www.facebook.com/people/Shri-Girraj-Misthan-Bhandar/61591546301114/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
@@ -1817,7 +1817,7 @@ Hover to pause
                   </svg>
                 </a>
                 <a
-                  href="https://www.youtube.com/"
+                  href="https://www.youtube.com/@shree_girraj_misthan_bhandar"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="YouTube"
@@ -1842,7 +1842,7 @@ Hover to pause
                   </svg>
                 </a>
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/919412421253"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
