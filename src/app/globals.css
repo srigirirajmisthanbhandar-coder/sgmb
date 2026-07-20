@@ -983,3 +983,23 @@ img, svg, video, canvas {
     gap: 20px !important;
   }
 }
+
+/* ────────────────────────────────────────────────────────────
+   Image download deterrents (site-wide)
+   Note: these stop casual right-click / drag / long-press save.
+   They cannot prevent screenshots or DevTools/network downloads.
+   pointer-events is intentionally NOT disabled so image links
+   (logo, banners) keep working.
+   ──────────────────────────────────────────────────────────── */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
