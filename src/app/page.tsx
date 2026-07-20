@@ -1705,6 +1705,28 @@ Hover to pause
           </div>
         </section>
 
+        {/* ════════════ 6.4 — 56 BHOG BANNER ════════════ */}
+        <section className="heritage-section" style={{ padding: 0 }}>
+          <div className="heritage-gifting-wrap">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="heritage-gifting-banner"
+            >
+              <Image
+                src="/images/new56.webp"
+                alt="56 भोग — शुद्धता, स्वाद और परंपरा का दिव्य संगम; शुद्ध देसी घी में तैयार छप्पन भोग प्रसाद"
+                width={1721}
+                height={914}
+                sizes="100vw"
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
+            </motion.div>
+          </div>
+        </section>
+
         {/* ════════════ 6.5 GIFTING BANNER ════════════ */}
         <section
           className="heritage-section"
