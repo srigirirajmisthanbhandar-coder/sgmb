@@ -126,15 +126,19 @@ interface GovHotelProps {
    *  in-site hotel page; pass an external URL (e.g. www.girrajinn.com) to
    *  open the standalone hotel site in a new tab. */
   hotelHref?: string;
-  /** Dark accent colour used for the section background and dark text
-   *  accents. Defaults to the govardhan green; pass the heritage navy
-   *  (#0f2345) to match that page. */
+  /** Dark accent colour used for headings/CTA text and (in the dark theme)
+   *  the section background. Defaults to the govardhan green; pass the
+   *  heritage navy (#0f2345) to match that page. */
   accent?: string;
+  /** "dark" (default): light text on the accent background.
+   *  "light": dark text on a warm cream background (no blue/green fill). */
+  theme?: "dark" | "light";
 }
 
 export default function GovHotel({
   hotelHref = "/govardhan/hotel",
   accent = "#0D3B2E",
+  theme = "dark",
 }: GovHotelProps = {}) {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
@@ -143,12 +147,21 @@ export default function GovHotel({
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};
 
+  const light = theme === "light";
+  const sectionBg = light ? "#F7F0E2" : accent;
+  const headingColor = light ? accent : "#F8F2E8";
+  const bodyColor = light ? "rgba(31,26,18,0.82)" : "rgba(248,242,232,0.88)";
+  const ctaBorder = light ? "rgba(15,35,69,0.45)" : "rgba(248,242,232,0.55)";
+  const ctaColor = light ? accent : "#F8F2E8";
+  const cardBg = light ? "#FFFFFF" : "rgba(248,242,232,0.95)";
+  const cardBorder = light ? "1px solid rgba(15,35,69,0.14)" : "none";
+
   return (
     <section
       ref={ref}
       className="gov-hotel-section"
       style={{
-        backgroundColor: accent,
+        backgroundColor: sectionBg,
         padding: "100px 0",
         position: "relative",
         overflow: "hidden",
@@ -256,7 +269,7 @@ export default function GovHotel({
                 fontSize: "clamp(28px, 3.5vw, 42px)",
                 fontWeight: 500,
                 lineHeight: 1.18,
-                color: "#F8F2E8",
+                color: headingColor,
                 margin: "0 0 32px",
                 letterSpacing: "-0.01em",
               }}
@@ -304,7 +317,7 @@ export default function GovHotel({
                     style={{
                       fontFamily: "var(--font-body, sans-serif)",
                       fontSize: 14,
-                      color: "rgba(248,242,232,0.88)",
+                      color: bodyColor,
                       lineHeight: 1.4,
                     }}
                   >
@@ -321,8 +334,8 @@ export default function GovHotel({
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 8,
-                border: "1.5px solid rgba(248,242,232,0.55)",
-                color: "#F8F2E8",
+                border: `1.5px solid ${ctaBorder}`,
+                color: ctaColor,
                 fontFamily: "var(--font-body, sans-serif)",
                 fontSize: 13,
                 fontWeight: 500,
@@ -417,7 +430,8 @@ export default function GovHotel({
             {/* Amenities card */}
             <div
               style={{
-                background: "rgba(248,242,232,0.95)",
+                background: cardBg,
+                border: cardBorder,
                 borderRadius: 14,
                 padding: "18px 20px 16px",
               }}

@@ -1670,7 +1670,7 @@ Hover to pause
         </section>
 
         {/* ════════════ 7. GIRRAJ INN — HOSPITALITY ════════════ */}
-        <GovHotel hotelHref="https://www.girrajinn.com" accent="#0f2345" />
+        <GovHotel hotelHref="https://www.girrajinn.com" accent="#0f2345" theme="light" />
 
         {/* Closing devotional line */}
         <section
