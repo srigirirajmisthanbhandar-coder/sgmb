@@ -764,6 +764,35 @@ export default function HeritagePage() {
           filter: brightness(1.05);
         }
 
+        /* ── Snacks banner (desktop / mobile variants) ── */
+        .heritage-snacks-wrap {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        .heritage-snacks-banner {
+          display: block;
+          overflow: hidden;
+          transition: filter 0.4s ease;
+        }
+        .heritage-snacks-banner:hover {
+          filter: brightness(1.05);
+        }
+        .heritage-snacks-desktop {
+          display: block;
+        }
+        .heritage-snacks-mobile {
+          display: none;
+        }
+        @media (max-width: 640px) {
+          .heritage-snacks-desktop {
+            display: none !important;
+          }
+          .heritage-snacks-mobile {
+            display: block !important;
+          }
+        }
+
         /* ── Sweets grid ── */
         .heritage-sweets-grid {
           display: grid;
@@ -1640,6 +1669,40 @@ Hover to pause
               </svg>
             </a>
           </motion.div>
+        </section>
+
+        {/* ════════════ 6.25 SPECIAL SNACKS ════════════ */}
+        <section className="heritage-section" style={{ padding: 0 }}>
+          <div className="heritage-snacks-wrap">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="heritage-snacks-banner"
+            >
+              {/* Desktop (wide) */}
+              <Image
+                src="/images/snacks-desktop.webp"
+                alt="हमारे विशेष स्नैक्स — कचौड़ी, हलवा, घेवर, समोसा, दूध, बादाम मिल्क, लस्सी, ठंडाई, रबड़ी"
+                width={1815}
+                height={867}
+                sizes="100vw"
+                className="heritage-snacks-desktop"
+                style={{ width: "100%", height: "auto" }}
+              />
+              {/* Mobile (tall) */}
+              <Image
+                src="/images/snacks-mobile.webp"
+                alt="हमारे विशेष स्नैक्स — कचौड़ी, हलवा, घेवर, समोसा, दूध, बादाम मिल्क, लस्सी, ठंडाई, रबड़ी"
+                width={941}
+                height={1672}
+                sizes="100vw"
+                className="heritage-snacks-mobile"
+                style={{ width: "100%", height: "auto" }}
+              />
+            </motion.div>
+          </div>
         </section>
 
         {/* ════════════ 6.5 GIFTING BANNER ════════════ */}
