@@ -271,7 +271,7 @@ export default function GovSignatureSweets() {
 
           {/* Right: View all link */}
           <motion.a
-            href="/govardhan/sweets"
+            href="/sweets"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}

@@ -126,7 +126,7 @@ const QUICK_LINKS = [
   {
     title: "Order Sweets",
     description: "Browse our collection",
-    href: "/govardhan/sweets",
+    href: "/sweets",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
@@ -138,7 +138,7 @@ const QUICK_LINKS = [
   {
     title: "Book a Room",
     description: "Stay with us in Govardhan",
-    href: "/govardhan/hotel",
+    href: "/hotel",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 21h18" />
@@ -150,7 +150,7 @@ const QUICK_LINKS = [
   {
     title: "Corporate Gifting",
     description: "Bulk orders & custom hampers",
-    href: "/govardhan/gifting",
+    href: "/gifting",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="8" width="18" height="13" rx="2" />

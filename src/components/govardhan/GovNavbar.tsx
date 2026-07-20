@@ -17,25 +17,24 @@ const C = {
 
 // ── Nav links ────────────────────────────────────────────
 const NAV_LINKS = [
-  { label: "Home", href: "/govardhan", active: true },
+  { label: "Home", href: "/", active: true },
   {
     label: "Sweets",
-    href: "/govardhan/sweets",
+    href: "/sweets",
     submenu: [
-      { label: "Kaju Katli", href: "/govardhan/sweets" },
-      { label: "Mathura Peda", href: "/govardhan/sweets" },
-      { label: "Motichoor Ladoo", href: "/govardhan/sweets" },
-      { label: "Ghewar", href: "/govardhan/sweets" },
-      { label: "Barfi", href: "/govardhan/sweets" },
-      { label: "Dry Fruit Sweets", href: "/govardhan/sweets" },
+      { label: "Kaju Katli", href: "/sweets" },
+      { label: "Mathura Peda", href: "/sweets" },
+      { label: "Motichoor Ladoo", href: "/sweets" },
+      { label: "Ghewar", href: "/sweets" },
+      { label: "Barfi", href: "/sweets" },
+      { label: "Dry Fruit Sweets", href: "/sweets" },
     ],
   },
-  { label: "Hotel", href: "/govardhan/hotel" },
-  { label: "Heritage", href: "/heritage" },
-  { label: "Festivals", href: "/govardhan/festivals" },
-  { label: "Gifting", href: "/govardhan/gifting" },
-  { label: "About Us", href: "/govardhan/about" },
-  { label: "Contact", href: "/govardhan/contact" },
+  { label: "Hotel", href: "/hotel" },
+  { label: "Festivals", href: "/festivals" },
+  { label: "Gifting", href: "/gifting" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 // ── Small SVG icons ──────────────────────────────────────
@@ -636,7 +635,7 @@ export default function GovNavbar() {
           >
             {/* ── Logo ── */}
             <a
-              href="/govardhan"
+              href="/"
               className="gov-nav-logo"
               style={{
                 display: "flex",

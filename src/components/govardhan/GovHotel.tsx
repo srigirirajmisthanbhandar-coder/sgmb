@@ -136,7 +136,7 @@ interface GovHotelProps {
 }
 
 export default function GovHotel({
-  hotelHref = "/govardhan/hotel",
+  hotelHref = "/hotel",
   accent = "#0D3B2E",
   theme = "dark",
 }: GovHotelProps = {}) {
