@@ -751,28 +751,17 @@ export default function HeritagePage() {
 
         /* ── Gifting banner ── */
         .heritage-gifting-wrap {
-          max-width: 1208px;
-          margin: 0 auto;
-          padding: 0 24px;
+          width: 100%;
+          margin: 0;
+          padding: 0;
         }
         .heritage-gifting-banner {
           display: block;
-          border-radius: 18px;
           overflow: hidden;
-          box-shadow: 0 22px 54px rgba(13, 20, 40, 0.28),
-            0 4px 14px rgba(0, 0, 0, 0.16);
-          border: 1px solid rgba(212, 175, 55, 0.35);
-          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-            box-shadow 0.4s ease;
+          transition: filter 0.4s ease;
         }
         .heritage-gifting-banner:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 30px 70px rgba(13, 20, 40, 0.36),
-            0 0 30px rgba(212, 175, 55, 0.22);
-        }
-        @media (max-width: 640px) {
-          .heritage-gifting-wrap { padding: 0 16px; }
-          .heritage-gifting-banner { border-radius: 12px; }
+          filter: brightness(1.05);
         }
 
         /* ── Sweets grid ── */
@@ -1656,13 +1645,7 @@ Hover to pause
         {/* ════════════ 6.5 GIFTING BANNER ════════════ */}
         <section
           className="heritage-section"
-          style={{
-            padding: "56px 0",
-            background:
-              "radial-gradient(ellipse at 50% 0%, #FAF5EA 0%, #F2E7D2 60%, #E9D9BC 100%)",
-            borderTop: `1px solid ${C.hairline}`,
-            borderBottom: `1px solid ${C.hairline}`,
-          }}
+          style={{ padding: 0 }}
         >
           <div className="heritage-gifting-wrap">
             <motion.a
@@ -1679,7 +1662,7 @@ Hover to pause
                 alt="Shree Girraj Misthan Bhandar — premium gift boxes & hampers for weddings, festivals and special occasions"
                 width={1717}
                 height={916}
-                sizes="(max-width: 1200px) 92vw, 1160px"
+                sizes="100vw"
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
             </motion.a>
