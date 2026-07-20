@@ -35,7 +35,7 @@ export default function SinceBanner() {
         {/* CENTER — Shree Giriraj Misthan Bhandar name image (gold, trimmed) */}
         <div className="gov-since-name">
           <Image
-            src="/images/name-trimmed.png"
+            src="/images/name-new-full.png"
             alt="श्री गिर्राज मिष्ठान भण्डार"
             fill
             sizes="(max-width: 768px) 70vw, 620px"
@@ -92,7 +92,7 @@ export default function SinceBanner() {
           left: 50%;
           transform: translate(-50%, -50%);
           height: 80%;
-          aspect-ratio: 964 / 591;
+          aspect-ratio: 1536 / 1024;
           max-width: 50%;
           filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
         }
@@ -189,7 +189,7 @@ export default function SinceBanner() {
           .gov-since-name {
             width: 92%;
             height: auto;
-            aspect-ratio: 964 / 591;
+            aspect-ratio: 1536 / 1024;
             max-width: 380px;
             margin: 4px 0 4px;
           }
