@@ -92,7 +92,7 @@ export default function SinceBanner() {
           left: 50%;
           transform: translate(-50%, -50%);
           height: 80%;
-          aspect-ratio: 1006 / 591;
+          aspect-ratio: 1231 / 754;
           max-width: 50%;
           filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
         }
@@ -189,7 +189,7 @@ export default function SinceBanner() {
           .gov-since-name {
             width: 92%;
             height: auto;
-            aspect-ratio: 1006 / 591;
+            aspect-ratio: 1231 / 754;
             max-width: 380px;
             margin: 4px 0 4px;
           }
