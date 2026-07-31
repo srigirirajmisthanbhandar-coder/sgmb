@@ -30,7 +30,7 @@ const NAV_LINKS = [
       { label: "Dry Fruit Sweets", href: "/sweets" },
     ],
   },
-  { label: "Hotel", href: "/hotel" },
+  { label: "Hotel", href: "https://www.girrajinn.com" },
   { label: "Festivals", href: "/festivals" },
   { label: "Gifting", href: "/gifting" },
   { label: "About Us", href: "/about" },
@@ -292,6 +292,8 @@ function NavLink({
     >
       <a
         href={link.href}
+        target={link.href.startsWith("http") ? "_blank" : undefined}
+        rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
         style={{
           display: "flex",
           alignItems: "center",
@@ -441,6 +443,8 @@ function MobileMenu({
                   >
                     <a
                       href={link.href}
+                      target={link.href.startsWith("http") ? "_blank" : undefined}
+                      rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       onClick={hasSubmenu ? undefined : onClose}
                       style={{
                         flex: 1,

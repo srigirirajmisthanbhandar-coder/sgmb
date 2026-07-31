@@ -1951,7 +1951,7 @@ Hover to pause
               <ul className="heritage-footer-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/sweets">Sweets</a></li>
-                <li><a href="/hotel">Hotel</a></li>
+                <li><a href="https://www.girrajinn.com" target="_blank" rel="noopener noreferrer">Hotel</a></li>
                 <li><a href="/about">About Us</a></li>
                 <li><a href="/gifting">Gifting</a></li>
                 <li><a href="/festivals">Festivals</a></li>

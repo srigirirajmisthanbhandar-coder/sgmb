@@ -138,7 +138,7 @@ const QUICK_LINKS = [
   {
     title: "Book a Room",
     description: "Stay with us in Govardhan",
-    href: "/hotel",
+    href: "https://www.girrajinn.com",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 21h18" />
@@ -703,6 +703,8 @@ export default function ContactPage() {
               </p>
               <Link
                 href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
