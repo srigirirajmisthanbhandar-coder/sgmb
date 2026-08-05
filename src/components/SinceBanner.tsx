@@ -35,7 +35,7 @@ export default function SinceBanner() {
         {/* CENTER — Shree Giriraj Misthan Bhandar name image (gold, trimmed) */}
         <div className="gov-since-name">
           <Image
-            src="/images/name-new-full.png"
+            src="/images/2nd logo.webp"
             alt="श्री गिर्राज मिष्ठान भण्डार"
             fill
             sizes="(max-width: 768px) 70vw, 620px"
