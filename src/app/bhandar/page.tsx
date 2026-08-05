@@ -134,14 +134,6 @@ export default function BhandarPage() {
         <span className="bhandar-corner bl" aria-hidden />
         <span className="bhandar-corner br" aria-hidden />
 
-        <a href="/" className="bhandar-back">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12" />
-            <polyline points="12 19 5 12 12 5" />
-          </svg>
-          Back to Home
-        </a>
-
         <motion.p
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -242,7 +234,8 @@ export default function BhandarPage() {
         .bhandar-hero {
           position: relative;
           text-align: center;
-          padding: clamp(56px, 9vw, 96px) 24px clamp(40px, 6vw, 64px);
+          /* extra top padding clears the fixed site topbar */
+          padding: clamp(112px, 12vw, 150px) 24px clamp(40px, 6vw, 64px);
           background:
             radial-gradient(circle at 18% 30%, rgba(212,175,55,0.08), transparent 55%),
             radial-gradient(circle at 82% 70%, rgba(212,175,55,0.08), transparent 55%),
@@ -259,26 +252,6 @@ export default function BhandarPage() {
         .bhandar-corner.tr { top: 22px; right: 22px; border-top: 2px solid rgba(212,175,55,0.4); border-right: 2px solid rgba(212,175,55,0.4); }
         .bhandar-corner.bl { bottom: 22px; left: 22px; border-bottom: 2px solid rgba(212,175,55,0.4); border-left: 2px solid rgba(212,175,55,0.4); }
         .bhandar-corner.br { bottom: 22px; right: 22px; border-bottom: 2px solid rgba(212,175,55,0.4); border-right: 2px solid rgba(212,175,55,0.4); }
-
-        .bhandar-back {
-          position: absolute;
-          top: clamp(20px, 3vw, 32px);
-          left: 50%;
-          transform: translateX(-50%);
-          display: inline-flex;
-          align-items: center;
-          gap: 7px;
-          font-family: var(--font-body, sans-serif);
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: ${C.goldSoft};
-          text-decoration: none;
-          opacity: 0.85;
-          transition: opacity 0.2s ease;
-        }
-        .bhandar-back:hover { opacity: 1; }
 
         .bhandar-eyebrow {
           margin: 18px 0 0;
@@ -329,7 +302,8 @@ export default function BhandarPage() {
         /* Filter bar */
         .bhandar-filterbar {
           position: sticky;
-          top: 0;
+          /* sits just below the fixed site topbar */
+          top: clamp(72px, 6vw + 20px, 92px);
           z-index: 20;
           background: ${C.cream}f2;
           backdrop-filter: blur(10px);

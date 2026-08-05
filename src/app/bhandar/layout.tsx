@@ -1,7 +1,7 @@
 "use client";
 
-import GovNavbar from "@/components/govardhan/GovNavbar";
-import GovFooter from "@/components/govardhan/GovFooter";
+import HeritageTopbar from "@/components/HeritageTopbar";
+import HeritageFooter from "@/components/HeritageFooter";
 
 export default function BhandarLayout({
   children,
@@ -9,10 +9,10 @@ export default function BhandarLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="gov-page" style={{ backgroundColor: "#F8F2E8" }}>
-      <GovNavbar />
+    <>
+      <HeritageTopbar />
       {children}
-      <GovFooter />
-    </div>
+      <HeritageFooter />
+    </>
   );
 }
