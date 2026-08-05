@@ -190,7 +190,7 @@ export default function HeritageFooter() {
               <p className="heritage-footer-label">Find us on Google Maps</p>
               <div className="heritage-footer-map">
                 <iframe
-                  src="https://www.google.com/maps?q=Govardhan+Parikrama+Marg,+Govardhan,+Uttar+Pradesh+281502&output=embed"
+                  src="https://maps.google.com/maps?cid=4746813329654951712&output=embed"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Shree Girraj Misthan Bhandar — Govardhan, Mathura"
@@ -201,7 +201,7 @@ export default function HeritageFooter() {
                 style={{ marginTop: 14, fontSize: 12 }}
               >
                 <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=Govardhan+Parikrama+Marg,+Govardhan,+Uttar+Pradesh+281502"
+                  href="https://www.google.com/maps/dir/?api=1&destination=27.4948275,77.46371"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
