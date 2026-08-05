@@ -861,11 +861,11 @@ export default function AboutPage() {
                   margin: 0,
                 }}
               >
-                Near Govardhan Parikrama Marg,
+                In front of Police Station,
                 <br />
                 Govardhan, Mathura,
                 <br />
-                Uttar Pradesh 281502
+                Uttar Pradesh 281123
               </p>
             </div>
 
@@ -918,7 +918,7 @@ export default function AboutPage() {
           </div>
 
           <a
-            href="https://wa.me/919XXXXXXXXX"
+            href="https://wa.me/919412421253"
             target="_blank"
             rel="noopener noreferrer"
             style={{

@@ -369,7 +369,7 @@ export default function FestivalsPage() {
                     </div>
 
                     <a
-                      href="https://wa.me/919999999999"
+                      href="https://wa.me/919412421253"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
@@ -525,7 +525,7 @@ export default function FestivalsPage() {
                     {product.price}
                   </p>
                   <a
-                    href="https://wa.me/919999999999"
+                    href="https://wa.me/919412421253"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -639,7 +639,7 @@ export default function FestivalsPage() {
             }}
           >
             <a
-              href="https://wa.me/919999999999?text=I%20would%20like%20to%20pre-order%20for%20an%20upcoming%20festival"
+              href="https://wa.me/919412421253?text=I%20would%20like%20to%20pre-order%20for%20an%20upcoming%20festival"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -670,7 +670,7 @@ export default function FestivalsPage() {
               WhatsApp Us
             </a>
             <a
-              href="tel:+919999999999"
+              href="tel:+919412421253"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -700,7 +700,7 @@ export default function FestivalsPage() {
               >
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
               </svg>
-              +91 99999 99999
+              +91 94124 21253
             </a>
           </div>
         </motion.div>

@@ -26,7 +26,7 @@ export default function Contact() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20inquire%20about%20your%20sweets"
+              href="https://wa.me/919412421253?text=Hi%2C%20I%27d%20like%20to%20inquire%20about%20your%20sweets"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp"
@@ -36,7 +36,7 @@ export default function Contact() {
               </svg>
               Chat on WhatsApp
             </a>
-            <a href="tel:+919999999999" className="btn-outline-white">
+            <a href="tel:+919412421253" className="btn-outline-white">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
               </svg>
@@ -56,16 +56,16 @@ export default function Contact() {
                 <h3 className="font-serif text-[24px] font-semibold text-[#002c3f] mb-5">Visit Our Shop</h3>
                 <div className="text-[rgba(0,0,0,0.6)] text-[15px] leading-[1.6] space-y-1">
                   <p className="text-[#002c3f] font-medium">Sri Girraj Mishtan Bhandar</p>
-                  <p>Near Daan Ghati Mandir</p>
+                  <p>In front of Police Station</p>
                   <p>Govardhan, Mathura</p>
-                  <p>Uttar Pradesh, India 281502</p>
+                  <p>Uttar Pradesh, India 281123</p>
                 </div>
               </div>
 
               <div>
                 <h3 className="font-serif text-[20px] font-semibold text-[#002c3f] mb-3">Reach Out</h3>
                 <div className="space-y-2 text-[rgba(0,0,0,0.6)] text-[15px]">
-                  <p><span className="text-[#002c3f] font-medium">Phone:</span> +91 99999 99999</p>
+                  <p><span className="text-[#002c3f] font-medium">Phone:</span> +91 94124 21253</p>
                   <p><span className="text-[#002c3f] font-medium">Email:</span> hello@srigirrajmishtan.com</p>
                 </div>
               </div>

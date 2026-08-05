@@ -820,7 +820,7 @@ export default function HotelPage() {
                   </ul>
 
                   <a
-                    href="https://wa.me/919999999999"
+                    href="https://wa.me/919412421253"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -1309,10 +1309,10 @@ export default function HotelPage() {
             }}
           >
             <a
-              href="tel:+919999999999"
+              href="tel:+919412421253"
               style={{ color: "#0f2345", textDecoration: "none" }}
             >
-              +91 99999 99999
+              +91 94124 21253
             </a>
           </motion.p>
 
@@ -1327,7 +1327,7 @@ export default function HotelPage() {
             }}
           >
             <a
-              href="https://wa.me/919999999999"
+              href="https://wa.me/919412421253"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -1356,7 +1356,7 @@ export default function HotelPage() {
               WhatsApp Us
             </a>
             <a
-              href="tel:+919999999999"
+              href="tel:+919412421253"
               style={{
                 display: "inline-flex",
                 alignItems: "center",

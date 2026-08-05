@@ -1417,14 +1417,12 @@ Hover to pause
           style={{ padding: 0 }}
         >
           <div className="heritage-gifting-wrap">
-            <motion.a
-              href="/gifting"
+            <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="heritage-gifting-banner"
-              aria-label="शादी, त्योहार एवं विशेष अवसर की मिठाई — गिफ्ट कलेक्शन देखें"
             >
               <Image
                 src="/images/gifting-section.png"
@@ -1434,7 +1432,7 @@ Hover to pause
                 sizes="100vw"
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
-            </motion.a>
+            </motion.div>
           </div>
         </section>
 

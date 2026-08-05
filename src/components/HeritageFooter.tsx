@@ -58,11 +58,11 @@ export default function HeritageFooter() {
             <div>
               <p className="heritage-footer-label">Visit our bhandar</p>
               <p className="heritage-footer-text">
-                Near Shri Giriraj Ji Parikrama Marg,
+                In front of Police Station,
                 <br />
-                Govardhan, Uttar Pradesh 281502
+                Govardhan, Mathura,
                 <br />
-                India
+                Uttar Pradesh 281123, India
               </p>
 
               <p className="heritage-footer-label" style={{ marginTop: 26 }}>
@@ -179,7 +179,6 @@ export default function HeritageFooter() {
                 <li><a href="/bhandar">Sweets</a></li>
                 <li><a href="https://www.girrajinn.com" target="_blank" rel="noopener noreferrer">Hotel</a></li>
                 <li><a href="/about">About Us</a></li>
-                <li><a href="/gifting">Gifting</a></li>
                 <li><a href="/contact">Contact</a></li>
               </ul>
             </div>

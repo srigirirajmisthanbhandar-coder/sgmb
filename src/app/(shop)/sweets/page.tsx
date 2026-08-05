@@ -498,7 +498,7 @@ export default function SweetsPage() {
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap", position: "relative" }}>
             <a
-              href="https://wa.me/919999999999"
+              href="https://wa.me/919412421253"
               target="_blank"
               rel="noopener noreferrer"
               className="gov-wa-btn"
@@ -523,7 +523,7 @@ export default function SweetsPage() {
               Chat on WhatsApp
             </a>
             <a
-              href="tel:+919999999999"
+              href="tel:+919412421253"
               className="gov-call-btn"
               style={{
                 display: "inline-flex",

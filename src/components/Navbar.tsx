@@ -219,7 +219,7 @@ export default function Navbar() {
 
               <div className="mt-8">
                 <a
-                  href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20order"
+                  href="https://wa.me/919412421253?text=Hi%2C%20I%27d%20like%20to%20order"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary w-full"

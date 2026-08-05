@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function FloatingWhatsApp() {
   return (
     <motion.a
-      href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20order%20sweets%20from%20Sri%20Girraj%20Mishtan%20Bhandar"
+      href="https://wa.me/919412421253?text=Hi%2C%20I%27d%20like%20to%20order%20sweets%20from%20Sri%20Girraj%20Mishtan%20Bhandar"
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}

@@ -38,7 +38,7 @@ const SUBJECTS = [
 const CONTACT_INFO = [
   {
     label: "Address",
-    value: "Near Govardhan Parikrama Marg, Govardhan, Mathura, Uttar Pradesh 281502",
+    value: "In front of Police Station, Govardhan, Mathura, Uttar Pradesh 281123",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
@@ -48,8 +48,8 @@ const CONTACT_INFO = [
   },
   {
     label: "Phone",
-    value: "+91 99999 99999",
-    href: "tel:+919999999999",
+    value: "+91 94124 21253",
+    href: "tel:+919412421253",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -69,8 +69,8 @@ const CONTACT_INFO = [
   },
   {
     label: "WhatsApp",
-    value: "+91 99999 99999",
-    href: "https://wa.me/919999999999",
+    value: "+91 94124 21253",
+    href: "https://wa.me/919412421253",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
@@ -150,7 +150,7 @@ const QUICK_LINKS = [
   {
     title: "Corporate Gifting",
     description: "Bulk orders & custom hampers",
-    href: "/gifting",
+    href: "https://wa.me/919412421253?text=Jai%20Shree%20Girraj%20%F0%9F%99%8F%20I%27d%20like%20to%20enquire%20about%20bulk%20orders%20and%20custom%20hampers.",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="8" width="18" height="13" rx="2" />
@@ -583,12 +583,11 @@ export default function ContactPage() {
               position: "relative",
             }}
           >
-            Near Govardhan Parikrama Marg, Govardhan, Mathura, Uttar Pradesh
-            281502
+            In front of Police Station, Govardhan, Mathura, Uttar Pradesh 281123
           </p>
 
           <a
-            href="https://maps.google.com/?q=Govardhan+Parikrama+Marg,+Govardhan,+Mathura,+Uttar+Pradesh+281502"
+            href="https://maps.google.com/maps?cid=4746813329654951712"
             target="_blank"
             rel="noopener noreferrer"
             style={{

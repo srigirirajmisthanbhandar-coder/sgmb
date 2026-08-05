@@ -176,7 +176,7 @@ export default function Footer() {
 
               {/* Order on WhatsApp badge */}
               <a
-                href="https://wa.me/919999999999"
+                href="https://wa.me/919412421253"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block cursor-pointer rounded px-2 py-1 text-sm ring-1 ring-white/10 transition-all duration-200 hover:ring-green-500"
@@ -311,7 +311,7 @@ export default function Footer() {
                     { label: "Our Story", href: "#story" },
                     { label: "Gallery", href: "#gallery" },
                     { label: "Contact Us", href: "#contact" },
-                    { label: "Order on WhatsApp", href: "https://wa.me/919999999999", external: true },
+                    { label: "Order on WhatsApp", href: "https://wa.me/919412421253", external: true },
                   ].map((item) => (
                     <a
                       key={item.label}

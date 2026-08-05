@@ -49,7 +49,7 @@ export default function CorporateGifting() {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="https://wa.me/919999999999?text=Hi%2C%20I%27m%20interested%20in%20corporate%20gifting"
+                href="https://wa.me/919412421253?text=Hi%2C%20I%27m%20interested%20in%20corporate%20gifting"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp"
@@ -59,7 +59,7 @@ export default function CorporateGifting() {
                 </svg>
                 Get Quote on WhatsApp
               </a>
-              <a href="tel:+919999999999" className="btn-outline">
+              <a href="tel:+919412421253" className="btn-outline">
                 Call Us
               </a>
             </div>

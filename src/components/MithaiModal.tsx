@@ -209,7 +209,7 @@ export default function MithaiModal({ product, onClose }: MithaiModalProps) {
                   )}
                 </div>
                 <a
-                  href={`https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20order%20${encodeURIComponent(product.name)}`}
+                  href={`https://wa.me/919412421253?text=Hi%2C%20I%27d%20like%20to%20order%20${encodeURIComponent(product.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center text-white font-medium uppercase"
