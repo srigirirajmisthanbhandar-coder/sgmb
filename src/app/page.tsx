@@ -863,7 +863,7 @@ export default function HeritagePage() {
               style={{ position: "absolute", inset: 0 }}
             >
               <Image
-                src="/images/name-new-full.png"
+                src="/images/2nd logo.webp"
                 alt="श्री गिर्राज मिष्ठान भंडार"
                 fill
                 sizes="(max-width: 760px) 36vw, 28vw"
