@@ -98,12 +98,6 @@ function SweetCard({ sweet }: { sweet: (typeof allMithai)[number] }) {
         </p>
 
         <div className="bhandar-card-foot">
-          <span className="bhandar-card-price">
-            ₹{sweet.price}
-            {sweet.originalPrice && (
-              <span className="bhandar-card-mrp">₹{sweet.originalPrice}</span>
-            )}
-          </span>
           <a
             className="bhandar-card-order"
             href={`https://wa.me/919412421253?text=${encodeURIComponent(
@@ -468,23 +462,12 @@ export default function BhandarPage() {
         .bhandar-card-foot {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: center;
           gap: 8px;
         }
-        .bhandar-card-price {
-          font-family: var(--font-body, sans-serif);
-          font-size: 16px;
-          font-weight: 700;
-          color: ${C.navy};
-        }
-        .bhandar-card-mrp {
-          margin-left: 6px;
-          font-size: 12px;
-          font-weight: 500;
-          color: #b3a894;
-          text-decoration: line-through;
-        }
         .bhandar-card-order {
+          width: 100%;
+          text-align: center;
           font-family: var(--font-body, sans-serif);
           font-size: 12px;
           font-weight: 600;
