@@ -1,18 +1,22 @@
 "use client";
 
-import GovNavbar from "@/components/govardhan/GovNavbar";
-import GovFooter from "@/components/govardhan/GovFooter";
+import HeritageTopbar from "@/components/HeritageTopbar";
+import HeritageFooter from "@/components/HeritageFooter";
 
-export default function GovardhanLayout({
+export default function ShopLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="gov-page" style={{ backgroundColor: "#F8F2E8" }}>
-      <GovNavbar />
-      {children}
-      <GovFooter />
-    </div>
+    <>
+      <HeritageTopbar />
+      {/* clears the fixed topbar — these pages have no full-bleed hero
+          for it to float over the way the home page does */}
+      <div style={{ paddingTop: "clamp(72px, 6vw + 20px, 92px)" }}>
+        {children}
+      </div>
+      <HeritageFooter />
+    </>
   );
 }

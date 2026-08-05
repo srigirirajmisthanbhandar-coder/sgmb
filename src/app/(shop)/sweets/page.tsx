@@ -9,10 +9,10 @@ import { allMithai } from "@/data/mithai";
 /*  Constants                                                          */
 /* ------------------------------------------------------------------ */
 
-const GREEN = "#0D3B2E";
-const GOLD = "#C79A3B";
-const CREAM = "#F8F2E8";
-const WARM = "#EFE3CF";
+const GREEN = "#0f2345";
+const GOLD = "#d4af37";
+const CREAM = "#FBF6EC";
+const WARM = "#F3E7CF";
 
 const CATEGORIES = [
   { key: "All", label: "All Sweets" },
@@ -57,7 +57,7 @@ function SweetCard({ sweet }: { sweet: (typeof allMithai)[number] }) {
         backgroundColor: "#FFFFFF",
         borderRadius: 18,
         overflow: "hidden",
-        boxShadow: "0 2px 16px rgba(13,59,46,0.06)",
+        boxShadow: "0 2px 16px rgba(15,35,69,0.06)",
         cursor: "pointer",
         position: "relative",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -123,7 +123,7 @@ function SweetCard({ sweet }: { sweet: (typeof allMithai)[number] }) {
             style={{
               fontFamily: "var(--font-body, sans-serif)",
               fontSize: 12,
-              color: "rgba(248,242,232,0.85)",
+              color: "rgba(251,246,236,0.85)",
               textAlign: "center",
               lineHeight: 1.5,
             }}
@@ -249,7 +249,7 @@ export default function SweetsPage() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          background: `linear-gradient(135deg, ${GREEN} 0%, #1a5c48 50%, ${GREEN} 100%)`,
+          background: `linear-gradient(135deg, ${GREEN} 0%, #1a335f 50%, ${GREEN} 100%)`,
           padding: "0 24px",
           overflow: "hidden",
         }}
@@ -259,8 +259,8 @@ export default function SweetsPage() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(199,154,59,0.06) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 50%, rgba(199,154,59,0.06) 0%, transparent 50%)`,
+            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(212,175,55,0.06) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 50%, rgba(212,175,55,0.06) 0%, transparent 50%)`,
             pointerEvents: "none",
           }}
         />
@@ -328,7 +328,7 @@ export default function SweetsPage() {
           style={{
             fontFamily: "var(--font-body, sans-serif)",
             fontSize: 15,
-            color: "rgba(248,242,232,0.75)",
+            color: "rgba(251,246,236,0.75)",
             maxWidth: 500,
             marginTop: 0,
             lineHeight: 1.65,
@@ -447,7 +447,7 @@ export default function SweetsPage() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           style={{
-            background: `linear-gradient(135deg, ${GREEN} 0%, #1a5c48 100%)`,
+            background: `linear-gradient(135deg, ${GREEN} 0%, #1a335f 100%)`,
             borderRadius: 22,
             padding: "52px 32px",
             textAlign: "center",
@@ -486,7 +486,7 @@ export default function SweetsPage() {
             style={{
               fontFamily: "var(--font-body, sans-serif)",
               fontSize: 15,
-              color: "rgba(248,242,232,0.7)",
+              color: "rgba(251,246,236,0.7)",
               maxWidth: 460,
               margin: "14px auto 30px",
               lineHeight: 1.65,
@@ -570,7 +570,7 @@ export default function SweetsPage() {
         }
         .gov-sweet-card:hover {
           transform: translateY(-6px);
-          box-shadow: 0 16px 40px rgba(13,59,46,0.12) !important;
+          box-shadow: 0 16px 40px rgba(15,35,69,0.12) !important;
         }
         .gov-sweet-card:hover .gov-sweet-img {
           transform: scale(1.06);

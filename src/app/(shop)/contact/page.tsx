@@ -40,7 +40,7 @@ const CONTACT_INFO = [
     label: "Address",
     value: "Near Govardhan Parikrama Marg, Govardhan, Mathura, Uttar Pradesh 281502",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
         <circle cx="12" cy="10" r="3" />
       </svg>
@@ -51,7 +51,7 @@ const CONTACT_INFO = [
     value: "+91 99999 99999",
     href: "tel:+919999999999",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
       </svg>
     ),
@@ -61,7 +61,7 @@ const CONTACT_INFO = [
     value: "info@srigirrajmishtan.com",
     href: "mailto:info@srigirrajmishtan.com",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2" />
         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
       </svg>
@@ -72,7 +72,7 @@ const CONTACT_INFO = [
     value: "+91 99999 99999",
     href: "https://wa.me/919999999999",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
       </svg>
     ),
@@ -81,7 +81,7 @@ const CONTACT_INFO = [
     label: "Working Hours",
     value: "Open Daily, 7:00 AM – 10:00 PM",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
         <polyline points="12 6 12 12 16 14" />
       </svg>
@@ -94,10 +94,10 @@ const SOCIALS = [
     name: "Instagram",
     href: "https://instagram.com/",
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" />
         <circle cx="12" cy="12" r="5" />
-        <circle cx="17.5" cy="6.5" r="1.5" fill="#C79A3B" stroke="none" />
+        <circle cx="17.5" cy="6.5" r="1.5" fill="#d4af37" stroke="none" />
       </svg>
     ),
   },
@@ -105,7 +105,7 @@ const SOCIALS = [
     name: "Facebook",
     href: "https://facebook.com/",
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
       </svg>
     ),
@@ -114,7 +114,7 @@ const SOCIALS = [
     name: "YouTube",
     href: "https://youtube.com/",
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z" />
         <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
       </svg>
@@ -128,7 +128,7 @@ const QUICK_LINKS = [
     description: "Browse our collection",
     href: "/sweets",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
         <line x1="3" y1="6" x2="21" y2="6" />
         <path d="M16 10a4 4 0 0 1-8 0" />
@@ -140,7 +140,7 @@ const QUICK_LINKS = [
     description: "Stay with us in Govardhan",
     href: "https://www.girrajinn.com",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 21h18" />
         <path d="M5 21V7l7-4 7 4v14" />
         <path d="M9 21v-6h6v6" />
@@ -152,7 +152,7 @@ const QUICK_LINKS = [
     description: "Bulk orders & custom hampers",
     href: "/gifting",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C79A3B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="8" width="18" height="13" rx="2" />
         <path d="M12 8v13" />
         <path d="M3 12h18" />
@@ -170,12 +170,12 @@ const QUICK_LINKS = [
 const inputStyle: React.CSSProperties = {
   width: "100%",
   padding: "14px 18px",
-  backgroundColor: "#EFE3CF",
+  backgroundColor: "#F3E7CF",
   border: "none",
   borderRadius: 10,
   fontFamily: "var(--font-body, sans-serif)",
   fontSize: 15,
-  color: "#0D3B2E",
+  color: "#0f2345",
   outline: "none",
   boxSizing: "border-box",
 };
@@ -205,7 +205,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main style={{ backgroundColor: "#F8F2E8", minHeight: "100vh" }}>
+    <main style={{ backgroundColor: "#FBF6EC", minHeight: "100vh" }}>
       {/* ── Hero Banner ─────────────────────────────────── */}
       <section
         style={{
@@ -216,7 +216,7 @@ export default function ContactPage() {
           justifyContent: "center",
           textAlign: "center",
           background:
-            "linear-gradient(135deg, #0D3B2E 0%, #1a5c48 50%, #0D3B2E 100%)",
+            "linear-gradient(135deg, #0f2345 0%, #1a335f 50%, #0f2345 100%)",
           padding: "0 24px",
         }}
       >
@@ -228,7 +228,7 @@ export default function ContactPage() {
             fontFamily: "var(--font-body, sans-serif)",
             fontSize: 13,
             letterSpacing: 3,
-            color: "#C79A3B",
+            color: "#d4af37",
             marginBottom: 12,
             textTransform: "uppercase",
             fontWeight: 600,
@@ -291,7 +291,7 @@ export default function ContactPage() {
             style={{
               fontFamily: "var(--font-heading, serif)",
               fontSize: 30,
-              color: "#0D3B2E",
+              color: "#0f2345",
               marginTop: 0,
               marginBottom: 32,
             }}
@@ -310,7 +310,7 @@ export default function ContactPage() {
                     width: 44,
                     height: 44,
                     borderRadius: "50%",
-                    backgroundColor: "rgba(199,154,59,0.1)",
+                    backgroundColor: "rgba(212,175,55,0.1)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -326,7 +326,7 @@ export default function ContactPage() {
                       fontSize: 12,
                       letterSpacing: 1.5,
                       textTransform: "uppercase",
-                      color: "#C79A3B",
+                      color: "#d4af37",
                       margin: "0 0 4px",
                       fontWeight: 600,
                     }}
@@ -345,7 +345,7 @@ export default function ContactPage() {
                       style={{
                         fontFamily: "var(--font-body, sans-serif)",
                         fontSize: 15,
-                        color: "#0D3B2E",
+                        color: "#0f2345",
                         textDecoration: "none",
                         lineHeight: 1.5,
                       }}
@@ -357,7 +357,7 @@ export default function ContactPage() {
                       style={{
                         fontFamily: "var(--font-body, sans-serif)",
                         fontSize: 15,
-                        color: "#0D3B2E",
+                        color: "#0f2345",
                         margin: 0,
                         lineHeight: 1.5,
                       }}
@@ -389,7 +389,7 @@ export default function ContactPage() {
                   width: 48,
                   height: 48,
                   borderRadius: "50%",
-                  border: "2px solid #C79A3B",
+                  border: "2px solid #d4af37",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -397,7 +397,7 @@ export default function ContactPage() {
                   transition: "background 0.3s",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.background = "rgba(199,154,59,0.12)")
+                  (e.currentTarget.style.background = "rgba(212,175,55,0.12)")
                 }
                 onMouseLeave={(e) =>
                   (e.currentTarget.style.background = "transparent")
@@ -430,7 +430,7 @@ export default function ContactPage() {
               style={{
                 fontFamily: "var(--font-heading, serif)",
                 fontSize: 24,
-                color: "#0D3B2E",
+                color: "#0f2345",
                 margin: "0 0 6px",
               }}
             >
@@ -471,7 +471,7 @@ export default function ContactPage() {
               style={{
                 ...inputStyle,
                 appearance: "none",
-                color: form.subject ? "#0D3B2E" : "#999",
+                color: form.subject ? "#0f2345" : "#999",
                 cursor: "pointer",
                 backgroundImage:
                   "url(\"data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230D3B2E' stroke-width='2' fill='none'/%3E%3C/svg%3E\")",
@@ -503,8 +503,8 @@ export default function ContactPage() {
               style={{
                 marginTop: 6,
                 padding: "15px 40px",
-                backgroundColor: "#C79A3B",
-                color: "#0D3B2E",
+                backgroundColor: "#d4af37",
+                color: "#0f2345",
                 border: "none",
                 borderRadius: 999,
                 fontFamily: "var(--font-body, sans-serif)",
@@ -537,7 +537,7 @@ export default function ContactPage() {
             height: 300,
             borderRadius: 20,
             background:
-              "linear-gradient(135deg, #0D3B2E 0%, #1a5c48 40%, #C79A3B 100%)",
+              "linear-gradient(135deg, #0f2345 0%, #1a335f 40%, #d4af37 100%)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -596,8 +596,8 @@ export default function ContactPage() {
               alignItems: "center",
               gap: 8,
               padding: "13px 32px",
-              backgroundColor: "#C79A3B",
-              color: "#0D3B2E",
+              backgroundColor: "#d4af37",
+              color: "#0f2345",
               border: "none",
               borderRadius: 999,
               fontFamily: "var(--font-body, sans-serif)",
@@ -616,7 +616,7 @@ export default function ContactPage() {
               height="16"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#0D3B2E"
+              stroke="#0f2345"
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -645,7 +645,7 @@ export default function ContactPage() {
           style={{
             fontFamily: "var(--font-heading, serif)",
             fontSize: 30,
-            color: "#0D3B2E",
+            color: "#0f2345",
             textAlign: "center",
             marginTop: 0,
             marginBottom: 48,
@@ -669,8 +669,8 @@ export default function ContactPage() {
               style={{
                 flex: "1 1 300px",
                 maxWidth: 360,
-                backgroundColor: "#EFE3CF",
-                border: "2px solid #C79A3B",
+                backgroundColor: "#F3E7CF",
+                border: "2px solid #d4af37",
                 borderRadius: 20,
                 padding: "36px 28px",
                 display: "flex",
@@ -683,7 +683,7 @@ export default function ContactPage() {
                 style={{
                   fontFamily: "var(--font-heading, serif)",
                   fontSize: 22,
-                  color: "#0D3B2E",
+                  color: "#0f2345",
                   margin: 0,
                 }}
               >
@@ -693,7 +693,7 @@ export default function ContactPage() {
                 style={{
                   fontFamily: "var(--font-body, sans-serif)",
                   fontSize: 15,
-                  color: "#0D3B2E",
+                  color: "#0f2345",
                   margin: 0,
                   lineHeight: 1.5,
                   opacity: 0.8,
@@ -712,7 +712,7 @@ export default function ContactPage() {
                   fontFamily: "var(--font-body, sans-serif)",
                   fontSize: 14,
                   fontWeight: 600,
-                  color: "#C79A3B",
+                  color: "#d4af37",
                   textDecoration: "none",
                   marginTop: 4,
                 }}
@@ -723,7 +723,7 @@ export default function ContactPage() {
                   height="16"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#C79A3B"
+                  stroke="#d4af37"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"

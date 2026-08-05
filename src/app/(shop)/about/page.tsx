@@ -130,7 +130,7 @@ const TEAM = [
 
 export default function AboutPage() {
   return (
-    <main style={{ backgroundColor: "#F8F2E8", minHeight: "100vh" }}>
+    <main style={{ backgroundColor: "#FBF6EC", minHeight: "100vh" }}>
       {/* ── 1. Hero Banner ──────────────────────────────── */}
       <section
         style={{
@@ -141,7 +141,7 @@ export default function AboutPage() {
           justifyContent: "center",
           textAlign: "center",
           background:
-            "linear-gradient(135deg, #0D3B2E 0%, #1a5c48 50%, #0D3B2E 100%)",
+            "linear-gradient(135deg, #0f2345 0%, #1a335f 50%, #0f2345 100%)",
           padding: "0 24px",
           position: "relative",
           overflow: "hidden",
@@ -155,8 +155,8 @@ export default function AboutPage() {
             left: 24,
             width: 60,
             height: 60,
-            borderTop: "2px solid #C79A3B",
-            borderLeft: "2px solid #C79A3B",
+            borderTop: "2px solid #d4af37",
+            borderLeft: "2px solid #d4af37",
             opacity: 0.5,
           }}
         />
@@ -167,8 +167,8 @@ export default function AboutPage() {
             right: 24,
             width: 60,
             height: 60,
-            borderBottom: "2px solid #C79A3B",
-            borderRight: "2px solid #C79A3B",
+            borderBottom: "2px solid #d4af37",
+            borderRight: "2px solid #d4af37",
             opacity: 0.5,
           }}
         />
@@ -181,7 +181,7 @@ export default function AboutPage() {
             fontFamily: "var(--font-body, sans-serif)",
             fontSize: 13,
             letterSpacing: 4,
-            color: "#C79A3B",
+            color: "#d4af37",
             marginBottom: 12,
             textTransform: "uppercase",
             fontWeight: 600,
@@ -210,7 +210,7 @@ export default function AboutPage() {
           style={{
             width: 60,
             height: 3,
-            backgroundColor: "#C79A3B",
+            backgroundColor: "#d4af37",
             margin: "16px 0",
             borderRadius: 2,
           }}
@@ -258,18 +258,18 @@ export default function AboutPage() {
               height: 450,
               borderRadius: 20,
               background:
-                "linear-gradient(145deg, #C79A3B 0%, #d4a84a 30%, #EFE3CF 70%, #e8d5b0 100%)",
+                "linear-gradient(145deg, #d4af37 0%, #e2c463 30%, #F3E7CF 70%, #e8d5b0 100%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              boxShadow: "0 20px 60px rgba(13,59,46,0.15)",
+              boxShadow: "0 20px 60px rgba(15,35,69,0.15)",
             }}
           >
             <span
               style={{
                 fontFamily: "var(--font-heading, serif)",
                 fontSize: 48,
-                color: "#0D3B2E",
+                color: "#0f2345",
                 opacity: 0.3,
               }}
             >
@@ -292,7 +292,7 @@ export default function AboutPage() {
               fontFamily: "var(--font-body, sans-serif)",
               fontSize: 12,
               letterSpacing: 3,
-              color: "#C79A3B",
+              color: "#d4af37",
               textTransform: "uppercase",
               fontWeight: 600,
               marginBottom: 8,
@@ -305,7 +305,7 @@ export default function AboutPage() {
             style={{
               fontFamily: "var(--font-heading, serif)",
               fontSize: "clamp(28px, 4vw, 40px)",
-              color: "#0D3B2E",
+              color: "#0f2345",
               margin: "0 0 24px 0",
               fontWeight: 700,
               lineHeight: 1.2,
@@ -383,7 +383,7 @@ export default function AboutPage() {
       {/* ── 3. Timeline ─────────────────────────────────── */}
       <section
         style={{
-          backgroundColor: "#0D3B2E",
+          backgroundColor: "#0f2345",
           padding: "80px 24px",
         }}
       >
@@ -399,7 +399,7 @@ export default function AboutPage() {
               fontFamily: "var(--font-body, sans-serif)",
               fontSize: 12,
               letterSpacing: 3,
-              color: "#C79A3B",
+              color: "#d4af37",
               textTransform: "uppercase",
               fontWeight: 600,
               marginBottom: 8,
@@ -435,7 +435,7 @@ export default function AboutPage() {
               top: 0,
               bottom: 0,
               width: 2,
-              backgroundColor: "rgba(199,154,59,0.3)",
+              backgroundColor: "rgba(212,175,55,0.3)",
               transform: "translateX(-50%)",
             }}
           />
@@ -467,8 +467,8 @@ export default function AboutPage() {
                     width: 16,
                     height: 16,
                     borderRadius: "50%",
-                    backgroundColor: "#0D3B2E",
-                    border: "3px solid #C79A3B",
+                    backgroundColor: "#0f2345",
+                    border: "3px solid #d4af37",
                     transform: "translateX(-50%)",
                     zIndex: 2,
                   }}
@@ -479,14 +479,14 @@ export default function AboutPage() {
                     backgroundColor: "rgba(255,255,255,0.05)",
                     borderRadius: 16,
                     padding: "24px 28px",
-                    border: "1px solid rgba(199,154,59,0.2)",
+                    border: "1px solid rgba(212,175,55,0.2)",
                   }}
                 >
                   <span
                     style={{
                       fontFamily: "var(--font-heading, serif)",
                       fontSize: 28,
-                      color: "#C79A3B",
+                      color: "#d4af37",
                       fontWeight: 700,
                       display: "block",
                       marginBottom: 6,
@@ -537,7 +537,7 @@ export default function AboutPage() {
               fontFamily: "var(--font-body, sans-serif)",
               fontSize: 12,
               letterSpacing: 3,
-              color: "#C79A3B",
+              color: "#d4af37",
               textTransform: "uppercase",
               fontWeight: 600,
               marginBottom: 8,
@@ -549,7 +549,7 @@ export default function AboutPage() {
             style={{
               fontFamily: "var(--font-heading, serif)",
               fontSize: "clamp(28px, 4vw, 40px)",
-              color: "#0D3B2E",
+              color: "#0f2345",
               margin: 0,
               fontWeight: 700,
             }}
@@ -578,8 +578,8 @@ export default function AboutPage() {
                 borderRadius: 20,
                 padding: "40px 28px",
                 textAlign: "center",
-                border: "1px solid #EFE3CF",
-                boxShadow: "0 4px 20px rgba(13,59,46,0.06)",
+                border: "1px solid #F3E7CF",
+                boxShadow: "0 4px 20px rgba(15,35,69,0.06)",
               }}
             >
               <div
@@ -588,7 +588,7 @@ export default function AboutPage() {
                   height: 72,
                   borderRadius: "50%",
                   background:
-                    "linear-gradient(135deg, #C79A3B 0%, #d4a84a 100%)",
+                    "linear-gradient(135deg, #d4af37 0%, #e2c463 100%)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -602,7 +602,7 @@ export default function AboutPage() {
                 style={{
                   fontFamily: "var(--font-heading, serif)",
                   fontSize: 22,
-                  color: "#0D3B2E",
+                  color: "#0f2345",
                   margin: "0 0 12px 0",
                   fontWeight: 700,
                 }}
@@ -628,7 +628,7 @@ export default function AboutPage() {
       {/* ── 5. The Family ───────────────────────────────── */}
       <section
         style={{
-          backgroundColor: "#EFE3CF",
+          backgroundColor: "#F3E7CF",
           padding: "80px 24px",
         }}
       >
@@ -644,7 +644,7 @@ export default function AboutPage() {
               fontFamily: "var(--font-body, sans-serif)",
               fontSize: 12,
               letterSpacing: 3,
-              color: "#C79A3B",
+              color: "#d4af37",
               textTransform: "uppercase",
               fontWeight: 600,
               marginBottom: 8,
@@ -656,7 +656,7 @@ export default function AboutPage() {
             style={{
               fontFamily: "var(--font-heading, serif)",
               fontSize: "clamp(28px, 4vw, 40px)",
-              color: "#0D3B2E",
+              color: "#0f2345",
               margin: 0,
               fontWeight: 700,
             }}
@@ -690,8 +690,8 @@ export default function AboutPage() {
                 borderRadius: 20,
                 padding: "40px 28px 32px",
                 textAlign: "center",
-                boxShadow: "0 4px 20px rgba(13,59,46,0.06)",
-                border: "1px solid rgba(199,154,59,0.15)",
+                boxShadow: "0 4px 20px rgba(15,35,69,0.06)",
+                border: "1px solid rgba(212,175,55,0.15)",
               }}
             >
               {/* Placeholder avatar */}
@@ -701,19 +701,19 @@ export default function AboutPage() {
                   height: 110,
                   borderRadius: "50%",
                   background:
-                    "linear-gradient(145deg, #C79A3B 0%, #EFE3CF 60%, #d4a84a 100%)",
+                    "linear-gradient(145deg, #d4af37 0%, #F3E7CF 60%, #e2c463 100%)",
                   margin: "0 auto 20px auto",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  boxShadow: "0 6px 20px rgba(199,154,59,0.25)",
+                  boxShadow: "0 6px 20px rgba(212,175,55,0.25)",
                 }}
               >
                 <span
                   style={{
                     fontFamily: "var(--font-heading, serif)",
                     fontSize: 32,
-                    color: "#0D3B2E",
+                    color: "#0f2345",
                     opacity: 0.4,
                   }}
                 >
@@ -724,7 +724,7 @@ export default function AboutPage() {
                 style={{
                   fontFamily: "var(--font-heading, serif)",
                   fontSize: 20,
-                  color: "#0D3B2E",
+                  color: "#0f2345",
                   margin: "0 0 4px 0",
                   fontWeight: 700,
                 }}
@@ -735,7 +735,7 @@ export default function AboutPage() {
                 style={{
                   fontFamily: "var(--font-body, sans-serif)",
                   fontSize: 13,
-                  color: "#C79A3B",
+                  color: "#d4af37",
                   fontWeight: 600,
                   margin: "0 0 14px 0",
                   letterSpacing: 1,
@@ -764,7 +764,7 @@ export default function AboutPage() {
       <section
         style={{
           background:
-            "linear-gradient(135deg, #0D3B2E 0%, #1a5c48 50%, #0D3B2E 100%)",
+            "linear-gradient(135deg, #0f2345 0%, #1a335f 50%, #0f2345 100%)",
           padding: "80px 24px",
         }}
       >
@@ -784,7 +784,7 @@ export default function AboutPage() {
               fontFamily: "var(--font-body, sans-serif)",
               fontSize: 12,
               letterSpacing: 3,
-              color: "#C79A3B",
+              color: "#d4af37",
               textTransform: "uppercase",
               fontWeight: 600,
               marginBottom: 8,
@@ -836,7 +836,7 @@ export default function AboutPage() {
                 padding: "24px 28px",
                 flex: "1 1 200px",
                 maxWidth: 280,
-                border: "1px solid rgba(199,154,59,0.2)",
+                border: "1px solid rgba(212,175,55,0.2)",
               }}
             >
               <p
@@ -844,7 +844,7 @@ export default function AboutPage() {
                   fontFamily: "var(--font-body, sans-serif)",
                   fontSize: 11,
                   letterSpacing: 2,
-                  color: "#C79A3B",
+                  color: "#d4af37",
                   textTransform: "uppercase",
                   fontWeight: 600,
                   marginBottom: 8,
@@ -877,7 +877,7 @@ export default function AboutPage() {
                 padding: "24px 28px",
                 flex: "1 1 200px",
                 maxWidth: 280,
-                border: "1px solid rgba(199,154,59,0.2)",
+                border: "1px solid rgba(212,175,55,0.2)",
               }}
             >
               <p
@@ -885,7 +885,7 @@ export default function AboutPage() {
                   fontFamily: "var(--font-body, sans-serif)",
                   fontSize: 11,
                   letterSpacing: 2,
-                  color: "#C79A3B",
+                  color: "#d4af37",
                   textTransform: "uppercase",
                   fontWeight: 600,
                   marginBottom: 8,
@@ -923,8 +923,8 @@ export default function AboutPage() {
             rel="noopener noreferrer"
             style={{
               display: "inline-block",
-              backgroundColor: "#C79A3B",
-              color: "#0D3B2E",
+              backgroundColor: "#d4af37",
+              color: "#0f2345",
               fontFamily: "var(--font-body, sans-serif)",
               fontSize: 15,
               fontWeight: 700,
@@ -933,7 +933,7 @@ export default function AboutPage() {
               textDecoration: "none",
               letterSpacing: 1,
               transition: "transform 0.2s, box-shadow 0.2s",
-              boxShadow: "0 4px 20px rgba(199,154,59,0.3)",
+              boxShadow: "0 4px 20px rgba(212,175,55,0.3)",
             }}
           >
             Chat on WhatsApp

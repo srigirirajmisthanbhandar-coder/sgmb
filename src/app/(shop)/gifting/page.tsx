@@ -39,7 +39,7 @@ const giftingCategories = [
       "Make shaadi celebrations sweeter with customizable boxes of traditional sweets, beautifully packaged for your special day.",
     cta: "Explore",
     gradient:
-      "linear-gradient(145deg, #7A2E00 0%, #C45000 40%, #C79A3B 75%, #EFE3CF 100%)",
+      "linear-gradient(145deg, #7A2E00 0%, #C45000 40%, #d4af37 75%, #F3E7CF 100%)",
   },
   {
     title: "Corporate Gifting",
@@ -47,7 +47,7 @@ const giftingCategories = [
       "Branded packaging, bulk orders, and festival gifting for employees. Impress clients and reward your team.",
     cta: "Explore",
     gradient:
-      "linear-gradient(145deg, #0D3B2E 0%, #1A5C47 40%, #C79A3B 80%, #EFE3CF 100%)",
+      "linear-gradient(145deg, #0f2345 0%, #1a335f 40%, #d4af37 80%, #F3E7CF 100%)",
   },
   {
     title: "Festival Hampers",
@@ -55,7 +55,7 @@ const giftingCategories = [
       "Diwali, Holi, Janmashtami themed gift boxes curated with seasonal favourites and festive wrapping.",
     cta: "Explore",
     gradient:
-      "linear-gradient(145deg, #3B1500 0%, #9B3E00 35%, #C79A3B 70%, #F8F2E8 100%)",
+      "linear-gradient(145deg, #3B1500 0%, #9B3E00 35%, #d4af37 70%, #FBF6EC 100%)",
   },
 ];
 
@@ -88,28 +88,28 @@ const hampers = [
     price: "2,500",
     contents: "Kaju Katli, Laddu, Soan Papdi, Dry Fruits",
     gradient:
-      "linear-gradient(145deg, #7A2E00 0%, #C45000 50%, #C79A3B 100%)",
+      "linear-gradient(145deg, #7A2E00 0%, #C45000 50%, #d4af37 100%)",
   },
   {
     name: "Premium Wedding Tray",
     price: "3,500",
     contents: "Assorted Burfi, Peda, Decorated Tray",
     gradient:
-      "linear-gradient(145deg, #0D3B2E 0%, #1A5C47 45%, #C79A3B 100%)",
+      "linear-gradient(145deg, #0f2345 0%, #1a335f 45%, #d4af37 100%)",
   },
   {
     name: "Corporate Gift Box",
     price: "1,800",
     contents: "Mixed Sweets, Branded Packaging",
     gradient:
-      "linear-gradient(145deg, #3B1500 0%, #7A2E00 45%, #C79A3B 100%)",
+      "linear-gradient(145deg, #3B1500 0%, #7A2E00 45%, #d4af37 100%)",
   },
   {
     name: "Festival Special",
     price: "2,000",
     contents: "Seasonal Sweets, Festive Wrapping",
     gradient:
-      "linear-gradient(145deg, #4A2800 0%, #9B3E00 50%, #C79A3B 100%)",
+      "linear-gradient(145deg, #4A2800 0%, #9B3E00 50%, #d4af37 100%)",
   },
 ];
 
@@ -123,7 +123,7 @@ const bulkFeatures = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -143,7 +143,7 @@ const bulkFeatures = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -164,7 +164,7 @@ const bulkFeatures = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -183,7 +183,7 @@ const bulkFeatures = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -222,13 +222,13 @@ const testimonials = [
 
 export default function GiftingPage() {
   return (
-    <div style={{ backgroundColor: "#F8F2E8" }}>
+    <div style={{ backgroundColor: "#FBF6EC" }}>
       {/* ═══════ 1. HERO BANNER ═══════ */}
       <section
         style={{
           height: 300,
           background:
-            "linear-gradient(135deg, #C79A3B 0%, #9B6E1F 35%, #5C3D10 70%, #3B1500 100%)",
+            "linear-gradient(135deg, #d4af37 0%, #9B6E1F 35%, #5C3D10 70%, #3B1500 100%)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -262,7 +262,7 @@ export default function GiftingPage() {
               fontSize: 12,
               fontWeight: 700,
               letterSpacing: "0.22em",
-              color: "#C79A3B",
+              color: "#d4af37",
               textTransform: "uppercase",
               margin: 0,
               marginBottom: 14,
@@ -332,7 +332,7 @@ export default function GiftingPage() {
               fontSize: 12,
               fontWeight: 600,
               letterSpacing: "0.18em",
-              color: "#C79A3B",
+              color: "#d4af37",
               textTransform: "uppercase",
               margin: 0,
               marginBottom: 10,
@@ -352,7 +352,7 @@ export default function GiftingPage() {
               fontFamily: "var(--font-heading, serif)",
               fontSize: "clamp(26px, 3.2vw, 38px)",
               fontWeight: 600,
-              color: "#0D3B2E",
+              color: "#0f2345",
               margin: 0,
               marginBottom: 48,
               lineHeight: 1.2,
@@ -440,8 +440,8 @@ export default function GiftingPage() {
                   <span
                     style={{
                       display: "inline-block",
-                      backgroundColor: "#C79A3B",
-                      color: "#0D3B2E",
+                      backgroundColor: "#d4af37",
+                      color: "#0f2345",
                       fontFamily: "var(--font-body, sans-serif)",
                       fontWeight: 700,
                       fontSize: 13,
@@ -463,7 +463,7 @@ export default function GiftingPage() {
       <section
         style={{
           padding: "72px 0",
-          backgroundColor: "#EFE3CF",
+          backgroundColor: "#F3E7CF",
           overflow: "hidden",
         }}
       >
@@ -484,7 +484,7 @@ export default function GiftingPage() {
               fontFamily: "var(--font-heading, serif)",
               fontSize: "clamp(26px, 3.2vw, 38px)",
               fontWeight: 600,
-              color: "#0D3B2E",
+              color: "#0f2345",
               margin: 0,
               marginBottom: 56,
               lineHeight: 1.2,
@@ -510,7 +510,7 @@ export default function GiftingPage() {
                 left: "12.5%",
                 right: "12.5%",
                 height: 2,
-                borderTop: "2px dashed #C79A3B",
+                borderTop: "2px dashed #d4af37",
                 opacity: 0.5,
                 pointerEvents: "none",
               }}
@@ -540,8 +540,8 @@ export default function GiftingPage() {
                     width: 64,
                     height: 64,
                     borderRadius: "50%",
-                    backgroundColor: "#0D3B2E",
-                    color: "#C79A3B",
+                    backgroundColor: "#0f2345",
+                    color: "#d4af37",
                     fontFamily: "var(--font-heading, serif)",
                     fontSize: 24,
                     fontWeight: 700,
@@ -549,7 +549,7 @@ export default function GiftingPage() {
                     alignItems: "center",
                     justifyContent: "center",
                     marginBottom: 18,
-                    boxShadow: "0 4px 16px rgba(13,59,46,0.25)",
+                    boxShadow: "0 4px 16px rgba(15,35,69,0.25)",
                   }}
                 >
                   {step.num}
@@ -560,7 +560,7 @@ export default function GiftingPage() {
                     fontFamily: "var(--font-heading, serif)",
                     fontSize: 16,
                     fontWeight: 600,
-                    color: "#0D3B2E",
+                    color: "#0f2345",
                     margin: 0,
                     marginBottom: 6,
                   }}
@@ -571,7 +571,7 @@ export default function GiftingPage() {
                   style={{
                     fontFamily: "var(--font-body, sans-serif)",
                     fontSize: 13,
-                    color: "rgba(13,59,46,0.65)",
+                    color: "rgba(15,35,69,0.65)",
                     margin: 0,
                     lineHeight: 1.5,
                     maxWidth: 180,
@@ -610,7 +610,7 @@ export default function GiftingPage() {
               fontSize: 12,
               fontWeight: 600,
               letterSpacing: "0.18em",
-              color: "#C79A3B",
+              color: "#d4af37",
               textTransform: "uppercase",
               margin: 0,
               marginBottom: 10,
@@ -630,7 +630,7 @@ export default function GiftingPage() {
               fontFamily: "var(--font-heading, serif)",
               fontSize: "clamp(26px, 3.2vw, 38px)",
               fontWeight: 600,
-              color: "#0D3B2E",
+              color: "#0f2345",
               margin: 0,
               marginBottom: 48,
               lineHeight: 1.2,
@@ -659,7 +659,7 @@ export default function GiftingPage() {
                   borderRadius: 18,
                   overflow: "hidden",
                   backgroundColor: "#fff",
-                  boxShadow: "0 4px 24px rgba(13,59,46,0.08)",
+                  boxShadow: "0 4px 24px rgba(15,35,69,0.08)",
                 }}
               >
                 {/* gradient image placeholder */}
@@ -709,7 +709,7 @@ export default function GiftingPage() {
                       fontFamily: "var(--font-heading, serif)",
                       fontSize: 18,
                       fontWeight: 600,
-                      color: "#0D3B2E",
+                      color: "#0f2345",
                       margin: 0,
                       marginBottom: 4,
                     }}
@@ -722,7 +722,7 @@ export default function GiftingPage() {
                       fontFamily: "var(--font-heading, serif)",
                       fontSize: 20,
                       fontWeight: 700,
-                      color: "#C79A3B",
+                      color: "#d4af37",
                       margin: 0,
                       marginBottom: 10,
                     }}
@@ -734,7 +734,7 @@ export default function GiftingPage() {
                     style={{
                       fontFamily: "var(--font-body, sans-serif)",
                       fontSize: 13,
-                      color: "rgba(13,59,46,0.6)",
+                      color: "rgba(15,35,69,0.6)",
                       margin: 0,
                       marginBottom: 18,
                       lineHeight: 1.5,
@@ -747,8 +747,8 @@ export default function GiftingPage() {
                     href="#"
                     style={{
                       display: "inline-block",
-                      backgroundColor: "#0D3B2E",
-                      color: "#C79A3B",
+                      backgroundColor: "#0f2345",
+                      color: "#d4af37",
                       fontFamily: "var(--font-body, sans-serif)",
                       fontWeight: 700,
                       fontSize: 13,
@@ -771,7 +771,7 @@ export default function GiftingPage() {
       {/* ═══════ 5. BULK ORDER SECTION ═══════ */}
       <section
         style={{
-          backgroundColor: "#0D3B2E",
+          backgroundColor: "#0f2345",
           padding: "80px 0",
           overflow: "hidden",
         }}
@@ -794,7 +794,7 @@ export default function GiftingPage() {
               fontSize: 12,
               fontWeight: 600,
               letterSpacing: "0.18em",
-              color: "#C79A3B",
+              color: "#d4af37",
               textTransform: "uppercase",
               margin: 0,
               marginBottom: 10,
@@ -854,8 +854,8 @@ export default function GiftingPage() {
                     width: 52,
                     height: 52,
                     borderRadius: 14,
-                    backgroundColor: "rgba(199,154,59,0.12)",
-                    border: "1.5px solid rgba(199,154,59,0.3)",
+                    backgroundColor: "rgba(212,175,55,0.12)",
+                    border: "1.5px solid rgba(212,175,55,0.3)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -913,8 +913,8 @@ export default function GiftingPage() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 8,
-                backgroundColor: "#C79A3B",
-                color: "#0D3B2E",
+                backgroundColor: "#d4af37",
+                color: "#0f2345",
                 fontFamily: "var(--font-body, sans-serif)",
                 fontWeight: 700,
                 fontSize: 14,
@@ -922,7 +922,7 @@ export default function GiftingPage() {
                 padding: "14px 32px",
                 borderRadius: 9999,
                 textDecoration: "none",
-                boxShadow: "0 4px 20px rgba(199,154,59,0.30)",
+                boxShadow: "0 4px 20px rgba(212,175,55,0.30)",
               }}
             >
               Get a Quote
@@ -937,7 +937,7 @@ export default function GiftingPage() {
                 alignItems: "center",
                 gap: 8,
                 backgroundColor: "transparent",
-                color: "#C79A3B",
+                color: "#d4af37",
                 fontFamily: "var(--font-body, sans-serif)",
                 fontWeight: 700,
                 fontSize: 14,
@@ -945,14 +945,14 @@ export default function GiftingPage() {
                 padding: "14px 32px",
                 borderRadius: 9999,
                 textDecoration: "none",
-                border: "1.5px solid rgba(199,154,59,0.5)",
+                border: "1.5px solid rgba(212,175,55,0.5)",
               }}
             >
               <svg
                 width="18"
                 height="18"
                 viewBox="0 0 24 24"
-                fill="#C79A3B"
+                fill="#d4af37"
               >
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
                 <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.52 5.86L0 24l6.336-1.478A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82a9.8 9.8 0 0 1-5.09-1.42l-.365-.217-3.781.882.955-3.487-.238-.378A9.8 9.8 0 0 1 2.18 12c0-5.414 4.406-9.82 9.82-9.82 5.414 0 9.82 4.406 9.82 9.82 0 5.414-4.406 9.82-9.82 9.82z" />
@@ -967,7 +967,7 @@ export default function GiftingPage() {
       <section
         style={{
           padding: "72px 0",
-          backgroundColor: "#EFE3CF",
+          backgroundColor: "#F3E7CF",
           overflow: "hidden",
         }}
       >
@@ -988,7 +988,7 @@ export default function GiftingPage() {
               fontFamily: "var(--font-heading, serif)",
               fontSize: "clamp(24px, 3vw, 34px)",
               fontWeight: 600,
-              color: "#0D3B2E",
+              color: "#0f2345",
               margin: 0,
               marginBottom: 48,
               lineHeight: 1.2,
@@ -1017,7 +1017,7 @@ export default function GiftingPage() {
                   backgroundColor: "#FFFFFF",
                   borderRadius: 16,
                   padding: "28px 26px",
-                  boxShadow: "0 2px 16px rgba(13,59,46,0.06)",
+                  boxShadow: "0 2px 16px rgba(15,35,69,0.06)",
                   position: "relative",
                 }}
               >
@@ -1026,7 +1026,7 @@ export default function GiftingPage() {
                   style={{
                     fontFamily: "var(--font-heading, serif)",
                     fontSize: 48,
-                    color: "rgba(199,154,59,0.25)",
+                    color: "rgba(212,175,55,0.25)",
                     lineHeight: 1,
                     position: "absolute",
                     top: 16,
@@ -1040,7 +1040,7 @@ export default function GiftingPage() {
                   style={{
                     fontFamily: "var(--font-body, sans-serif)",
                     fontSize: 14,
-                    color: "rgba(13,59,46,0.75)",
+                    color: "rgba(15,35,69,0.75)",
                     margin: 0,
                     marginBottom: 20,
                     lineHeight: 1.65,
@@ -1056,7 +1056,7 @@ export default function GiftingPage() {
                       fontFamily: "var(--font-body, sans-serif)",
                       fontSize: 14,
                       fontWeight: 700,
-                      color: "#0D3B2E",
+                      color: "#0f2345",
                       margin: 0,
                       marginBottom: 2,
                     }}
@@ -1067,7 +1067,7 @@ export default function GiftingPage() {
                     style={{
                       fontFamily: "var(--font-body, sans-serif)",
                       fontSize: 12,
-                      color: "#C79A3B",
+                      color: "#d4af37",
                       margin: 0,
                       letterSpacing: "0.03em",
                     }}

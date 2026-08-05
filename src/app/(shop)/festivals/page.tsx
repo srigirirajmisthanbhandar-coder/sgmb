@@ -110,7 +110,7 @@ export default function FestivalsPage() {
         style={{
           height: 300,
           background:
-            "linear-gradient(135deg, #0D3B2E 0%, #1A5C3A 40%, #C79A3B 100%)",
+            "linear-gradient(135deg, #0f2345 0%, #1a335f 40%, #d4af37 100%)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -125,7 +125,7 @@ export default function FestivalsPage() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(ellipse at 60% 30%, rgba(199,154,59,0.25) 0%, transparent 70%)",
+              "radial-gradient(ellipse at 60% 30%, rgba(212,175,55,0.25) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -143,7 +143,7 @@ export default function FestivalsPage() {
               fontSize: 13,
               fontWeight: 700,
               letterSpacing: "0.22em",
-              color: "#C79A3B",
+              color: "#d4af37",
               textTransform: "uppercase",
               margin: 0,
               marginBottom: 16,
@@ -183,7 +183,7 @@ export default function FestivalsPage() {
       {/* ── Festival Calendar Timeline ── */}
       <section
         style={{
-          backgroundColor: "#F8F2E8",
+          backgroundColor: "#FBF6EC",
           padding: "80px 0",
         }}
       >
@@ -208,7 +208,7 @@ export default function FestivalsPage() {
                 fontSize: 12,
                 fontWeight: 600,
                 letterSpacing: "0.18em",
-                color: "#C79A3B",
+                color: "#d4af37",
                 textTransform: "uppercase",
                 margin: 0,
                 marginBottom: 12,
@@ -221,7 +221,7 @@ export default function FestivalsPage() {
                 fontFamily: "var(--font-heading, serif)",
                 fontSize: "clamp(28px, 3.5vw, 40px)",
                 fontWeight: 600,
-                color: "#0D3B2E",
+                color: "#0f2345",
                 margin: 0,
                 lineHeight: 1.2,
               }}
@@ -240,7 +240,7 @@ export default function FestivalsPage() {
                 top: 0,
                 bottom: 0,
                 width: 2,
-                backgroundColor: "#C79A3B",
+                backgroundColor: "#d4af37",
                 transform: "translateX(-50%)",
               }}
             />
@@ -271,11 +271,11 @@ export default function FestivalsPage() {
                       width: 18,
                       height: 18,
                       borderRadius: "50%",
-                      backgroundColor: "#C79A3B",
-                      border: "4px solid #F8F2E8",
+                      backgroundColor: "#d4af37",
+                      border: "4px solid #FBF6EC",
                       transform: "translateX(-50%)",
                       zIndex: 2,
-                      boxShadow: "0 0 0 2px #C79A3B",
+                      boxShadow: "0 0 0 2px #d4af37",
                     }}
                   />
 
@@ -291,7 +291,7 @@ export default function FestivalsPage() {
                       backgroundColor: "#ffffff",
                       borderRadius: 16,
                       padding: "28px 28px 24px",
-                      boxShadow: "0 4px 24px rgba(13,59,46,0.08)",
+                      boxShadow: "0 4px 24px rgba(15,35,69,0.08)",
                       position: "relative",
                     }}
                   >
@@ -303,8 +303,8 @@ export default function FestivalsPage() {
                         fontSize: 11,
                         fontWeight: 700,
                         letterSpacing: "0.08em",
-                        color: "#0D3B2E",
-                        backgroundColor: "#C79A3B",
+                        color: "#0f2345",
+                        backgroundColor: "#d4af37",
                         padding: "5px 14px",
                         borderRadius: 9999,
                         marginBottom: 14,
@@ -319,7 +319,7 @@ export default function FestivalsPage() {
                         fontFamily: "var(--font-heading, serif)",
                         fontSize: "clamp(20px, 2.5vw, 26px)",
                         fontWeight: 700,
-                        color: "#0D3B2E",
+                        color: "#0f2345",
                         margin: 0,
                         lineHeight: 1.2,
                         marginBottom: 10,
@@ -332,7 +332,7 @@ export default function FestivalsPage() {
                       style={{
                         fontFamily: "var(--font-body, sans-serif)",
                         fontSize: 14,
-                        color: "#4A6A5C",
+                        color: "#3d5a8a",
                         lineHeight: 1.65,
                         margin: 0,
                         marginBottom: 16,
@@ -357,8 +357,8 @@ export default function FestivalsPage() {
                             fontFamily: "var(--font-body, sans-serif)",
                             fontSize: 12,
                             fontWeight: 600,
-                            color: "#C79A3B",
-                            backgroundColor: "#EFE3CF",
+                            color: "#d4af37",
+                            backgroundColor: "#F3E7CF",
                             padding: "5px 12px",
                             borderRadius: 8,
                           }}
@@ -379,7 +379,7 @@ export default function FestivalsPage() {
                         fontWeight: 700,
                         letterSpacing: "0.04em",
                         color: "#ffffff",
-                        backgroundColor: "#0D3B2E",
+                        backgroundColor: "#0f2345",
                         padding: "10px 22px",
                         borderRadius: 9999,
                         textDecoration: "none",
@@ -399,7 +399,7 @@ export default function FestivalsPage() {
       {/* ── Current Season Special ── */}
       <section
         style={{
-          backgroundColor: "#EFE3CF",
+          backgroundColor: "#F3E7CF",
           padding: "80px 0",
         }}
       >
@@ -424,7 +424,7 @@ export default function FestivalsPage() {
                 fontSize: 12,
                 fontWeight: 600,
                 letterSpacing: "0.18em",
-                color: "#C79A3B",
+                color: "#d4af37",
                 textTransform: "uppercase",
                 margin: 0,
                 marginBottom: 12,
@@ -437,7 +437,7 @@ export default function FestivalsPage() {
                 fontFamily: "var(--font-heading, serif)",
                 fontSize: "clamp(28px, 3.5vw, 40px)",
                 fontWeight: 600,
-                color: "#0D3B2E",
+                color: "#0f2345",
                 margin: 0,
                 lineHeight: 1.2,
               }}
@@ -448,7 +448,7 @@ export default function FestivalsPage() {
               style={{
                 fontFamily: "var(--font-body, sans-serif)",
                 fontSize: 16,
-                color: "#4A6A5C",
+                color: "#3d5a8a",
                 margin: "14px auto 0",
                 maxWidth: 500,
                 lineHeight: 1.6,
@@ -480,7 +480,7 @@ export default function FestivalsPage() {
                   backgroundColor: "#ffffff",
                   borderRadius: 16,
                   overflow: "hidden",
-                  boxShadow: "0 4px 24px rgba(13,59,46,0.08)",
+                  boxShadow: "0 4px 24px rgba(15,35,69,0.08)",
                 }}
               >
                 <div
@@ -488,7 +488,7 @@ export default function FestivalsPage() {
                     position: "relative",
                     width: "100%",
                     height: 240,
-                    backgroundColor: "#F8F2E8",
+                    backgroundColor: "#FBF6EC",
                   }}
                 >
                   <Image
@@ -505,7 +505,7 @@ export default function FestivalsPage() {
                       fontFamily: "var(--font-heading, serif)",
                       fontSize: 20,
                       fontWeight: 700,
-                      color: "#0D3B2E",
+                      color: "#0f2345",
                       margin: 0,
                       marginBottom: 6,
                     }}
@@ -517,7 +517,7 @@ export default function FestivalsPage() {
                       fontFamily: "var(--font-body, sans-serif)",
                       fontSize: 18,
                       fontWeight: 700,
-                      color: "#C79A3B",
+                      color: "#d4af37",
                       margin: 0,
                       marginBottom: 16,
                     }}
@@ -535,7 +535,7 @@ export default function FestivalsPage() {
                       fontWeight: 700,
                       letterSpacing: "0.04em",
                       color: "#ffffff",
-                      backgroundColor: "#0D3B2E",
+                      backgroundColor: "#0f2345",
                       padding: "10px 22px",
                       borderRadius: 9999,
                       textDecoration: "none",
@@ -555,7 +555,7 @@ export default function FestivalsPage() {
       <section
         style={{
           background:
-            "linear-gradient(135deg, #0D3B2E 0%, #1A5C3A 50%, #0D3B2E 100%)",
+            "linear-gradient(135deg, #0f2345 0%, #1a335f 50%, #0f2345 100%)",
           padding: "80px 0",
           position: "relative",
           overflow: "hidden",
@@ -567,7 +567,7 @@ export default function FestivalsPage() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(ellipse at 50% 50%, rgba(199,154,59,0.15) 0%, transparent 70%)",
+              "radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.15) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -592,7 +592,7 @@ export default function FestivalsPage() {
               fontSize: 12,
               fontWeight: 600,
               letterSpacing: "0.18em",
-              color: "#C79A3B",
+              color: "#d4af37",
               textTransform: "uppercase",
               margin: 0,
               marginBottom: 16,
@@ -650,8 +650,8 @@ export default function FestivalsPage() {
                 fontSize: 14,
                 fontWeight: 700,
                 letterSpacing: "0.04em",
-                color: "#0D3B2E",
-                backgroundColor: "#C79A3B",
+                color: "#0f2345",
+                backgroundColor: "#d4af37",
                 padding: "14px 28px",
                 borderRadius: 9999,
                 textDecoration: "none",
@@ -662,7 +662,7 @@ export default function FestivalsPage() {
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
-                fill="#0D3B2E"
+                fill="#0f2345"
               >
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
                 <path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.553 4.113 1.52 5.845L.06 23.487a.5.5 0 00.608.608l5.642-1.46A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.933 0-3.765-.53-5.354-1.523l-.384-.23-3.352.868.882-3.22-.252-.4A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />

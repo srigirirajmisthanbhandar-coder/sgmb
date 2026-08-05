@@ -49,7 +49,7 @@ const roomTypes = [
     perNight: "/night",
     amenities: ["AC", "TV", "WiFi", "Attached Bathroom", "Temple View"],
     gradient:
-      "linear-gradient(145deg, #4A2C0A 0%, #7A4B1A 30%, #A3702E 60%, #C79A3B 100%)",
+      "linear-gradient(145deg, #4A2C0A 0%, #7A4B1A 30%, #a67c1f 60%, #d4af37 100%)",
   },
   {
     name: "Premium Suite",
@@ -63,7 +63,7 @@ const roomTypes = [
       "WiFi",
     ],
     gradient:
-      "linear-gradient(145deg, #2A5244 0%, #0D3B2E 30%, #1A5040 60%, #3A7060 100%)",
+      "linear-gradient(145deg, #16294c 0%, #0f2345 30%, #16294c 60%, #274a80 100%)",
   },
   {
     name: "Family Room",
@@ -71,7 +71,7 @@ const roomTypes = [
     perNight: "/night",
     amenities: ["Spacious", "2 Beds", "Kid-Friendly", "Dining Area", "AC"],
     gradient:
-      "linear-gradient(145deg, #5C3A10 0%, #8B6030 30%, #B8864A 60%, #EFE3CF 100%)",
+      "linear-gradient(145deg, #5C3A10 0%, #8B6030 30%, #B8864A 60%, #F3E7CF 100%)",
   },
 ];
 
@@ -85,7 +85,7 @@ const amenities = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -93,7 +93,7 @@ const amenities = [
         <path d="M5 12.55a11 11 0 0 1 14.08 0" />
         <path d="M1.42 9a16 16 0 0 1 21.16 0" />
         <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
-        <circle cx="12" cy="20" r="1" fill="#C79A3B" />
+        <circle cx="12" cy="20" r="1" fill="#d4af37" />
       </svg>
     ),
   },
@@ -106,7 +106,7 @@ const amenities = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -128,7 +128,7 @@ const amenities = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -147,7 +147,7 @@ const amenities = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -168,7 +168,7 @@ const amenities = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -188,7 +188,7 @@ const amenities = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -196,7 +196,7 @@ const amenities = [
         <rect x="2" y="2" width="20" height="20" rx="3" />
         <circle cx="12" cy="13" r="5" />
         <circle cx="12" cy="13" r="2" />
-        <circle cx="7" cy="6" r="1" fill="#C79A3B" />
+        <circle cx="7" cy="6" r="1" fill="#d4af37" />
       </svg>
     ),
   },
@@ -209,7 +209,7 @@ const amenities = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -230,7 +230,7 @@ const amenities = [
         height="28"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#C79A3B"
+        stroke="#d4af37"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -258,7 +258,7 @@ function CheckIcon() {
       height="14"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#C79A3B"
+      stroke="#d4af37"
       strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -276,7 +276,7 @@ export default function HotelPage() {
       {/* ════════════ 1. HERO BANNER ════════════ */}
       <section
         style={{
-          backgroundColor: "#0D3B2E",
+          backgroundColor: "#0f2345",
           height: 350,
           position: "relative",
           overflow: "hidden",
@@ -291,7 +291,7 @@ export default function HotelPage() {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(199,154,59,0.06) 1px, transparent 0)",
+              "radial-gradient(circle at 1px 1px, rgba(212,175,55,0.06) 1px, transparent 0)",
             backgroundSize: "32px 32px",
             pointerEvents: "none",
           }}
@@ -304,8 +304,8 @@ export default function HotelPage() {
             left: 24,
             width: 60,
             height: 60,
-            borderTop: "2px solid rgba(199,154,59,0.4)",
-            borderLeft: "2px solid rgba(199,154,59,0.4)",
+            borderTop: "2px solid rgba(212,175,55,0.4)",
+            borderLeft: "2px solid rgba(212,175,55,0.4)",
           }}
         />
         <div
@@ -315,8 +315,8 @@ export default function HotelPage() {
             right: 24,
             width: 60,
             height: 60,
-            borderTop: "2px solid rgba(199,154,59,0.4)",
-            borderRight: "2px solid rgba(199,154,59,0.4)",
+            borderTop: "2px solid rgba(212,175,55,0.4)",
+            borderRight: "2px solid rgba(212,175,55,0.4)",
           }}
         />
         <div
@@ -326,8 +326,8 @@ export default function HotelPage() {
             left: 24,
             width: 60,
             height: 60,
-            borderBottom: "2px solid rgba(199,154,59,0.4)",
-            borderLeft: "2px solid rgba(199,154,59,0.4)",
+            borderBottom: "2px solid rgba(212,175,55,0.4)",
+            borderLeft: "2px solid rgba(212,175,55,0.4)",
           }}
         />
         <div
@@ -337,8 +337,8 @@ export default function HotelPage() {
             right: 24,
             width: 60,
             height: 60,
-            borderBottom: "2px solid rgba(199,154,59,0.4)",
-            borderRight: "2px solid rgba(199,154,59,0.4)",
+            borderBottom: "2px solid rgba(212,175,55,0.4)",
+            borderRight: "2px solid rgba(212,175,55,0.4)",
           }}
         />
         {/* Radial glow */}
@@ -352,7 +352,7 @@ export default function HotelPage() {
             height: 600,
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(199,154,59,0.08) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -376,7 +376,7 @@ export default function HotelPage() {
               fontSize: 12,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#C79A3B",
+              color: "#d4af37",
               marginBottom: 18,
             }}
           >
@@ -389,7 +389,7 @@ export default function HotelPage() {
               fontFamily: "var(--font-heading, serif)",
               fontSize: "clamp(32px, 5vw, 52px)",
               fontWeight: 500,
-              color: "#F8F2E8",
+              color: "#FBF6EC",
               margin: "0 0 16px",
               lineHeight: 1.15,
               letterSpacing: "-0.01em",
@@ -403,7 +403,7 @@ export default function HotelPage() {
             style={{
               fontFamily: "var(--font-body, sans-serif)",
               fontSize: "clamp(15px, 2vw, 18px)",
-              color: "rgba(248,242,232,0.75)",
+              color: "rgba(251,246,236,0.75)",
               margin: 0,
               maxWidth: 520,
               marginLeft: "auto",
@@ -420,7 +420,7 @@ export default function HotelPage() {
             style={{
               width: 60,
               height: 2,
-              background: "#C79A3B",
+              background: "#d4af37",
               margin: "28px auto 0",
               borderRadius: 1,
             }}
@@ -431,7 +431,7 @@ export default function HotelPage() {
       {/* ════════════ 2. INTRODUCTION ════════════ */}
       <section
         style={{
-          backgroundColor: "#F8F2E8",
+          backgroundColor: "#FBF6EC",
           padding: "100px 0",
         }}
       >
@@ -460,7 +460,7 @@ export default function HotelPage() {
               overflow: "hidden",
               position: "relative",
               boxShadow:
-                "0 24px 64px rgba(13,59,46,0.12), 0 4px 16px rgba(0,0,0,0.08)",
+                "0 24px 64px rgba(15,35,69,0.12), 0 4px 16px rgba(0,0,0,0.08)",
             }}
           >
             <div
@@ -468,7 +468,7 @@ export default function HotelPage() {
                 position: "absolute",
                 inset: 0,
                 background:
-                  "linear-gradient(145deg, #4A2C0A 0%, #7A4B1A 28%, #A3702E 55%, #C79A3B 80%, #EFE3CF 100%)",
+                  "linear-gradient(145deg, #4A2C0A 0%, #7A4B1A 28%, #a67c1f 55%, #d4af37 80%, #F3E7CF 100%)",
               }}
             />
             {/* Arch accent */}
@@ -481,7 +481,7 @@ export default function HotelPage() {
                 width: 140,
                 height: 190,
                 borderRadius: "70px 70px 0 0",
-                border: "2px solid rgba(199,154,59,0.3)",
+                border: "2px solid rgba(212,175,55,0.3)",
               }}
             />
             <div
@@ -492,7 +492,7 @@ export default function HotelPage() {
                 right: 0,
                 height: "35%",
                 background:
-                  "linear-gradient(to top, rgba(13,59,46,0.5), transparent)",
+                  "linear-gradient(to top, rgba(15,35,69,0.5), transparent)",
               }}
             />
             <div
@@ -504,7 +504,7 @@ export default function HotelPage() {
                 fontSize: 12,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "rgba(248,242,232,0.7)",
+                color: "rgba(251,246,236,0.7)",
               }}
             >
               Hotel Exterior
@@ -525,7 +525,7 @@ export default function HotelPage() {
                 fontSize: 11,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color: "#C79A3B",
+                color: "#d4af37",
                 marginBottom: 14,
                 display: "flex",
                 alignItems: "center",
@@ -538,7 +538,7 @@ export default function HotelPage() {
                   display: "inline-block",
                   width: 36,
                   height: 1,
-                  background: "#C79A3B",
+                  background: "#d4af37",
                   opacity: 0.6,
                 }}
               />
@@ -550,7 +550,7 @@ export default function HotelPage() {
                 fontFamily: "var(--font-heading, serif)",
                 fontSize: "clamp(28px, 3.5vw, 40px)",
                 fontWeight: 500,
-                color: "#0D3B2E",
+                color: "#0f2345",
                 margin: "0 0 20px",
                 lineHeight: 1.2,
               }}
@@ -610,7 +610,7 @@ export default function HotelPage() {
                     textAlign: "center",
                     padding: "20px 0",
                     borderLeft:
-                      i > 0 ? "1px solid rgba(199,154,59,0.25)" : "none",
+                      i > 0 ? "1px solid rgba(212,175,55,0.25)" : "none",
                   }}
                 >
                   <p
@@ -618,7 +618,7 @@ export default function HotelPage() {
                       fontFamily: "var(--font-heading, serif)",
                       fontSize: 28,
                       fontWeight: 600,
-                      color: "#C79A3B",
+                      color: "#d4af37",
                       margin: "0 0 4px",
                     }}
                   >
@@ -628,7 +628,7 @@ export default function HotelPage() {
                     style={{
                       fontFamily: "var(--font-body, sans-serif)",
                       fontSize: 13,
-                      color: "#0D3B2E",
+                      color: "#0f2345",
                       margin: 0,
                       letterSpacing: "0.04em",
                     }}
@@ -645,7 +645,7 @@ export default function HotelPage() {
       {/* ════════════ 3. ROOM TYPES ════════════ */}
       <section
         style={{
-          backgroundColor: "#EFE3CF",
+          backgroundColor: "#F3E7CF",
           padding: "100px 0",
         }}
       >
@@ -670,7 +670,7 @@ export default function HotelPage() {
                 fontSize: 11,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color: "#C79A3B",
+                color: "#d4af37",
                 marginBottom: 14,
               }}
             >
@@ -683,7 +683,7 @@ export default function HotelPage() {
                 fontFamily: "var(--font-heading, serif)",
                 fontSize: "clamp(28px, 3.5vw, 40px)",
                 fontWeight: 500,
-                color: "#0D3B2E",
+                color: "#0f2345",
                 margin: 0,
               }}
             >
@@ -708,11 +708,11 @@ export default function HotelPage() {
                 custom={i * 0.12}
                 variants={scaleIn}
                 style={{
-                  backgroundColor: "#F8F2E8",
+                  backgroundColor: "#FBF6EC",
                   borderRadius: 16,
                   overflow: "hidden",
                   boxShadow:
-                    "0 8px 32px rgba(13,59,46,0.08), 0 2px 8px rgba(0,0,0,0.04)",
+                    "0 8px 32px rgba(15,35,69,0.08), 0 2px 8px rgba(0,0,0,0.04)",
                 }}
               >
                 {/* Image placeholder */}
@@ -737,8 +737,8 @@ export default function HotelPage() {
                       right: 16,
                       width: 36,
                       height: 36,
-                      borderTop: "1.5px solid rgba(199,154,59,0.5)",
-                      borderRight: "1.5px solid rgba(199,154,59,0.5)",
+                      borderTop: "1.5px solid rgba(212,175,55,0.5)",
+                      borderRight: "1.5px solid rgba(212,175,55,0.5)",
                     }}
                   />
                   <div
@@ -750,7 +750,7 @@ export default function HotelPage() {
                       fontSize: 11,
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "rgba(248,242,232,0.7)",
+                      color: "rgba(251,246,236,0.7)",
                     }}
                   >
                     {room.name}
@@ -764,7 +764,7 @@ export default function HotelPage() {
                       fontFamily: "var(--font-heading, serif)",
                       fontSize: 22,
                       fontWeight: 500,
-                      color: "#0D3B2E",
+                      color: "#0f2345",
                       margin: "0 0 6px",
                     }}
                   >
@@ -775,7 +775,7 @@ export default function HotelPage() {
                       fontFamily: "var(--font-heading, serif)",
                       fontSize: 24,
                       fontWeight: 600,
-                      color: "#C79A3B",
+                      color: "#d4af37",
                       margin: "0 0 20px",
                     }}
                   >
@@ -826,8 +826,8 @@ export default function HotelPage() {
                     style={{
                       display: "block",
                       textAlign: "center",
-                      backgroundColor: "#C79A3B",
-                      color: "#0D3B2E",
+                      backgroundColor: "#d4af37",
+                      color: "#0f2345",
                       fontFamily: "var(--font-body, sans-serif)",
                       fontSize: 14,
                       fontWeight: 700,
@@ -850,7 +850,7 @@ export default function HotelPage() {
       {/* ════════════ 4. AMENITIES GRID ════════════ */}
       <section
         style={{
-          backgroundColor: "#F8F2E8",
+          backgroundColor: "#FBF6EC",
           padding: "100px 0",
         }}
       >
@@ -875,7 +875,7 @@ export default function HotelPage() {
                 fontSize: 11,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color: "#C79A3B",
+                color: "#d4af37",
                 marginBottom: 14,
               }}
             >
@@ -888,7 +888,7 @@ export default function HotelPage() {
                 fontFamily: "var(--font-heading, serif)",
                 fontSize: "clamp(28px, 3.5vw, 40px)",
                 fontWeight: 500,
-                color: "#0D3B2E",
+                color: "#0f2345",
                 margin: 0,
               }}
             >
@@ -913,11 +913,11 @@ export default function HotelPage() {
                 custom={i * 0.06}
                 variants={scaleIn}
                 style={{
-                  backgroundColor: "#EFE3CF",
+                  backgroundColor: "#F3E7CF",
                   borderRadius: 14,
                   padding: "32px 20px 28px",
                   textAlign: "center",
-                  border: "1px solid rgba(199,154,59,0.15)",
+                  border: "1px solid rgba(212,175,55,0.15)",
                 }}
               >
                 <div
@@ -925,8 +925,8 @@ export default function HotelPage() {
                     width: 56,
                     height: 56,
                     borderRadius: "50%",
-                    background: "rgba(199,154,59,0.1)",
-                    border: "1px solid rgba(199,154,59,0.2)",
+                    background: "rgba(212,175,55,0.1)",
+                    border: "1px solid rgba(212,175,55,0.2)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -940,7 +940,7 @@ export default function HotelPage() {
                     fontFamily: "var(--font-heading, serif)",
                     fontSize: 16,
                     fontWeight: 500,
-                    color: "#0D3B2E",
+                    color: "#0f2345",
                     margin: "0 0 8px",
                   }}
                 >
@@ -966,7 +966,7 @@ export default function HotelPage() {
       {/* ════════════ 5. LOCATION & NEARBY ════════════ */}
       <section
         style={{
-          backgroundColor: "#0D3B2E",
+          backgroundColor: "#0f2345",
           padding: "100px 0",
           position: "relative",
           overflow: "hidden",
@@ -978,7 +978,7 @@ export default function HotelPage() {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(199,154,59,0.05) 1px, transparent 0)",
+              "radial-gradient(circle at 1px 1px, rgba(212,175,55,0.05) 1px, transparent 0)",
             backgroundSize: "32px 32px",
             pointerEvents: "none",
           }}
@@ -1011,7 +1011,7 @@ export default function HotelPage() {
                 fontSize: 11,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color: "#C79A3B",
+                color: "#d4af37",
                 marginBottom: 14,
                 display: "flex",
                 alignItems: "center",
@@ -1024,7 +1024,7 @@ export default function HotelPage() {
                   display: "inline-block",
                   width: 36,
                   height: 1,
-                  background: "#C79A3B",
+                  background: "#d4af37",
                   opacity: 0.6,
                 }}
               />
@@ -1036,7 +1036,7 @@ export default function HotelPage() {
                 fontFamily: "var(--font-heading, serif)",
                 fontSize: "clamp(28px, 3.5vw, 40px)",
                 fontWeight: 500,
-                color: "#F8F2E8",
+                color: "#FBF6EC",
                 margin: "0 0 20px",
                 lineHeight: 1.2,
               }}
@@ -1052,7 +1052,7 @@ export default function HotelPage() {
                 fontFamily: "var(--font-body, sans-serif)",
                 fontSize: 16,
                 lineHeight: 1.75,
-                color: "rgba(248,242,232,0.75)",
+                color: "rgba(251,246,236,0.75)",
                 margin: "0 0 32px",
               }}
             >
@@ -1082,7 +1082,7 @@ export default function HotelPage() {
                     gap: 14,
                     fontFamily: "var(--font-body, sans-serif)",
                     fontSize: 15,
-                    color: "rgba(248,242,232,0.88)",
+                    color: "rgba(251,246,236,0.88)",
                   }}
                 >
                   <span
@@ -1090,8 +1090,8 @@ export default function HotelPage() {
                       width: 28,
                       height: 28,
                       borderRadius: "50%",
-                      background: "rgba(199,154,59,0.12)",
-                      border: "1px solid rgba(199,154,59,0.25)",
+                      background: "rgba(212,175,55,0.12)",
+                      border: "1px solid rgba(212,175,55,0.25)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -1103,7 +1103,7 @@ export default function HotelPage() {
                       height="13"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="#C79A3B"
+                      stroke="#d4af37"
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -1138,7 +1138,7 @@ export default function HotelPage() {
                 position: "absolute",
                 inset: 0,
                 background:
-                  "linear-gradient(135deg, #2A5244 0%, #1A5040 30%, #0D3B2E 60%, #3A7060 100%)",
+                  "linear-gradient(135deg, #16294c 0%, #16294c 30%, #0f2345 60%, #274a80 100%)",
               }}
             />
             {/* Map pin icon */}
@@ -1151,11 +1151,11 @@ export default function HotelPage() {
                 width: 72,
                 height: 72,
                 borderRadius: "50%",
-                border: "2px solid rgba(199,154,59,0.4)",
+                border: "2px solid rgba(212,175,55,0.4)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                background: "rgba(199,154,59,0.08)",
+                background: "rgba(212,175,55,0.08)",
               }}
             >
               <svg
@@ -1163,7 +1163,7 @@ export default function HotelPage() {
                 height="32"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#C79A3B"
+                stroke="#d4af37"
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -1182,7 +1182,7 @@ export default function HotelPage() {
                   left: 0,
                   right: 0,
                   height: 1,
-                  background: "rgba(199,154,59,0.08)",
+                  background: "rgba(212,175,55,0.08)",
                 }}
               />
             ))}
@@ -1195,7 +1195,7 @@ export default function HotelPage() {
                   top: 0,
                   bottom: 0,
                   width: 1,
-                  background: "rgba(199,154,59,0.08)",
+                  background: "rgba(212,175,55,0.08)",
                 }}
               />
             ))}
@@ -1210,7 +1210,7 @@ export default function HotelPage() {
                 fontSize: 11,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "rgba(248,242,232,0.5)",
+                color: "rgba(251,246,236,0.5)",
                 margin: 0,
               }}
             >
@@ -1223,7 +1223,7 @@ export default function HotelPage() {
       {/* ════════════ 6. BOOKING CTA ════════════ */}
       <section
         style={{
-          backgroundColor: "#F8F2E8",
+          backgroundColor: "#FBF6EC",
           padding: "80px 0 100px",
         }}
       >
@@ -1235,12 +1235,12 @@ export default function HotelPage() {
             maxWidth: 900,
             margin: "0 auto",
             padding: "56px 48px",
-            backgroundColor: "#EFE3CF",
+            backgroundColor: "#F3E7CF",
             borderRadius: 20,
             textAlign: "center",
-            border: "1px solid rgba(199,154,59,0.2)",
+            border: "1px solid rgba(212,175,55,0.2)",
             boxShadow:
-              "0 12px 40px rgba(13,59,46,0.06), 0 2px 12px rgba(0,0,0,0.03)",
+              "0 12px 40px rgba(15,35,69,0.06), 0 2px 12px rgba(0,0,0,0.03)",
             position: "relative",
             overflow: "hidden",
           }}
@@ -1253,8 +1253,8 @@ export default function HotelPage() {
               left: 16,
               width: 40,
               height: 40,
-              borderTop: "1.5px solid rgba(199,154,59,0.3)",
-              borderLeft: "1.5px solid rgba(199,154,59,0.3)",
+              borderTop: "1.5px solid rgba(212,175,55,0.3)",
+              borderLeft: "1.5px solid rgba(212,175,55,0.3)",
             }}
           />
           <div
@@ -1264,8 +1264,8 @@ export default function HotelPage() {
               right: 16,
               width: 40,
               height: 40,
-              borderBottom: "1.5px solid rgba(199,154,59,0.3)",
-              borderRight: "1.5px solid rgba(199,154,59,0.3)",
+              borderBottom: "1.5px solid rgba(212,175,55,0.3)",
+              borderRight: "1.5px solid rgba(212,175,55,0.3)",
             }}
           />
 
@@ -1276,7 +1276,7 @@ export default function HotelPage() {
               fontFamily: "var(--font-heading, serif)",
               fontSize: "clamp(26px, 3.5vw, 38px)",
               fontWeight: 500,
-              color: "#0D3B2E",
+              color: "#0f2345",
               margin: "0 0 16px",
               lineHeight: 1.2,
             }}
@@ -1303,14 +1303,14 @@ export default function HotelPage() {
               fontFamily: "var(--font-body, sans-serif)",
               fontSize: 20,
               fontWeight: 600,
-              color: "#0D3B2E",
+              color: "#0f2345",
               margin: "0 0 32px",
               letterSpacing: "0.02em",
             }}
           >
             <a
               href="tel:+919999999999"
-              style={{ color: "#0D3B2E", textDecoration: "none" }}
+              style={{ color: "#0f2345", textDecoration: "none" }}
             >
               +91 99999 99999
             </a>
@@ -1361,8 +1361,8 @@ export default function HotelPage() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 8,
-                backgroundColor: "#C79A3B",
-                color: "#0D3B2E",
+                backgroundColor: "#d4af37",
+                color: "#0f2345",
                 fontFamily: "var(--font-body, sans-serif)",
                 fontSize: 14,
                 fontWeight: 700,
