@@ -155,8 +155,8 @@ export default function SinceBanner() {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 14px;
-            padding: 22px 18px 26px;
+            gap: 16px;
+            padding: 26px 18px;
             background:
               linear-gradient(180deg, #0B3580 0%, #072B66 50%, #04194A 100%);
             border-radius: 18px;
@@ -165,7 +165,9 @@ export default function SinceBanner() {
               inset 0 0 0 4px #072B66,
               inset 0 0 0 5px rgba(212, 175, 55, 0.85),
               0 14px 30px rgba(7, 43, 102, 0.28);
-            max-width: 520px;
+            /* capped so the name box never hits its 380px max-width — that
+               keeps its percentage margins in step with the artwork */
+            max-width: 448px;
           }
           /* Hide the wide banner artwork on mobile — the navy/gold card
              chrome above replaces it. */
@@ -178,11 +180,17 @@ export default function SinceBanner() {
             transform: none;
             inset: auto;
           }
+          /* The logo and name artwork both carry transparent margins inside
+             their canvases (logo 4.9% top / 9.0% bottom, name 9.3% / 15.7%),
+             so an equal flex gap reads as uneven spacing. Pull each box in by
+             its own empty band, leaving one even gap between all three. */
           .gov-since-logo {
             width: clamp(96px, 28vw, 130px);
             height: auto;
             aspect-ratio: 1080 / 1350;
             max-width: none;
+            margin-top: clamp(-9px, -1.7vw, -6px);
+            margin-bottom: clamp(-16px, -3.2vw, -11px);
             filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.25))
                     drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
           }
@@ -191,7 +199,8 @@ export default function SinceBanner() {
             height: auto;
             aspect-ratio: 1536 / 1024;
             max-width: 380px;
-            margin: 4px 0 4px;
+            /* -5.7% / -9.6% of the card width == the name art's empty bands */
+            margin: -5.7% 0 -9.6%;
           }
           .gov-since-circle {
             width: auto;
