@@ -242,7 +242,7 @@ function DiamondOrnament() {
 // ─────────────────────────────────────────────────────────────
 // Maharaj rail
 // Drifts on its own, and hands control over to the visitor on
-// wheel, drag or touch. The track renders the list twice, so
+// drag or touch. The track renders the list twice, so
 // wrapping at the halfway mark keeps the loop seamless both ways.
 // ─────────────────────────────────────────────────────────────
 const MAHARAJ_DRIFT_PX_PER_SEC = 145;
@@ -287,17 +287,6 @@ function useMaharajRail() {
     };
     frame = requestAnimationFrame(step);
 
-    // A mouse wheel only reports deltaY, so the dominant axis drives the
-    // rail either way — that is what lets a plain wheel scroll sideways.
-    const onWheel = (e: WheelEvent) => {
-      const delta =
-        Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-      if (!delta) return;
-      e.preventDefault();
-      rail.scrollLeft += delta;
-      wrap(true);
-    };
-
     const onPointerDown = (e: PointerEvent) => {
       // Touch keeps native momentum scrolling; only mice need drag support.
       if (e.pointerType !== "mouse" || e.button !== 0) return;
@@ -326,7 +315,6 @@ function useMaharajRail() {
     const onEnter = () => { hovering = true; };
     const onLeave = () => { hovering = false; };
 
-    rail.addEventListener("wheel", onWheel, { passive: false });
     rail.addEventListener("pointerdown", onPointerDown);
     rail.addEventListener("pointermove", onPointerMove);
     rail.addEventListener("pointerup", endDrag);
@@ -336,7 +324,6 @@ function useMaharajRail() {
 
     return () => {
       cancelAnimationFrame(frame);
-      rail.removeEventListener("wheel", onWheel);
       rail.removeEventListener("pointerdown", onPointerDown);
       rail.removeEventListener("pointermove", onPointerMove);
       rail.removeEventListener("pointerup", endDrag);
