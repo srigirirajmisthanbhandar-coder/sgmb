@@ -57,6 +57,11 @@ const maharaj = [
   { name: "श्री श्याम शरण देवाचार्य", image: "/images/maharaj/shyam-sharan-devacharya.webp" },
   { name: "संत श्री राधाबिहारी दास जी", image: "/images/maharaj/radhabihari-das.webp" },
   { name: "संत श्री गुरू शरणानन्द जी", image: "/images/maharaj/guru-sharnanand.webp" },
+  { name: "संत श्री गया प्रसाद जी महाराज", image: "/images/maharaj/gaya-prasad.webp" },
+  { name: "परम पूज्य श्री ठाकुर दास बाबा", image: "/images/maharaj/thakur-das-baba.webp" },
+  { name: "परमपूज्य श्री माधव दास बाबा", image: "/images/maharaj/madhav-das-baba.webp" },
+  { name: "श्री सेवानन्द जी महाराज", image: "/images/maharaj/sevanand-ji.webp" },
+  { name: "श्री राम सेवक दास जी महाराज", image: "/images/maharaj/ram-sevak-das.webp" },
 ];
 
 const signatureSweets = [
