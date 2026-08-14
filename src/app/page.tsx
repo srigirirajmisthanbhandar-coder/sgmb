@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SinceBanner from "@/components/SinceBanner";
@@ -239,9 +240,121 @@ function DiamondOrnament() {
 }
 
 // ─────────────────────────────────────────────────────────────
+// Maharaj rail
+// Drifts on its own, and hands control over to the visitor on
+// wheel, drag or touch. The track renders the list twice, so
+// wrapping at the halfway mark keeps the loop seamless both ways.
+// ─────────────────────────────────────────────────────────────
+const MAHARAJ_DRIFT_PX_PER_SEC = 145;
+
+function useMaharajRail() {
+  const railRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let hovering = false;
+    let dragging = false;
+    let dragStartX = 0;
+    let dragStartScroll = 0;
+
+    // Backward wrapping only applies to visitor-driven movement — on
+    // mount scrollLeft sits at 0 and must be left there.
+    const wrap = (allowBackward: boolean) => {
+      const half = rail.scrollWidth / 2;
+      if (half <= 0) return;
+      if (rail.scrollLeft >= half) {
+        rail.scrollLeft -= half;
+        dragStartScroll -= half;
+      } else if (allowBackward && rail.scrollLeft <= 0) {
+        rail.scrollLeft += half;
+        dragStartScroll += half;
+      }
+    };
+
+    let frame = 0;
+    let last = performance.now();
+    const step = (now: number) => {
+      const elapsed = now - last;
+      last = now;
+      if (!hovering && !dragging && !reduced.matches) {
+        rail.scrollLeft += (MAHARAJ_DRIFT_PX_PER_SEC * elapsed) / 1000;
+        wrap(false);
+      }
+      frame = requestAnimationFrame(step);
+    };
+    frame = requestAnimationFrame(step);
+
+    // A mouse wheel only reports deltaY, so the dominant axis drives the
+    // rail either way — that is what lets a plain wheel scroll sideways.
+    const onWheel = (e: WheelEvent) => {
+      const delta =
+        Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      if (!delta) return;
+      e.preventDefault();
+      rail.scrollLeft += delta;
+      wrap(true);
+    };
+
+    const onPointerDown = (e: PointerEvent) => {
+      // Touch keeps native momentum scrolling; only mice need drag support.
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      dragging = true;
+      dragStartX = e.clientX;
+      dragStartScroll = rail.scrollLeft;
+      rail.setPointerCapture(e.pointerId);
+      rail.classList.add("is-dragging");
+    };
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!dragging) return;
+      rail.scrollLeft = dragStartScroll - (e.clientX - dragStartX);
+      wrap(true);
+    };
+
+    const endDrag = (e: PointerEvent) => {
+      if (!dragging) return;
+      dragging = false;
+      if (rail.hasPointerCapture(e.pointerId)) {
+        rail.releasePointerCapture(e.pointerId);
+      }
+      rail.classList.remove("is-dragging");
+    };
+
+    const onEnter = () => { hovering = true; };
+    const onLeave = () => { hovering = false; };
+
+    rail.addEventListener("wheel", onWheel, { passive: false });
+    rail.addEventListener("pointerdown", onPointerDown);
+    rail.addEventListener("pointermove", onPointerMove);
+    rail.addEventListener("pointerup", endDrag);
+    rail.addEventListener("pointercancel", endDrag);
+    rail.addEventListener("mouseenter", onEnter);
+    rail.addEventListener("mouseleave", onLeave);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      rail.removeEventListener("wheel", onWheel);
+      rail.removeEventListener("pointerdown", onPointerDown);
+      rail.removeEventListener("pointermove", onPointerMove);
+      rail.removeEventListener("pointerup", endDrag);
+      rail.removeEventListener("pointercancel", endDrag);
+      rail.removeEventListener("mouseenter", onEnter);
+      rail.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+
+  return railRef;
+}
+
+// ─────────────────────────────────────────────────────────────
 // Page
 // ─────────────────────────────────────────────────────────────
 export default function HeritagePage() {
+  const maharajRailRef = useMaharajRail();
+
   return (
     <>
       <style>{`
@@ -600,21 +713,24 @@ export default function HeritagePage() {
               vertical rectangle portraits with gold frames ── */
         .heritage-maharaj-rail {
           display: flex;
-          overflow: hidden;
+          overflow-x: auto;
+          overflow-y: hidden;
           padding: 8px 0 28px;
+          cursor: grab;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          overscroll-behavior-x: contain;
+          -webkit-overflow-scrolling: touch;
+        }
+        .heritage-maharaj-rail::-webkit-scrollbar { display: none; }
+        .heritage-maharaj-rail.is-dragging { cursor: grabbing; }
+        /* Suppress card hover effects mid-drag so the row stays steady */
+        .heritage-maharaj-rail.is-dragging .heritage-maharaj-card {
+          pointer-events: none;
         }
         .heritage-maharaj-track {
           display: flex;
           width: max-content;
-          will-change: transform;
-          animation: heritage-maharaj-marquee 25s linear infinite;
-        }
-        .heritage-maharaj-rail:hover .heritage-maharaj-track {
-          animation-play-state: paused;
-        }
-        @keyframes heritage-maharaj-marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
         }
         .heritage-maharaj-card {
           width: 220px;
@@ -638,14 +754,6 @@ export default function HeritagePage() {
         }
         @media (max-width: 420px) {
           .heritage-maharaj-card { width: 148px !important; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .heritage-maharaj-track { animation: none; }
-          .heritage-maharaj-rail {
-            overflow-x: auto;
-            scrollbar-width: none;
-          }
-          .heritage-maharaj-rail::-webkit-scrollbar { display: none; }
         }
 
         /* ── Gifting banner ── */
@@ -1069,6 +1177,7 @@ export default function HeritagePage() {
             variants={fadeUp}
             custom={0.1}
             className="heritage-maharaj-rail"
+            ref={maharajRailRef}
             style={{
               maxWidth: 1280,
               margin: "0 auto",
