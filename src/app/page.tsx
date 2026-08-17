@@ -110,6 +110,27 @@ const signatureSweets = [
   },
 ];
 
+// Each banner carries its own name in the artwork, so these cards stay
+// caption-free — `alt` is what screen readers and crawlers read instead.
+const specialSweets = [
+  {
+    src: "/images/special/ghewar.webp",
+    alt: "Special Ghewar — festive disc-shaped mithai topped with almond, pistachio and saffron",
+  },
+  {
+    src: "/images/special/sponge.webp",
+    alt: "Special Sponge rasgulla — soft chhena set in light sugar syrup",
+  },
+  {
+    src: "/images/special/rajbhog.webp",
+    alt: "Special Rajbhog — saffron-tinted chhena sweet crowned with kesar strands",
+  },
+  {
+    src: "/images/special/rasmalai.webp",
+    alt: "Special Rasmalai — chhena discs in thickened saffron milk with pistachio and rose",
+  },
+];
+
 // `label` is never drawn — it is the accessible name screen readers and
 // search crawlers get in place of the removed captions.
 const kitchenReels = [
@@ -1153,6 +1174,40 @@ export default function HeritagePage() {
           }
         }
 
+        /* ── Special sweets (banners that carry their own lettering) ── */
+        .heritage-special-grid {
+          max-width: 1060px;
+          margin: 0 auto;
+          padding: 0 32px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 26px;
+        }
+        .heritage-special-card {
+          position: relative;
+          aspect-ratio: 5 / 4;
+          border-radius: 14px;
+          overflow: hidden;
+          /* The artwork brings its own gold border, so the frame here stays
+             to a hairline — anything heavier fights the lettering. */
+          border: 1px solid rgba(212, 175, 55, 0.32);
+          box-shadow: 0 16px 40px rgba(9, 23, 50, 0.16);
+          transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+            box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .heritage-special-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 28px 60px rgba(9, 23, 50, 0.24);
+        }
+        @media (max-width: 860px) {
+          .heritage-special-grid {
+            grid-template-columns: 1fr;
+            gap: 18px;
+            padding: 0 20px;
+            max-width: 560px;
+          }
+        }
+
         /* ── Kitchen reels (9:16 clips from the shop floor) ── */
         .heritage-reel-rail {
           max-width: 1180px;
@@ -1825,6 +1880,80 @@ Hover to pause
               </svg>
             </a>
           </motion.div>
+        </section>
+
+        {/* ════════════ 6.45 SPECIAL SWEETS ════════════ */}
+        <section className="heritage-section" style={{ padding: "56px 0" }}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp}
+            custom={0}
+            style={{
+              maxWidth: 1180,
+              margin: "0 auto",
+              padding: "0 32px",
+              textAlign: "center",
+              marginBottom: 34,
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "var(--font-body, sans-serif)",
+                fontSize: 11,
+                letterSpacing: "0.36em",
+                textTransform: "uppercase",
+                color: C.gold,
+                margin: 0,
+              }}
+            >
+              Made Fresh Daily
+            </p>
+            <h2
+              style={{
+                fontFamily: "var(--font-heading, serif)",
+                fontSize: "clamp(28px, 3.6vw, 46px)",
+                fontWeight: 500,
+                color: C.green,
+                margin: "12px 0 0",
+                letterSpacing: "-0.005em",
+              }}
+            >
+              Our special{" "}
+              <em
+                style={{ fontStyle: "italic", color: C.gold, fontWeight: 500 }}
+              >
+                sweets
+              </em>
+            </h2>
+            <LotusDivider />
+          </motion.div>
+
+          <div className="heritage-special-grid">
+            {specialSweets.map((sweet, i) => (
+              <motion.div
+                key={sweet.src}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.85,
+                  delay: (i % 2) * 0.12,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="heritage-special-card"
+              >
+                <Image
+                  src={sweet.src}
+                  alt={sweet.alt}
+                  fill
+                  sizes="(max-width: 860px) 92vw, 46vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </motion.div>
+            ))}
+          </div>
         </section>
 
         {/* ════════════ 6.5 GIFTING BANNER ════════════ */}
