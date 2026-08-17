@@ -110,6 +110,22 @@ const signatureSweets = [
   },
 ];
 
+// The hamper hero is the one styled shot; everything below it is real
+// counter photography, so it lives behind a "view all" rather than
+// competing with the hero for attention.
+const GIFTING_PREVIEW_COUNT = 8;
+
+const giftingGallery = [
+  { src: "/images/gifting/thali-56.webp", alt: "छप्पन भोग थाल — 56 प्रकार की मिठाइयों से सजा" },
+  ...Array.from({ length: 19 }, (_, i) => {
+    const n = String(i + 1).padStart(2, "0");
+    return {
+      src: `/images/gifting/box-${n}.webp`,
+      alt: `मिठाई उपहार बॉक्स — डिज़ाइन ${i + 1}`,
+    };
+  }),
+];
+
 // Shot on black, so they share one black panel rather than sitting on the
 // page's white. Order runs savoury, then the two drinks.
 const specialStrip = [
@@ -395,6 +411,138 @@ function useMaharajRail() {
   }, []);
 
   return railRef;
+}
+
+// ─────────────────────────────────────────────────────────────
+// Gifting — one styled hero, with the counter photography folded
+// away behind a "view all" until the visitor asks for it.
+// ─────────────────────────────────────────────────────────────
+function GiftingGallery() {
+  const [expanded, setExpanded] = useState(false);
+  const shown = expanded
+    ? giftingGallery
+    : giftingGallery.slice(0, GIFTING_PREVIEW_COUNT);
+  const hidden = giftingGallery.length - GIFTING_PREVIEW_COUNT;
+
+  return (
+    <section className="heritage-section" style={{ padding: "56px 0" }}>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        variants={fadeUp}
+        custom={0}
+        style={{
+          maxWidth: 1180,
+          margin: "0 auto",
+          padding: "0 32px",
+          textAlign: "center",
+          marginBottom: 34,
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "var(--font-body, sans-serif)",
+            fontSize: 11,
+            letterSpacing: "0.36em",
+            textTransform: "uppercase",
+            color: C.gold,
+            margin: 0,
+          }}
+        >
+          For Every Occasion
+        </p>
+        <h2
+          style={{
+            fontFamily: "var(--font-heading, serif)",
+            fontSize: "clamp(28px, 3.6vw, 46px)",
+            fontWeight: 500,
+            color: C.green,
+            margin: "12px 0 0",
+            letterSpacing: "-0.005em",
+          }}
+        >
+          Gift boxes &{" "}
+          <em style={{ fontStyle: "italic", color: C.gold, fontWeight: 500 }}>
+            hampers
+          </em>
+        </h2>
+        <LotusDivider />
+      </motion.div>
+
+      <div className="heritage-gift-wrap">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="heritage-gift-hero"
+        >
+          <Image
+            src="/images/gifting/hamper-hero.webp"
+            alt="उपहार थाल और मिठाई बॉक्स — मेवा और छप्पन भोग थाल के साथ सजा हुआ"
+            width={1800}
+            height={1011}
+            sizes="(max-width: 860px) 94vw, 1060px"
+            style={{ width: "100%", height: "auto", display: "block" }}
+          />
+        </motion.div>
+
+        <div className="heritage-gift-grid">
+          {shown.map((item, i) => (
+            <motion.div
+              key={item.src}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{
+                duration: 0.6,
+                // Newly revealed rows stagger from the start of the reveal,
+                // not from their index in the full list.
+                delay:
+                  (i < GIFTING_PREVIEW_COUNT
+                    ? i
+                    : i - GIFTING_PREVIEW_COUNT) * 0.05,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="heritage-gift-cell"
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                sizes="(max-width: 560px) 46vw, (max-width: 860px) 31vw, 250px"
+                style={{ objectFit: "cover" }}
+              />
+            </motion.div>
+          ))}
+        </div>
+
+        {hidden > 0 && (
+          <div className="heritage-gift-more">
+            <button
+              type="button"
+              onClick={() => setExpanded(!expanded)}
+              className="heritage-gift-btn"
+              aria-expanded={expanded}
+            >
+              {expanded ? "Show less" : `View all ${giftingGallery.length}`}
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden>
+                <polyline
+                  points={expanded ? "6 14 12 8 18 14" : "6 10 12 16 18 10"}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -1226,6 +1374,86 @@ export default function HeritagePage() {
             gap: 18px;
             padding: 0 20px;
             max-width: 560px;
+          }
+        }
+
+        /* ── Gifting: hero + expandable gallery ── */
+        .heritage-gift-wrap {
+          max-width: 1060px;
+          margin: 0 auto;
+          padding: 0 32px;
+        }
+        .heritage-gift-hero {
+          border-radius: 18px;
+          overflow: hidden;
+          border: 1px solid rgba(212, 175, 55, 0.42);
+          box-shadow: 0 20px 48px rgba(9, 23, 50, 0.18);
+        }
+        .heritage-gift-grid {
+          margin-top: 22px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 14px;
+        }
+        .heritage-gift-cell {
+          position: relative;
+          /* One ratio for every cell keeps the grid even, though the source
+             photos run from 1:1 to 9:16. */
+          aspect-ratio: 3 / 4;
+          border-radius: 12px;
+          overflow: hidden;
+          border: 1px solid rgba(212, 175, 55, 0.3);
+          box-shadow: 0 8px 22px rgba(9, 23, 50, 0.12);
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+            box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .heritage-gift-cell:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 18px 40px rgba(9, 23, 50, 0.22);
+        }
+        .heritage-gift-more {
+          display: flex;
+          justify-content: center;
+          margin-top: 26px;
+        }
+        .heritage-gift-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 9px;
+          cursor: pointer;
+          font-family: var(--font-body, sans-serif);
+          font-size: 12px;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: ${C.green};
+          background: transparent;
+          border: 1px solid rgba(212, 175, 55, 0.6);
+          border-radius: 999px;
+          padding: 13px 30px;
+          transition: background 0.35s ease, color 0.35s ease,
+            border-color 0.35s ease;
+        }
+        .heritage-gift-btn:hover {
+          background: ${C.green};
+          border-color: ${C.green};
+          color: ${C.goldSoft};
+        }
+        .heritage-gift-btn:focus-visible {
+          outline: 2px solid ${C.gold};
+          outline-offset: 3px;
+        }
+        @media (max-width: 860px) {
+          .heritage-gift-wrap {
+            padding: 0 20px;
+          }
+          .heritage-gift-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+          }
+        }
+        @media (max-width: 560px) {
+          .heritage-gift-grid {
+            grid-template-columns: repeat(2, 1fr);
           }
         }
 
@@ -2281,6 +2509,9 @@ Hover to pause
             </motion.aside>
           </div>
         </section>
+
+        {/* ════════════ 6.48 GIFT BOXES & HAMPERS ════════════ */}
+        <GiftingGallery />
 
         {/* ════════════ 6.5 GIFTING BANNER ════════════ */}
         <section
