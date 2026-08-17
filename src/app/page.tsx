@@ -462,9 +462,9 @@ function GiftingGallery() {
             letterSpacing: "-0.005em",
           }}
         >
-          Gift boxes &{" "}
+          Our gifting boxes and{" "}
           <em style={{ fontStyle: "italic", color: C.gold, fontWeight: 500 }}>
-            hampers
+            Thal
           </em>
         </h2>
         <LotusDivider />
