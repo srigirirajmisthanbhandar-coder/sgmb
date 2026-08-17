@@ -255,13 +255,13 @@ export default function HeritageFooter() {
           font-weight: 500;
           color: #FFFFFF;
           margin: 0;
-          letter-spacing: 0.005em;
+          letter-spacing: normal;
           line-height: 1.15;
         }
         .heritage-footer-brand p {
           font-family: var(--font-body, sans-serif);
           font-size: 11px;
-          letter-spacing: 0.32em;
+          letter-spacing: normal;
           text-transform: uppercase;
           color: ${C.goldSoft};
           margin: 6px 0 0;
@@ -323,7 +323,7 @@ export default function HeritageFooter() {
           font-family: var(--font-body, sans-serif);
           font-size: 10px;
           font-weight: 600;
-          letter-spacing: 0.34em;
+          letter-spacing: normal;
           text-transform: uppercase;
           color: ${C.gold};
           margin: 0 0 10px;
@@ -394,13 +394,13 @@ export default function HeritageFooter() {
           font-size: 11px;
           color: rgba(248,242,232,0.45);
           margin: 0;
-          letter-spacing: 0.04em;
+          letter-spacing: normal;
         }
         .heritage-footer-bottom .devotional {
           font-family: "Noto Serif Devanagari", serif;
           font-size: 13px;
           color: ${C.goldSoft};
-          letter-spacing: 0.04em;
+          letter-spacing: normal;
         }
       `}</style>
     </>
