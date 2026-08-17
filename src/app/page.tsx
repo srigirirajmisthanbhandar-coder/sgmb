@@ -1190,20 +1190,6 @@ export default function HeritagePage() {
           .heritage-maharaj-card { width: 148px !important; }
         }
 
-        /* ── Gifting banner ── */
-        .heritage-gifting-wrap {
-          width: 100%;
-          margin: 0;
-          padding: 0;
-        }
-        .heritage-gifting-banner {
-          display: block;
-          overflow: hidden;
-          transition: filter 0.4s ease;
-        }
-        .heritage-gifting-banner:hover {
-          filter: brightness(1.05);
-        }
 
         /* ── Sweets grid ── */
         .heritage-sweets-grid {
@@ -2512,31 +2498,6 @@ Hover to pause
 
         {/* ════════════ 6.48 GIFT BOXES & HAMPERS ════════════ */}
         <GiftingGallery />
-
-        {/* ════════════ 6.5 GIFTING BANNER ════════════ */}
-        <section
-          className="heritage-section"
-          style={{ padding: 0 }}
-        >
-          <div className="heritage-gifting-wrap">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="heritage-gifting-banner"
-            >
-              <Image
-                src="/images/gifting-section.png"
-                alt="Shree Girraj Misthan Bhandar — premium gift boxes & hampers for weddings, festivals and special occasions"
-                width={1717}
-                height={916}
-                sizes="100vw"
-                style={{ width: "100%", height: "auto", display: "block" }}
-              />
-            </motion.div>
-          </div>
-        </section>
 
         {/* ════════════ 7. GIRRAJ INN — HOSPITALITY ════════════ */}
         <GovHotel hotelHref="https://www.girrajinn.com" accent="#0f2345" theme="light" />
