@@ -576,19 +576,6 @@ function KitchenReels() {
           </em>
         </h2>
         <LotusDivider />
-        <p
-          style={{
-            fontFamily: "var(--font-body, sans-serif)",
-            fontSize: 15,
-            color: "rgba(31,26,18,0.7)",
-            margin: "0 auto",
-            maxWidth: 580,
-            lineHeight: 1.7,
-          }}
-        >
-          No reel is staged — this is the kitchen at Govardhan as the day
-          begins, filmed where the mithai is actually made.
-        </p>
       </motion.div>
 
       <div className="heritage-reel-rail">
