@@ -707,8 +707,9 @@ export default function HeritagePage() {
           font-family: 'Noto Serif Devanagari', serif;
           font-size: clamp(11px, 0.95vw, 13px);
           font-weight: 600;
-          letter-spacing: 0.32em;
-          text-transform: uppercase;
+          /* Devanagari joins its matras to the letter — tracking pulls the
+             conjuncts apart, so this line stays at the font's own spacing. */
+          letter-spacing: normal;
           color: ${C.gold};
           margin: 0 0 10px;
         }
