@@ -110,11 +110,8 @@ const signatureSweets = [
   },
 ];
 
-// The hamper hero is the one styled shot; everything below it is real
-// counter photography, so it lives behind a "view all" rather than
-// competing with the hero for attention.
-const GIFTING_PREVIEW_COUNT = 8;
-
+// The hamper hero is the one styled shot; the counter photography below it
+// drifts past in a rail rather than competing with the hero for attention.
 const giftingGallery = [
   { src: "/images/gifting/thali-56.webp", alt: "छप्पन भोग थाल — 56 प्रकार की मिठाइयों से सजा" },
   ...Array.from({ length: 19 }, (_, i) => {
@@ -317,14 +314,12 @@ function DiamondOrnament() {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Maharaj rail
+// Drift rail — shared by the maharaj gallery and the gifting row.
 // Drifts on its own, and hands control over to the visitor on
 // drag or touch. The track renders the list twice, so
 // wrapping at the halfway mark keeps the loop seamless both ways.
 // ─────────────────────────────────────────────────────────────
-const MAHARAJ_DRIFT_PX_PER_SEC = 145;
-
-function useMaharajRail() {
+function useDriftRail(driftPxPerSec = 145) {
   const railRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -357,7 +352,7 @@ function useMaharajRail() {
       const elapsed = now - last;
       last = now;
       if (!hovering && !dragging && !reduced.matches) {
-        rail.scrollLeft += (MAHARAJ_DRIFT_PX_PER_SEC * elapsed) / 1000;
+        rail.scrollLeft += (driftPxPerSec * elapsed) / 1000;
         wrap(false);
       }
       frame = requestAnimationFrame(step);
@@ -408,7 +403,7 @@ function useMaharajRail() {
       rail.removeEventListener("mouseenter", onEnter);
       rail.removeEventListener("mouseleave", onLeave);
     };
-  }, []);
+  }, [driftPxPerSec]);
 
   return railRef;
 }
@@ -418,11 +413,9 @@ function useMaharajRail() {
 // away behind a "view all" until the visitor asks for it.
 // ─────────────────────────────────────────────────────────────
 function GiftingGallery() {
-  const [expanded, setExpanded] = useState(false);
-  const shown = expanded
-    ? giftingGallery
-    : giftingGallery.slice(0, GIFTING_PREVIEW_COUNT);
-  const hidden = giftingGallery.length - GIFTING_PREVIEW_COUNT;
+  // Slower than the maharaj rail — these are busy photographs, and at the
+  // portrait size they need longer in front of the eye.
+  const railRef = useDriftRail(70);
 
   return (
     <section className="heritage-section" style={{ padding: "56px 0" }}>
@@ -488,58 +481,27 @@ function GiftingGallery() {
           />
         </motion.div>
 
-        <div className="heritage-gift-grid">
-          {shown.map((item, i) => (
-            <motion.div
-              key={item.src}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.6,
-                // Newly revealed rows stagger from the start of the reveal,
-                // not from their index in the full list.
-                delay:
-                  (i < GIFTING_PREVIEW_COUNT
-                    ? i
-                    : i - GIFTING_PREVIEW_COUNT) * 0.05,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="heritage-gift-cell"
-            >
-              <Image
-                src={item.src}
-                alt={item.alt}
-                fill
-                sizes="(max-width: 560px) 46vw, (max-width: 860px) 31vw, 250px"
-                style={{ objectFit: "cover" }}
-              />
-            </motion.div>
-          ))}
-        </div>
-
-        {hidden > 0 && (
-          <div className="heritage-gift-more">
-            <button
-              type="button"
-              onClick={() => setExpanded(!expanded)}
-              className="heritage-gift-btn"
-              aria-expanded={expanded}
-            >
-              {expanded ? "Show less" : `View all ${giftingGallery.length}`}
-              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden>
-                <polyline
-                  points={expanded ? "6 14 12 8 18 14" : "6 10 12 16 18 10"}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+        {/* The list is rendered twice so the wrap at the halfway mark is
+            invisible; the second copy is hidden from screen readers. */}
+        <div className="heritage-gift-rail" ref={railRef}>
+          <div className="heritage-gift-track">
+            {[...giftingGallery, ...giftingGallery].map((item, i) => (
+              <div
+                key={`${item.src}-${i}`}
+                className="heritage-gift-cell"
+                aria-hidden={i >= giftingGallery.length}
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 560px) 45vw, 230px"
+                  style={{ objectFit: "cover" }}
                 />
-              </svg>
-            </button>
+              </div>
+            ))}
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
@@ -786,7 +748,7 @@ function KitchenReels() {
 // Page
 // ─────────────────────────────────────────────────────────────
 export default function HeritagePage() {
-  const maharajRailRef = useMaharajRail();
+  const maharajRailRef = useDriftRail();
 
   return (
     <>
@@ -1375,15 +1337,34 @@ export default function HeritagePage() {
           border: 1px solid rgba(212, 175, 55, 0.42);
           box-shadow: 0 20px 48px rgba(9, 23, 50, 0.18);
         }
-        .heritage-gift-grid {
+        .heritage-gift-rail {
           margin-top: 22px;
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 14px;
+          display: flex;
+          overflow-x: auto;
+          overflow-y: hidden;
+          padding: 6px 0 12px;
+          cursor: grab;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          overscroll-behavior-x: contain;
+          -webkit-overflow-scrolling: touch;
+        }
+        .heritage-gift-rail::-webkit-scrollbar { display: none; }
+        .heritage-gift-rail.is-dragging { cursor: grabbing; }
+        /* Hover lift is suppressed mid-drag so the row stays steady. */
+        .heritage-gift-rail.is-dragging .heritage-gift-cell {
+          pointer-events: none;
+        }
+        .heritage-gift-track {
+          display: flex;
+          width: max-content;
         }
         .heritage-gift-cell {
           position: relative;
-          /* One ratio for every cell keeps the grid even, though the source
+          width: 230px;
+          margin-right: 14px;
+          flex-shrink: 0;
+          /* One ratio for every cell keeps the rail even, though the source
              photos run from 1:1 to 9:16. */
           aspect-ratio: 3 / 4;
           border-radius: 12px;
@@ -1397,49 +1378,18 @@ export default function HeritagePage() {
           transform: translateY(-5px);
           box-shadow: 0 18px 40px rgba(9, 23, 50, 0.22);
         }
-        .heritage-gift-more {
-          display: flex;
-          justify-content: center;
-          margin-top: 26px;
-        }
-        .heritage-gift-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 9px;
-          cursor: pointer;
-          font-family: var(--font-body, sans-serif);
-          font-size: 12px;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: ${C.green};
-          background: transparent;
-          border: 1px solid rgba(212, 175, 55, 0.6);
-          border-radius: 999px;
-          padding: 13px 30px;
-          transition: background 0.35s ease, color 0.35s ease,
-            border-color 0.35s ease;
-        }
-        .heritage-gift-btn:hover {
-          background: ${C.green};
-          border-color: ${C.green};
-          color: ${C.goldSoft};
-        }
-        .heritage-gift-btn:focus-visible {
-          outline: 2px solid ${C.gold};
-          outline-offset: 3px;
-        }
         @media (max-width: 860px) {
           .heritage-gift-wrap {
             padding: 0 20px;
           }
-          .heritage-gift-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+          .heritage-gift-cell {
+            width: 168px;
+            margin-right: 10px;
           }
         }
         @media (max-width: 560px) {
-          .heritage-gift-grid {
-            grid-template-columns: repeat(2, 1fr);
+          .heritage-gift-cell {
+            width: 140px;
           }
         }
 
