@@ -1220,7 +1220,7 @@ export default function HeritagePage() {
         }
         .heritage-gau-krishna {
           width: 100%;
-          max-width: 400px;
+          max-width: 290px;
           border-radius: 18px;
           overflow: hidden;
           border: 1px solid rgba(212, 175, 55, 0.5);
@@ -1313,7 +1313,7 @@ export default function HeritagePage() {
             padding: 0 20px;
           }
           .heritage-gau-krishna {
-            max-width: 78%;
+            max-width: 62%;
           }
         }
 
@@ -2065,8 +2065,42 @@ Hover to pause
           </div>
         </section>
 
-        {/* ════════════ 6.47 GAU MATA MILK + NOTE ════════════ */}
+        {/* ════════════ 6.47 MADE WITH PURE GHEE ════════════ */}
         <section className="heritage-section" style={{ padding: "56px 0" }}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp}
+            custom={0}
+            style={{
+              maxWidth: 1180,
+              margin: "0 auto",
+              padding: "0 32px",
+              textAlign: "center",
+              marginBottom: 34,
+            }}
+          >
+            <h2
+              style={{
+                fontFamily: "var(--font-heading, serif)",
+                fontSize: "clamp(28px, 3.6vw, 46px)",
+                fontWeight: 500,
+                color: C.green,
+                margin: 0,
+                letterSpacing: "-0.005em",
+              }}
+            >
+              Made with pure{" "}
+              <em
+                style={{ fontStyle: "italic", color: C.gold, fontWeight: 500 }}
+              >
+                Ghee
+              </em>
+            </h2>
+            <LotusDivider />
+          </motion.div>
+
           <div className="heritage-gau-wrap">
             <motion.div
               initial={{ opacity: 0, y: 28 }}
