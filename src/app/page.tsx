@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SinceBanner from "@/components/SinceBanner";
@@ -107,6 +107,30 @@ const signatureSweets = [
     desc: "Sun-ripened figs slow-reduced with khoya and pistachio — no sugar added, only nature's sweetness.",
     image: "/images/mithai/Anjeer burfi with logo.webp",
     accent: "Pure",
+  },
+];
+
+const kitchenReels = [
+  {
+    src: "/images/video/ghee-kadhai.mp4",
+    poster: "/images/video/ghee-kadhai-poster.jpg",
+    title: "Fried in pure ghee",
+    sanskrit: "शुद्ध देसी घी",
+    note: "The kadhai never rests — kachori and mithai go in one batch at a time, in ghee we do not reuse.",
+  },
+  {
+    src: "/images/video/syrup-kettle.mp4",
+    poster: "/images/video/syrup-kettle-poster.jpg",
+    title: "Set by hand",
+    sanskrit: "हाथ का बना",
+    note: "Boondi dropped, soaked and turned by hand until every pearl has drunk its share of syrup.",
+  },
+  {
+    src: "/images/video/kesar-brass.mp4",
+    poster: "/images/video/kesar-brass-poster.jpg",
+    title: "Kesar, ground fresh",
+    sanskrit: "ताज़ा केसर",
+    note: "Saffron crushed in a brass mortar each morning — never a bottled essence, never a colour.",
   },
 ];
 
@@ -334,6 +358,209 @@ function useMaharajRail() {
   }, []);
 
   return railRef;
+}
+
+// ─────────────────────────────────────────────────────────────
+// Kitchen reels — vertical clips shot on the shop floor.
+// Each clip plays only while it is on screen, so three 9:16
+// videos never decode at once on a phone.
+// ─────────────────────────────────────────────────────────────
+function KitchenReel({
+  reel,
+  index,
+  soundOn,
+  onToggleSound,
+}: {
+  reel: (typeof kitchenReels)[number];
+  index: number;
+  soundOn: boolean;
+  onToggleSound: () => void;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Reduced motion keeps the poster frame; the visitor can still start
+    // playback from the native controls the fallback exposes.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Autoplay is refused whenever the tab has no gesture yet — the
+          // poster simply stays up, which is a fine resting state.
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(video);
+    return () => io.disconnect();
+  }, []);
+
+  // React writes `muted` as a property, and autoplay checks it at play()
+  // time, so the toggle has to reach the element directly.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) video.muted = !soundOn;
+  }, [soundOn]);
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{
+        duration: 0.85,
+        delay: index * 0.12,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className="heritage-reel-card"
+    >
+      <div className="heritage-reel-frame">
+        <video
+          ref={videoRef}
+          src={reel.src}
+          poster={reel.poster}
+          muted
+          loop
+          playsInline
+          preload="none"
+          aria-label={`${reel.title} — ${reel.note}`}
+        />
+        <div className="heritage-reel-scrim" />
+
+        <button
+          type="button"
+          onClick={onToggleSound}
+          className="heritage-reel-sound"
+          aria-pressed={soundOn}
+          aria-label={soundOn ? "Mute this clip" : "Play sound for this clip"}
+        >
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden>
+            <path
+              d="M4 9.5v5h3.2L11.5 18V6L7.2 9.5H4z"
+              fill="currentColor"
+            />
+            {soundOn ? (
+              <>
+                <path
+                  d="M15 9.2a3.6 3.6 0 0 1 0 5.6"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M17.6 6.8a7.2 7.2 0 0 1 0 10.4"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+              </>
+            ) : (
+              <path
+                d="M15.4 9.6l4.4 4.8M19.8 9.6l-4.4 4.8"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+                fill="none"
+              />
+            )}
+          </svg>
+        </button>
+
+        <div className="heritage-reel-caption">
+          <span className="heritage-reel-sanskrit">{reel.sanskrit}</span>
+          <h3>{reel.title}</h3>
+        </div>
+      </div>
+      <p className="heritage-reel-note">{reel.note}</p>
+    </motion.article>
+  );
+}
+
+function KitchenReels() {
+  // Only one clip is ever audible; unmuting a second mutes the first.
+  const [soundIndex, setSoundIndex] = useState<number | null>(null);
+
+  return (
+    <section className="heritage-section" style={{ padding: "56px 0" }}>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        variants={fadeUp}
+        custom={0}
+        style={{
+          maxWidth: 1180,
+          margin: "0 auto",
+          padding: "0 32px",
+          textAlign: "center",
+          marginBottom: 36,
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "var(--font-body, sans-serif)",
+            fontSize: 11,
+            letterSpacing: "0.36em",
+            textTransform: "uppercase",
+            color: C.gold,
+            margin: 0,
+          }}
+        >
+          Inside the Bhandar
+        </p>
+        <h2
+          style={{
+            fontFamily: "var(--font-heading, serif)",
+            fontSize: "clamp(28px, 3.6vw, 46px)",
+            fontWeight: 500,
+            color: C.green,
+            margin: "12px 0 0",
+            letterSpacing: "-0.005em",
+          }}
+        >
+          Made fresh,{" "}
+          <em style={{ fontStyle: "italic", color: C.gold, fontWeight: 500 }}>
+            every morning
+          </em>
+        </h2>
+        <LotusDivider />
+        <p
+          style={{
+            fontFamily: "var(--font-body, sans-serif)",
+            fontSize: 15,
+            color: "rgba(31,26,18,0.7)",
+            margin: "0 auto",
+            maxWidth: 580,
+            lineHeight: 1.7,
+          }}
+        >
+          No reel is staged — this is the kitchen at Govardhan as the day
+          begins, filmed where the mithai is actually made.
+        </p>
+      </motion.div>
+
+      <div className="heritage-reel-rail">
+        {kitchenReels.map((reel, i) => (
+          <KitchenReel
+            key={reel.src}
+            reel={reel}
+            index={i}
+            soundOn={soundIndex === i}
+            onToggleSound={() => setSoundIndex(soundIndex === i ? null : i)}
+          />
+        ))}
+      </div>
+    </section>
+  );
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -896,6 +1123,144 @@ export default function HeritagePage() {
           }
         }
 
+        /* ── Kitchen reels (9:16 clips from the shop floor) ── */
+        .heritage-reel-rail {
+          max-width: 1180px;
+          margin: 0 auto;
+          padding: 0 32px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+        }
+        .heritage-reel-card {
+          margin: 0;
+        }
+        .heritage-reel-frame {
+          position: relative;
+          aspect-ratio: 9 / 16;
+          border-radius: 16px;
+          overflow: hidden;
+          background: ${C.navyDeep};
+          border: 1px solid rgba(212, 175, 55, 0.4);
+          box-shadow: 0 18px 44px rgba(9, 23, 50, 0.2);
+          transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+            box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .heritage-reel-card:hover .heritage-reel-frame {
+          transform: translateY(-6px);
+          box-shadow: 0 30px 64px rgba(9, 23, 50, 0.3);
+        }
+        .heritage-reel-frame video {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        /* Inset hairline — the same framed look as the sweet plaques. */
+        .heritage-reel-frame::after {
+          content: "";
+          position: absolute;
+          inset: 10px;
+          border: 1px solid rgba(244, 223, 155, 0.24);
+          border-radius: 9px;
+          pointer-events: none;
+        }
+        .heritage-reel-scrim {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(
+            to top,
+            rgba(9, 23, 50, 0.88) 0%,
+            rgba(9, 23, 50, 0.45) 26%,
+            rgba(9, 23, 50, 0) 52%
+          );
+        }
+        .heritage-reel-caption {
+          position: absolute;
+          left: 22px;
+          right: 22px;
+          bottom: 20px;
+          text-align: left;
+        }
+        .heritage-reel-sanskrit {
+          display: block;
+          font-family: "Noto Serif Devanagari", serif;
+          font-size: 13px;
+          letter-spacing: 0.06em;
+          color: ${C.goldSoft};
+          margin-bottom: 3px;
+        }
+        .heritage-reel-caption h3 {
+          margin: 0;
+          font-family: var(--font-heading, serif);
+          font-size: clamp(17px, 1.5vw, 21px);
+          font-weight: 500;
+          line-height: 1.25;
+          color: #fff;
+        }
+        .heritage-reel-sound {
+          position: absolute;
+          top: 18px;
+          right: 18px;
+          width: 34px;
+          height: 34px;
+          display: grid;
+          place-items: center;
+          border-radius: 50%;
+          cursor: pointer;
+          color: ${C.goldSoft};
+          background: rgba(9, 23, 50, 0.6);
+          border: 1px solid rgba(212, 175, 55, 0.45);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          transition: background 0.3s ease, color 0.3s ease;
+        }
+        .heritage-reel-sound:hover {
+          background: rgba(9, 23, 50, 0.85);
+          color: #fff;
+        }
+        .heritage-reel-sound:focus-visible {
+          outline: 2px solid ${C.gold};
+          outline-offset: 2px;
+        }
+        .heritage-reel-note {
+          margin: 16px 2px 0;
+          font-family: var(--font-body, sans-serif);
+          font-size: 14px;
+          line-height: 1.65;
+          color: rgba(31, 26, 18, 0.68);
+        }
+
+        /* Below three-up, the reels become a swipeable rail. */
+        @media (max-width: 860px) {
+          .heritage-reel-rail {
+            grid-template-columns: none;
+            grid-auto-flow: column;
+            grid-auto-columns: 72%;
+            gap: 16px;
+            padding: 4px 20px 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+          }
+          .heritage-reel-rail::-webkit-scrollbar {
+            display: none;
+          }
+          .heritage-reel-card {
+            scroll-snap-align: center;
+          }
+          .heritage-reel-note {
+            font-size: 13px;
+          }
+        }
+        @media (max-width: 480px) {
+          .heritage-reel-rail {
+            grid-auto-columns: 82%;
+          }
+        }
+
         /* ── Mobile section padding ── */
         @media (max-width: 768px) {
           .heritage-section { padding: 36px 0 !important; }
@@ -1454,6 +1819,9 @@ Hover to pause
 
         {/* ════════════ 7. GIRRAJ INN — HOSPITALITY ════════════ */}
         <GovHotel hotelHref="https://www.girrajinn.com" accent="#0f2345" theme="light" />
+
+        {/* ════════════ 8. KITCHEN REELS ════════════ */}
+        <KitchenReels />
 
         {/* Closing devotional line */}
         <section
