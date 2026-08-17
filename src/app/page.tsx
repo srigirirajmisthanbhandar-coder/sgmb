@@ -115,14 +115,17 @@ const signatureSweets = [
 const specialStrip = [
   {
     src: "/images/special/namkeen-thali.webp",
+    name: "Bedai · Kachori · Samosa",
     alt: "दाल बेड़ई, कचौड़ी और समोसा — सुनहरी थाली में परोसे हुए",
   },
   {
     src: "/images/special/badam-milk.webp",
+    name: "Badam Milk",
     alt: "स्पेशल बादाम मिल्क — केसर, बादाम और पिस्ता के साथ",
   },
   {
     src: "/images/special/lassi-kulhad.webp",
+    name: "Lassi",
     alt: "कुल्हड़ लस्सी — मलाई, पिस्ता और केसर से सजी",
   },
 ];
@@ -1245,8 +1248,26 @@ export default function HeritagePage() {
           box-shadow: 0 16px 40px rgba(9, 23, 50, 0.18);
         }
         .heritage-strip-cell {
+          display: flex;
+          flex-direction: column;
+        }
+        .heritage-strip-shot {
           position: relative;
           aspect-ratio: 3 / 4;
+        }
+        .heritage-strip-name {
+          /* Names sit on a shared baseline under the panel, so the row reads
+             as one shelf rather than three captioned photos. */
+          margin-top: 10px;
+          padding-top: 9px;
+          border-top: 1px solid rgba(212, 175, 55, 0.28);
+          font-family: var(--font-heading, serif);
+          font-size: clamp(11px, 1.25vw, 15px);
+          font-weight: 500;
+          line-height: 1.35;
+          text-align: center;
+          color: ${C.goldSoft};
+          text-wrap: balance;
         }
         @media (max-width: 860px) {
           .heritage-strip-wrap {
@@ -1254,8 +1275,13 @@ export default function HeritagePage() {
           }
           .heritage-strip {
             gap: 4px;
-            padding: 10px 10px 7px;
+            padding: 10px 10px 9px;
             border-radius: 12px;
+          }
+          .heritage-strip-name {
+            margin-top: 7px;
+            padding-top: 6px;
+            font-size: clamp(9.5px, 2.5vw, 13px);
           }
         }
 
@@ -2126,18 +2152,21 @@ Hover to pause
             <div className="heritage-strip">
               {specialStrip.map((item) => (
                 <div key={item.src} className="heritage-strip-cell">
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    sizes="(max-width: 860px) 31vw, 330px"
-                    style={{
-                      objectFit: "contain",
-                      // Bottom-aligned so the tray, cup and kulhad all stand
-                      // on one line despite their different heights.
-                      objectPosition: "center bottom",
-                    }}
-                  />
+                  <div className="heritage-strip-shot">
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      sizes="(max-width: 860px) 31vw, 330px"
+                      style={{
+                        objectFit: "contain",
+                        // Bottom-aligned so the tray, cup and kulhad all
+                        // stand on one line despite their different heights.
+                        objectPosition: "center bottom",
+                      }}
+                    />
+                  </div>
+                  <span className="heritage-strip-name">{item.name}</span>
                 </div>
               ))}
             </div>
