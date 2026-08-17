@@ -110,27 +110,23 @@ const signatureSweets = [
   },
 ];
 
+// `label` is never drawn — it is the accessible name screen readers and
+// search crawlers get in place of the removed captions.
 const kitchenReels = [
   {
     src: "/images/video/ghee-kadhai.mp4",
     poster: "/images/video/ghee-kadhai-poster.jpg",
-    title: "Fried in pure ghee",
-    sanskrit: "शुद्ध देसी घी",
-    note: "The kadhai never rests — kachori and mithai go in one batch at a time, in ghee we do not reuse.",
+    label: "Mithai frying in a kadhai of pure desi ghee",
   },
   {
     src: "/images/video/syrup-kettle.mp4",
     poster: "/images/video/syrup-kettle-poster.jpg",
-    title: "Set by hand",
-    sanskrit: "हाथ का बना",
-    note: "Boondi dropped, soaked and turned by hand until every pearl has drunk its share of syrup.",
+    label: "Boondi being turned by hand in sugar syrup",
   },
   {
     src: "/images/video/kesar-brass.mp4",
     poster: "/images/video/kesar-brass-poster.jpg",
-    title: "Kesar, ground fresh",
-    sanskrit: "ताज़ा केसर",
-    note: "Saffron crushed in a brass mortar each morning — never a bottled essence, never a colour.",
+    label: "Fresh saffron ground in a brass mortar",
   },
 ];
 
@@ -377,18 +373,22 @@ function KitchenReel({
   onToggleSound: () => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  // A deliberate pause outranks the observer — scrolling a paused clip out
+  // and back must not quietly restart it.
+  const pausedByUser = useRef(false);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Reduced motion keeps the poster frame; the visitor can still start
-    // playback from the native controls the fallback exposes.
+    // Reduced motion keeps the poster frame until the visitor presses play.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          if (pausedByUser.current) return;
           // Autoplay is refused whenever the tab has no gesture yet — the
           // poster simply stays up, which is a fine resting state.
           video.play().catch(() => {});
@@ -408,6 +408,18 @@ function KitchenReel({
     const video = videoRef.current;
     if (video) video.muted = !soundOn;
   }, [soundOn]);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      pausedByUser.current = false;
+      video.play().catch(() => {});
+    } else {
+      pausedByUser.current = true;
+      video.pause();
+    }
+  };
 
   return (
     <motion.article
@@ -430,57 +442,88 @@ function KitchenReel({
           loop
           playsInline
           preload="none"
-          aria-label={`${reel.title} — ${reel.note}`}
+          onClick={togglePlay}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+          aria-label={reel.label}
         />
-        <div className="heritage-reel-scrim" />
 
-        <button
-          type="button"
-          onClick={onToggleSound}
-          className="heritage-reel-sound"
-          aria-pressed={soundOn}
-          aria-label={soundOn ? "Mute this clip" : "Play sound for this clip"}
-        >
-          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden>
-            <path
-              d="M4 9.5v5h3.2L11.5 18V6L7.2 9.5H4z"
-              fill="currentColor"
-            />
-            {soundOn ? (
-              <>
+        {/* A paused clip reads as broken without a play mark over it. */}
+        {!playing && (
+          <button
+            type="button"
+            onClick={togglePlay}
+            className="heritage-reel-tap"
+            aria-label="Play this clip"
+          >
+            <span>
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden>
+                <path d="M8 5.5v13l11-6.5L8 5.5z" fill="currentColor" />
+              </svg>
+            </span>
+          </button>
+        )}
+
+        <div className="heritage-reel-controls">
+          <button
+            type="button"
+            onClick={togglePlay}
+            className="heritage-reel-btn"
+            aria-label={playing ? "Pause this clip" : "Play this clip"}
+          >
+            {playing ? (
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden>
                 <path
-                  d="M15 9.2a3.6 3.6 0 0 1 0 5.6"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  fill="none"
+                  d="M9 5.5h2.2v13H9zM12.8 5.5H15v13h-2.2z"
+                  fill="currentColor"
                 />
-                <path
-                  d="M17.6 6.8a7.2 7.2 0 0 1 0 10.4"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-              </>
+              </svg>
             ) : (
-              <path
-                d="M15.4 9.6l4.4 4.8M19.8 9.6l-4.4 4.8"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-                fill="none"
-              />
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden>
+                <path d="M8 5.5v13l11-6.5L8 5.5z" fill="currentColor" />
+              </svg>
             )}
-          </svg>
-        </button>
+          </button>
 
-        <div className="heritage-reel-caption">
-          <span className="heritage-reel-sanskrit">{reel.sanskrit}</span>
-          <h3>{reel.title}</h3>
+          <button
+            type="button"
+            onClick={onToggleSound}
+            className="heritage-reel-btn"
+            aria-pressed={soundOn}
+            aria-label={soundOn ? "Mute this clip" : "Play sound for this clip"}
+          >
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden>
+              <path d="M4 9.5v5h3.2L11.5 18V6L7.2 9.5H4z" fill="currentColor" />
+              {soundOn ? (
+                <>
+                  <path
+                    d="M15 9.2a3.6 3.6 0 0 1 0 5.6"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    fill="none"
+                  />
+                  <path
+                    d="M17.6 6.8a7.2 7.2 0 0 1 0 10.4"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    fill="none"
+                  />
+                </>
+              ) : (
+                <path
+                  d="M15.4 9.6l4.4 4.8M19.8 9.6l-4.4 4.8"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
-      <p className="heritage-reel-note">{reel.note}</p>
     </motion.article>
   );
 }
@@ -1155,6 +1198,7 @@ export default function HeritagePage() {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          cursor: pointer;
         }
         /* Inset hairline — the same framed look as the sweet plaques. */
         .heritage-reel-frame::after {
@@ -1165,44 +1209,27 @@ export default function HeritagePage() {
           border-radius: 9px;
           pointer-events: none;
         }
-        .heritage-reel-scrim {
+        .heritage-reel-controls {
           position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background: linear-gradient(
-            to top,
-            rgba(9, 23, 50, 0.88) 0%,
-            rgba(9, 23, 50, 0.45) 26%,
-            rgba(9, 23, 50, 0) 52%
-          );
+          left: 16px;
+          bottom: 16px;
+          display: flex;
+          gap: 8px;
+          /* Touch devices get no hover, so the controls always show there;
+             pointer devices fade them in with the card. */
+          opacity: 1;
+          transition: opacity 0.35s ease;
         }
-        .heritage-reel-caption {
-          position: absolute;
-          left: 22px;
-          right: 22px;
-          bottom: 20px;
-          text-align: left;
+        @media (hover: hover) {
+          .heritage-reel-controls {
+            opacity: 0;
+          }
+          .heritage-reel-card:hover .heritage-reel-controls,
+          .heritage-reel-controls:focus-within {
+            opacity: 1;
+          }
         }
-        .heritage-reel-sanskrit {
-          display: block;
-          font-family: "Noto Serif Devanagari", serif;
-          font-size: 13px;
-          letter-spacing: 0.06em;
-          color: ${C.goldSoft};
-          margin-bottom: 3px;
-        }
-        .heritage-reel-caption h3 {
-          margin: 0;
-          font-family: var(--font-heading, serif);
-          font-size: clamp(17px, 1.5vw, 21px);
-          font-weight: 500;
-          line-height: 1.25;
-          color: #fff;
-        }
-        .heritage-reel-sound {
-          position: absolute;
-          top: 18px;
-          right: 18px;
+        .heritage-reel-btn {
           width: 34px;
           height: 34px;
           display: grid;
@@ -1210,26 +1237,50 @@ export default function HeritagePage() {
           border-radius: 50%;
           cursor: pointer;
           color: ${C.goldSoft};
-          background: rgba(9, 23, 50, 0.6);
+          background: rgba(9, 23, 50, 0.62);
           border: 1px solid rgba(212, 175, 55, 0.45);
           backdrop-filter: blur(6px);
           -webkit-backdrop-filter: blur(6px);
           transition: background 0.3s ease, color 0.3s ease;
         }
-        .heritage-reel-sound:hover {
-          background: rgba(9, 23, 50, 0.85);
+        .heritage-reel-btn:hover {
+          background: rgba(9, 23, 50, 0.88);
           color: #fff;
         }
-        .heritage-reel-sound:focus-visible {
+        .heritage-reel-btn:focus-visible {
           outline: 2px solid ${C.gold};
           outline-offset: 2px;
         }
-        .heritage-reel-note {
-          margin: 16px 2px 0;
-          font-family: var(--font-body, sans-serif);
-          font-size: 14px;
-          line-height: 1.65;
-          color: rgba(31, 26, 18, 0.68);
+        /* Full-frame press target shown only while a clip sits paused. */
+        .heritage-reel-tap {
+          position: absolute;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          cursor: pointer;
+          border: 0;
+          background: rgba(9, 23, 50, 0.28);
+        }
+        .heritage-reel-tap span {
+          width: 58px;
+          height: 58px;
+          display: grid;
+          place-items: center;
+          border-radius: 50%;
+          color: ${C.goldSoft};
+          background: rgba(9, 23, 50, 0.6);
+          border: 1px solid rgba(212, 175, 55, 0.5);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          padding-left: 3px;
+          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .heritage-reel-tap:hover span {
+          transform: scale(1.07);
+        }
+        .heritage-reel-tap:focus-visible {
+          outline: 2px solid ${C.gold};
+          outline-offset: -4px;
         }
 
         /* Below three-up, the reels become a swipeable rail. */
@@ -1250,9 +1301,6 @@ export default function HeritagePage() {
           }
           .heritage-reel-card {
             scroll-snap-align: center;
-          }
-          .heritage-reel-note {
-            font-size: 13px;
           }
         }
         @media (max-width: 480px) {
