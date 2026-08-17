@@ -110,6 +110,23 @@ const signatureSweets = [
   },
 ];
 
+// Shot on black, so they share one black panel rather than sitting on the
+// page's white. Order runs savoury, then the two drinks.
+const specialStrip = [
+  {
+    src: "/images/special/namkeen-thali.webp",
+    alt: "दाल बेड़ई, कचौड़ी और समोसा — सुनहरी थाली में परोसे हुए",
+  },
+  {
+    src: "/images/special/badam-milk.webp",
+    alt: "स्पेशल बादाम मिल्क — केसर, बादाम और पिस्ता के साथ",
+  },
+  {
+    src: "/images/special/lassi-kulhad.webp",
+    alt: "कुल्हड़ लस्सी — मलाई, पिस्ता और केसर से सजी",
+  },
+];
+
 // Each banner carries its own name in the artwork, so these cards stay
 // caption-free — `alt` is what screen readers and crawlers read instead.
 const specialSweets = [
@@ -1209,6 +1226,39 @@ export default function HeritagePage() {
           }
         }
 
+        /* ── Black strip under the special sweets ── */
+        .heritage-strip-wrap {
+          max-width: 1060px;
+          margin: 26px auto 0;
+          padding: 0 32px;
+        }
+        .heritage-strip {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 8px;
+          /* Pure black to match the photographs' own background, so the
+             three frames read as one continuous panel. */
+          background: #000;
+          border: 1px solid rgba(212, 175, 55, 0.42);
+          border-radius: 16px;
+          padding: 16px 16px 10px;
+          box-shadow: 0 16px 40px rgba(9, 23, 50, 0.18);
+        }
+        .heritage-strip-cell {
+          position: relative;
+          aspect-ratio: 3 / 4;
+        }
+        @media (max-width: 860px) {
+          .heritage-strip-wrap {
+            padding: 0 20px;
+          }
+          .heritage-strip {
+            gap: 4px;
+            padding: 10px 10px 7px;
+            border-radius: 12px;
+          }
+        }
+
         /* ── Gau mata milk block + note card ── */
         .heritage-gau-wrap {
           max-width: 1060px;
@@ -2063,6 +2113,35 @@ Hover to pause
               </motion.div>
             ))}
           </div>
+
+          {/* The three shots below are lit on black, so they sit on one black
+              panel — the backgrounds merge and the food appears to float. */}
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+            className="heritage-strip-wrap"
+          >
+            <div className="heritage-strip">
+              {specialStrip.map((item) => (
+                <div key={item.src} className="heritage-strip-cell">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 860px) 31vw, 330px"
+                    style={{
+                      objectFit: "contain",
+                      // Bottom-aligned so the tray, cup and kulhad all stand
+                      // on one line despite their different heights.
+                      objectPosition: "center bottom",
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </section>
 
         {/* ════════════ 6.47 MADE WITH PURE GHEE ════════════ */}
