@@ -1209,6 +1209,114 @@ export default function HeritagePage() {
           }
         }
 
+        /* ── Gau mata milk block + note card ── */
+        .heritage-gau-wrap {
+          max-width: 1060px;
+          margin: 0 auto;
+          padding: 0 32px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .heritage-gau-krishna {
+          width: 100%;
+          max-width: 400px;
+          border-radius: 18px;
+          overflow: hidden;
+          border: 1px solid rgba(212, 175, 55, 0.5);
+          box-shadow: 0 18px 44px rgba(9, 23, 50, 0.18);
+        }
+        .heritage-gau-triptych {
+          width: 100%;
+          margin-top: 30px;
+          border-radius: 16px;
+          overflow: hidden;
+          border: 1px solid rgba(212, 175, 55, 0.4);
+          box-shadow: 0 14px 36px rgba(9, 23, 50, 0.14);
+        }
+        .heritage-gau-line {
+          font-family: 'Noto Serif Devanagari', serif;
+          /* No tracking anywhere in this block — Devanagari carries its
+             matras on the letter and breaks apart when it is spaced out. */
+          letter-spacing: normal;
+          font-size: clamp(15px, 1.7vw, 19px);
+          font-weight: 600;
+          line-height: 1.85;
+          text-align: center;
+          color: ${C.green};
+          max-width: 720px;
+          margin: 30px auto 0;
+        }
+        .heritage-note-card {
+          position: relative;
+          width: 100%;
+          max-width: 720px;
+          margin: 34px auto 0;
+          padding: 30px clamp(20px, 3.4vw, 38px) 26px;
+          border-radius: 18px;
+          background: #FFFCF4;
+          border: 1px solid rgba(212, 175, 55, 0.45);
+          box-shadow: 0 12px 32px rgba(9, 23, 50, 0.1);
+          text-align: center;
+        }
+        .heritage-note-badge {
+          position: absolute;
+          top: -13px;
+          left: 50%;
+          transform: translateX(-50%);
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 1;
+          color: #fff;
+          background: ${C.green};
+          border: 1px solid rgba(212, 175, 55, 0.6);
+          border-radius: 999px;
+          padding: 7px 20px;
+          white-space: nowrap;
+        }
+        .heritage-note-title {
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: clamp(17px, 2vw, 22px);
+          font-weight: 700;
+          color: ${C.flowerRed};
+          margin: 4px 0 18px;
+        }
+        .heritage-note-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: grid;
+          gap: 12px;
+        }
+        .heritage-note-list li {
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: clamp(14px, 1.5vw, 16.5px);
+          line-height: 1.8;
+          color: ${C.ink};
+          background: rgba(212, 175, 55, 0.07);
+          border: 1px solid rgba(212, 175, 55, 0.24);
+          border-radius: 12px;
+          padding: 12px 16px;
+        }
+        .heritage-note-foot {
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: clamp(13.5px, 1.4vw, 15.5px);
+          font-weight: 600;
+          color: ${C.green};
+          margin: 18px 0 0;
+          padding-top: 15px;
+          border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        @media (max-width: 640px) {
+          .heritage-gau-wrap {
+            padding: 0 20px;
+          }
+          .heritage-gau-krishna {
+            max-width: 78%;
+          }
+        }
+
         /* ── Kitchen reels (9:16 clips from the shop floor) ── */
         .heritage-reel-rail {
           max-width: 1180px;
@@ -1954,6 +2062,81 @@ Hover to pause
                 />
               </motion.div>
             ))}
+          </div>
+        </section>
+
+        {/* ════════════ 6.47 GAU MATA MILK + NOTE ════════════ */}
+        <section className="heritage-section" style={{ padding: "56px 0" }}>
+          <div className="heritage-gau-wrap">
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              className="heritage-gau-krishna"
+            >
+              <Image
+                src="/images/special/lord krishna.webp"
+                alt="भगवान श्री कृष्ण गौ माता के साथ वंशी बजाते हुए"
+                width={1080}
+                height={1922}
+                sizes="(max-width: 640px) 78vw, 400px"
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="heritage-gau-triptych"
+            >
+              <Image
+                src="/images/special/sweets of krishna.webp"
+                alt="श्री गिर्राज मिष्ठान भंडार की मिठाइयाँ — पेड़ा, राजभोग और स्पंज"
+                width={3498}
+                height={1216}
+                sizes="(max-width: 860px) 94vw, 1060px"
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+              className="heritage-gau-line"
+            >
+              भारतीय गौ माता के दूध से निर्मित श्री मान मन्दिर माताजी गौशाला से
+              दूध संग्रहित कर परम पूज्य रमेश बाबा के आशीर्वाद से!
+            </motion.p>
+
+            <motion.aside
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="heritage-note-card"
+            >
+              <span className="heritage-note-badge">नोट</span>
+              <h3 className="heritage-note-title">विशेष ध्यान देने योग्य</h3>
+
+              <ul className="heritage-note-list">
+                <li>
+                  दूध से निर्मित पदार्थ · मावा मिठाई · छेना मिठाई — खरीद के उसी
+                  दिन प्रयोग में लें
+                </li>
+                <li>
+                  घी व ड्राई फ्रूट्स से बने पदार्थ — 4 दिन तक प्रयोग में लें
+                </li>
+              </ul>
+
+              <p className="heritage-note-foot">
+                नोट: गारन्टी फर्म — (6 बजे से रात्रि 2 बजे तक)
+              </p>
+            </motion.aside>
           </div>
         </section>
 
