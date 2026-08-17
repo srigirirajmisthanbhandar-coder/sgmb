@@ -2337,7 +2337,7 @@ Hover to pause
           </motion.div>
         </section>
 
-        {/* ════════════ 6.47 MADE WITH PURE GHEE ════════════ */}
+        {/* ════════════ 6.47 MADE WITH PURE FRESH MILK ════════════ */}
         <section className="heritage-section" style={{ padding: "56px 0" }}>
           <motion.div
             initial="hidden"
@@ -2367,7 +2367,7 @@ Hover to pause
               <em
                 style={{ fontStyle: "italic", color: C.gold, fontWeight: 500 }}
               >
-                Ghee
+                fresh Milk
               </em>
             </h2>
             <LotusDivider />
