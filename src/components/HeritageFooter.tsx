@@ -72,7 +72,7 @@ export default function HeritageFooter() {
                 <a href="tel:+919412421253">+91 94124 21253</a>
                 <br />
                 <a href="mailto:info@govardhansweets.com">
-                  info@govardhansweets.com
+                  srigirirajmisthanbhandar@gmail.com
                 </a>
               </p>
 
