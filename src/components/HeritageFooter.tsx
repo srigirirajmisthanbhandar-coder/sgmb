@@ -62,7 +62,7 @@ export default function HeritageFooter() {
                 <br />
                 Govardhan, Mathura,
                 <br />
-                Uttar Pradesh 281123, India
+                Uttar Pradesh 281502, India
               </p>
 
               <p className="heritage-footer-label" style={{ marginTop: 26 }}>
