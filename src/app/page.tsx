@@ -1548,6 +1548,11 @@ export default function HeritagePage() {
           padding-top: 15px;
           border-top: 1px solid rgba(212, 175, 55, 0.3);
         }
+        .heritage-note-foot-sub {
+          margin-top: 8px;
+          padding-top: 0;
+          border-top: none;
+        }
         @media (max-width: 640px) {
           .heritage-gau-wrap {
             padding: 0 20px;
@@ -2440,7 +2445,10 @@ Hover to pause
               </ul>
 
               <p className="heritage-note-foot">
-                नोट: गारन्टी फर्म — (6 बजे से रात्रि 2 बजे तक)
+                Open 6 AM to 2 AM, in every season
+              </p>
+              <p className="heritage-note-foot heritage-note-foot-sub">
+                All disputes are subject to Mathura jurisdiction only
               </p>
             </motion.aside>
           </div>
