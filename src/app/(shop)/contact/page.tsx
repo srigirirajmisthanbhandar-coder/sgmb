@@ -38,7 +38,7 @@ const SUBJECTS = [
 const CONTACT_INFO = [
   {
     label: "Address",
-    value: "In front of Police Station, Govardhan, Mathura, Uttar Pradesh 281123",
+    value: "In front of Police Station, Govardhan, Mathura, Uttar Pradesh 281502",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
@@ -58,8 +58,8 @@ const CONTACT_INFO = [
   },
   {
     label: "Email",
-    value: "info@srigirrajmishtan.com",
-    href: "mailto:info@srigirrajmishtan.com",
+    value: "srigirirajmisthanbhandar@gmail.com",
+    href: "mailto:srigirirajmisthanbhandar@gmail.com",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -583,7 +583,7 @@ export default function ContactPage() {
               position: "relative",
             }}
           >
-            In front of Police Station, Govardhan, Mathura, Uttar Pradesh 281123
+            In front of Police Station, Govardhan, Mathura, Uttar Pradesh 281502
           </p>
 
           <a

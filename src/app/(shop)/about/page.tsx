@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -106,23 +107,6 @@ const VALUES = [
   },
 ];
 
-const TEAM = [
-  {
-    name: "Shri Govardhan Prasad Ji",
-    role: "Founder",
-    desc: "Started the legacy in 1982 with a vision to serve the purest sweets to pilgrims visiting the holy land of Govardhan.",
-  },
-  {
-    name: "Shri Ramesh Kumar Ji",
-    role: "Second Generation",
-    desc: "Expanded the family business, adding hotel services and building a reputation that extended far beyond Mathura.",
-  },
-  {
-    name: "Shri Bharat Ji",
-    role: "Third Generation",
-    desc: "Carrying the legacy forward with modern reach while keeping traditions alive — from online orders to premium gifting.",
-  },
-];
 
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
@@ -244,7 +228,7 @@ export default function AboutPage() {
           alignItems: "center",
         }}
       >
-        {/* Left — Image placeholder */}
+        {/* Left — The bhandar at night */}
         <motion.div
           variants={scaleIn}
           initial="hidden"
@@ -254,27 +238,69 @@ export default function AboutPage() {
         >
           <div
             style={{
+              position: "relative",
               width: "100%",
               height: 450,
               borderRadius: 20,
-              background:
-                "linear-gradient(145deg, #d4af37 0%, #e2c463 30%, #F3E7CF 70%, #e8d5b0 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "0 20px 60px rgba(15,35,69,0.15)",
+              overflow: "hidden",
+              border: "1px solid rgba(212,175,55,0.35)",
+              boxShadow: "0 20px 60px rgba(15,35,69,0.18)",
             }}
           >
-            <span
+            <Image
+              src="/images/shree-girraj-misthan-bhandar-shop-front.webp"
+              alt="Shree Girraj Misthan Bhandar sweet shop lit up at night in Govardhan, Mathura"
+              fill
+              sizes="(max-width: 900px) 100vw, 45vw"
+              priority
+              style={{ objectFit: "cover" }}
+            />
+
+            {/* Gradient scrim so the caption stays readable */}
+            <div
               style={{
-                fontFamily: "var(--font-heading, serif)",
-                fontSize: 48,
-                color: "#0f2345",
-                opacity: 0.3,
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(to top, rgba(15,35,69,0.72) 0%, rgba(15,35,69,0.12) 42%, rgba(15,35,69,0) 70%)",
+              }}
+            />
+
+            {/* Caption */}
+            <div
+              style={{
+                position: "absolute",
+                left: 24,
+                right: 24,
+                bottom: 22,
+                color: "#FFFFFF",
               }}
             >
-              est. 1982
-            </span>
+              <p
+                style={{
+                  fontFamily: "var(--font-body, sans-serif)",
+                  fontSize: 11,
+                  letterSpacing: 3,
+                  color: "#d4af37",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                  margin: "0 0 6px 0",
+                }}
+              >
+                Est. 1982
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-heading, serif)",
+                  fontSize: 19,
+                  fontWeight: 700,
+                  margin: 0,
+                  lineHeight: 1.35,
+                }}
+              >
+                Our bhandar in Govardhan, Mathura
+              </p>
+            </div>
           </div>
         </motion.div>
 
@@ -625,142 +651,7 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* ── 5. The Family ───────────────────────────────── */}
-      <section
-        style={{
-          backgroundColor: "#F3E7CF",
-          padding: "80px 24px",
-        }}
-      >
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          style={{ textAlign: "center", marginBottom: 56 }}
-        >
-          <p
-            style={{
-              fontFamily: "var(--font-body, sans-serif)",
-              fontSize: 12,
-              letterSpacing: 3,
-              color: "#d4af37",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              marginBottom: 8,
-            }}
-          >
-            The People
-          </p>
-          <h2
-            style={{
-              fontFamily: "var(--font-heading, serif)",
-              fontSize: "clamp(28px, 4vw, 40px)",
-              color: "#0f2345",
-              margin: 0,
-              fontWeight: 700,
-            }}
-          >
-            The Family Behind the Sweets
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 36,
-            justifyContent: "center",
-            maxWidth: 1000,
-            margin: "0 auto",
-          }}
-        >
-          {TEAM.map((person) => (
-            <motion.div
-              key={person.name}
-              variants={cardVariant}
-              style={{
-                flex: "1 1 260px",
-                maxWidth: 300,
-                backgroundColor: "#FFFFFF",
-                borderRadius: 20,
-                padding: "40px 28px 32px",
-                textAlign: "center",
-                boxShadow: "0 4px 20px rgba(15,35,69,0.06)",
-                border: "1px solid rgba(212,175,55,0.15)",
-              }}
-            >
-              {/* Placeholder avatar */}
-              <div
-                style={{
-                  width: 110,
-                  height: 110,
-                  borderRadius: "50%",
-                  background:
-                    "linear-gradient(145deg, #d4af37 0%, #F3E7CF 60%, #e2c463 100%)",
-                  margin: "0 auto 20px auto",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxShadow: "0 6px 20px rgba(212,175,55,0.25)",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "var(--font-heading, serif)",
-                    fontSize: 32,
-                    color: "#0f2345",
-                    opacity: 0.4,
-                  }}
-                >
-                  {person.name.charAt(person.name.indexOf(" ") + 1)}
-                </span>
-              </div>
-              <h3
-                style={{
-                  fontFamily: "var(--font-heading, serif)",
-                  fontSize: 20,
-                  color: "#0f2345",
-                  margin: "0 0 4px 0",
-                  fontWeight: 700,
-                }}
-              >
-                {person.name}
-              </h3>
-              <p
-                style={{
-                  fontFamily: "var(--font-body, sans-serif)",
-                  fontSize: 13,
-                  color: "#d4af37",
-                  fontWeight: 600,
-                  margin: "0 0 14px 0",
-                  letterSpacing: 1,
-                  textTransform: "uppercase",
-                }}
-              >
-                {person.role}
-              </p>
-              <p
-                style={{
-                  fontFamily: "var(--font-body, sans-serif)",
-                  fontSize: 14,
-                  color: "#555",
-                  lineHeight: 1.7,
-                  margin: 0,
-                }}
-              >
-                {person.desc}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* ── 6. Visit Us CTA ─────────────────────────────── */}
+      {/* ── 5. Visit Us CTA ─────────────────────────────── */}
       <section
         style={{
           background:
@@ -865,7 +756,7 @@ export default function AboutPage() {
                 <br />
                 Govardhan, Mathura,
                 <br />
-                Uttar Pradesh 281123
+                Uttar Pradesh 281502
               </p>
             </div>
 
@@ -902,7 +793,12 @@ export default function AboutPage() {
                   margin: 0,
                 }}
               >
-                +91 98XX XXX XXX
+                <a
+                  href="tel:+919412421253"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  +91 94124 21253
+                </a>
               </p>
               <p
                 style={{
@@ -913,6 +809,49 @@ export default function AboutPage() {
                 }}
               >
                 Also available on WhatsApp
+              </p>
+            </div>
+
+            {/* Email */}
+            <div
+              style={{
+                backgroundColor: "rgba(255,255,255,0.08)",
+                borderRadius: 16,
+                padding: "24px 28px",
+                flex: "1 1 200px",
+                maxWidth: 280,
+                border: "1px solid rgba(212,175,55,0.2)",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-body, sans-serif)",
+                  fontSize: 11,
+                  letterSpacing: 2,
+                  color: "#d4af37",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                  marginBottom: 8,
+                }}
+              >
+                Email
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-body, sans-serif)",
+                  fontSize: 14,
+                  color: "rgba(255,255,255,0.8)",
+                  lineHeight: 1.6,
+                  margin: 0,
+                  wordBreak: "break-word",
+                }}
+              >
+                <a
+                  href="mailto:srigirirajmisthanbhandar@gmail.com"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  srigirirajmisthanbhandar@gmail.com
+                </a>
               </p>
             </div>
           </div>
