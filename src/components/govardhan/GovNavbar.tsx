@@ -399,7 +399,7 @@ function MobileMenu({
           >
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <Image
-                src="/images/name-trimmed.png"
+                src="/images/shree-girraj-misthan-bhandar-wordmark-navy.png"
                 alt="Shri Girraj Misthan Bhandar"
                 width={69}
                 height={46}
@@ -654,7 +654,7 @@ export default function GovNavbar() {
                 transition={{ duration: 0.2 }}
               >
                 <Image
-                  src="/images/name-trimmed.png"
+                  src="/images/shree-girraj-misthan-bhandar-wordmark-navy.png"
                   alt="Shri Girraj Misthan Bhandar"
                   width={84}
                   height={56}

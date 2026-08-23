@@ -369,7 +369,7 @@ export default function GovHotel({
             }}
           >
             <Image
-              src="/images/new images/room.webp"
+              src="/images/girraj-inn/girraj-inn-guest-room.webp"
               alt="Hotel Girraj Inn Premium Room"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
@@ -400,7 +400,7 @@ export default function GovHotel({
               }}
             >
               <Image
-                src="/images/new images/hotelf front.webp"
+                src="/images/girraj-inn/girraj-inn-front.webp"
                 alt="Hotel Girraj Inn Front"
                 fill
                 sizes="(max-width: 640px) 100vw, 25vw"
@@ -419,7 +419,7 @@ export default function GovHotel({
               }}
             >
               <Image
-                src="/images/new images/dining.webp"
+                src="/images/girraj-inn/girraj-inn-dining-hall.webp"
                 alt="Hotel Girraj Inn Dining"
                 fill
                 sizes="(max-width: 640px) 100vw, 25vw"

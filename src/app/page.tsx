@@ -70,42 +70,42 @@ const signatureSweets = [
     name: "Mathura Peda",
     sanskritName: "मथुरा पेड़ा",
     desc: "Slow-cooked khoya with cardamom and rose, hand-rolled in the time-honoured Mathura tradition.",
-    image: "/images/mithai/Peda logo.webp",
+    image: "/images/mithai/mathura-peda.webp",
     accent: "Signature",
   },
   {
     name: "Soan Papdi",
     sanskritName: "सोन पापड़ी",
     desc: "Featherlight strands of gram-flour gold, layered with desi ghee and a whisper of saffron.",
-    image: "/images/mithai/Soan papdi with logo.webp",
+    image: "/images/mithai/soan-papdi.webp",
     accent: "Heritage",
   },
   {
     name: "Chandrakala",
     sanskritName: "चन्द्रकला",
     desc: "Crescent-moon parcels of khoya and dry-fruit, fried in pure desi ghee and bathed in saffron syrup.",
-    image: "/images/mithai/Chandrakala.webp",
+    image: "/images/mithai/chandrakala.webp",
     accent: "Royal",
   },
   {
     name: "Kaju Katli",
     sanskritName: "काजू कतली",
     desc: "Premium cashew diamonds finished with edible silver leaf — restrained, royal, refined.",
-    image: "/images/mithai/Kaju katli with logo.webp",
+    image: "/images/mithai/kaju-katli.webp",
     accent: "Premium",
   },
   {
     name: "Boondi Laddu",
     sanskritName: "बूँदी लड्डू",
     desc: "Tiny pearls of gram-flour fried in pure ghee, bound with cardamom and crowned with raisin and almond.",
-    image: "/images/mithai/Boondi laddu logo.webp",
+    image: "/images/mithai/boondi-laddu.webp",
     accent: "Bhog",
   },
   {
     name: "Anjeer Burfi",
     sanskritName: "अंजीर बर्फी",
     desc: "Sun-ripened figs slow-reduced with khoya and pistachio — no sugar added, only nature's sweetness.",
-    image: "/images/mithai/Anjeer burfi with logo.webp",
+    image: "/images/mithai/anjeer-burfi.webp",
     accent: "Pure",
   },
 ];
@@ -768,7 +768,7 @@ export default function HeritagePage() {
           overflow: hidden;
           width: 100%;
           aspect-ratio: 1536 / 1024;
-          background-image: url('/images/new hero.webp');
+          background-image: url('/images/giriraj-ji-chappan-bhog-hero.webp');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
@@ -780,7 +780,7 @@ export default function HeritagePage() {
         @media (max-width: 760px) {
           .heritage-hero {
             aspect-ratio: 1024 / 1536;
-            background-image: url('/images/mobile hero.webp');
+            background-image: url('/images/giriraj-ji-chappan-bhog-hero-mobile.webp');
           }
         }
         .heritage-hero img,
@@ -1743,7 +1743,7 @@ export default function HeritagePage() {
               style={{ position: "absolute", inset: 0 }}
             >
               <Image
-                src="/images/2nd logo.webp"
+                src="/images/shree-girraj-misthan-bhandar-logo-hindi.webp"
                 alt="श्री गिर्राज मिष्ठान भंडार"
                 fill
                 sizes="(max-width: 760px) 36vw, 28vw"
@@ -1809,7 +1809,7 @@ export default function HeritagePage() {
                 <div className="heritage-owner-mughal">
                   <div className="heritage-owner-mughal-img">
                     <Image
-                      src="/images/owner-framed.png"
+                      src="/images/bhagwan-singh-halwai-founder-framed.png"
                       alt="प्रो. भगवान सिंह हलवाई — founder of Shree Girraj Misthan Bhandar"
                       fill
                       sizes="(max-width: 900px) 86vw, 440px"
@@ -2387,7 +2387,7 @@ Hover to pause
               className="heritage-gau-krishna"
             >
               <Image
-                src="/images/special/lord krishna.webp"
+                src="/images/special/lord-krishna.webp"
                 alt="भगवान श्री कृष्ण गौ माता के साथ वंशी बजाते हुए"
                 width={1080}
                 height={1922}
@@ -2404,7 +2404,7 @@ Hover to pause
               className="heritage-gau-triptych"
             >
               <Image
-                src="/images/special/sweets of krishna.webp"
+                src="/images/special/krishna-bhog-sweets.webp"
                 alt="श्री गिर्राज मिष्ठान भंडार की मिठाइयाँ — पेड़ा, राजभोग और स्पंज"
                 width={3498}
                 height={1216}

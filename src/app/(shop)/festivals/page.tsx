@@ -88,17 +88,17 @@ const seasonalProducts = [
   {
     name: "Mango Burfi",
     price: "\u20B9450",
-    image: "/images/mithai/Mango with logo.webp",
+    image: "/images/mithai/mango-mithai.webp",
   },
   {
     name: "Pineapple Delight",
     price: "\u20B9420",
-    image: "/images/mithai/Pineapple with logo.webp",
+    image: "/images/mithai/pineapple-mithai.webp",
   },
   {
     name: "Orange Peda",
     price: "\u20B9380",
-    image: "/images/mithai/Orange with logo.webp",
+    image: "/images/mithai/orange-mithai.webp",
   },
 ];
 

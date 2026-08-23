@@ -11,14 +11,14 @@ const IG_URL = "https://www.instagram.com/shri_girraj_misthan_bhandar_";
 
 // ── Posts from our Instagram ─────────────────────────────
 const POSTS = [
-  { src: "/images/mithai/Kaju katli with logo.webp", alt: "Kaju Katli" },
-  { src: "/images/mithai/Peda logo.webp", alt: "Mathura Peda" },
-  { src: "/images/mithai/Anjeer burfi with logo.webp", alt: "Anjeer Burfi" },
-  { src: "/images/mithai/Besan laddu logo.webp", alt: "Besan Laddu" },
-  { src: "/images/mithai/Mango with logo.webp", alt: "Mango Mithai" },
-  { src: "/images/mithai/KESAR Burfi logo.webp", alt: "Kesar Burfi" },
-  { src: "/images/mithai/Kaju roll logo.webp", alt: "Kaju Roll" },
-  { src: "/images/mithai/Gujiya logo.webp", alt: "Gujiya" },
+  { src: "/images/mithai/kaju-katli.webp", alt: "Kaju Katli" },
+  { src: "/images/mithai/mathura-peda.webp", alt: "Mathura Peda" },
+  { src: "/images/mithai/anjeer-burfi.webp", alt: "Anjeer Burfi" },
+  { src: "/images/mithai/besan-laddu.webp", alt: "Besan Laddu" },
+  { src: "/images/mithai/mango-mithai.webp", alt: "Mango Mithai" },
+  { src: "/images/mithai/kesar-burfi.webp", alt: "Kesar Burfi" },
+  { src: "/images/mithai/kaju-roll.webp", alt: "Kaju Roll" },
+  { src: "/images/mithai/gujiya.webp", alt: "Gujiya" },
 ];
 
 // ── Instagram SVG icon ───────────────────────────────────

@@ -9,7 +9,7 @@ export default function SinceBanner() {
         {/* Full-width navy banner artwork (desktop only) */}
         <div className="gov-since-bg" aria-hidden>
           <Image
-            src="/images/Since.png"
+            src="/images/since-1982-badge.png"
             alt=""
             fill
             sizes="100vw"
@@ -24,7 +24,7 @@ export default function SinceBanner() {
         {/* LEFT — SGMB shop logo (oval) */}
         <div className="gov-since-logo">
           <Image
-            src="/images/footer-logo.webp"
+            src="/images/shree-girraj-misthan-bhandar-logo.webp"
             alt="Shree Giriraj Misthan Bhandar"
             fill
             sizes="(max-width: 768px) 120px, 200px"
@@ -35,7 +35,7 @@ export default function SinceBanner() {
         {/* CENTER — Shree Giriraj Misthan Bhandar name image (gold, trimmed) */}
         <div className="gov-since-name">
           <Image
-            src="/images/2nd logo.webp"
+            src="/images/shree-girraj-misthan-bhandar-logo-hindi.webp"
             alt="श्री गिर्राज मिष्ठान भण्डार"
             fill
             sizes="(max-width: 768px) 70vw, 620px"

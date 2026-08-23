@@ -33,7 +33,7 @@ const festivals: Festival[] = [
     gradient:
       "linear-gradient(160deg, #2A1808 0%, #3D2410 40%, #5A361A 75%, #7A4E2A 100%)",
     warm: "rgba(212,160,90,0.35)",
-    product: "/images/mithai/Magadh laddu logo.webp",
+    product: "/images/mithai/magadh-laddu.webp",
     productAlt: "Magadh Laddu",
     button: { bg: "#C79A3B", text: "#2A1808" },
     ambient: "candle",
@@ -45,7 +45,7 @@ const festivals: Festival[] = [
     gradient:
       "linear-gradient(160deg, #2E0709 0%, #5A0F12 35%, #7E1A1F 70%, #A03038 100%)",
     warm: "rgba(255,180,80,0.4)",
-    product: "/images/mithai/Boondi laddu logo.webp",
+    product: "/images/mithai/boondi-laddu.webp",
     productAlt: "Motichoor Laddu",
     button: { bg: "#7E1A1F", text: "#F5E7D8", border: "rgba(199,154,59,0.7)" },
     ambient: "diwali",
@@ -57,7 +57,7 @@ const festivals: Festival[] = [
     gradient:
       "linear-gradient(160deg, #FAF0E0 0%, #F0DECB 45%, #E8C9B0 85%, #D8AC8A 100%)",
     warm: "rgba(255,255,255,0.6)",
-    product: "/images/mithai/Gujiya logo.webp",
+    product: "/images/mithai/gujiya.webp",
     productAlt: "Holi Gujiya",
     button: { bg: "#9E1F4F", text: "#FFFFFF", border: "rgba(158,31,79,0.9)" },
     ambient: "holi",
@@ -69,7 +69,7 @@ const festivals: Festival[] = [
     gradient:
       "linear-gradient(160deg, #061E1A 0%, #0D3B2E 45%, #114E3D 75%, #1A6B53 100%)",
     warm: "rgba(255,200,90,0.3)",
-    product: "/images/mithai/Mewa laddu with logo.webp",
+    product: "/images/mithai/mewa-laddu.webp",
     productAlt: "Annakut Prasad",
     button: { bg: "#0D3B2E", text: "#F5E7D8", border: "rgba(199,154,59,0.7)" },
     ambient: "diya",

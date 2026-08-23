@@ -14,14 +14,14 @@ const fadeInUp = {
 };
 
 const sweetCards = [
-  { id: "1", src: "/images/mithai/Kaju katli with logo.webp", alt: "Kaju Katli", rotation: -12 },
-  { id: "2", src: "/images/mithai/Peda logo.webp", alt: "Peda", rotation: 8 },
-  { id: "3", src: "/images/mithai/Besan laddu logo.webp", alt: "Besan Laddu", rotation: -6 },
-  { id: "4", src: "/images/mithai/Anjeer burfi with logo.webp", alt: "Anjeer Burfi", rotation: 14 },
-  { id: "5", src: "/images/mithai/Boondi laddu logo.webp", alt: "Motichoor Laddu", rotation: -10 },
-  { id: "6", src: "/images/mithai/Mango with logo.webp", alt: "Mango Burfi", rotation: 6 },
-  { id: "7", src: "/images/mithai/Kaju roll logo.webp", alt: "Kaju Roll", rotation: -15 },
-  { id: "8", src: "/images/mithai/KESAR Burfi logo.webp", alt: "Kesar Burfi", rotation: 10 },
+  { id: "1", src: "/images/mithai/kaju-katli.webp", alt: "Kaju Katli", rotation: -12 },
+  { id: "2", src: "/images/mithai/mathura-peda.webp", alt: "Peda", rotation: 8 },
+  { id: "3", src: "/images/mithai/besan-laddu.webp", alt: "Besan Laddu", rotation: -6 },
+  { id: "4", src: "/images/mithai/anjeer-burfi.webp", alt: "Anjeer Burfi", rotation: 14 },
+  { id: "5", src: "/images/mithai/boondi-laddu.webp", alt: "Motichoor Laddu", rotation: -10 },
+  { id: "6", src: "/images/mithai/mango-mithai.webp", alt: "Mango Burfi", rotation: 6 },
+  { id: "7", src: "/images/mithai/kaju-roll.webp", alt: "Kaju Roll", rotation: -15 },
+  { id: "8", src: "/images/mithai/kesar-burfi.webp", alt: "Kesar Burfi", rotation: 10 },
 ];
 
 const INITIAL_ANGLES = sweetCards.map((_, i) => i * (360 / sweetCards.length));
@@ -88,7 +88,7 @@ export default function GovHero() {
     >
       {/* === Full background image === */}
       <Image
-        src="/images/new hero.webp"
+        src="/images/giriraj-ji-chappan-bhog-hero.webp"
         alt="Shree Giriraj Misthan Bhandar"
         fill
         priority
@@ -498,7 +498,7 @@ export default function GovHero() {
               }}
             >
               <Image
-                src="/images/girraj ji.webp"
+                src="/images/giriraj-ji.webp"
                 alt="Girraj Ji"
                 fill
                 priority

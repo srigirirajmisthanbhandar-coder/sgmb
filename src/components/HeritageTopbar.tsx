@@ -37,7 +37,7 @@ export default function HeritageTopbar() {
         >
           <span className="heritage-hero-logo-inner">
             <Image
-              src="/images/footer-logo.webp"
+              src="/images/shree-girraj-misthan-bhandar-logo.webp"
               alt="Shree Girraj Misthan Bhandar"
               width={120}
               height={120}

@@ -34,7 +34,7 @@ export default function HeritageFooter() {
             className="heritage-footer-brand"
           >
             <Image
-              src="/images/footer-logo.webp"
+              src="/images/shree-girraj-misthan-bhandar-logo.webp"
               alt="Shree Girraj Misthan Bhandar"
               width={72}
               height={82}

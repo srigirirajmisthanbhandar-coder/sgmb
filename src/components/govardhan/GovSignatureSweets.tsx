@@ -21,37 +21,37 @@ const sweets: Sweet[] = [
     name: "Kaju Katli",
     price: "₹780",
     unit: "/ kg",
-    image: "/images/mithai/Kaju katli with logo.webp",
+    image: "/images/mithai/kaju-katli.webp",
   },
   {
     name: "Peda",
     price: "₹480",
     unit: "/ kg",
-    image: "/images/mithai/Peda logo.webp",
+    image: "/images/mithai/mathura-peda.webp",
   },
   {
     name: "Besan Laddu",
     price: "₹500",
     unit: "/ kg",
-    image: "/images/mithai/Besan laddu logo.webp",
+    image: "/images/mithai/besan-laddu.webp",
   },
   {
     name: "Ghewar",
     price: "₹600",
     unit: "/ piece",
-    image: "/images/mithai/Chandrakala.webp",
+    image: "/images/mithai/chandrakala.webp",
   },
   {
     name: "Anjeer Burfi",
     price: "₹850",
     unit: "/ kg",
-    image: "/images/mithai/Anjeer burfi with logo.webp",
+    image: "/images/mithai/anjeer-burfi.webp",
   },
   {
     name: "Motichoor Laddoo",
     price: "₹500",
     unit: "/ kg",
-    image: "/images/mithai/Boondi laddu logo.webp",
+    image: "/images/mithai/boondi-laddu.webp",
   },
 ];
 

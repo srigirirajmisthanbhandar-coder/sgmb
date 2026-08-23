@@ -167,7 +167,7 @@ export default function GovStory() {
             }}
           >
             <Image
-              src="/images/new images/shop.webp"
+              src="/images/girraj-inn/sweet-shop-front.webp"
               alt="Shri Girraj Misthan Bhandar Shop"
               fill
               sizes="(max-width: 900px) 100vw, 40vw"
@@ -193,7 +193,7 @@ export default function GovStory() {
             }}
           >
             <Image
-              src="/images/new images/shopinside.webp"
+              src="/images/girraj-inn/sweet-shop-interior.webp"
               alt="Inside our sweet shop"
               fill
               sizes="(max-width: 900px) 100vw, 35vw"
@@ -220,7 +220,7 @@ export default function GovStory() {
             }}
           >
             <Image
-              src="/images/new images/temple.webp"
+              src="/images/girraj-inn/govardhan-temple.webp"
               alt="Govardhan Temple"
               fill
               sizes="(max-width: 900px) 80vw, 30vw"
