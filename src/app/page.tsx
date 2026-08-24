@@ -1705,6 +1705,166 @@ export default function HeritagePage() {
           }
         }
 
+        /* ── Bhandar storefront band (below About) ── */
+        .heritage-shop {
+          padding: 66px 0 !important;
+          background:
+            radial-gradient(ellipse at 20% 0%, rgba(26,51,95,0.9) 0%, transparent 60%),
+            linear-gradient(160deg, #091732 0%, #0f2345 52%, #091732 100%);
+          border-top: 1px solid rgba(212,175,55,0.28);
+          border-bottom: 1px solid rgba(212,175,55,0.28);
+          overflow: hidden;
+        }
+        .heritage-shop-wrap {
+          max-width: 1180px;
+          margin: 0 auto;
+          padding: 0 32px;
+        }
+        .heritage-shop-head {
+          text-align: center;
+          margin-bottom: 34px;
+        }
+        .heritage-shop-eyebrow {
+          font-family: var(--font-body, sans-serif);
+          font-size: 11.5px;
+          letter-spacing: 3.4px;
+          text-transform: uppercase;
+          font-weight: 600;
+          color: ${C.gold};
+          margin: 0;
+        }
+        .heritage-shop-title {
+          font-family: var(--font-heading, serif);
+          font-size: clamp(28px, 3.6vw, 46px);
+          font-weight: 500;
+          color: #FFFFFF;
+          margin: 10px 0 0;
+          letter-spacing: -0.005em;
+        }
+        .heritage-shop-title em {
+          font-style: italic;
+          font-weight: 500;
+          color: ${C.gold};
+        }
+        .heritage-shop-grid {
+          display: grid;
+          grid-template-columns: 1.45fr 1fr;
+          gap: 44px;
+          align-items: center;
+        }
+        /* Gold double frame around the photograph */
+        .heritage-shop-frame {
+          position: relative;
+          border-radius: 16px;
+          padding: 9px;
+          background: linear-gradient(150deg, ${C.goldSoft} 0%, ${C.gold} 34%, ${C.goldDeep} 68%, ${C.gold} 100%);
+          box-shadow: 0 26px 60px rgba(0, 0, 0, 0.45);
+        }
+        .heritage-shop-photo {
+          position: relative;
+          aspect-ratio: 1402 / 1122;
+          border-radius: 9px;
+          overflow: hidden;
+          background: ${C.navyDeep};
+        }
+        .heritage-shop-photo img {
+          object-fit: cover;
+          transform: scale(1.001);
+          transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .heritage-shop-frame:hover .heritage-shop-photo img {
+          transform: scale(1.045);
+        }
+        .heritage-shop-caption {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          padding: 44px 22px 18px;
+          background: linear-gradient(to top, rgba(9,23,50,0.88) 0%, rgba(9,23,50,0.35) 55%, transparent 100%);
+          font-family: 'Noto Serif Devanagari', serif;
+          font-size: clamp(13px, 1.5vw, 16px);
+          color: rgba(255, 255, 255, 0.95);
+          text-align: center;
+          margin: 0;
+        }
+        /* Right column — the facts a visitor needs */
+        .heritage-shop-facts {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+        .heritage-shop-lead {
+          font-family: var(--font-body, sans-serif);
+          font-size: 15.5px;
+          line-height: 1.85;
+          color: rgba(255, 255, 255, 0.82);
+          margin: 0 0 6px;
+        }
+        .heritage-shop-fact {
+          display: flex;
+          gap: 14px;
+          align-items: flex-start;
+          padding: 15px 18px;
+          border-radius: 12px;
+          background: rgba(255, 255, 255, 0.055);
+          border: 1px solid rgba(212, 175, 55, 0.26);
+        }
+        .heritage-shop-fact-icon {
+          flex: none;
+          color: ${C.gold};
+          margin-top: 1px;
+        }
+        .heritage-shop-fact-label {
+          font-family: var(--font-body, sans-serif);
+          font-size: 10.5px;
+          letter-spacing: 2.2px;
+          text-transform: uppercase;
+          font-weight: 600;
+          color: ${C.gold};
+          margin: 0 0 4px;
+        }
+        .heritage-shop-fact-value {
+          font-family: var(--font-body, sans-serif);
+          font-size: 14.5px;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.9);
+          margin: 0;
+        }
+        .heritage-shop-cta {
+          align-self: flex-start;
+          margin-top: 6px;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 13px 30px;
+          border-radius: 50px;
+          background: linear-gradient(135deg, ${C.goldSoft} 0%, ${C.gold} 50%, ${C.goldDeep} 100%);
+          color: ${C.navyDeep};
+          font-family: var(--font-body, sans-serif);
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 0.6px;
+          text-decoration: none;
+          box-shadow: 0 10px 26px rgba(212, 175, 55, 0.26);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .heritage-shop-cta:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 14px 32px rgba(212, 175, 55, 0.36);
+        }
+        @media (max-width: 900px) {
+          .heritage-shop-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+          .heritage-shop-cta { align-self: stretch; justify-content: center; }
+        }
+        @media (max-width: 640px) {
+          .heritage-shop { padding: 44px 0 !important; }
+          .heritage-shop-wrap { padding: 0 20px; }
+        }
+
         /* ── Mobile section padding ── */
         @media (max-width: 768px) {
           .heritage-section { padding: 36px 0 !important; }
@@ -1885,6 +2045,118 @@ export default function HeritagePage() {
               </motion.div>
             </div>
           </motion.div>
+        </section>
+
+        {/* ════════════ 4.5 THE BHANDAR — SHOP FRONT ════════════ */}
+        <section className="heritage-section heritage-shop">
+          <div className="heritage-shop-wrap">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={fadeUp}
+              custom={0}
+              className="heritage-shop-head"
+            >
+              <p className="heritage-shop-eyebrow">Govardhan · Mathura</p>
+              <h2 className="heritage-shop-title">
+                Come to the <em>Bhandar</em>
+              </h2>
+              <LotusDivider />
+            </motion.div>
+
+            <div className="heritage-shop-grid">
+              {/* ── The shop, lit up on the parikrama road ── */}
+              <motion.div
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+                className="heritage-shop-frame"
+              >
+                <div className="heritage-shop-photo">
+                  <Image
+                    src="/images/shree-girraj-misthan-bhandar-shop-customers.webp"
+                    alt="श्री गिर्राज मिष्ठान भंडार की दुकान रात में — गोवर्धन, मथुरा में ग्राहक मिठाई खरीदते हुए"
+                    fill
+                    sizes="(max-width: 900px) 92vw, 660px"
+                  />
+                  <p className="heritage-shop-caption">
+                    1982 से — गोवर्धन परिक्रमा मार्ग पर
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* ── What a visitor needs to know ── */}
+              <motion.div
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.85, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+                className="heritage-shop-facts"
+              >
+                <p className="heritage-shop-lead">
+                  The same counter since 1982 — glass cases filled twice a day,
+                  the kadhai still on the fire behind them. Step in on your
+                  parikrama and take a box of Giriraj Baba&apos;s prasad home.
+                </p>
+
+                {[
+                  {
+                    label: "Open every day",
+                    value: "6 AM to 2 AM, in every season",
+                    icon: (
+                      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 7v5l3 2" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Find us",
+                    value: "In front of Police Station, Govardhan, Mathura, Uttar Pradesh 281502",
+                    icon: (
+                      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Reach us",
+                    value: "+91 94124 21253",
+                    icon: (
+                      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                    ),
+                  },
+                ].map((f) => (
+                  <div key={f.label} className="heritage-shop-fact">
+                    <span className="heritage-shop-fact-icon" aria-hidden>
+                      {f.icon}
+                    </span>
+                    <span style={{ minWidth: 0 }}>
+                      <p className="heritage-shop-fact-label">{f.label}</p>
+                      <p className="heritage-shop-fact-value">{f.value}</p>
+                    </span>
+                  </div>
+                ))}
+
+                <a
+                  className="heritage-shop-cta"
+                  href="https://www.google.com/maps/dir/?api=1&destination=27.4948275,77.46371"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get directions
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+              </motion.div>
+            </div>
+          </div>
         </section>
 
         {/* ════════════ 5. MAHARAJ DEVOTIONAL GALLERY ════════════ */}
