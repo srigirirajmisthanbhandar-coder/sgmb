@@ -1775,19 +1775,6 @@ export default function HeritagePage() {
         .heritage-shop-frame:hover .heritage-shop-photo img {
           transform: scale(1.045);
         }
-        .heritage-shop-caption {
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          padding: 44px 22px 18px;
-          background: linear-gradient(to top, rgba(9,23,50,0.88) 0%, rgba(9,23,50,0.35) 55%, transparent 100%);
-          font-family: 'Noto Serif Devanagari', serif;
-          font-size: clamp(13px, 1.5vw, 16px);
-          color: rgba(255, 255, 255, 0.95);
-          text-align: center;
-          margin: 0;
-        }
         /* Right column — the facts a visitor needs */
         .heritage-shop-facts {
           display: flex;
@@ -2060,7 +2047,7 @@ export default function HeritagePage() {
             >
               <p className="heritage-shop-eyebrow">Govardhan · Mathura</p>
               <h2 className="heritage-shop-title">
-                Come to the <em>Bhandar</em>
+                Our <em>Shop</em>
               </h2>
               <LotusDivider />
             </motion.div>
@@ -2081,9 +2068,6 @@ export default function HeritagePage() {
                     fill
                     sizes="(max-width: 900px) 92vw, 660px"
                   />
-                  <p className="heritage-shop-caption">
-                    1982 से — गोवर्धन परिक्रमा मार्ग पर
-                  </p>
                 </div>
               </motion.div>
 
