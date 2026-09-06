@@ -2064,7 +2064,7 @@ export default function HeritagePage() {
                 <div className="heritage-shop-photo">
                   <Image
                     src="/images/shree-girraj-misthan-bhandar-shop-customers.webp"
-                    alt="श्री गिर्राज मिष्ठान भंडार की दुकान रात में — गोवर्धन, मथुरा में ग्राहक मिठाई खरीदते हुए"
+                    alt="श्री गिर्राज मिष्ठान भंडार की दुकान — गोवर्धन, मथुरा में काउंटर पर ग्राहकों की भीड़"
                     fill
                     sizes="(max-width: 900px) 92vw, 660px"
                   />
