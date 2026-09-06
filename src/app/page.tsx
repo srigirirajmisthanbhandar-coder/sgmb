@@ -1755,6 +1755,11 @@ export default function HeritagePage() {
         /* Gold double frame around the photograph */
         .heritage-shop-frame {
           position: relative;
+          /* The storefront photograph is a 3:4 portrait — hold the frame to a
+             width that lets the whole thing show without towering over the
+             column beside it. */
+          max-width: 470px;
+          margin-inline: auto;
           border-radius: 16px;
           padding: 9px;
           background: linear-gradient(150deg, ${C.goldSoft} 0%, ${C.gold} 34%, ${C.goldDeep} 68%, ${C.gold} 100%);
@@ -1762,7 +1767,7 @@ export default function HeritagePage() {
         }
         .heritage-shop-photo {
           position: relative;
-          aspect-ratio: 1402 / 1122;
+          aspect-ratio: 3 / 4;
           border-radius: 9px;
           overflow: hidden;
           background: ${C.navyDeep};
@@ -2066,7 +2071,7 @@ export default function HeritagePage() {
                     src="/images/shree-girraj-misthan-bhandar-shop-customers.webp"
                     alt="श्री गिर्राज मिष्ठान भंडार की दुकान — गोवर्धन, मथुरा में काउंटर पर ग्राहकों की भीड़"
                     fill
-                    sizes="(max-width: 900px) 92vw, 660px"
+                    sizes="(max-width: 900px) 92vw, 470px"
                   />
                 </div>
               </motion.div>
