@@ -1757,7 +1757,10 @@ export default function HeritagePage() {
           position: relative;
           /* The storefront photograph is a 3:4 portrait — hold the frame to a
              width that lets the whole thing show without towering over the
-             column beside it. */
+             column beside it. The explicit width matters: the photo inside is
+             an absolutely positioned fill image, so without it the auto
+             margins would size this box to zero-width content. */
+          width: 100%;
           max-width: 470px;
           margin-inline: auto;
           border-radius: 16px;
